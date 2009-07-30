@@ -1,0 +1,9 @@
+== ISTableViewCell
+
+Replaced UILabel with UITextField in UITableViewCell.
+If you want to edit on a standard UITableViewCell, it might be useful.
+
+You joust create ISTableViewCell instead of UITableViewCell.
+
+ISTableViewCell *cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellEditingStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+
