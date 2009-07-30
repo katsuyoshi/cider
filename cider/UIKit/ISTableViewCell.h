@@ -72,7 +72,18 @@ typedef enum {
 @property (nonatomic, readonly, retain) UITextField *textField;
 @property (nonatomic, readonly, retain) UITextField *detailTextField;
 
+/**
+ * An Editable text field's textColor.
+ * If you want to change textField or detailTextField's textColor,
+ * set this property.
+ */
 @property (nonatomic, retain) UIColor *textColor;
+
+/**
+ * An Editable text field's highlightedTextColor.
+ * If you want to change textField or detailTextField's highlightedTextColor,
+ * set this property.
+ */
 @property (nonatomic, retain) UIColor *highlightedTextColor;
 
 
