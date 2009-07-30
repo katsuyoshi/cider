@@ -50,6 +50,7 @@
     textField.autoresizingMask = label.autoresizingMask;
     textField.font = [UIFont boldSystemFontOfSize:0];
     textField.borderStyle = UITextBorderStyleNone;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.textColor = label.textColor;
     self.highlightedTextColor = label.highlightedTextColor;
 }
