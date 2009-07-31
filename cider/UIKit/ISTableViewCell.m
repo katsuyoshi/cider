@@ -74,6 +74,9 @@
                 [self setDefaultAttributes:_detailTextField from:self.detailTextLabel];
                 [self.contentView addSubview:_detailTextField];
                 self.detailTextLabel.hidden = YES;
+                if (_style == ISTableViewCellEditingStyleValu1) {
+                    _detailTextField.textAlignment = UITextAlignmentRight;
+                }
             }
         }
         return self;
@@ -151,11 +154,11 @@
 
 - (void)layoutSubviewsWhenStyleValue1
 {
+    UITableView *tableView = (UITableView *)[self superview];
     CGRect contentRect = self.contentView.bounds;
     float height = contentRect.size.height;
-    
-    float leftWidth = contentRect.size.width - 20 - 85;
-    float textWidth = [_detailTextField.text sizeWithFont:_detailTextField.font constrainedToSize:CGSizeMake(leftWidth, contentRect.size.height)].width;
+
+    float textWidth = contentRect.size.width - 20 - (tableView.style == UITableViewStylePlain ? 101 : 85) - 5;
     float textHeight = _detailTextField.font.pointSize + 4;
     float y = (int)((height - textHeight) / 2);
     _detailTextField.frame = CGRectMake(contentRect.size.width - 10 - textWidth, y, textWidth, textHeight);

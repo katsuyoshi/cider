@@ -78,11 +78,13 @@
     
     ASSERT_EQUAL_FLOAT(reference.detailTextLabel.font.pointSize, cell.detailTextField.font.pointSize);
     ASSERT_EQUAL(reference.detailTextLabel.font.fontName, cell.detailTextField.font.fontName);
-    float delta = cell.detailTextField.frame.origin.x - reference.detailTextLabel.frame.origin.x;
+    
+    float width = reference.contentView.frame.size.width - CGRectGetMaxX(reference.textLabel.frame) - 10 -5;
     CGRect rect = reference.detailTextLabel.frame;
-    rect = CGRectMake(rect.origin.x - delta + 10, (int)((rect.size.height - reference.detailTextLabel.font.pointSize - 4) / 2), rect.size.width - delta, reference.detailTextLabel.font.pointSize + 4);
+    rect = CGRectMake(CGRectGetMaxX(reference.textLabel.frame) + 5, (int)((rect.size.height - reference.detailTextLabel.font.pointSize - 4) / 2), width, reference.detailTextLabel.font.pointSize + 4);
     ASSERT_EQUAL_RECT(rect, cell.detailTextField.frame);
     ASSERT_EQUAL(reference.detailTextLabel.textColor, cell.detailTextField.textColor);
+    ASSERT_EQUAL_INT(UITextAlignmentRight, cell.detailTextField.textAlignment);
 }
 
 - (void)testISTableViewCellEditingStyleValue2

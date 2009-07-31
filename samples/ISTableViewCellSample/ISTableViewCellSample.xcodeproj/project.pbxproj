@@ -182,7 +182,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ISTableViewCellSample_Prefix.pch;
 				INFOPLIST_FILE = "ISTableViewCellSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = ISTableViewCellSample;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};
@@ -194,7 +196,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ISTableViewCellSample_Prefix.pch;
 				INFOPLIST_FILE = "ISTableViewCellSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = ISTableViewCellSample;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Release;
 		};
