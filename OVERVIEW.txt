@@ -7,3 +7,13 @@ You just create ISTableViewCell instead of UITableViewCell.
 
 ISTableViewCell *cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellEditingStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 
+== NSError(ISExtension)
+
+Added a convenience method -showError.
+It shows own error message.
+
+== NSError(ISCoreDataExtention)
+
+CoreData returns nested NSError objects.
+I just want to care the specified domain.
+Added convenience methods that treat the specified domain.
