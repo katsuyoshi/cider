@@ -42,3 +42,6 @@
 
 // CoreData
 #import "NSErrorCoreDataExtension.h"
+#import "NSManagedObjectContextDefaultContext.h"
+
+

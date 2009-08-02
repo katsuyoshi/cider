@@ -33,6 +33,8 @@
 		466EDC7B0F4094F900D2B9AC /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 466EDC7A0F4094F900D2B9AC /* GTMSenTestCase.m */; };
 		468052AD0FA58ACB003B5A71 /* SourceCodeOpener.m in Sources */ = {isa = PBXBuildFile; fileRef = 468052AC0FA58ACB003B5A71 /* SourceCodeOpener.m */; };
 		469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */; };
+		46B32F8210249DC600F40719 /* NSManagedObjectContextDefaultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B32F8110249DC600F40719 /* NSManagedObjectContextDefaultContext.m */; };
+		46B32FA61024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B32FA51024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m */; };
 		46C6AB570F2DBE7E00BA1B73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB3E0F2DBE7E00BA1B73 /* AppDelegate.m */; };
 		46C6AB580F2DBE7E00BA1B73 /* UINavigationBarBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB420F2DBE7E00BA1B73 /* UINavigationBarBasedTest.m */; };
 		46C6AB590F2DBE7E00BA1B73 /* UITabBarAndNavigationBarBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB440F2DBE7E00BA1B73 /* UITabBarAndNavigationBarBasedTest.m */; };
@@ -100,6 +102,10 @@
 		468052AC0FA58ACB003B5A71 /* SourceCodeOpener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCodeOpener.m; sourceTree = "<group>"; };
 		469F8E820FBC5A4C004FD86F /* NSExceptionExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSExceptionExtension.h; sourceTree = "<group>"; };
 		469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSExceptionExtension.m; sourceTree = "<group>"; };
+		46B32F8010249DC600F40719 /* NSManagedObjectContextDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContext.h; sourceTree = "<group>"; };
+		46B32F8110249DC600F40719 /* NSManagedObjectContextDefaultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextDefaultContext.m; sourceTree = "<group>"; };
+		46B32FA41024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContextTest.h; sourceTree = "<group>"; };
+		46B32FA51024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextDefaultContextTest.m; sourceTree = "<group>"; };
 		46C6AB3D0F2DBE7E00BA1B73 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46C6AB3E0F2DBE7E00BA1B73 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		46C6AB410F2DBE7E00BA1B73 /* UINavigationBarBasedTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationBarBasedTest.h; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 		4647BE6E102422D2003D1D17 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4647C2E710246B54003D1D17 /* NSManagedObjectContext */,
 				4647BE6F10242329003D1D17 /* NSErrorCoreDataExtension.h */,
 				4647BE7010242329003D1D17 /* NSErrorCoreDataExtension.m */,
 			);
@@ -278,10 +285,29 @@
 		4647BF331024324A003D1D17 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				46B32FA31024F40E00F40719 /* NSManagedObjectContext */,
 				4647BF341024324A003D1D17 /* NSErrorCoreDataExtensionTest.h */,
 				4647BF351024324A003D1D17 /* NSErrorCoreDataExtensionTest.m */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4647C2E710246B54003D1D17 /* NSManagedObjectContext */ = {
+			isa = PBXGroup;
+			children = (
+				46B32F8010249DC600F40719 /* NSManagedObjectContextDefaultContext.h */,
+				46B32F8110249DC600F40719 /* NSManagedObjectContextDefaultContext.m */,
+			);
+			path = NSManagedObjectContext;
+			sourceTree = "<group>";
+		};
+		46B32FA31024F40E00F40719 /* NSManagedObjectContext */ = {
+			isa = PBXGroup;
+			children = (
+				46B32FA41024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.h */,
+				46B32FA51024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m */,
+			);
+			path = NSManagedObjectContext;
 			sourceTree = "<group>";
 		};
 		46C20FD50F256E610053F9B9 /* TargetClasses */ = {
@@ -457,6 +483,8 @@
 				4647BE1810241EC9003D1D17 /* ISTableViewCellTestWhenGrouped.m in Sources */,
 				4647BE7110242329003D1D17 /* NSErrorCoreDataExtension.m in Sources */,
 				4647BF361024324A003D1D17 /* NSErrorCoreDataExtensionTest.m in Sources */,
+				46B32F8210249DC600F40719 /* NSManagedObjectContextDefaultContext.m in Sources */,
+				46B32FA61024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
