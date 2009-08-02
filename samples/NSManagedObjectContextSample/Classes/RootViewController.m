@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "CiderCoreData.h"
 
 
 @implementation RootViewController
@@ -82,8 +83,9 @@
 	
 	// Create a new instance of the entity managed by the fetched results controller.
 	NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
-	NSEntityDescription *entity = [[fetchedResultsController fetchRequest] entity];
-	NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    NSManagedObject *newManagedObject = [context createWithEntityName:[[[fetchedResultsController fetchRequest] entity] name]];
+// DELETEME:	NSEntityDescription *entity = [[fetchedResultsController fetchRequest] entity];
+// DELETEME:	NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
 	
 	// If appropriate, configure the new managed object.
 	[newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];

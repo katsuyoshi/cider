@@ -157,14 +157,14 @@ static id _defaultStoreURL = nil;
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil]; 
        
 	NSError *error = nil;
-    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
+    NSPersistentStoreCoordinator *coordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel] autorelease];
     if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error]) {
 #ifdef __DEBUG__
         [error showError];
 #endif
     }
     
-    NSManagedObjectContext *managedObjectContext = [[NSManagedObjectContext alloc] init];
+    NSManagedObjectContext *managedObjectContext = [[[NSManagedObjectContext alloc] init] autorelease];
     [managedObjectContext setPersistentStoreCoordinator:coordinator];
 	
     return managedObjectContext;

@@ -1,10 +1,9 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  NSManagedObjectContextCreation.h
+//  CiderTest
+//
+//  Created by Katsuyoshi Ito on 09/08/02.
+//
 
 /* 
 
@@ -37,18 +36,17 @@
 
 */
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Cider.h"
 
 
-// CoreData
-#import "NSErrorCoreDataExtension.h"
+@interface NSManagedObjectContext(ISManagedObjectCreation)
 
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
+/**
+ * Return a new NSManagedObject for the entityName.
+ * @param entityName The entity name
+ * @return A new NSManagedObject for the entityName.
+ */
+- (id)createWithEntityName:(NSString *)entityName;
 
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
-
-
+@end

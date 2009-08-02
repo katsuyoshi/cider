@@ -1,10 +1,9 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  NSManagedObjectCreation.h
+//  CiderTest
+//
+//  Created by Katsuyoshi Ito on 09/08/02.
+//
 
 /* 
 
@@ -37,18 +36,53 @@
 
 */
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Cider.h"
 
 
-// CoreData
-#import "NSErrorCoreDataExtension.h"
+@interface NSManagedObject(ISManagedObjectCreation)
 
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
+#pragma mark -
+#pragma mark for NSManagedObject
 
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
+/**
+ * Return a new NSManagedObject for the entityName.
+ * It is inserted to the default managed object context. 
+ * ([NSManagedObjectContext defaultManagedObjectContext])
+ * @param entityName The entity name
+ * @return A new NSManagedObject for the entityName.
+ */
++ (id)createWithEntityName:(NSString *)entityName;
+
+/**
+ * Return a new NSManagedObject for the entityName.
+ * It is inserted to the managedObjectContext. 
+ * @param entityName The entity name
+ * @param managedObjectContext A new NSManagedObject is insreted to this context.
+ * @return A new NSManagedObject for the entityName.
+ */
++ (id)createWithEntityName:(NSString *)entityName inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 
+#pragma mark -
+#pragma mark for CustomClass of NSManagedObject
+
+/**
+ * Retuen a new CustomClass's object.
+ * You must use this from the CustomeClass of NSManagedObject.
+ * Use class name as entity name.
+ * It is inserted to the default managed object context. 
+ * ([NSManagedObjectContext defaultManagedObjectContext])
+ */ 
++ (id)create;
+
+
+/**
+ * Return a new NSManagedObject for the entityName.
+ * It is inserted to the own managedObjectContext. 
+ * @param entityName The entity name
+ * @return A new NSManagedObject for the entityName.
+ */
+- (id)createWithEntityName:(NSString *)entityName;
+
+@end

@@ -7,7 +7,7 @@ You just create ISTableViewCell instead of UITableViewCell.
 
 ISTableViewCell *cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellEditingStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 
-Related sample code: ISTableViewCellSample
+  Related sample code: ISTableViewCellSample
 
 
 == NSError(ISExtension)
@@ -25,6 +25,15 @@ Added convenience methods that treat the specified domain.
 
 It easily get the NSManagedObjectContext.
 
-Related sample code: NSManagedObjectContextSample
+  Related sample code: NSManagedObjectContextSample
 
+== NSManagedObjectContext(ISManagedObjectCreation)
+
+It easily create the NSManagedObject instance.
+
+  Related sample code: NSManagedObjectContextSample
+
+== NSManagedObject(ISManagedObjectCreation)
+
+It easily create the NSManagedObject instance.
 
