@@ -3,7 +3,6 @@
  *  CiderTest
  *
  *  Created by Katsuyoshi Ito on 09/08/01.
- *  Copyright 2009 ITO SOFT DESIGN Inc. All rights reserved.
  *
  */
 
