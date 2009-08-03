@@ -45,28 +45,58 @@
 #pragma mark -
 #pragma mark fetch request
 
+/**
+ * Return a NSFetchRequest object.
+ */
 + (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
+/**
+ * Return a NSFetchRequest object.
+ */
 + (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors;
 
+/**
+ * Return a NSFetchRequest object.
+ */
 + (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate;
 
+/**
+ * Return a NSFetchRequest object.
+ */
 + (NSFetchRequest *)fetchRequestWithSortDiscriptors:(NSArray *)sortDiscriptors;
 
+/**
+ * Return a NSFetchRequest object.
+ */
 + (NSFetchRequest *)fetchRequest;
 
 
 #pragma mark -
 #pragma mark fetch result controller
 
+/**
+ * Return a NSFetchedResultsController object.
+ */
 + (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext cashName:(NSString *)cashName;
 
+/**
+ * Return a NSFetchedResultsController object.
+ */
 + (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors cashName:(NSString *)cashName;
 
+/**
+ * Return a NSFetchedResultsController object.
+ */
 + (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate cashName:(NSString *)cashName;
 
+/**
+ * Return a NSFetchedResultsController object.
+ */
 + (NSFetchedResultsController *)fetchedResultsControllerWithSortDiscriptors:(NSArray *)sortDiscriptors cashName:(NSString *)cashName;
 
+/**
+ * Return a NSFetchedResultsController object.
+ */
 + (NSFetchedResultsController *)fetchedResultsControllerWithCashName:(NSString *)cashName;
 
 
