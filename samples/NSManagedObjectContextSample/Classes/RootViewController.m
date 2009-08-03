@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "CiderCoreData.h"
+#import "Event.h"
 
 
 @implementation RootViewController
@@ -84,8 +85,6 @@
 	// Create a new instance of the entity managed by the fetched results controller.
 	NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
     NSManagedObject *newManagedObject = [context createWithEntityName:[[[fetchedResultsController fetchRequest] entity] name]];
-// DELETEME:	NSEntityDescription *entity = [[fetchedResultsController fetchRequest] entity];
-// DELETEME:	NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
 	
 	// If appropriate, configure the new managed object.
 	[newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
@@ -192,40 +191,12 @@
 
 - (NSFetchedResultsController *)fetchedResultsController {
     
-    if (fetchedResultsController != nil) {
-        return fetchedResultsController;
+    if (fetchedResultsController == nil) {
+        NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"timeStamp desc"];
+        self.fetchedResultsController = [Event fetchedResultsControllerWithSortDiscriptors:sortDescriptors sectionNameKeyPath:nil cashName:@"Root"];
+        self.fetchedResultsController.delegate = self;
     }
-    
-    /*
-	 Set up the fetched results controller.
-	*/
-	// Create the fetch request for the entity.
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	// Edit the entity name as appropriate.
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:managedObjectContext];
-	[fetchRequest setEntity:entity];
-	
-	// Set the batch size to a suitable number.
-	[fetchRequest setFetchBatchSize:20];
-	
-	// Edit the sort key as appropriate.
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	
-	[fetchRequest setSortDescriptors:sortDescriptors];
-	
-	// Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
-    aFetchedResultsController.delegate = self;
-	self.fetchedResultsController = aFetchedResultsController;
-	
-	[aFetchedResultsController release];
-	[fetchRequest release];
-	[sortDescriptor release];
-	[sortDescriptors release];
-	
-	return fetchedResultsController;
+    return fetchedResultsController;
 }    
 
 

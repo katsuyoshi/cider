@@ -43,6 +43,7 @@
 
 // CoreData
 #import "NSErrorCoreDataExtension.h"
+#import "NSSortDescriptorExtension.h"
 
   // NSManagedObjectContext
 #import "NSManagedObjectContextDefaultContext.h"
@@ -51,5 +52,4 @@
   // NSManagedObject
 #import "NSManagedObjectCreation.h"
 #import "NSManagedObjectFetch.h"
-
 

@@ -17,13 +17,16 @@
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
-		468F0CDD102653E000F3DDF6 /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0CCA102653E000F3DDF6 /* NSErrorCoreDataExtension.m */; };
-		468F0CDE102653E000F3DDF6 /* NSManagedObjectCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0CCD102653E000F3DDF6 /* NSManagedObjectCreation.m */; };
-		468F0CDF102653E000F3DDF6 /* NSManagedObjectContextCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0CD0102653E000F3DDF6 /* NSManagedObjectContextCreation.m */; };
-		468F0CE0102653E000F3DDF6 /* NSManagedObjectContextDefaultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0CD2102653E000F3DDF6 /* NSManagedObjectContextDefaultContext.m */; };
-		468F0CE1102653E000F3DDF6 /* NSErrorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0CD5102653E000F3DDF6 /* NSErrorExtension.m */; };
-		468F0CE2102653E000F3DDF6 /* cider.strings in Resources */ = {isa = PBXBuildFile; fileRef = 468F0CD7102653E000F3DDF6 /* cider.strings */; };
-		468F0CE3102653E000F3DDF6 /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0CDC102653E000F3DDF6 /* ISTableViewCell.m */; };
+		4630A5BB102743190081D4BE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5BA102743190081D4BE /* Event.m */; };
+		4630A5D91027434C0081D4BE /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5C21027434C0081D4BE /* NSErrorCoreDataExtension.m */; };
+		4630A5DA1027434C0081D4BE /* NSManagedObjectCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5C51027434C0081D4BE /* NSManagedObjectCreation.m */; };
+		4630A5DB1027434C0081D4BE /* NSManagedObjectFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5C71027434C0081D4BE /* NSManagedObjectFetch.m */; };
+		4630A5DC1027434C0081D4BE /* NSManagedObjectContextCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5CA1027434C0081D4BE /* NSManagedObjectContextCreation.m */; };
+		4630A5DD1027434C0081D4BE /* NSManagedObjectContextDefaultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5CC1027434C0081D4BE /* NSManagedObjectContextDefaultContext.m */; };
+		4630A5DE1027434C0081D4BE /* NSSortDescriptorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5CE1027434C0081D4BE /* NSSortDescriptorExtension.m */; };
+		4630A5DF1027434C0081D4BE /* NSErrorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5D11027434C0081D4BE /* NSErrorExtension.m */; };
+		4630A5E01027434C0081D4BE /* cider.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4630A5D31027434C0081D4BE /* cider.strings */; };
+		4630A5E11027434C0081D4BE /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5D81027434C0081D4BE /* ISTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,22 +44,28 @@
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		468F0CC6102653E000F3DDF6 /* Cider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cider.h; sourceTree = "<group>"; };
-		468F0CC7102653E000F3DDF6 /* CiderCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CiderCoreData.h; sourceTree = "<group>"; };
-		468F0CC9102653E000F3DDF6 /* NSErrorCoreDataExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorCoreDataExtension.h; sourceTree = "<group>"; };
-		468F0CCA102653E000F3DDF6 /* NSErrorCoreDataExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorCoreDataExtension.m; sourceTree = "<group>"; };
-		468F0CCC102653E000F3DDF6 /* NSManagedObjectCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectCreation.h; sourceTree = "<group>"; };
-		468F0CCD102653E000F3DDF6 /* NSManagedObjectCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectCreation.m; sourceTree = "<group>"; };
-		468F0CCF102653E000F3DDF6 /* NSManagedObjectContextCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextCreation.h; sourceTree = "<group>"; };
-		468F0CD0102653E000F3DDF6 /* NSManagedObjectContextCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextCreation.m; sourceTree = "<group>"; };
-		468F0CD1102653E000F3DDF6 /* NSManagedObjectContextDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContext.h; sourceTree = "<group>"; };
-		468F0CD2102653E000F3DDF6 /* NSManagedObjectContextDefaultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextDefaultContext.m; sourceTree = "<group>"; };
-		468F0CD4102653E000F3DDF6 /* NSErrorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorExtension.h; sourceTree = "<group>"; };
-		468F0CD5102653E000F3DDF6 /* NSErrorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorExtension.m; sourceTree = "<group>"; };
-		468F0CD8102653E000F3DDF6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/cider.strings; sourceTree = "<group>"; };
-		468F0CD9102653E000F3DDF6 /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/cider.strings; sourceTree = "<group>"; };
-		468F0CDB102653E000F3DDF6 /* ISTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCell.h; sourceTree = "<group>"; };
-		468F0CDC102653E000F3DDF6 /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
+		4630A5B9102743190081D4BE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		4630A5BA102743190081D4BE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		4630A5BE1027434C0081D4BE /* Cider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cider.h; sourceTree = "<group>"; };
+		4630A5BF1027434C0081D4BE /* CiderCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CiderCoreData.h; sourceTree = "<group>"; };
+		4630A5C11027434C0081D4BE /* NSErrorCoreDataExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorCoreDataExtension.h; sourceTree = "<group>"; };
+		4630A5C21027434C0081D4BE /* NSErrorCoreDataExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorCoreDataExtension.m; sourceTree = "<group>"; };
+		4630A5C41027434C0081D4BE /* NSManagedObjectCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectCreation.h; sourceTree = "<group>"; };
+		4630A5C51027434C0081D4BE /* NSManagedObjectCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectCreation.m; sourceTree = "<group>"; };
+		4630A5C61027434C0081D4BE /* NSManagedObjectFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectFetch.h; sourceTree = "<group>"; };
+		4630A5C71027434C0081D4BE /* NSManagedObjectFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectFetch.m; sourceTree = "<group>"; };
+		4630A5C91027434C0081D4BE /* NSManagedObjectContextCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextCreation.h; sourceTree = "<group>"; };
+		4630A5CA1027434C0081D4BE /* NSManagedObjectContextCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextCreation.m; sourceTree = "<group>"; };
+		4630A5CB1027434C0081D4BE /* NSManagedObjectContextDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContext.h; sourceTree = "<group>"; };
+		4630A5CC1027434C0081D4BE /* NSManagedObjectContextDefaultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextDefaultContext.m; sourceTree = "<group>"; };
+		4630A5CD1027434C0081D4BE /* NSSortDescriptorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSortDescriptorExtension.h; sourceTree = "<group>"; };
+		4630A5CE1027434C0081D4BE /* NSSortDescriptorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSortDescriptorExtension.m; sourceTree = "<group>"; };
+		4630A5D01027434C0081D4BE /* NSErrorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorExtension.h; sourceTree = "<group>"; };
+		4630A5D11027434C0081D4BE /* NSErrorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorExtension.m; sourceTree = "<group>"; };
+		4630A5D41027434C0081D4BE /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/cider.strings; sourceTree = "<group>"; };
+		4630A5D51027434C0081D4BE /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/cider.strings; sourceTree = "<group>"; };
+		4630A5D71027434C0081D4BE /* ISTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCell.h; sourceTree = "<group>"; };
+		4630A5D81027434C0081D4BE /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* NSManagedObjectContextSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "NSManagedObjectContextSample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +87,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4630A5B9102743190081D4BE /* Event.h */,
+				4630A5BA102743190081D4BE /* Event.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* NSManagedObjectContextSampleAppDelegate.h */,
@@ -97,7 +108,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				468F0CC5102653E000F3DDF6 /* cider */,
+				4630A5BD1027434C0081D4BE /* cider */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -138,73 +149,77 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		468F0CC5102653E000F3DDF6 /* cider */ = {
+		4630A5BD1027434C0081D4BE /* cider */ = {
 			isa = PBXGroup;
 			children = (
-				468F0CC6102653E000F3DDF6 /* Cider.h */,
-				468F0CC7102653E000F3DDF6 /* CiderCoreData.h */,
-				468F0CC8102653E000F3DDF6 /* CoreData */,
-				468F0CD3102653E000F3DDF6 /* Foundation */,
-				468F0CD6102653E000F3DDF6 /* Resources */,
-				468F0CDA102653E000F3DDF6 /* UIKit */,
+				4630A5BE1027434C0081D4BE /* Cider.h */,
+				4630A5BF1027434C0081D4BE /* CiderCoreData.h */,
+				4630A5C01027434C0081D4BE /* CoreData */,
+				4630A5CF1027434C0081D4BE /* Foundation */,
+				4630A5D21027434C0081D4BE /* Resources */,
+				4630A5D61027434C0081D4BE /* UIKit */,
 			);
 			name = cider;
 			path = ../../cider;
 			sourceTree = SOURCE_ROOT;
 		};
-		468F0CC8102653E000F3DDF6 /* CoreData */ = {
+		4630A5C01027434C0081D4BE /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				468F0CC9102653E000F3DDF6 /* NSErrorCoreDataExtension.h */,
-				468F0CCA102653E000F3DDF6 /* NSErrorCoreDataExtension.m */,
-				468F0CCB102653E000F3DDF6 /* NSManagedObject */,
-				468F0CCE102653E000F3DDF6 /* NSManagedObjectContext */,
+				4630A5C11027434C0081D4BE /* NSErrorCoreDataExtension.h */,
+				4630A5C21027434C0081D4BE /* NSErrorCoreDataExtension.m */,
+				4630A5C31027434C0081D4BE /* NSManagedObject */,
+				4630A5C81027434C0081D4BE /* NSManagedObjectContext */,
+				4630A5CD1027434C0081D4BE /* NSSortDescriptorExtension.h */,
+				4630A5CE1027434C0081D4BE /* NSSortDescriptorExtension.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		468F0CCB102653E000F3DDF6 /* NSManagedObject */ = {
+		4630A5C31027434C0081D4BE /* NSManagedObject */ = {
 			isa = PBXGroup;
 			children = (
-				468F0CCC102653E000F3DDF6 /* NSManagedObjectCreation.h */,
-				468F0CCD102653E000F3DDF6 /* NSManagedObjectCreation.m */,
+				4630A5C41027434C0081D4BE /* NSManagedObjectCreation.h */,
+				4630A5C51027434C0081D4BE /* NSManagedObjectCreation.m */,
+				4630A5C61027434C0081D4BE /* NSManagedObjectFetch.h */,
+				4630A5C71027434C0081D4BE /* NSManagedObjectFetch.m */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
 		};
-		468F0CCE102653E000F3DDF6 /* NSManagedObjectContext */ = {
+		4630A5C81027434C0081D4BE /* NSManagedObjectContext */ = {
 			isa = PBXGroup;
 			children = (
-				468F0CCF102653E000F3DDF6 /* NSManagedObjectContextCreation.h */,
-				468F0CD0102653E000F3DDF6 /* NSManagedObjectContextCreation.m */,
-				468F0CD1102653E000F3DDF6 /* NSManagedObjectContextDefaultContext.h */,
-				468F0CD2102653E000F3DDF6 /* NSManagedObjectContextDefaultContext.m */,
+				4630A5C91027434C0081D4BE /* NSManagedObjectContextCreation.h */,
+				4630A5CA1027434C0081D4BE /* NSManagedObjectContextCreation.m */,
+				4630A5CB1027434C0081D4BE /* NSManagedObjectContextDefaultContext.h */,
+				4630A5CC1027434C0081D4BE /* NSManagedObjectContextDefaultContext.m */,
 			);
 			path = NSManagedObjectContext;
 			sourceTree = "<group>";
 		};
-		468F0CD3102653E000F3DDF6 /* Foundation */ = {
+		4630A5CF1027434C0081D4BE /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				468F0CD4102653E000F3DDF6 /* NSErrorExtension.h */,
-				468F0CD5102653E000F3DDF6 /* NSErrorExtension.m */,
+				4630A5D01027434C0081D4BE /* NSErrorExtension.h */,
+				4630A5D11027434C0081D4BE /* NSErrorExtension.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		468F0CD6102653E000F3DDF6 /* Resources */ = {
+		4630A5D21027434C0081D4BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				468F0CD7102653E000F3DDF6 /* cider.strings */,
+				4630A5D31027434C0081D4BE /* cider.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		468F0CDA102653E000F3DDF6 /* UIKit */ = {
+		4630A5D61027434C0081D4BE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				468F0CDB102653E000F3DDF6 /* ISTableViewCell.h */,
-				468F0CDC102653E000F3DDF6 /* ISTableViewCell.m */,
+				4630A5D71027434C0081D4BE /* ISTableViewCell.h */,
+				4630A5D81027434C0081D4BE /* ISTableViewCell.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -260,7 +275,7 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
-				468F0CE2102653E000F3DDF6 /* cider.strings in Resources */,
+				4630A5E01027434C0081D4BE /* cider.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,23 +290,26 @@
 				1D3623260D0F684500981E51 /* NSManagedObjectContextSampleAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				28860B770F44E54D00985440 /* NSManagedObjectContextSample.xcdatamodel in Sources */,
-				468F0CDD102653E000F3DDF6 /* NSErrorCoreDataExtension.m in Sources */,
-				468F0CDE102653E000F3DDF6 /* NSManagedObjectCreation.m in Sources */,
-				468F0CDF102653E000F3DDF6 /* NSManagedObjectContextCreation.m in Sources */,
-				468F0CE0102653E000F3DDF6 /* NSManagedObjectContextDefaultContext.m in Sources */,
-				468F0CE1102653E000F3DDF6 /* NSErrorExtension.m in Sources */,
-				468F0CE3102653E000F3DDF6 /* ISTableViewCell.m in Sources */,
+				4630A5BB102743190081D4BE /* Event.m in Sources */,
+				4630A5D91027434C0081D4BE /* NSErrorCoreDataExtension.m in Sources */,
+				4630A5DA1027434C0081D4BE /* NSManagedObjectCreation.m in Sources */,
+				4630A5DB1027434C0081D4BE /* NSManagedObjectFetch.m in Sources */,
+				4630A5DC1027434C0081D4BE /* NSManagedObjectContextCreation.m in Sources */,
+				4630A5DD1027434C0081D4BE /* NSManagedObjectContextDefaultContext.m in Sources */,
+				4630A5DE1027434C0081D4BE /* NSSortDescriptorExtension.m in Sources */,
+				4630A5DF1027434C0081D4BE /* NSErrorExtension.m in Sources */,
+				4630A5E11027434C0081D4BE /* ISTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		468F0CD7102653E000F3DDF6 /* cider.strings */ = {
+		4630A5D31027434C0081D4BE /* cider.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				468F0CD8102653E000F3DDF6 /* English */,
-				468F0CD9102653E000F3DDF6 /* Japanese */,
+				4630A5D41027434C0081D4BE /* English */,
+				4630A5D51027434C0081D4BE /* Japanese */,
 			);
 			name = cider.strings;
 			sourceTree = "<group>";
@@ -309,7 +327,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = NSManagedObjectContextSample_Prefix.pch;
 				INFOPLIST_FILE = "NSManagedObjectContextSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = NSManagedObjectContextSample;
+				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
 		};

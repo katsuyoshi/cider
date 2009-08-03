@@ -77,27 +77,27 @@
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithSortDiscriptors:(NSArray *)sortDiscriptors cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithSortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithCashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithSectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
 
 
 
