@@ -1,10 +1,9 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  NSManagedObjectFetchController.h
+//  CiderTest
+//
+//  Created by Katsuyoshi Ito on 09/08/03.
+//
 
 /* 
 
@@ -37,19 +36,39 @@
 
 */
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Cider.h"
 
 
-// CoreData
-#import "NSErrorCoreDataExtension.h"
+@interface NSManagedObject(ISFetchController)
 
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
+#pragma mark -
+#pragma mark fetch request
 
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
-#import "NSManagedObjectFetch.h"
++ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+
++ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors;
+
++ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate;
+
++ (NSFetchRequest *)fetchRequestWithSortDiscriptors:(NSArray *)sortDiscriptors;
+
++ (NSFetchRequest *)fetchRequest;
 
 
+#pragma mark -
+#pragma mark fetch result controller
+
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext cashName:(NSString *)cashName;
+
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors cashName:(NSString *)cashName;
+
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate cashName:(NSString *)cashName;
+
++ (NSFetchedResultsController *)fetchedResultsControllerWithSortDiscriptors:(NSArray *)sortDiscriptors cashName:(NSString *)cashName;
+
++ (NSFetchedResultsController *)fetchedResultsControllerWithCashName:(NSString *)cashName;
+
+
+
+@end
