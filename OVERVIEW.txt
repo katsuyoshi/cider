@@ -15,11 +15,13 @@ ISTableViewCell *cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellE
 Added a convenience method -showError.
 It shows own error message.
 
+
 == NSError(ISCoreDataExtention)
 
 CoreData returns nested NSError objects.
 I just want to care the specified domain error.
 Added convenience methods that treat the specified domain.
+
 
 == NSManagedObjectContext(ISDefaultContext)
 
@@ -27,13 +29,29 @@ It easily get the NSManagedObjectContext.
 
   Related sample code: NSManagedObjectContextSample
 
+
 == NSManagedObjectContext(ISManagedObjectCreation)
 
-It easily create the NSManagedObject instance.
+It easily create a NSManagedObject instance.
 
   Related sample code: NSManagedObjectContextSample
 
+
 == NSManagedObject(ISManagedObjectCreation)
 
-It easily create the NSManagedObject instance.
+It easily create a NSManagedObject instance.
+
+
+== NSManagedObject(ISFetchController)
+
+It easily create a NSFetchRequest and NSFetchedResultsController instance.
+
+  Related sample code: NSManagedObjectContextSample
+
+
+== ISFetchRequestCondition
+
+It's a helper class for creation of NSFetchRequest or NSFetchedResultsController.
+
+  Related sample code: NSManagedObjectContextSample
 

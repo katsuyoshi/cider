@@ -23,6 +23,7 @@
 		4630A50F1027208C0081D4BE /* NSManagedObjectFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A50E1027208C0081D4BE /* NSManagedObjectFetchTest.m */; };
 		4630A5761027278F0081D4BE /* NSSortDescriptorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5751027278F0081D4BE /* NSSortDescriptorExtension.m */; };
 		4630A579102729D80081D4BE /* NSSortDescriptorExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A578102729D80081D4BE /* NSSortDescriptorExtensionTest.m */; };
+		4630A6231027490C0081D4BE /* ISFetchRequestCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A6221027490C0081D4BE /* ISFetchRequestCondition.m */; };
 		4647BDF310241A48003D1D17 /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BDF110241A48003D1D17 /* ISTableViewCell.m */; };
 		4647BDF710241AA9003D1D17 /* NSErrorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BDF610241AA9003D1D17 /* NSErrorExtension.m */; };
 		4647BE1610241EC9003D1D17 /* TableViewControllerForISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BE1110241EC9003D1D17 /* TableViewControllerForISTableViewCell.m */; };
@@ -88,6 +89,8 @@
 		4630A5751027278F0081D4BE /* NSSortDescriptorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSortDescriptorExtension.m; sourceTree = "<group>"; };
 		4630A577102729D80081D4BE /* NSSortDescriptorExtensionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSortDescriptorExtensionTest.h; sourceTree = "<group>"; };
 		4630A578102729D80081D4BE /* NSSortDescriptorExtensionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSortDescriptorExtensionTest.m; sourceTree = "<group>"; };
+		4630A6211027490C0081D4BE /* ISFetchRequestCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISFetchRequestCondition.h; sourceTree = "<group>"; };
+		4630A6221027490C0081D4BE /* ISFetchRequestCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISFetchRequestCondition.m; sourceTree = "<group>"; };
 		4647BDF010241A48003D1D17 /* ISTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCell.h; sourceTree = "<group>"; };
 		4647BDF110241A48003D1D17 /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
 		4647BDF410241A7C003D1D17 /* Cider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cider.h; sourceTree = "<group>"; };
@@ -350,6 +353,8 @@
 				468F0BEB1025DA3A00F3DDF6 /* NSManagedObjectCreation.m */,
 				4630A4EC1027191C0081D4BE /* NSManagedObjectFetch.h */,
 				4630A4ED1027191C0081D4BE /* NSManagedObjectFetch.m */,
+				4630A6211027490C0081D4BE /* ISFetchRequestCondition.h */,
+				4630A6221027490C0081D4BE /* ISFetchRequestCondition.m */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 				4630A50F1027208C0081D4BE /* NSManagedObjectFetchTest.m in Sources */,
 				4630A5761027278F0081D4BE /* NSSortDescriptorExtension.m in Sources */,
 				4630A579102729D80081D4BE /* NSSortDescriptorExtensionTest.m in Sources */,
+				4630A6231027490C0081D4BE /* ISFetchRequestCondition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

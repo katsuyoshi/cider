@@ -38,12 +38,18 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "ISFetchRequestCondition.h"
 
 
 @interface NSManagedObject(ISFetchController)
 
 #pragma mark -
 #pragma mark fetch request
+
+/**
+ * Return a NSFetchRequest object.
+ */
++ (NSFetchRequest *)fetchRequestWithCondition:(ISFetchRequestCondition *)condition;
 
 /**
  * Return a NSFetchRequest object.
@@ -77,27 +83,32 @@
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithCondition:(ISFetchRequestCondition *)condition;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithSortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithSectionNameKeyPath:(NSString *)sectionNameKeyPath cashName:(NSString *)cashName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithSortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
+
+/**
+ * Return a NSFetchedResultsController object.
+ */
++ (NSFetchedResultsController *)fetchedResultsControllerWithSectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 
 

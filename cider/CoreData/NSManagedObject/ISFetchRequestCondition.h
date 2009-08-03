@@ -1,10 +1,9 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  ISFetchRequestCondition.h
+//  CiderTest
+//
+//  Created by Katsuyoshi Ito on 09/08/04.
+//
 
 /* 
 
@@ -37,20 +36,36 @@
 
 */
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Cider.h"
 
 
-// CoreData
-#import "NSErrorCoreDataExtension.h"
-#import "NSSortDescriptorExtension.h"
-#import "ISFetchRequestCondition.h"
+@interface ISFetchRequestCondition : NSObject {
 
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
+    NSPredicate *predicate;
+    NSArray *sortDiscriptors;
+    NSManagedObjectContext *managedObjectContext;
+    NSString *sectionNameKeyPath;
+    NSString *cacheName;
+    
+}
 
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
-#import "NSManagedObjectFetch.h"
+/** A predicate for creation of NSFetchRequest or NSFetchedResultsController. */
+@property (retain) NSPredicate *predicate;
 
+/** Sort descriptors for creation of NSFetchRequest or NSFetchedResultsController. */
+@property (retain) NSArray *sortDiscriptors;
+
+/** A managed object context for creation of NSFetchRequest or NSFetchedResultsController. */
+@property (retain) NSManagedObjectContext *managedObjectContext;
+
+/** A section name key path for creation of NSFetchRequest or NSFetchedResultsController. */
+@property (retain) NSString *sectionNameKeyPath;
+
+/** A cache name for creation of NSFetchRequest or NSFetchedResultsController. */
+@property (retain) NSString *cacheName;
+
+/** Return a ISFetchRequestCondition object. */
++ (ISFetchRequestCondition *)fetchRequestCondition;
+
+@end

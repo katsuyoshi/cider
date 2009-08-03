@@ -59,6 +59,24 @@
     ASSERT_EQUAL(sortDescriptors, [request sortDescriptors]);
 }
 
+- (void)testFetchRequestFullWithCondition
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %d", @"title"];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES] autorelease]];
+    tmpFilePath = [[NSTemporaryDirectory() stringByAppendingFormat:@"abc.sqlite"] retain];
+    NSManagedObjectContext *context = [NSManagedObjectContext managedObjectContextWithFile:tmpFilePath];
+    
+    ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
+    condition.predicate = predicate;
+    condition.sortDiscriptors = sortDescriptors;
+    condition.managedObjectContext = context;
+    
+    NSFetchRequest *request = [ISMovie fetchRequestWithCondition:condition];
+
+    ASSERT_EQUAL(predicate, [request predicate]);
+    ASSERT_EQUAL(sortDescriptors, [request sortDescriptors]);
+}
+
 - (void)testFetchRequestWithoutManagedObjectContext
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %d", @"title"];
@@ -77,18 +95,41 @@
     tmpFilePath = [[NSTemporaryDirectory() stringByAppendingFormat:@"abc.sqlite"] retain];
     NSManagedObjectContext *context = [NSManagedObjectContext managedObjectContextWithFile:tmpFilePath];
     
-    NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithPredicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:context sectionNameKeyPath:nil cashName:@"cash"];
+    NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithPredicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:context sectionNameKeyPath:nil cacheName:@"cash"];
 
     ASSERT_EQUAL(predicate, [[controller fetchRequest] predicate]);
     ASSERT_EQUAL(sortDescriptors, [[controller fetchRequest]  sortDescriptors]);
 }
+
+- (void)testFetchedResultControllerFullWithCondition
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %d", @"title"];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES] autorelease]];
+    tmpFilePath = [[NSTemporaryDirectory() stringByAppendingFormat:@"abc.sqlite"] retain];
+    NSManagedObjectContext *context = [NSManagedObjectContext managedObjectContextWithFile:tmpFilePath];
+    
+    ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
+    condition.predicate = predicate;
+    condition.sortDiscriptors = sortDescriptors;
+    condition.managedObjectContext = context;
+    condition.sectionNameKeyPath = @"nameKey";
+    condition.cacheName = @"cache";
+        
+    NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithCondition:condition];
+
+    ASSERT_EQUAL(predicate, [controller fetchRequest].predicate);
+    ASSERT_EQUAL(sortDescriptors, [controller fetchRequest].sortDescriptors);
+    ASSERT_EQUAL(@"nameKey", controller.sectionNameKeyPath);
+    ASSERT_EQUAL(@"cache", controller.cacheName);
+}
+
 
 - (void)testFetchedResultsControllerWithoutManagedObjectContext
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %d", @"title"];
     NSArray *sortDescriptors = [NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES] autorelease]];
     
-    NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithPredicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:nil sectionNameKeyPath:nil cashName:@"cash"];
+    NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithPredicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:nil sectionNameKeyPath:nil cacheName:@"cash"];
 
     ASSERT_EQUAL(predicate, [[controller fetchRequest]  predicate]);
     ASSERT_EQUAL(sortDescriptors, [[controller fetchRequest]  sortDescriptors]);

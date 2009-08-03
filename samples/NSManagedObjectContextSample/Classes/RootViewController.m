@@ -192,8 +192,13 @@
 - (NSFetchedResultsController *)fetchedResultsController {
     
     if (fetchedResultsController == nil) {
-        NSArray *sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"timeStamp desc"];
-        self.fetchedResultsController = [Event fetchedResultsControllerWithSortDiscriptors:sortDescriptors sectionNameKeyPath:nil cashName:@"Root"];
+        
+        ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
+        condition.sortDiscriptors = [NSSortDescriptor sortDescriptorsWithString:@"timeStamp desc"];
+        condition.cacheName = @"Root";
+        
+        self.fetchedResultsController = [Event fetchedResultsControllerWithCondition:condition];
+        
         self.fetchedResultsController.delegate = self;
     }
     return fetchedResultsController;

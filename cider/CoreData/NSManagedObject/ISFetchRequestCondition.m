@@ -1,10 +1,9 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  ISFetchRequestCondition.m
+//  CiderTest
+//
+//  Created by Katsuyoshi Ito on 09/08/04.
+//
 
 /* 
 
@@ -37,20 +36,28 @@
 
 */
 
-#import <CoreData/CoreData.h>
-#import "Cider.h"
-
-
-// CoreData
-#import "NSErrorCoreDataExtension.h"
-#import "NSSortDescriptorExtension.h"
 #import "ISFetchRequestCondition.h"
 
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
 
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
-#import "NSManagedObjectFetch.h"
+@implementation ISFetchRequestCondition
 
+@synthesize predicate, sortDiscriptors, managedObjectContext, sectionNameKeyPath, cacheName;
+
++ (ISFetchRequestCondition *)fetchRequestCondition
+{
+    return [[ISFetchRequestCondition new] autorelease];
+}
+
+- (void)dealloc
+{
+    [predicate release];
+    [sortDiscriptors release];
+    [managedObjectContext release];
+    [sectionNameKeyPath release];
+    [cacheName release];
+
+    [super dealloc];
+}
+
+
+@end
