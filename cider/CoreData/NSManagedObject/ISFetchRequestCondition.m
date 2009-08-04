@@ -41,7 +41,7 @@
 
 @implementation ISFetchRequestCondition
 
-@synthesize predicate, sortDiscriptors, managedObjectContext, sectionNameKeyPath, cacheName;
+@synthesize entityName, predicate, sortDiscriptors, managedObjectContext, sectionNameKeyPath, cacheName;
 
 + (ISFetchRequestCondition *)fetchRequestCondition
 {
@@ -50,6 +50,7 @@
 
 - (void)dealloc
 {
+    [entityName release];
     [predicate release];
     [sortDiscriptors release];
     [managedObjectContext release];

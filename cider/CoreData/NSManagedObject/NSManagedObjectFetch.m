@@ -47,16 +47,20 @@
 
 + (NSFetchRequest *)fetchRequestWithCondition:(ISFetchRequestCondition *)condition
 {
-    return [self fetchRequestWithPredicate:condition.predicate sortDiscriptors:condition.sortDiscriptors managedObjectContext:condition.managedObjectContext];
+    return [self fetchRequestWithEntity:condition.entityName predicate:condition.predicate sortDiscriptors:condition.sortDiscriptors managedObjectContext:condition.managedObjectContext];
 }
 
-+ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext
++ (NSFetchRequest *)fetchRequestWithEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     if (managedObjectContext == nil) {
         managedObjectContext = [NSManagedObjectContext defaultManagedObjectContext];
     }
 
-    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass(self) inManagedObjectContext:managedObjectContext];
+    if (entityName == nil) {
+        entityName = NSStringFromClass(self);
+    }
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
 	NSFetchRequest *fetchRequest = [[NSFetchRequest new] autorelease];
 	[fetchRequest setFetchBatchSize:20];
    	[fetchRequest setEntity:entity];
@@ -64,6 +68,11 @@
     [fetchRequest setSortDescriptors:sortDiscriptors];
 
     return fetchRequest;
+}
+
++ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    return [self fetchRequestWithEntity:nil predicate:predicate sortDiscriptors:sortDiscriptors managedObjectContext:nil];
 }
 
 + (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors
@@ -92,19 +101,25 @@
 
 + (NSFetchedResultsController *)fetchedResultsControllerWithCondition:(ISFetchRequestCondition *)condition
 {
-    return [self fetchedResultsControllerWithPredicate:condition.predicate sortDiscriptors:condition.sortDiscriptors managedObjectContext:condition.managedObjectContext sectionNameKeyPath:condition.sectionNameKeyPath cacheName:condition.cacheName];
+    return [self fetchedResultsControllerWithEntity:condition.entityName predicate:condition.predicate sortDiscriptors:condition.sortDiscriptors managedObjectContext:condition.managedObjectContext sectionNameKeyPath:condition.sectionNameKeyPath cacheName:condition.cacheName];
 }
 
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName
++ (NSFetchedResultsController *)fetchedResultsControllerWithEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName
 {
     if (managedObjectContext == nil) {
         managedObjectContext = [NSManagedObjectContext defaultManagedObjectContext];
     }
 
-    NSFetchRequest *request = [self fetchRequestWithPredicate:predicate sortDiscriptors:sortDiscriptors managedObjectContext:managedObjectContext];
+    NSFetchRequest *request = [self fetchRequestWithEntity:entityName predicate:predicate sortDiscriptors:sortDiscriptors managedObjectContext:managedObjectContext];
 	NSFetchedResultsController *controller = [[[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:sectionNameKeyPath cacheName:cacheName] autorelease];
 
     return controller;
+}
+
+
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName
+{
+    return [self fetchedResultsControllerWithEntity:nil predicate:predicate sortDiscriptors:sortDiscriptors managedObjectContext:nil sectionNameKeyPath:sectionNameKeyPath cacheName:cacheName];
 }
 
 + (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName

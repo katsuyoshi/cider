@@ -53,10 +53,11 @@
     tmpFilePath = [[NSTemporaryDirectory() stringByAppendingFormat:@"abc.sqlite"] retain];
     NSManagedObjectContext *context = [NSManagedObjectContext managedObjectContextWithFile:tmpFilePath];
     
-    NSFetchRequest *request = [ISMovie fetchRequestWithPredicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:context];
+    NSFetchRequest *request = [NSManagedObject fetchRequestWithEntity:@"ISMovie" predicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:context];
 
-    ASSERT_EQUAL(predicate, [request predicate]);
-    ASSERT_EQUAL(sortDescriptors, [request sortDescriptors]);
+    ASSERT_EQUAL(@"ISMovie", request.entity.name);
+    ASSERT_EQUAL(predicate, request.predicate);
+    ASSERT_EQUAL(sortDescriptors, request.sortDescriptors);
 }
 
 - (void)testFetchRequestFullWithCondition
@@ -67,14 +68,16 @@
     NSManagedObjectContext *context = [NSManagedObjectContext managedObjectContextWithFile:tmpFilePath];
     
     ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
+    condition.entityName = @"ISMovie";
     condition.predicate = predicate;
     condition.sortDiscriptors = sortDescriptors;
     condition.managedObjectContext = context;
     
     NSFetchRequest *request = [ISMovie fetchRequestWithCondition:condition];
 
-    ASSERT_EQUAL(predicate, [request predicate]);
-    ASSERT_EQUAL(sortDescriptors, [request sortDescriptors]);
+    ASSERT_EQUAL(@"ISMovie", request.entity.name);
+    ASSERT_EQUAL(predicate, request.predicate);
+    ASSERT_EQUAL(sortDescriptors, request.sortDescriptors);
 }
 
 - (void)testFetchRequestWithoutManagedObjectContext
@@ -84,8 +87,9 @@
     
     NSFetchRequest *request = [ISMovie fetchRequestWithPredicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:nil];
 
-    ASSERT_EQUAL(predicate, [request predicate]);
-    ASSERT_EQUAL(sortDescriptors, [request sortDescriptors]);
+    ASSERT_EQUAL(@"ISMovie", request.entity.name);
+    ASSERT_EQUAL(predicate, request.predicate);
+    ASSERT_EQUAL(sortDescriptors, request.sortDescriptors);
 }
 
 - (void)testFetchedResultControllerFull
@@ -95,10 +99,11 @@
     tmpFilePath = [[NSTemporaryDirectory() stringByAppendingFormat:@"abc.sqlite"] retain];
     NSManagedObjectContext *context = [NSManagedObjectContext managedObjectContextWithFile:tmpFilePath];
     
-    NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithPredicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:context sectionNameKeyPath:nil cacheName:@"cash"];
+    NSFetchedResultsController *controller = [NSManagedObject fetchedResultsControllerWithEntity:@"ISMovie" predicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:context sectionNameKeyPath:nil cacheName:@"cash"];
 
-    ASSERT_EQUAL(predicate, [[controller fetchRequest] predicate]);
-    ASSERT_EQUAL(sortDescriptors, [[controller fetchRequest]  sortDescriptors]);
+    ASSERT_EQUAL(@"ISMovie", controller.fetchRequest.entity.name);
+    ASSERT_EQUAL(predicate, controller.fetchRequest.predicate);
+    ASSERT_EQUAL(sortDescriptors, controller.fetchRequest.sortDescriptors);
 }
 
 - (void)testFetchedResultControllerFullWithCondition
@@ -117,8 +122,9 @@
         
     NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithCondition:condition];
 
-    ASSERT_EQUAL(predicate, [controller fetchRequest].predicate);
-    ASSERT_EQUAL(sortDescriptors, [controller fetchRequest].sortDescriptors);
+    ASSERT_EQUAL(@"ISMovie", controller.fetchRequest.entity.name);
+    ASSERT_EQUAL(predicate, controller.fetchRequest.predicate);
+    ASSERT_EQUAL(sortDescriptors, controller.fetchRequest.sortDescriptors);
     ASSERT_EQUAL(@"nameKey", controller.sectionNameKeyPath);
     ASSERT_EQUAL(@"cache", controller.cacheName);
 }
@@ -131,6 +137,7 @@
     
     NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithPredicate:predicate sortDiscriptors:sortDescriptors managedObjectContext:nil sectionNameKeyPath:nil cacheName:@"cash"];
 
+    ASSERT_EQUAL(@"ISMovie", controller.fetchRequest.entity.name);
     ASSERT_EQUAL(predicate, [[controller fetchRequest]  predicate]);
     ASSERT_EQUAL(sortDescriptors, [[controller fetchRequest]  sortDescriptors]);
 }

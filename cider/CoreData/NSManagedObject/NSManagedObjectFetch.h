@@ -54,6 +54,11 @@
 /**
  * Return a NSFetchRequest object.
  */
++ (NSFetchRequest *)fetchRequestWithEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+
+/**
+ * Return a NSFetchRequest object.
+ */
 + (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 /**
@@ -84,6 +89,11 @@
  * Return a NSFetchedResultsController object.
  */
 + (NSFetchedResultsController *)fetchedResultsControllerWithCondition:(ISFetchRequestCondition *)condition;
+
+/**
+ * Return a NSFetchedResultsController object.
+ */
++ (NSFetchedResultsController *)fetchedResultsControllerWithEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 /**
  * Return a NSFetchedResultsController object.
