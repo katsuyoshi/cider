@@ -48,23 +48,24 @@
 
 /**
  * Return a NSFetchRequest object.
+ * Primitive method.
  */
 + (NSFetchRequest *)fetchRequestWithCondition:(ISFetchRequestCondition *)condition;
 
 /**
  * Return a NSFetchRequest object.
  */
-+ (NSFetchRequest *)fetchRequestWithEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
++ (NSFetchRequest *)fetchRequestWithEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 /**
  * Return a NSFetchRequest object.
  */
-+ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
++ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
 /**
  * Return a NSFetchRequest object.
  */
-+ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors;
++ (NSFetchRequest *)fetchRequestWithPredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors;
 
 /**
  * Return a NSFetchRequest object.
@@ -74,7 +75,7 @@
 /**
  * Return a NSFetchRequest object.
  */
-+ (NSFetchRequest *)fetchRequestWithSortDiscriptors:(NSArray *)sortDiscriptors;
++ (NSFetchRequest *)fetchRequestWithSortDiscriptors:(NSArray *)sortDescriptors;
 
 /**
  * Return a NSFetchRequest object.
@@ -87,23 +88,24 @@
 
 /**
  * Return a NSFetchedResultsController object.
+ * Primitive method.
  */
 + (NSFetchedResultsController *)fetchedResultsControllerWithCondition:(ISFetchRequestCondition *)condition;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors managedObjectContext:(NSManagedObjectContext *)managedObjectContext sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithPredicate:(NSPredicate *)predicate sortDescriptors:(NSArray *)sortDescriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 /**
  * Return a NSFetchedResultsController object.
@@ -113,7 +115,7 @@
 /**
  * Return a NSFetchedResultsController object.
  */
-+ (NSFetchedResultsController *)fetchedResultsControllerWithSortDiscriptors:(NSArray *)sortDiscriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithSortDiscriptors:(NSArray *)sortDescriptors sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 /**
  * Return a NSFetchedResultsController object.

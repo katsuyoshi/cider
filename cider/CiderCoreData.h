@@ -49,6 +49,7 @@
   // NSManagedObjectContext
 #import "NSManagedObjectContextDefaultContext.h"
 #import "NSManagedObjectContextCreation.h"
+#import "NSManagedObjectFind.h"
 
   // NSManagedObject
 #import "NSManagedObjectCreation.h"

@@ -7,6 +7,7 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "CiderCoreData.h"
 
 @class ISMovie;
 

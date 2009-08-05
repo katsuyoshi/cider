@@ -49,6 +49,11 @@ It easily create a NSFetchRequest and NSFetchedResultsController instance.
   Related sample code: NSManagedObjectContextSample
 
 
+== NSManagedObject(ISFind)
+
+It easily find a NSManagedObject(s)
+
+
 == ISFetchRequestCondition
 
 It's a helper class for creation of NSFetchRequest or NSFetchedResultsController.

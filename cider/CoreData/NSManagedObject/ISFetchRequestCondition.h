@@ -42,12 +42,12 @@
 
 @interface ISFetchRequestCondition : NSObject {
 
-    NSString *entityName;
-    NSPredicate *predicate;
-    NSArray *sortDiscriptors;
-    NSManagedObjectContext *managedObjectContext;
-    NSString *sectionNameKeyPath;
-    NSString *cacheName;
+    NSString *_entityName;
+    NSPredicate *_predicate;
+    NSArray *_sortDescriptors;
+    NSManagedObjectContext *_managedObjectContext;
+    NSString *_sectionNameKeyPath;
+    NSString *_cacheName;
     
 }
 
@@ -58,7 +58,7 @@
 @property (retain) NSPredicate *predicate;
 
 /** Sort descriptors for creation of NSFetchRequest or NSFetchedResultsController. */
-@property (retain) NSArray *sortDiscriptors;
+@property (retain) NSArray *sortDescriptors;
 
 /** A managed object context for creation of NSFetchRequest or NSFetchedResultsController. */
 @property (retain) NSManagedObjectContext *managedObjectContext;
@@ -71,5 +71,13 @@
 
 /** Return a ISFetchRequestCondition object. */
 + (ISFetchRequestCondition *)fetchRequestCondition;
+
+
+/** Return a NSFetchRequest object. */
+@property (assign, readonly) NSFetchRequest *fetchRequst;
+
+/** Return a NSFetchedResultsController object. */
+@property (assign, readonly) NSFetchedResultsController *fetchedResultsController;
+
 
 @end

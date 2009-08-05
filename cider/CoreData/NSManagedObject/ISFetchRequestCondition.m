@@ -37,11 +37,18 @@
 */
 
 #import "ISFetchRequestCondition.h"
+#import "NSManagedObjectContextDefaultContext.h"
 
 
 @implementation ISFetchRequestCondition
 
-@synthesize entityName, predicate, sortDiscriptors, managedObjectContext, sectionNameKeyPath, cacheName;
+@synthesize entityName = _entityName;
+@synthesize predicate = _predicate;
+@synthesize sortDescriptors = _sortDescriptors;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize sectionNameKeyPath = _sectionNameKeyPath;
+@synthesize cacheName = _cacheName;
+
 
 + (ISFetchRequestCondition *)fetchRequestCondition
 {
@@ -50,15 +57,44 @@
 
 - (void)dealloc
 {
-    [entityName release];
-    [predicate release];
-    [sortDiscriptors release];
-    [managedObjectContext release];
-    [sectionNameKeyPath release];
-    [cacheName release];
+    [_entityName release];
+    [_predicate release];
+    [_sortDescriptors release];
+    [_managedObjectContext release];
+    [_sectionNameKeyPath release];
+    [_cacheName release];
 
     [super dealloc];
 }
 
+
+- (NSFetchRequest *)fetchRequst
+{
+    if (self.managedObjectContext == nil) {
+        self.managedObjectContext = [NSManagedObjectContext defaultManagedObjectContext];
+    }
+
+    if (self.entityName == nil) {
+        NSString *reason = @"entityName is nil.";
+        @throw [NSException exceptionWithName:@"Cider" reason:reason userInfo:[NSDictionary dictionaryWithObject:self forKey:@"self"]];
+    }
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:self.entityName inManagedObjectContext:self.managedObjectContext];
+	NSFetchRequest *fetchRequest = [[NSFetchRequest new] autorelease];
+   	[fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:self.predicate];
+    [fetchRequest setSortDescriptors:self.sortDescriptors];
+
+    return fetchRequest;
+}
+
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    NSFetchRequest *request = self.fetchRequst;
+	NSFetchedResultsController *controller = [[[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:self.sectionNameKeyPath cacheName:self.cacheName] autorelease];
+
+    return controller;
+}
 
 @end
