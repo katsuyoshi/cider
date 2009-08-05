@@ -63,6 +63,9 @@
     [_managedObjectContext release];
     [_sectionNameKeyPath release];
     [_cacheName release];
+    
+    [_fetchRequest release];
+    [_fetchedResultsController release];
 
     [super dealloc];
 }
@@ -70,31 +73,36 @@
 
 - (NSFetchRequest *)fetchRequst
 {
-    if (self.managedObjectContext == nil) {
-        self.managedObjectContext = [NSManagedObjectContext defaultManagedObjectContext];
-    }
+    if (_fetchRequest == nil) {
+        if (self.managedObjectContext == nil) {
+            self.managedObjectContext = [NSManagedObjectContext defaultManagedObjectContext];
+        }
 
-    if (self.entityName == nil) {
-        NSString *reason = @"entityName is nil.";
-        @throw [NSException exceptionWithName:@"Cider" reason:reason userInfo:[NSDictionary dictionaryWithObject:self forKey:@"self"]];
-    }
+        if (self.entityName == nil) {
+            NSString *reason = @"entityName is nil.";
+            @throw [NSException exceptionWithName:@"Cider" reason:reason userInfo:[NSDictionary dictionaryWithObject:self forKey:@"self"]];
+        }
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:self.entityName inManagedObjectContext:self.managedObjectContext];
-	NSFetchRequest *fetchRequest = [[NSFetchRequest new] autorelease];
-   	[fetchRequest setEntity:entity];
-    [fetchRequest setPredicate:self.predicate];
-    [fetchRequest setSortDescriptors:self.sortDescriptors];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:self.entityName inManagedObjectContext:self.managedObjectContext];
+        _fetchRequest = [NSFetchRequest new];
+        [_fetchRequest setEntity:entity];
+        [_fetchRequest setPredicate:self.predicate];
+        [_fetchRequest setSortDescriptors:self.sortDescriptors];
+    
+    }
 
-    return fetchRequest;
+    return _fetchRequest;
 }
 
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    NSFetchRequest *request = self.fetchRequst;
-	NSFetchedResultsController *controller = [[[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:self.sectionNameKeyPath cacheName:self.cacheName] autorelease];
+    if (_fetchedResultsController == nil) {
+        NSFetchRequest *request = self.fetchRequst;
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:self.sectionNameKeyPath cacheName:self.cacheName];
 
-    return controller;
+    }
+    return _fetchedResultsController;
 }
 
 @end

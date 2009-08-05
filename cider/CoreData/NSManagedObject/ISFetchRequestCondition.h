@@ -49,6 +49,9 @@
     NSString *_sectionNameKeyPath;
     NSString *_cacheName;
     
+    // output
+    NSFetchRequest *_fetchRequest;
+    NSFetchedResultsController *_fetchedResultsController;
 }
 
 /** An entity name for creation of NSFetchRequest or NSFetchedResultsController. */
@@ -73,10 +76,16 @@
 + (ISFetchRequestCondition *)fetchRequestCondition;
 
 
-/** Return a NSFetchRequest object. */
+/**
+ * Return a NSFetchRequest object.
+ * Note: After calling this first, it does not effect any change of attributes.
+ */
 @property (assign, readonly) NSFetchRequest *fetchRequst;
 
-/** Return a NSFetchedResultsController object. */
+/**
+ * Return a NSFetchedResultsController object.
+ * Note: After calling this first, it does not effect any change of attributes.
+ */
 @property (assign, readonly) NSFetchedResultsController *fetchedResultsController;
 
 
