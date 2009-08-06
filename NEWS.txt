@@ -1,4 +1,6 @@
 
+== 0.2.0: 2009-8-6
+
  * Added NSManagedObjectFind
  * Added ISFetchRequestCondition
  * Added NSSortDescriptorExtension
