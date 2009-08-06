@@ -76,6 +76,13 @@
  */ 
 + (id)create;
 
+/**
+ * Retuen a new CustomClass's object.
+ * You must use this from the CustomeClass of NSManagedObject.
+ * Use class name as entity name.
+ */ 
++ (id)createWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+
 
 /**
  * Return a new NSManagedObject for the entityName.

@@ -62,6 +62,11 @@
     return [self createWithEntityName:NSStringFromClass(self)];
 }
 
++ (id)createWithManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    return [self createWithEntityName:NSStringFromClass(self) inManagedObjectContext:managedObjectContext];
+}
+
 
 - (id)createWithEntityName:(NSString *)entityName
 {
