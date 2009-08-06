@@ -2,3 +2,4 @@
 *.pbxuser
 .DS_Store
 Build
+tmp

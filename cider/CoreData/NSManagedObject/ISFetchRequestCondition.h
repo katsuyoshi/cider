@@ -66,10 +66,10 @@
 /** A managed object context for creation of NSFetchRequest or NSFetchedResultsController. */
 @property (retain) NSManagedObjectContext *managedObjectContext;
 
-/** A section name key path for creation of NSFetchRequest or NSFetchedResultsController. */
+/** A section name key path for creation of NSFetchedResultsController. */
 @property (retain) NSString *sectionNameKeyPath;
 
-/** A cache name for creation of NSFetchRequest or NSFetchedResultsController. */
+/** A cache name for creation of NSFetchedResultsController. */
 @property (retain) NSString *cacheName;
 
 /** Return a ISFetchRequestCondition object. */

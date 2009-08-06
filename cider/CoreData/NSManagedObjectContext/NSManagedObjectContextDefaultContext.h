@@ -78,7 +78,7 @@
  * Set the default store file's URL.
  * It is necessary to call this before -defaultManagedObjectContext: is called.
  * Or call -clearDefaultManagedObjectContext.
- * @param The default store file's URL.
+ * @param file The default store file's URL.
  */
 + (void)setDefaultStoreURL:(NSURL *)file;
 
@@ -92,7 +92,7 @@
  * Set the default store file path.
  * It is necessary to call this before -defaultManagedObjectContext: is called.
  * Or call -clearDefaultManagedObjectContext.
- * @param The default store file path.
+ * @param file The default store file path.
  */
 + (void)setDefaultStoreFile:(NSString *)file;
 
