@@ -194,7 +194,7 @@
     if (fetchedResultsController == nil) {
         
         ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
-        condition.sortDiscriptors = [NSSortDescriptor sortDescriptorsWithString:@"timeStamp desc"];
+        condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:@"timeStamp desc"];
         condition.cacheName = @"Root";
         
         self.fetchedResultsController = [Event fetchedResultsControllerWithCondition:condition];
