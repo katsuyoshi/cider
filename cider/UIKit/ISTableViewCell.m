@@ -57,10 +57,7 @@
 
 - (id)initWithStyle:(ISTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (style < ISTableViewCellEditingStyleDefault) {
-        id tmpObject = self;
-        self = [[UITableViewCell alloc] initWithStyle:style reuseIdentifier:reuseIdentifier];
-        [tmpObject release];
-        return self;
+        return [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     } else {
         if (self = [super initWithStyle:(style - ISTableViewCellEditingStyleDefault) reuseIdentifier:reuseIdentifier]) {
             _style = style;
@@ -74,7 +71,7 @@
                 [self setDefaultAttributes:_detailTextField from:self.detailTextLabel];
                 [self.contentView addSubview:_detailTextField];
                 self.detailTextLabel.hidden = YES;
-                if (_style == ISTableViewCellEditingStyleValu1) {
+                if (_style == ISTableViewCellEditingStyleValue1) {
                     _detailTextField.textAlignment = UITextAlignmentRight;
                 }
             }
@@ -101,34 +98,41 @@
 
 }
 
-
-- (void)setFontSizeIfNeeds
+- (void)setEditingStyleFontSizeIfNeeds
 {
+    UITableView *tableView = (UITableView *)[self superview];
+    UITableViewStyle style = tableView ? tableView.style : UITableViewStyleGrouped;
+NSLog(@"%@", tableView);
     float height = self.contentView.frame.size.height;
+    float delta = height - (style == UITableViewStylePlain ? 43 : 44);
+
     if (_textField && _textField.font.pointSize == 0) {
-        UITableView *tableView = (UITableView *)[self superview];
         float size = 20;
         switch (_style) {
         case ISTableViewCellEditingStyleDefault:
-            size = height - (43 - (tableView.style == UITableViewStylePlain ? 20 : 17));
+            size = height - (43 - (style == UITableViewStylePlain ? 20 : 17));
             break;
         }
         _textField.font = [UIFont boldSystemFontOfSize:size];
     }
     if (_detailTextField && _detailTextField.font.pointSize == 0) {
-        UITableView *tableView = (UITableView *)[self superview];
         BOOL bold = NO;
         float size = 20;
         switch (_style) {
-        case ISTableViewCellEditingStyleValu1:
-            size = height - (43 - (tableView.style == UITableViewStylePlain ? 20 : 17));
+        case ISTableViewCellEditingStyleValue1:
+            size = height - (43 - (style == UITableViewStylePlain ? 20 : 17));
             break;
-        case ISTableViewCellEditingStyleValu2:
-            bold = YES;
-            size = tableView.style == UITableViewStylePlain ? 15 : 15;
+        case ISTableViewCellEditingStyleValue2:
+            {
+                bold = YES;
+                size = delta + (style == UITableViewStylePlain ? 15 : 16);
+                UIFont *font = self.textLabel.font;
+                CGFloat labelFontSize = delta + font.pointSize + (style == UITableViewStylePlain ? 0 : 1);
+                self.textLabel.font = [UIFont fontWithName:font.fontName size:labelFontSize];
+            }
             break;
         case ISTableViewCellEditingStyleSubtitle:
-            size = tableView.style == UITableViewStylePlain ? 14 : 14;
+            size = delta + (style == UITableViewStylePlain ? 14 : 14);
             break;
         }
         if (bold) {
@@ -138,7 +142,13 @@
         }
         _detailTextField.font = [UIFont fontWithName:_detailTextField.font.fontName size:size];
     }
-    
+}
+
+- (void)setFontSizeIfNeeds
+{
+    if (_style >= ISTableViewCellEditingStyleDefault) {
+        [self setEditingStyleFontSizeIfNeeds];
+    }
 }
 
 
@@ -194,10 +204,10 @@
     case ISTableViewCellEditingStyleDefault:
         [self layoutSubviewsWhenStyleDefault];
         break;
-    case ISTableViewCellEditingStyleValu1:
+    case ISTableViewCellEditingStyleValue1:
         [self layoutSubviewsWhenStyleValue1];
         break;
-    case ISTableViewCellEditingStyleValu2:
+    case ISTableViewCellEditingStyleValue2:
         [self layoutSubviewsWhenStyleValue2];
         break;
     case ISTableViewCellEditingStyleSubtitle:

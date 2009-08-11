@@ -87,9 +87,17 @@
 }
 
 
+/*
+// Customize the height of table view cells.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.0;
+}
+*/
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static ISTableViewCellStyle styles[] = { ISTableViewCellStyleDefault,  ISTableViewCellStyleValue1, ISTableViewCellStyleValue2, ISTableViewCellStyleSubtitle, ISTableViewCellEditingStyleDefault, ISTableViewCellEditingStyleValu1, ISTableViewCellEditingStyleValu2, ISTableViewCellEditingStyleSubtitle};
+    static ISTableViewCellStyle styles[] = { ISTableViewCellStyleDefault,  ISTableViewCellStyleValue1, ISTableViewCellStyleValue2, ISTableViewCellStyleSubtitle, ISTableViewCellEditingStyleDefault, ISTableViewCellEditingStyleValue1, ISTableViewCellEditingStyleValue2, ISTableViewCellEditingStyleSubtitle};
 
     NSString *CellIdentifier = [NSString stringWithFormat:@"Cell:%d", indexPath.row];
     

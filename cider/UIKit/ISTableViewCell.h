@@ -49,8 +49,8 @@ typedef enum {
 
     // These are including UITextField.
     , ISTableViewCellEditingStyleDefault = 10000    // editable style of UITableViewCellStyleDefault
-    , ISTableViewCellEditingStyleValu1              // editable style of UITableViewCellStyleValue1
-    , ISTableViewCellEditingStyleValu2              // editable style of UITableViewCellStyleValue2
+    , ISTableViewCellEditingStyleValue1              // editable style of UITableViewCellStyleValue1
+    , ISTableViewCellEditingStyleValue2              // editable style of UITableViewCellStyleValue2
     , ISTableViewCellEditingStyleSubtitle           // editable style of UITableViewCellStyleSubtitle
 
 } ISTableViewCellStyle;                 // available in iPhone 3.0
@@ -65,6 +65,8 @@ typedef enum {
     
     UIColor *_textColor;
     UIColor *_highlightedTextColor;
+    
+    BOOL doneSetFontSize;
 }
 
 - (id)initWithStyle:(ISTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;

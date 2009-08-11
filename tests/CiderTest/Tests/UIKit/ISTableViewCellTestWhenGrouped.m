@@ -7,6 +7,8 @@
 //
 
 #import "ISTableViewCellTestWhenGrouped.h"
+#import "UITableViewControllerTestHelper.h"
+#import "ISTableViewCell.h"
 
 
 
@@ -46,6 +48,36 @@
 
 #pragma mark -
 #pragma mark Tests
+
+- (void)testISTableViewCellStyleDefault
+{
+    ISTableViewCell *cell = (ISTableViewCell *)CELL(0, 0);
+    ASSERT_EQUAL_FLOAT(17.0, cell.textLabel.font.pointSize);
+}
+
+- (void)testISTableViewCellStyleValue1
+{
+    ISTableViewCell *cell = (ISTableViewCell *)CELL(1, 0);
+    
+    ASSERT_EQUAL_FLOAT(17.0, cell.textLabel.font.pointSize);
+    ASSERT_EQUAL_FLOAT(17.0, cell.detailTextLabel.font.pointSize);
+}
+
+- (void)testISTableViewCellStyleValue2
+{
+    ISTableViewCell *cell = (ISTableViewCell *)CELL(2, 0);
+    
+    ASSERT_EQUAL_FLOAT(13.0, cell.textLabel.font.pointSize);
+    ASSERT_EQUAL_FLOAT(15.0, cell.detailTextLabel.font.pointSize);
+}
+
+- (void)testISTableViewCellStyleSubtitle
+{
+    ISTableViewCell *cell = (ISTableViewCell *)CELL(3, 0);
+    
+    ASSERT_EQUAL_FLOAT(18.0, cell.textLabel.font.pointSize);
+    ASSERT_EQUAL_FLOAT(14.0, cell.detailTextLabel.font.pointSize);
+}
 
 
 
