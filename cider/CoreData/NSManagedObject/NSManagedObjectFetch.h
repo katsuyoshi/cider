@@ -123,5 +123,8 @@
 + (NSFetchedResultsController *)fetchedResultsControllerWithSectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)cacheName;
 
 
+// don't use this directory.
++ (ISFetchRequestCondition *)_normalizedCondition:(ISFetchRequestCondition *)condition;
+
 
 @end

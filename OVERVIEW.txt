@@ -60,3 +60,7 @@ It's a helper class for creation of NSFetchRequest or NSFetchedResultsController
 
   Related sample code: NSManagedObjectContextSample
 
+== NSFetchedResultsController(ISSortedObject)
+
+−arrangedObjects returns sorted objects.
+

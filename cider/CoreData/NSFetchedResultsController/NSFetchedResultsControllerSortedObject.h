@@ -1,10 +1,9 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  NSFetchedResultsControllerSortedObject.h
+//  ioTouch2
+//
+//  Created by Katsuyoshi Ito on 09/08/07.
+//
 
 /* 
 
@@ -37,22 +36,19 @@
 
 */
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Cider.h"
 
 
-// CoreData
-#import "NSErrorCoreDataExtension.h"
-#import "NSSortDescriptorExtension.h"
-#import "ISFetchRequestCondition.h"
-#import "NSFetchedResultsControllerSortedObject.h"
+@interface NSFetchedResultsController(ISSortedObject)
 
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
-#import "NSManagedObjectFind.h"
+/**
+ * Return sorted objects.
+ * -fetchedObject returns sorted objects by default.
+ * But after moving cells of table view, -fetchedObject returns objects
+ * according to table view cells order.
+ * -arrangedObjects returns sorted objects anytime.
+ */
+- (id)arrangedObjects;
 
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
-#import "NSManagedObjectFetch.h"
-
+@end

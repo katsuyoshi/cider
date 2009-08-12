@@ -102,7 +102,6 @@
 {
     UITableView *tableView = (UITableView *)[self superview];
     UITableViewStyle style = tableView ? tableView.style : UITableViewStyleGrouped;
-NSLog(@"%@", tableView);
     float height = self.contentView.frame.size.height;
     float delta = height - (style == UITableViewStylePlain ? 43 : 44);
 

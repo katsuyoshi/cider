@@ -99,7 +99,11 @@
 {
     if (_fetchedResultsController == nil) {
         NSFetchRequest *request = self.fetchRequst;
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:self.sectionNameKeyPath cacheName:self.cacheName];
+        if ([[request sortDescriptors] count] < 1) {
+            NSDictionary *info = [NSDictionary dictionaryWithObject:self forKey:@"object"];
+            @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"To create NSFetchedResultsController, the fetch request must have at least one sort descriptor." userInfo:info];
+        }
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:_managedObjectContext sectionNameKeyPath:_sectionNameKeyPath cacheName:_cacheName];
 
     }
     return _fetchedResultsController;

@@ -46,20 +46,6 @@
 #pragma mark -
 #pragma mark primitive methods
 
-+ (ISFetchRequestCondition *)_normalizedCondition:(ISFetchRequestCondition *)condition
-{
-    if (condition == nil) {
-        condition = [ISFetchRequestCondition fetchRequestCondition];
-    }
-    if (condition.managedObjectContext == nil) {
-        condition.managedObjectContext = [NSManagedObjectContext defaultManagedObjectContext];
-    }
-    if (condition.entityName == nil) {
-        condition.entityName = NSStringFromClass(self);
-    }
-    return condition;
-}
-
 + (NSArray *)findAllWithCondition:(ISFetchRequestCondition *)condition error:(NSError **)error
 {
     condition = [self _normalizedCondition:condition];

@@ -46,6 +46,8 @@
 #pragma mark -
 #pragma mark Tests
 
+#pragma mark fetchRequest
+
 - (void)testFetchRequestFull
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title = %d", @"title"];
@@ -91,6 +93,18 @@
     ASSERT_EQUAL(predicate, request.predicate);
     ASSERT_EQUAL(sortDescriptors, request.sortDescriptors);
 }
+
+- (void)testFetchRequestWithNilCondition
+{
+    NSFetchRequest *request = [ISMovie fetchRequestWithCondition:nil];
+
+    ASSERT_EQUAL(@"ISMovie", request.entity.name);
+    ASSERT_NIL(request.predicate);
+    ASSERT_NIL(request.sortDescriptors);
+}
+
+
+#pragma mark fetchedResultsController
 
 - (void)testFetchedResultControllerFull
 {
@@ -142,6 +156,13 @@
     ASSERT_EQUAL(sortDescriptors, [[controller fetchRequest]  sortDescriptors]);
 }
 
+- (void)testFetchedResultsControllerWithNilCondition
+{
+    // The fetch request must have at least one sort descriptor.
+    ASSERT_RAISE(
+        NSFetchedResultsController *controller = [ISMovie fetchedResultsControllerWithCondition:nil]
+    );
+}
 
 #pragma mark -
 #pragma mark Option

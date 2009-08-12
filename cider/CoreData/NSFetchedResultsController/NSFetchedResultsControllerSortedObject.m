@@ -1,10 +1,9 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  NSFetchedResultsControllerSortedObject.m
+//  ioTouch2
+//
+//  Created by Katsuyoshi Ito on 09/08/07.
+//
 
 /* 
 
@@ -37,22 +36,19 @@
 
 */
 
-#import <CoreData/CoreData.h>
-#import "Cider.h"
-
-
-// CoreData
-#import "NSErrorCoreDataExtension.h"
-#import "NSSortDescriptorExtension.h"
-#import "ISFetchRequestCondition.h"
 #import "NSFetchedResultsControllerSortedObject.h"
 
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
-#import "NSManagedObjectFind.h"
 
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
-#import "NSManagedObjectFetch.h"
+@implementation NSFetchedResultsController(ISSortedObject)
 
+- (id)arrangedObjects
+{
+    NSArray *sortDescriptors = self.fetchRequest.sortDescriptors;
+    if ([sortDescriptors count]) {
+        return [self.fetchedObjects sortedArrayUsingDescriptors:sortDescriptors];
+    } else {
+        return self.fetchedObjects;
+    }
+}
+
+@end
