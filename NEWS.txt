@@ -1,4 +1,7 @@
 
+== 2009-8-17
+ * Added To get a new NSManagedObjectContext.
+
 == 0.2.1: 2009-8-12
  * Added NSFetchedResultsControllerSortedObject
  * Fixed font size

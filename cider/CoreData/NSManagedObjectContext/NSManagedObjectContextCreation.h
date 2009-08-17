@@ -50,3 +50,14 @@
 - (id)createWithEntityName:(NSString *)entityName;
 
 @end
+
+@interface NSManagedObjectContext(ISManagedObjectContextCreation)
+
+/**
+ * Return a new NSManagedObjectContext.
+ * It has the same persistent store coordinator of this object.
+ * @return A new NSManagedObjectContext.
+ */
+- (NSManagedObjectContext *)newManagedObjectContext;
+
+@end

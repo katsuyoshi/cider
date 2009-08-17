@@ -47,3 +47,14 @@
 }
 
 @end
+
+@implementation NSManagedObjectContext(ISManagedObjectContextCreation)
+
+- (NSManagedObjectContext *)newManagedObjectContext
+{
+    NSManagedObjectContext *context = [[NSManagedObjectContext new] autorelease];
+    [context setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    return context;
+}
+
+@end

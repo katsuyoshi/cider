@@ -46,6 +46,17 @@
     ASSERT_EQUAL(@"ISStudio", studio.entity.name);
 }
 
+- (void)testNewManagedObjectContext
+{
+    NSManagedObjectContext *context = [NSManagedObjectContext defaultManagedObjectContext];
+    NSManagedObjectContext *newContext = [context newManagedObjectContext];
+    
+    ASSERT_NOT_SAME(context, newContext);
+    ASSERT_EQUAL(context.persistentStoreCoordinator, newContext.persistentStoreCoordinator);
+}
+
+
+
 
 #pragma mark -
 #pragma mark Option
