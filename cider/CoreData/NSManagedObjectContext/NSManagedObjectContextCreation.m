@@ -52,7 +52,7 @@
 
 - (NSManagedObjectContext *)newManagedObjectContext
 {
-    NSManagedObjectContext *context = [[NSManagedObjectContext new] autorelease];
+    NSManagedObjectContext *context = [NSManagedObjectContext new];
     [context setPersistentStoreCoordinator:self.persistentStoreCoordinator];
     return context;
 }

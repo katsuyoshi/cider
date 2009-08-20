@@ -49,7 +49,7 @@
 - (void)testNewManagedObjectContext
 {
     NSManagedObjectContext *context = [NSManagedObjectContext defaultManagedObjectContext];
-    NSManagedObjectContext *newContext = [context newManagedObjectContext];
+    NSManagedObjectContext *newContext = [[context newManagedObjectContext] autorelease];
     
     ASSERT_NOT_SAME(context, newContext);
     ASSERT_EQUAL(context.persistentStoreCoordinator, newContext.persistentStoreCoordinator);
