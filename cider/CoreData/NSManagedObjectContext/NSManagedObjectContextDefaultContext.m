@@ -82,7 +82,7 @@ static id _defaultStoreURL = nil;
         if ([manager fileExistsAtPath:filePath]) {
             NSError *error = nil;
             if ([manager removeItemAtPath:filePath error:&error] == NO) {
-#ifdef __DEBUG__
+#ifdef DEBUG
                 [error showError];
 #endif
             }
@@ -159,7 +159,7 @@ static id _defaultStoreURL = nil;
 	NSError *error = nil;
     NSPersistentStoreCoordinator *coordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel] autorelease];
     if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error]) {
-#ifdef __DEBUG__
+#ifdef DEBUG
         [error showError];
 #endif
     }
