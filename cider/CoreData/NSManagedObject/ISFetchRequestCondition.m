@@ -55,8 +55,35 @@
     return [[ISFetchRequestCondition new] autorelease];
 }
 
+- (NSArray *)kvoKeys
+{
+    return [NSArray arrayWithObjects:
+                      @"entityName"
+                    , @"predicate"
+                    , @"sortDescriptors"
+                    , @"managedObjectContext"
+                    , @"selectionnameKeyPath"
+                    , @"cacheName"
+                    , nil];
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        for (NSString *key in [self kvoKeys]) {
+            [self addObserver:self forKeyPath:key options:NSKeyValueObservingOptionNew context:NULL];
+        }
+    }
+    return self;
+}
+
 - (void)dealloc
 {
+    for (NSString *key in [self kvoKeys]) {
+        [self removeObserver:self forKeyPath:key];
+    }
+
     [_entityName release];
     [_predicate release];
     [_sortDescriptors release];
@@ -108,5 +135,19 @@
     }
     return _fetchedResultsController;
 }
+
+
+#pragma mark -
+#pragma mark kvo notification
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [_fetchedResultsController release];
+    _fetchedResultsController = nil;
+    
+    [_fetchRequest release];
+    _fetchRequest = nil;
+}
+
 
 @end
