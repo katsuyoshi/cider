@@ -75,6 +75,7 @@
                     _detailTextField.textAlignment = UITextAlignmentRight;
                 }
             }
+            self.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         return self;
     }
