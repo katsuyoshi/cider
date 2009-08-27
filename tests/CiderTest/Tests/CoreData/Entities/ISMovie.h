@@ -16,6 +16,7 @@
 
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSManagedObject * studio;
+@property (nonatomic, retain) NSNumber * position;
 
 @end
 

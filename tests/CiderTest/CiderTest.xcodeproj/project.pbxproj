@@ -24,6 +24,10 @@
 		4630A5761027278F0081D4BE /* NSSortDescriptorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A5751027278F0081D4BE /* NSSortDescriptorExtension.m */; };
 		4630A579102729D80081D4BE /* NSSortDescriptorExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A578102729D80081D4BE /* NSSortDescriptorExtensionTest.m */; };
 		4630A6231027490C0081D4BE /* ISFetchRequestCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A6221027490C0081D4BE /* ISFetchRequestCondition.m */; };
+		4643C06310464D8600677C80 /* NSManagedObjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C06210464D8600677C80 /* NSManagedObjectList.m */; };
+		4643C07E10464FA300677C80 /* NSManagedObjectListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */; };
+		4643C0991046542900677C80 /* ListTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C0961046542900677C80 /* ListTest1.m */; };
+		4643C09A1046542900677C80 /* ListTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C0981046542900677C80 /* ListTest2.m */; };
 		4647BDF310241A48003D1D17 /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BDF110241A48003D1D17 /* ISTableViewCell.m */; };
 		4647BDF710241AA9003D1D17 /* NSErrorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BDF610241AA9003D1D17 /* NSErrorExtension.m */; };
 		4647BE1610241EC9003D1D17 /* TableViewControllerForISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BE1110241EC9003D1D17 /* TableViewControllerForISTableViewCell.m */; };
@@ -95,6 +99,14 @@
 		4630A578102729D80081D4BE /* NSSortDescriptorExtensionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSortDescriptorExtensionTest.m; sourceTree = "<group>"; };
 		4630A6211027490C0081D4BE /* ISFetchRequestCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISFetchRequestCondition.h; sourceTree = "<group>"; };
 		4630A6221027490C0081D4BE /* ISFetchRequestCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISFetchRequestCondition.m; sourceTree = "<group>"; };
+		4643C06110464D8600677C80 /* NSManagedObjectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectList.h; sourceTree = "<group>"; };
+		4643C06210464D8600677C80 /* NSManagedObjectList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectList.m; sourceTree = "<group>"; };
+		4643C07C10464FA300677C80 /* NSManagedObjectListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectListTest.h; sourceTree = "<group>"; };
+		4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectListTest.m; sourceTree = "<group>"; };
+		4643C0951046542900677C80 /* ListTest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTest1.h; sourceTree = "<group>"; };
+		4643C0961046542900677C80 /* ListTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTest1.m; sourceTree = "<group>"; };
+		4643C0971046542900677C80 /* ListTest2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTest2.h; sourceTree = "<group>"; };
+		4643C0981046542900677C80 /* ListTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTest2.m; sourceTree = "<group>"; };
 		4647BDF010241A48003D1D17 /* ISTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCell.h; sourceTree = "<group>"; };
 		4647BDF110241A48003D1D17 /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
 		4647BDF410241A7C003D1D17 /* Cider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cider.h; sourceTree = "<group>"; };
@@ -371,6 +383,8 @@
 				4630A6221027490C0081D4BE /* ISFetchRequestCondition.m */,
 				467BCC171029C36D00D19D4B /* NSManagedObjectFind.h */,
 				467BCC181029C36D00D19D4B /* NSManagedObjectFind.m */,
+				4643C06110464D8600677C80 /* NSManagedObjectList.h */,
+				4643C06210464D8600677C80 /* NSManagedObjectList.m */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
@@ -378,6 +392,10 @@
 		468F0BFA1025E6A700F3DDF6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				4643C0951046542900677C80 /* ListTest1.h */,
+				4643C0961046542900677C80 /* ListTest1.m */,
+				4643C0971046542900677C80 /* ListTest2.h */,
+				4643C0981046542900677C80 /* ListTest2.m */,
 				468F0BFD1025E73B00F3DDF6 /* ISMovie.h */,
 				468F0BFE1025E73B00F3DDF6 /* ISMovie.m */,
 				468F0BFF1025E73B00F3DDF6 /* ISStudio.h */,
@@ -395,6 +413,8 @@
 				4630A50E1027208C0081D4BE /* NSManagedObjectFetchTest.m */,
 				467BCC6A1029DD0B00D19D4B /* NSManagedObjectFindTest.h */,
 				467BCC6B1029DD0B00D19D4B /* NSManagedObjectFindTest.m */,
+				4643C07C10464FA300677C80 /* NSManagedObjectListTest.h */,
+				4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
@@ -619,6 +639,10 @@
 				467BCC6C1029DD0B00D19D4B /* NSManagedObjectFindTest.m in Sources */,
 				469B10481031C7C800025C80 /* NSFetchedResultsControllerSortedObject.m in Sources */,
 				469B104C1031C82400025C80 /* NSFetchedResultsControllerSortedObjectTest.m in Sources */,
+				4643C06310464D8600677C80 /* NSManagedObjectList.m in Sources */,
+				4643C07E10464FA300677C80 /* NSManagedObjectListTest.m in Sources */,
+				4643C0991046542900677C80 /* ListTest1.m in Sources */,
+				4643C09A1046542900677C80 /* ListTest2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

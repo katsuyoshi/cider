@@ -13,5 +13,11 @@
 
 @dynamic title;
 @dynamic studio;
+@dynamic position;
+
++ (NSString *)listScopeName
+{
+    return @"studio";
+}
 
 @end

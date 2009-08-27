@@ -14,5 +14,6 @@
 
 @dynamic name;
 @dynamic movies;
+@dynamic position;
 
 @end
