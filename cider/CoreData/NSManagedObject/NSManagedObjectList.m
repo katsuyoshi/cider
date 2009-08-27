@@ -62,7 +62,7 @@
 #pragma mark -
 #pragma mark helper
 
-- (void)_setListNumber
+- (void)setListNumber
 {
     NSString *listAttributeName = [[self class] listAttributeName];
     NSString *listScopeName = [[self class] listScopeName];
@@ -113,12 +113,6 @@
         }
     }
     [self setPrimitiveValue:[NSNumber numberWithInt:index + 1] forKey:listAttributeName];
-}
-
-#pragma mark will save
-- (void)willSave
-{
-    [self _setListNumber];
 }
 
 

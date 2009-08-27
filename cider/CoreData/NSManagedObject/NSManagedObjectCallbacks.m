@@ -1,9 +1,8 @@
 //
-//  NSManagedObjectList.h
+//  NSManagedObjectCallbacks.m
 //  CiderTest
 //
 //  Created by Katsuyoshi Ito on 09/08/27.
-//  Copyright 2009 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
 /* 
@@ -37,28 +36,15 @@
 
 */
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "NSManagedObjectCallbacks.h"
+#import "NSManagedObjectList.h"
 
 
-@interface NSManagedObject(ISActAsList)
+@implementation NSManagedObject(ISCallbacks)
 
-/**
- * Return ordring attribute name.
- * default is @"position".
- */
-+ (NSString *)listAttributeName;
-
-/**
- * Return ordring scope name.
- * default is nil
- */
-+ (NSString *)listScopeName;
-
-
-/**
- * Set list number immediately.
- */
-- (void)setListNumber;
+- (void)willSave
+{
+    [self setListNumber];
+}
 
 @end

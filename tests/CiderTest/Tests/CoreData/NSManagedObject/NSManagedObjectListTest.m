@@ -118,30 +118,29 @@
     ISMovie *movie1 = [ISMovie create];
     movie1.title = @"Star Wars IV";
     [studio addMoviesObject:movie1];
+    [movie1 setListNumber];
     
     ISMovie *movie2 = [ISMovie create];
     movie2.title = @"Star Wars V";
     [studio addMoviesObject:movie2];
+    [movie2 setListNumber];
     
     ISMovie *movie3 = [ISMovie create];
     movie3.title = @"Star Wars VI";
     [studio addMoviesObject:movie3];
+    [movie3 setListNumber];
+    [movie3 setListNumber];
     
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
+
     [[NSManagedObjectContext defaultManagedObjectContext] save:NULL];
 
-    NSArray *array = [NSArray arrayWithObjects:
-                          movie1.position
-                        , movie2.position
-                        , movie3.position
-                        , nil];
-    array = [array sortedArrayUsingSelector:@selector(compare:)];
-    NSArray *expected = [NSArray arrayWithObjects:
-                          [NSNumber numberWithInt:1]
-                        , [NSNumber numberWithInt:2]
-                        , [NSNumber numberWithInt:3]
-                        , nil];
-    ASSERT_EQUAL(expected, array);
-
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
 }
 
 
