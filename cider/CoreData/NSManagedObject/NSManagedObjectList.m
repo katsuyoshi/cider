@@ -75,6 +75,10 @@
         if ([[entity propertiesByName] valueForKey:listAttributeName] == nil) {
             return;
         }
+        NSNumber *value = [self valueForKey:listAttributeName];
+        if (value && [value intValue]) {
+            return;
+        }
     }
     
     // check scope
