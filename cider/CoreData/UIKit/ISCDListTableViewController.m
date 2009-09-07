@@ -48,7 +48,11 @@
 
 @implementation ISCDListTableViewController
 
-@synthesize entity, entityName, fetchedResultsController, managedObjectContext, displayKey;
+@synthesize entity = _entity;
+@synthesize entityName = _entityName;
+@synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize displayKey = _displayKey;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -264,6 +268,11 @@
 
 
 - (void)dealloc {
+    [_entityName release];
+    [_entity release];
+    [_managedObjectContext release];
+    [_displayKey release];
+    [_fetchedResultsController release];
     [super dealloc];
 }
 
@@ -273,17 +282,17 @@
 
 - (NSString *)entityName
 {
-    if (entityName == nil) {
+    if (_entityName == nil) {
         if (self.entity) {
-            entityName = [self.entity name];
+            _entityName = [self.entity name];
         }
     }
-    return entityName;
+    return _entityName;
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    if (fetchedResultsController == nil) {
+    if (_fetchedResultsController == nil) {
         ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
         condition.managedObjectContext = self.managedObjectContext;
         condition.entityName = self.entityName;
@@ -293,17 +302,17 @@
             NSString *key = [class listAttributeName];
             condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:key];
         }
-        fetchedResultsController = [condition.fetchedResultsController retain];
+        _fetchedResultsController = [condition.fetchedResultsController retain];
     }
-    return fetchedResultsController;
+    return _fetchedResultsController;
 }
 
 - (NSManagedObjectContext *)managedObjectContext
 {
-    if (managedObjectContext == nil) {
-        managedObjectContext = [[NSManagedObjectContext defaultManagedObjectContext] newManagedObjectContext];
+    if (_managedObjectContext == nil) {
+        _managedObjectContext = [[NSManagedObjectContext defaultManagedObjectContext] newManagedObjectContext];
     }
-    return managedObjectContext;
+    return _managedObjectContext;
 }
 
 

@@ -48,13 +48,13 @@ typedef enum {
 
 @interface ISCDListTableViewController : UITableViewController {
 
-    NSEntityDescription *entity;
-    NSString *entityName;
+    NSEntityDescription *_entity;
+    NSString *_entityName;
 
-    NSFetchedResultsController *fetchedResultsController;
-    NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *_fetchedResultsController;
+    NSManagedObjectContext *_managedObjectContext;
     
-    NSString *displayKey;
+    NSString *_displayKey;
 
 }
 

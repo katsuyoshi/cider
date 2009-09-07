@@ -212,7 +212,7 @@
         }
 #endif
         
-        NSMutableArray *arrangedArray = [result mutableCopy];
+        NSMutableArray *arrangedArray = [[result mutableCopy] autorelease];
         if (from < to) {
             id object = [[[arrangedArray objectAtIndex:0] retain] autorelease];
             [arrangedArray removeObjectAtIndex:0];

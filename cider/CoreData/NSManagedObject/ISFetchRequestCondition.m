@@ -87,6 +87,7 @@
     }
 
     [_entityName release];
+    [_entity release];
     [_predicate release];
     [_sortDescriptors release];
     [_managedObjectContext release];
@@ -113,7 +114,7 @@
 {
     if (_entity == nil) {
         if (_entityName && _managedObjectContext) {
-            _entity = [NSEntityDescription entityForName:_entityName inManagedObjectContext:_managedObjectContext];
+            _entity = [[NSEntityDescription entityForName:_entityName inManagedObjectContext:_managedObjectContext] retain];
         }
     }
     return _entity;
