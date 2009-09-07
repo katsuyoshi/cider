@@ -53,6 +53,11 @@
 		468F0C191025E86C00F3DDF6 /* NSManagedObjectCreationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0C181025E86C00F3DDF6 /* NSManagedObjectCreationTest.m */; };
 		469B10481031C7C800025C80 /* NSFetchedResultsControllerSortedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B10471031C7C800025C80 /* NSFetchedResultsControllerSortedObject.m */; };
 		469B104C1031C82400025C80 /* NSFetchedResultsControllerSortedObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B104B1031C82400025C80 /* NSFetchedResultsControllerSortedObjectTest.m */; };
+		469B8A5E105532FF00F59D7E /* ISCDListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A5D105532FF00F59D7E /* ISCDListTableViewController.m */; };
+		469B8A7B105542FB00F59D7E /* ISFetchRequestConditionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A7A105542FB00F59D7E /* ISFetchRequestConditionTest.m */; };
+		469B8A8D105545C100F59D7E /* ISCDListTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A8C105545C100F59D7E /* ISCDListTableViewControllerTest.m */; };
+		469B8A96105547DB00F59D7E /* UITableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A93105547DB00F59D7E /* UITableViewControllerTest.m */; };
+		469B8A97105547DB00F59D7E /* UIViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A95105547DB00F59D7E /* UIViewControllerTest.m */; };
 		469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */; };
 		46B32F8210249DC600F40719 /* NSManagedObjectContextDefaultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B32F8110249DC600F40719 /* NSManagedObjectContextDefaultContext.m */; };
 		46B32FA61024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B32FA51024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m */; };
@@ -162,6 +167,16 @@
 		469B10471031C7C800025C80 /* NSFetchedResultsControllerSortedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFetchedResultsControllerSortedObject.m; sourceTree = "<group>"; };
 		469B104A1031C82400025C80 /* NSFetchedResultsControllerSortedObjectTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFetchedResultsControllerSortedObjectTest.h; sourceTree = "<group>"; };
 		469B104B1031C82400025C80 /* NSFetchedResultsControllerSortedObjectTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFetchedResultsControllerSortedObjectTest.m; sourceTree = "<group>"; };
+		469B8A5C105532FF00F59D7E /* ISCDListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDListTableViewController.h; sourceTree = "<group>"; };
+		469B8A5D105532FF00F59D7E /* ISCDListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDListTableViewController.m; sourceTree = "<group>"; };
+		469B8A79105542FB00F59D7E /* ISFetchRequestConditionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISFetchRequestConditionTest.h; sourceTree = "<group>"; };
+		469B8A7A105542FB00F59D7E /* ISFetchRequestConditionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISFetchRequestConditionTest.m; sourceTree = "<group>"; };
+		469B8A8B105545C100F59D7E /* ISCDListTableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDListTableViewControllerTest.h; sourceTree = "<group>"; };
+		469B8A8C105545C100F59D7E /* ISCDListTableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDListTableViewControllerTest.m; sourceTree = "<group>"; };
+		469B8A92105547DB00F59D7E /* UITableViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewControllerTest.h; sourceTree = "<group>"; };
+		469B8A93105547DB00F59D7E /* UITableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewControllerTest.m; sourceTree = "<group>"; };
+		469B8A94105547DB00F59D7E /* UIViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerTest.h; sourceTree = "<group>"; };
+		469B8A95105547DB00F59D7E /* UIViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerTest.m; sourceTree = "<group>"; };
 		469F8E820FBC5A4C004FD86F /* NSExceptionExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSExceptionExtension.h; sourceTree = "<group>"; };
 		469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSExceptionExtension.m; sourceTree = "<group>"; };
 		46B32F8010249DC600F40719 /* NSManagedObjectContextDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContext.h; sourceTree = "<group>"; };
@@ -325,6 +340,7 @@
 		4647BE6E102422D2003D1D17 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				469B8A5B105532E800F59D7E /* UIKit */,
 				469B10451031C7C800025C80 /* NSFetchedResultsController */,
 				468F0BE91025DA2800F3DDF6 /* NSManagedObject */,
 				4647C2E710246B54003D1D17 /* NSManagedObjectContext */,
@@ -351,6 +367,7 @@
 		4647BF331024324A003D1D17 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				469B8A8A105545AB00F59D7E /* UIKit */,
 				468F0BFA1025E6A700F3DDF6 /* Entities */,
 				468F0C131025E82B00F3DDF6 /* NSManagedObject */,
 				46B32FA31024F40E00F40719 /* NSManagedObjectContext */,
@@ -420,6 +437,8 @@
 				467BCC6B1029DD0B00D19D4B /* NSManagedObjectFindTest.m */,
 				4643C07C10464FA300677C80 /* NSManagedObjectListTest.h */,
 				4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */,
+				469B8A79105542FB00F59D7E /* ISFetchRequestConditionTest.h */,
+				469B8A7A105542FB00F59D7E /* ISFetchRequestConditionTest.m */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
@@ -440,6 +459,24 @@
 				469B104B1031C82400025C80 /* NSFetchedResultsControllerSortedObjectTest.m */,
 			);
 			path = NSFetchedResultsController;
+			sourceTree = "<group>";
+		};
+		469B8A5B105532E800F59D7E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				469B8A5C105532FF00F59D7E /* ISCDListTableViewController.h */,
+				469B8A5D105532FF00F59D7E /* ISCDListTableViewController.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		469B8A8A105545AB00F59D7E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				469B8A8B105545C100F59D7E /* ISCDListTableViewControllerTest.h */,
+				469B8A8C105545C100F59D7E /* ISCDListTableViewControllerTest.m */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		46B32FA31024F40E00F40719 /* NSManagedObjectContext */ = {
@@ -518,6 +555,10 @@
 		46C6AB400F2DBE7E00BA1B73 /* ControllerTest */ = {
 			isa = PBXGroup;
 			children = (
+				469B8A92105547DB00F59D7E /* UITableViewControllerTest.h */,
+				469B8A93105547DB00F59D7E /* UITableViewControllerTest.m */,
+				469B8A94105547DB00F59D7E /* UIViewControllerTest.h */,
+				469B8A95105547DB00F59D7E /* UIViewControllerTest.m */,
 				462AC4B20FEAFF2400B587D6 /* UIViewBasedTest.h */,
 				462AC4B30FEAFF2400B587D6 /* UIViewBasedTest.m */,
 				462AC5A10FEB29B200B587D6 /* UITableViewBasedTest.h */,
@@ -649,6 +690,11 @@
 				4643C0991046542900677C80 /* ListTest1.m in Sources */,
 				4643C09A1046542900677C80 /* ListTest2.m in Sources */,
 				4643C27210467F9200677C80 /* NSManagedObjectCallbacks.m in Sources */,
+				469B8A5E105532FF00F59D7E /* ISCDListTableViewController.m in Sources */,
+				469B8A7B105542FB00F59D7E /* ISFetchRequestConditionTest.m in Sources */,
+				469B8A8D105545C100F59D7E /* ISCDListTableViewControllerTest.m in Sources */,
+				469B8A96105547DB00F59D7E /* UITableViewControllerTest.m in Sources */,
+				469B8A97105547DB00F59D7E /* UIViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

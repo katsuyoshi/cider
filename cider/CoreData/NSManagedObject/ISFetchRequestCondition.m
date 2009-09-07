@@ -42,6 +42,7 @@
 
 @implementation ISFetchRequestCondition
 
+@synthesize entity = _entity;
 @synthesize entityName = _entityName;
 @synthesize predicate = _predicate;
 @synthesize sortDescriptors = _sortDescriptors;
@@ -58,7 +59,8 @@
 - (NSArray *)kvoKeys
 {
     return [NSArray arrayWithObjects:
-                      @"entityName"
+                      @"entity"
+                    , @"entityName"
                     , @"predicate"
                     , @"sortDescriptors"
                     , @"managedObjectContext"
@@ -97,6 +99,25 @@
     [super dealloc];
 }
 
+- (NSString *)entityName
+{
+    if (_entityName == nil) {
+        if (_entity) {
+            return [_entity name];
+        }
+    }
+    return _entityName;
+}
+
+- (NSEntityDescription *)entity
+{
+    if (_entity == nil) {
+        if (_entityName && _managedObjectContext) {
+            _entity = [NSEntityDescription entityForName:_entityName inManagedObjectContext:_managedObjectContext];
+        }
+    }
+    return _entity;
+}
 
 - (NSFetchRequest *)fetchRequst
 {
@@ -110,9 +131,8 @@
             @throw [NSException exceptionWithName:@"Cider" reason:reason userInfo:[NSDictionary dictionaryWithObject:self forKey:@"self"]];
         }
     
-        NSEntityDescription *entity = [NSEntityDescription entityForName:self.entityName inManagedObjectContext:self.managedObjectContext];
         _fetchRequest = [NSFetchRequest new];
-        [_fetchRequest setEntity:entity];
+        [_fetchRequest setEntity:self.entity];
         [_fetchRequest setPredicate:self.predicate];
         [_fetchRequest setSortDescriptors:self.sortDescriptors];
     

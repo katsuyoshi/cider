@@ -1,10 +1,9 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  ISCDListTableViewController.h
+//  CiderTest
+//
+//  Created by Katsuyoshi Ito on 09/09/07.
+//
 
 /* 
 
@@ -37,27 +36,44 @@
 
 */
 
+#import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "Cider.h"
 
 
-// CoreData
-#import "NSErrorCoreDataExtension.h"
-#import "NSSortDescriptorExtension.h"
-#import "ISFetchRequestCondition.h"
-#import "NSFetchedResultsControllerSortedObject.h"
-
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
-#import "NSManagedObjectFind.h"
-
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
-#import "NSManagedObjectFetch.h"
-#import "NSManagedObjectList.h"
-
-// UIKit
-#import "ISCDListTableViewController.h"
+typedef enum {
+    ISListTableViewNewCellRowStyleFirst,
+    ISListTableViewNewCellRowStyleLast
+} ISListTableViewNewCellRowStyle;
 
 
+@interface ISCDListTableViewController : UITableViewController {
+
+    NSEntityDescription *entity;
+    NSString *entityName;
+
+    NSFetchedResultsController *fetchedResultsController;
+    NSManagedObjectContext *managedObjectContext;
+    
+    NSString *displayKey;
+
+}
+
+@property (retain) NSEntityDescription *entity;
+@property (retain) NSString *entityName;
+
+@property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
+@property (retain) NSManagedObjectContext *managedObjectContext;
+
+@property (retain) NSString *displayKey;
+
+
+// for customizing
+@property (assign, readonly) BOOL hasEditButtonItem;
+@property (assign, readonly) ISListTableViewNewCellRowStyle newCellRowStyle;
+@property (assign, readonly) UITableViewRowAnimation editingRowAnimation;
+
+- (void)reloadData;
+- (void)save;
+- (void)cancel;
+
+@end

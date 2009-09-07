@@ -43,6 +43,7 @@
 #import "NSErrorExtension.h"
 #import "NSManagedObjectFind.h"
 #import "NSSortDescriptorExtension.h"
+#import "NSManagedObjectContextDefaultContext.h"
 
 
 @implementation NSManagedObject(ISActAsList)
@@ -57,15 +58,11 @@
     return nil;
 }
 
-
-#pragma mark -
-#pragma mark helper
-
-- (BOOL)listAvailable
++ (BOOL)listAvailable
 {
     NSString *listAttributeName = [[self class] listAttributeName];
     NSString *listScopeName = [[self class] listScopeName];
-    NSEntityDescription *entity = [self entity];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass(self) inManagedObjectContext:[NSManagedObjectContext defaultManagedObjectContext]];
 
     // check attribute
     if ([listAttributeName length] == 0) {
@@ -86,6 +83,14 @@
     
     return YES;
 }
+
+- (BOOL)listAvailable
+{
+    return [[self class] listAvailable];
+}
+
+#pragma mark -
+#pragma mark helper
 
 - (ISFetchRequestCondition *)conditionForListWithDesc:(BOOL)desc
 {

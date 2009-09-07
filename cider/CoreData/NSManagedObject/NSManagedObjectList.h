@@ -55,6 +55,11 @@
  */
 + (NSString *)listScopeName;
 
+/**
+ * Return whether list is supported.
+ */
++ (BOOL)listAvailable;
+- (BOOL)listAvailable;
 
 /**
  * Set list number immediately.

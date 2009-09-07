@@ -42,6 +42,7 @@
 
 @interface ISFetchRequestCondition : NSObject {
 
+    NSEntityDescription *_entity;
     NSString *_entityName;
     NSPredicate *_predicate;
     NSArray *_sortDescriptors;
@@ -53,6 +54,9 @@
     NSFetchRequest *_fetchRequest;
     NSFetchedResultsController *_fetchedResultsController;
 }
+
+/** An entity for creation of NSFetchRequest or NSFetchedResultsController. */
+@property (retain) NSEntityDescription *entity;
 
 /** An entity name for creation of NSFetchRequest or NSFetchedResultsController. */
 @property (retain) NSString *entityName;
