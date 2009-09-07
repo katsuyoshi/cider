@@ -61,4 +61,22 @@
  */
 - (void)setListNumber;
 
+/**
+ * Rebuild list number.
+ */
+- (void)rebuildListNumber:(NSArray *)array;
+
+/**
+ * Rebuild list number from index.
+ */
+- (void)rebuildListNumber:(NSArray *)array fromIndex:(NSInteger)index;
+
+
+/**
+ * Move to index of object.
+ */
+- (void)moveTo:(NSManagedObject *)object;
+
+
+
 @end

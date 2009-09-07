@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "IUTTest.h"
+#import "ISMovie.h"
 
 
 @interface NSManagedObjectListTest : IUTTest {
 
+    // assing
+    ISMovie *movie1;
+    ISMovie *movie2;
+    ISMovie *movie3;
+    
 }
 
 @end

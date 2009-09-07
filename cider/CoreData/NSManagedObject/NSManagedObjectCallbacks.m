@@ -42,9 +42,23 @@
 
 @implementation NSManagedObject(ISCallbacks)
 
+/*
 - (void)willSave
 {
-    [self setListNumber];
 }
+*/
+
+- (BOOL)validateForInsert:(NSError **)error
+{
+    [self setListNumber];
+    return YES;
+}
+
+- (BOOL)validateForDelete:(NSError **)error
+{
+    [self rebuildListNumber:nil];
+    return YES;
+}
+
 
 @end

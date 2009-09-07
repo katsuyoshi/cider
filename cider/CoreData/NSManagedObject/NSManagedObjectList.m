@@ -58,11 +58,10 @@
 }
 
 
-
 #pragma mark -
 #pragma mark helper
 
-- (void)setListNumber
+- (BOOL)listAvailable
 {
     NSString *listAttributeName = [[self class] listAttributeName];
     NSString *listScopeName = [[self class] listScopeName];
@@ -70,14 +69,10 @@
 
     // check attribute
     if ([listAttributeName length] == 0) {
-        return;
+        return NO;
     } else {
         if ([[entity propertiesByName] valueForKey:listAttributeName] == nil) {
-            return;
-        }
-        NSNumber *value = [self valueForKey:listAttributeName];
-        if (value && [value intValue]) {
-            return;
+            return NO;
         }
     }
     
@@ -85,35 +80,147 @@
     if ([listScopeName length]) {
         NSRelationshipDescription *description = [[entity relationshipsByName] valueForKey:listScopeName];
         if ([description isToMany]) {
+            return NO;
+        }
+    }
+    
+    return YES;
+}
+
+- (ISFetchRequestCondition *)conditionForListWithDesc:(BOOL)desc
+{
+    if ([self listAvailable]) {
+      
+        ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
+        condition.managedObjectContext = [self managedObjectContext];
+        condition.entityName = [[self entity] name];
+
+        NSString *listScopeName = [[self class] listScopeName];
+        if ([listScopeName length]) {
+            condition.predicate = [NSPredicate predicateWithFormat:@"%K = %@", listScopeName, [self valueForKey:listScopeName]];
+        }
+
+        NSString *listAttributeName = [[self class] listAttributeName];
+        condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:[NSString stringWithFormat:@"%@ %@", listAttributeName, desc ? @"desc" : @"asc"]];
+        
+        return condition;
+    
+    } else {
+        return nil;
+    }
+}
+
+- (ISFetchRequestCondition *)conditionForList
+{
+    return [self conditionForListWithDesc:NO];
+}
+
+
+
+#pragma mark -
+
+- (void)setListNumber
+{
+    ISFetchRequestCondition *condition = [self conditionForListWithDesc:YES];
+    
+    if (condition) {
+
+        NSString *listAttributeName = [[self class] listAttributeName];
+
+        // return if value is already seted.
+        NSNumber *value = [self valueForKey:listAttributeName];
+        if (value && [value intValue]) {
             return;
         }
-    }        
-    
-    
-    ISFetchRequestCondition *condition = [ISFetchRequestCondition fetchRequestCondition];
-    condition.managedObjectContext = [self managedObjectContext];
-    condition.entityName = [[self entity] name];
 
-    if ([listScopeName length]) {
-        condition.predicate = [NSPredicate predicateWithFormat:@"%K = %@", listScopeName, [self valueForKey:listScopeName]];
-    }
-    condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:[NSString stringWithFormat:@"%@ desc", listAttributeName]];
+
+        NSError *error = nil;
     
-    NSError *error = nil;
-    
-    NSManagedObject *maxEo = [NSManagedObject find:condition error:&error];
-    if (error) {
-        [error showError];
+        NSManagedObject *maxEo = [NSManagedObject find:condition error:&error];
+        if (error) {
+            [error showError];
+        }
+        NSInteger index = 0;
+        if (maxEo) {
+            NSNumber *indexValue = [maxEo valueForKey:listAttributeName];
+            if (indexValue) {
+                index = [indexValue intValue];
+            }
+        }
+        [self setValue:[NSNumber numberWithInt:index + 1] forKey:listAttributeName];
     }
-    NSInteger index = 0;
-    if (maxEo) {
-        NSNumber *indexValue = [maxEo valueForKey:listAttributeName];
-        if (indexValue) {
-            index = [indexValue intValue];
+}
+
+- (void)rebuildListNumber:(NSArray *)array
+{
+    [self rebuildListNumber:array fromIndex:1];
+}
+
+- (void)rebuildListNumber:(NSArray *)array fromIndex:(NSInteger)index
+{
+    if ([self listAvailable]) {
+        if (array == nil) {
+            NSError *error = nil;
+            array = [NSManagedObject findAll:[self conditionForList] error:&error];
+#ifdef DEBUG
+            if (error) {
+                [error showError];
+            }
+#endif
+        }
+    
+        NSString *listAttributeName = [[self class] listAttributeName];
+        for(NSManagedObject *object in array) {
+            [object setValue:[NSNumber numberWithInt:index++] forKey:listAttributeName];
         }
     }
-    [self setPrimitiveValue:[NSNumber numberWithInt:index + 1] forKey:listAttributeName];
 }
+
+
+#pragma mark -
+#pragma mark moving
+
+- (void)moveTo:(NSManagedObject *)toObject
+{
+    if ([self listAvailable]) {
+        NSString *listAttributeName = [[self class] listAttributeName];
+        
+        NSInteger from = [[self valueForKey:listAttributeName] intValue];
+        NSInteger to = [[toObject valueForKey:listAttributeName] intValue];
+        NSInteger minValue = (from < to) ? from : to;
+        NSInteger maxValue = (from < to) ? to : from;
+
+        ISFetchRequestCondition *condition = [self conditionForList];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K between {%d, %d}", listAttributeName, minValue, maxValue];
+        if (condition.predicate) {
+            NSArray *subpredicates = [NSArray arrayWithObjects:condition.predicate, predicate, nil];
+            condition.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
+        } else {
+            condition.predicate = predicate;
+        }
+        
+        NSError *error = nil;
+        NSArray *result = [NSManagedObject findAll:condition error:&error];
+#ifdef DEBUG
+        if (error) {
+            [error showError];
+        }
+#endif
+        
+        NSMutableArray *arrangedArray = [result mutableCopy];
+        if (from < to) {
+            id object = [[[arrangedArray objectAtIndex:0] retain] autorelease];
+            [arrangedArray removeObjectAtIndex:0];
+            [arrangedArray addObject:object];
+        } else {
+            id object = [[[arrangedArray lastObject] retain] autorelease];
+            [arrangedArray removeLastObject];
+            [arrangedArray insertObject:object atIndex:0];
+        }
+        [self rebuildListNumber:arrangedArray fromIndex:minValue];
+    }
+}
+
 
 
 @end

@@ -115,17 +115,17 @@
     studio.name = @"LUCASFILM";
     [[NSManagedObjectContext defaultManagedObjectContext] save:NULL];
 
-    ISMovie *movie1 = [ISMovie create];
+    movie1 = [ISMovie create];
     movie1.title = @"Star Wars IV";
     [studio addMoviesObject:movie1];
     [movie1 setListNumber];
     
-    ISMovie *movie2 = [ISMovie create];
+    movie2 = [ISMovie create];
     movie2.title = @"Star Wars V";
     [studio addMoviesObject:movie2];
     [movie2 setListNumber];
     
-    ISMovie *movie3 = [ISMovie create];
+    movie3 = [ISMovie create];
     movie3.title = @"Star Wars VI";
     [studio addMoviesObject:movie3];
     [movie3 setListNumber];
@@ -162,6 +162,256 @@
     [ListTest2 create];
     [[NSManagedObjectContext defaultManagedObjectContext] save:NULL];
 }
+
+
+- (void)testRebuildListNumber
+{
+    ISStudio *studio;
+
+    // prepare studios
+    studio = [ISStudio create];
+    studio.name = @"LUCASFILM";
+    [[NSManagedObjectContext defaultManagedObjectContext] save:NULL];
+
+    movie1 = [ISMovie create];
+    movie1.title = @"Star Wars IV";
+    [studio addMoviesObject:movie1];
+    
+    movie2 = [ISMovie create];
+    movie2.title = @"Star Wars V";
+    [studio addMoviesObject:movie2];
+    
+    movie3 = [ISMovie create];
+    movie3.title = @"Star Wars VI";
+    [studio addMoviesObject:movie3];
+
+    [movie1 rebuildListNumber:[NSArray arrayWithObjects:movie1, movie2, movie3, nil]];
+    
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
+}
+
+- (void)testRebuildListNumberWithIndex
+{
+    ISStudio *studio;
+
+    // prepare studios
+    studio = [ISStudio create];
+    studio.name = @"LUCASFILM";
+    [[NSManagedObjectContext defaultManagedObjectContext] save:NULL];
+
+    movie1 = [ISMovie create];
+    movie1.title = @"Star Wars IV";
+    [studio addMoviesObject:movie1];
+    
+    movie2 = [ISMovie create];
+    movie2.title = @"Star Wars V";
+    [studio addMoviesObject:movie2];
+    
+    movie3 = [ISMovie create];
+    movie3.title = @"Star Wars VI";
+    [studio addMoviesObject:movie3];
+
+    [movie1 rebuildListNumber:[NSArray arrayWithObjects:movie1, movie2, movie3, nil] fromIndex:10];
+    
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:10], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:11], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:12], movie3.position);
+}
+
+- (void)testRebuildListNumberRewrite
+{
+    ISStudio *studio;
+
+    // prepare studios
+    studio = [ISStudio create];
+    studio.name = @"LUCASFILM";
+    [[NSManagedObjectContext defaultManagedObjectContext] save:NULL];
+
+    movie1 = [ISMovie create];
+    movie1.title = @"Star Wars IV";
+    movie1.position = [NSNumber numberWithInt:10];
+    [studio addMoviesObject:movie1];
+    
+    movie2 = [ISMovie create];
+    movie2.title = @"Star Wars V";
+    movie2.position = [NSNumber numberWithInt:13];
+    [studio addMoviesObject:movie2];
+    
+    movie3 = [ISMovie create];
+    movie3.title = @"Star Wars VI";
+    movie3.position = [NSNumber numberWithInt:20];
+    [studio addMoviesObject:movie3];
+
+    [movie1 rebuildListNumber:[NSArray arrayWithObjects:movie1, movie2, movie3, nil]];
+    
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
+}
+
+- (void)testRebuildListNumberWithNoObjects
+{
+    ISStudio *studio;
+
+    // prepare studios
+    studio = [ISStudio create];
+    studio.name = @"LUCASFILM";
+    [[NSManagedObjectContext defaultManagedObjectContext] save:NULL];
+
+    movie1 = [ISMovie create];
+    movie1.title = @"Star Wars IV";
+    movie1.position = [NSNumber numberWithInt:10];
+    [studio addMoviesObject:movie1];
+    
+    movie2 = [ISMovie create];
+    movie2.title = @"Star Wars V";
+    movie2.position = [NSNumber numberWithInt:13];
+    [studio addMoviesObject:movie2];
+    
+    movie3 = [ISMovie create];
+    movie3.title = @"Star Wars VI";
+    movie3.position = [NSNumber numberWithInt:20];
+    [studio addMoviesObject:movie3];
+
+    [movie1 rebuildListNumber:nil];
+    
+    NSArray *result = [[NSArray arrayWithObjects:movie1, movie2, movie3, nil] valueForKey:@"position"];
+    result = [result sortedArrayUsingSelector:@selector(compare:)];
+    
+    NSArray *expected = [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], [NSNumber numberWithInt:3], nil];
+    ASSERT_EQUAL(expected, result);
+}
+
+
+- (void)prepareDataForMoveTo
+{
+    ISStudio *studio;
+
+    // prepare studios
+    studio = [ISStudio create];
+    studio.name = @"LUCASFILM";
+    [[NSManagedObjectContext defaultManagedObjectContext] save:NULL];
+
+    movie1 = [ISMovie create];
+    movie1.title = @"Star Wars IV";
+    movie1.position = [NSNumber numberWithInt:1];
+    [studio addMoviesObject:movie1];
+    
+    movie2 = [ISMovie create];
+    movie2.title = @"Star Wars V";
+    movie2.position = [NSNumber numberWithInt:2];
+    [studio addMoviesObject:movie2];
+    
+    movie3 = [ISMovie create];
+    movie3.title = @"Star Wars VI";
+    movie3.position = [NSNumber numberWithInt:3];
+    [studio addMoviesObject:movie3];
+}
+
+- (void)testMove1To1
+{
+    [self prepareDataForMoveTo];
+
+    [movie1 moveTo:movie1];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
+}
+
+- (void)testMove1To2
+{
+    [self prepareDataForMoveTo];
+
+    [movie1 moveTo:movie2];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
+}
+
+- (void)testMove1To3
+{
+    [self prepareDataForMoveTo];
+
+    [movie1 moveTo:movie3];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie3.position);
+}
+
+- (void)testMove2To1
+{
+    [self prepareDataForMoveTo];
+
+    [movie2 moveTo:movie1];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
+}
+
+- (void)testMove2To2
+{
+    [self prepareDataForMoveTo];
+
+    [movie2 moveTo:movie2];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
+}
+
+- (void)testMove2To3
+{
+    [self prepareDataForMoveTo];
+
+    [movie2 moveTo:movie3];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie3.position);
+}
+
+- (void)testMove3To1
+{
+    [self prepareDataForMoveTo];
+
+    [movie3 moveTo:movie1];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie3.position);
+}
+
+- (void)testMove3To2
+{
+    [self prepareDataForMoveTo];
+
+    [movie3 moveTo:movie2];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie3.position);
+}
+
+- (void)testMove3To3
+{
+    [self prepareDataForMoveTo];
+
+    [movie3 moveTo:movie3];
+    
+    ASSERT_EQUAL([NSNumber numberWithInt:1], movie1.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:2], movie2.position);
+    ASSERT_EQUAL([NSNumber numberWithInt:3], movie3.position);
+}
+
 
 
 #pragma mark -
