@@ -37,6 +37,7 @@
 */
 
 #import "NSManagedObjectContextCreation.h"
+#import "NSManagedObjectContextAop.h"
 
 
 @implementation NSManagedObjectContext(ISManagedObjectCreation)
@@ -52,8 +53,15 @@
 
 - (NSManagedObjectContext *)newManagedObjectContext
 {
+    [[self class] initializeAop];
     NSManagedObjectContext *context = [NSManagedObjectContext new];
     [context setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+/* DEBUGME:   
+    // syncronize
+    for (NSManagedObject *object in [self deletedObjects]) {
+        [context deleteObject:[context objectWithID:[object objectID]]];
+    }
+*/        
     return context;
 }
 

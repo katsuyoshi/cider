@@ -1,9 +1,8 @@
 //
-//  NSManagedObjectList.h
-//  CiderTest
+//  NSManagedObjectContextAop.h
+//  ISCDTableViewControllersSample
 //
-//  Created by Katsuyoshi Ito on 09/08/27.
-//  Copyright 2009 ITO SOFT DESIGN Inc. All rights reserved.
+//  Created by Katsuyoshi Ito on 09/09/08.
 //
 
 /* 
@@ -41,52 +40,24 @@
 #import <CoreData/CoreData.h>
 
 
-@interface NSManagedObject(ISActAsList)
+@interface NSObject(NSManagedObjectISAop)
 
-/**
- * Return ordring attribute name.
- * default is @"position".
- */
-+ (NSString *)listAttributeName;
+- (void)willInsert;
+- (void)didInsert;
+- (void)willDelete;
+- (void)didDelete;
 
-/**
- * Return ordring scope name.
- * default is nil
- */
-+ (NSString *)listScopeName;
-
-/**
- * Return whether list is supported.
- */
-+ (BOOL)listAvailable;
-- (BOOL)listAvailable;
-
-/**
- * Set list number immediately.
- */
-- (void)setListNumber;
-
-/**
- * Set list number to 0.
- */
-- (void)clearListNumber;
-
-/**
- * Rebuild list number.
- */
-- (void)rebuildListNumber:(NSArray *)array;
-
-/**
- * Rebuild list number from index.
- */
-- (void)rebuildListNumber:(NSArray *)array fromIndex:(NSInteger)index;
+@end
 
 
-/**
- * Move to index of object.
- */
-- (void)moveTo:(NSManagedObject *)object;
+@interface NSManagedObjectContext(ISAop)
 
++ (void)initializeAop;
+
+- (void)is_insertObject:(NSManagedObject *)object;
+- (void)is_deleteObject:(NSManagedObject *)object;
+
+- (BOOL)is_save:(NSError **)error;
 
 
 @end

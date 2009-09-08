@@ -42,4 +42,6 @@
 
 @interface NSManagedObject(ISCallbacks)
 
+
+
 @end

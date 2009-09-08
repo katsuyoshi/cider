@@ -34,6 +34,7 @@
 		469B8BA110555A1A00F59D7E /* ISMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8B9F10555A1A00F59D7E /* ISMovie.m */; };
 		469B8D231055D01800F59D7E /* ISCDDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8D221055D01800F59D7E /* ISCDDetailedTableViewController.m */; };
 		469B8DBB1055E10800F59D7E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 469B8DBA1055E10800F59D7E /* Localizable.strings */; };
+		469B8EC71056663800F59D7E /* NSManagedObjectContextAop.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8EC61056663800F59D7E /* NSManagedObjectContextAop.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,8 @@
 		469B8D221055D01800F59D7E /* ISCDDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDDetailedTableViewController.m; sourceTree = "<group>"; };
 		469B8DB81055E0E000F59D7E /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		469B8DBC1055E11300F59D7E /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
+		469B8EC51056663800F59D7E /* NSManagedObjectContextAop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextAop.h; sourceTree = "<group>"; };
+		469B8EC61056663800F59D7E /* NSManagedObjectContextAop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextAop.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ISCDTableViewControllersSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ISCDTableViewControllersSample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +235,8 @@
 				469B8B58105557A700F59D7E /* NSManagedObjectContextCreation.m */,
 				469B8B59105557A700F59D7E /* NSManagedObjectContextDefaultContext.h */,
 				469B8B5A105557A700F59D7E /* NSManagedObjectContextDefaultContext.m */,
+				469B8EC51056663800F59D7E /* NSManagedObjectContextAop.h */,
+				469B8EC61056663800F59D7E /* NSManagedObjectContextAop.m */,
 			);
 			path = NSManagedObjectContext;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				469B8BA010555A1A00F59D7E /* ISStudio.m in Sources */,
 				469B8BA110555A1A00F59D7E /* ISMovie.m in Sources */,
 				469B8D231055D01800F59D7E /* ISCDDetailedTableViewController.m in Sources */,
+				469B8EC71056663800F59D7E /* NSManagedObjectContextAop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

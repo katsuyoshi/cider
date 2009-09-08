@@ -46,7 +46,7 @@ typedef enum {
 } ISListTableViewNewCellRowStyle;
 
 
-@interface ISCDListTableViewController : UITableViewController {
+@interface ISCDListTableViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
 
     NSEntityDescription *_entity;
     NSString *_entityName;

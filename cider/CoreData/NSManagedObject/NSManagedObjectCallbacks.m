@@ -38,27 +38,31 @@
 
 #import "NSManagedObjectCallbacks.h"
 #import "NSManagedObjectList.h"
+#import "NSManagedObjectContextAop.h"
 
 
 @implementation NSManagedObject(ISCallbacks)
 
 /*
-- (void)willSave
+- (void)willInsert
+{
+}
+*/
+/*
+- (void)didInsert
+{
+}
+*/
+/*
+- (void)willDelete
 {
 }
 */
 
-- (BOOL)validateForInsert:(NSError **)error
+- (void)didDelete
 {
-    [self setListNumber];
-    return YES;
-}
-
-- (BOOL)validateForDelete:(NSError **)error
-{
+    [self clearListNumber];
     [self rebuildListNumber:nil];
-    return YES;
 }
-
 
 @end

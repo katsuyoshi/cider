@@ -59,6 +59,7 @@
 		469B8A97105547DB00F59D7E /* UIViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A95105547DB00F59D7E /* UIViewControllerTest.m */; };
 		469B8CEE1055C5AC00F59D7E /* NSManagedObjectListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */; };
 		469B8D021055C85800F59D7E /* ISCDDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8D011055C85800F59D7E /* ISCDDetailedTableViewController.m */; };
+		469B8F5910566FB000F59D7E /* NSManagedObjectContextAop.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8F5810566FB000F59D7E /* NSManagedObjectContextAop.m */; };
 		469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */; };
 		46B32F8210249DC600F40719 /* NSManagedObjectContextDefaultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B32F8110249DC600F40719 /* NSManagedObjectContextDefaultContext.m */; };
 		46B32FA61024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B32FA51024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m */; };
@@ -180,6 +181,8 @@
 		469B8A95105547DB00F59D7E /* UIViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerTest.m; sourceTree = "<group>"; };
 		469B8D001055C85800F59D7E /* ISCDDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDDetailedTableViewController.h; sourceTree = "<group>"; };
 		469B8D011055C85800F59D7E /* ISCDDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDDetailedTableViewController.m; sourceTree = "<group>"; };
+		469B8F5710566FB000F59D7E /* NSManagedObjectContextAop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextAop.h; sourceTree = "<group>"; };
+		469B8F5810566FB000F59D7E /* NSManagedObjectContextAop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextAop.m; sourceTree = "<group>"; };
 		469F8E820FBC5A4C004FD86F /* NSExceptionExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSExceptionExtension.h; sourceTree = "<group>"; };
 		469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSExceptionExtension.m; sourceTree = "<group>"; };
 		46B32F8010249DC600F40719 /* NSManagedObjectContextDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContext.h; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 				46B32F8110249DC600F40719 /* NSManagedObjectContextDefaultContext.m */,
 				468F0BE41025D7D700F3DDF6 /* NSManagedObjectContextCreation.h */,
 				468F0BE51025D7D700F3DDF6 /* NSManagedObjectContextCreation.m */,
+				469B8F5710566FB000F59D7E /* NSManagedObjectContextAop.h */,
+				469B8F5810566FB000F59D7E /* NSManagedObjectContextAop.m */,
 			);
 			path = NSManagedObjectContext;
 			sourceTree = "<group>";
@@ -701,6 +706,7 @@
 				469B8A97105547DB00F59D7E /* UIViewControllerTest.m in Sources */,
 				469B8CEE1055C5AC00F59D7E /* NSManagedObjectListTest.m in Sources */,
 				469B8D021055C85800F59D7E /* ISCDDetailedTableViewController.m in Sources */,
+				469B8F5910566FB000F59D7E /* NSManagedObjectContextAop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

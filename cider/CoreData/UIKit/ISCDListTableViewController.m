@@ -44,6 +44,7 @@
 #import "NSSortDescriptorExtension.h"
 #import "ISTableViewCell.h"
 #import "ISCDDetailedTableViewController.h"
+#import "NSFetchedResultsControllerSortedObject.h"
 
 
 @implementation ISCDListTableViewController
@@ -207,7 +208,7 @@
 
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [object valueForKey:self.displayKey];
-	
+// DEBUGME: NSLog(@"%@", [object position]);
     return cell;
 }
 
@@ -239,6 +240,8 @@
 }
 
 
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -248,35 +251,44 @@
 */
 
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
+        [self.managedObjectContext deleteObject:object];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 
-/*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    
+    NSManagedObject *fromObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:fromIndexPath]];
+    NSManagedObject *toObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:toIndexPath]];
+    
+    [fromObject moveTo:toObject];
 }
-*/
 
 
-/*
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    return indexPath.row != 0;
 }
-*/
+
+- (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+    if (proposedDestinationIndexPath.row == 0) {
+        return [NSIndexPath indexPathForRow:1 inSection:proposedDestinationIndexPath.section];
+    } else {
+        return proposedDestinationIndexPath;
+    }
+}
 
 
 - (void)dealloc {
@@ -342,6 +354,7 @@
             condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:key];
         }
         _fetchedResultsController = [condition.fetchedResultsController retain];
+        _fetchedResultsController.delegate = self;
     }
     return _fetchedResultsController;
 }
@@ -461,6 +474,13 @@
     [self.tableView endUpdates];
 }
 
+#pragma mark -
+#pragma mark NSFetchedResultsControllerDelegate
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView reloadData];
+}
 
 @end
 

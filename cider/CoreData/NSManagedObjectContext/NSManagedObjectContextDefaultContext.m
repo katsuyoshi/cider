@@ -38,6 +38,7 @@
 
 #import "NSManagedObjectContextDefaultContext.h"
 #import "NSErrorExtension.h"
+#import "NSManagedObjectContextAop.h"
 
 
 @implementation NSManagedObjectContext(ISDefaultContext)
@@ -49,6 +50,7 @@ static id _defaultStoreURL = nil;
 + (NSManagedObjectContext *)defaultManagedObjectContext
 {
     if (_defaultContext == nil) {
+        [self initializeAop];
         [self setDefaultManagedObjectContext:[self managedObjectContextWithFile:[self defaultStoreFile]]];
     }
     return _defaultContext;

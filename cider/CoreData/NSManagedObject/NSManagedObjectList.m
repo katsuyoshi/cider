@@ -124,6 +124,20 @@
 
 #pragma mark -
 
+        // FIXME:
+        // NSManagedObjectContextが別になった場合1から始まらない場合がある。
+        // 現象:
+        // Listビュでオブジェクトを一旦生成し、全てを削除する。saveはまだしない状態。
+        // (1つでも残っていると問題ない)
+        // もう一度オブジェクトを生成した時にDetailedビューで別のNSManagedObjctContextで
+        // maxEoを取得すると、既に削除済みの物がヒットする。
+        // 本来は1からナンバーリングが始まるはずが、削除済みの最大値から始まる。
+        // オフセットを持つが、順番になるし、削除で元に戻るので今の所支障はない。
+        //
+        // NSManagedObjctContextを別にする理由は、同じcontextを用いた場合、
+        // Listビューで順番を変えたり削除し、
+        // Detailedビューで編集してキャンセルするとrollbackされるので、
+        // 順番の変更や削除もrollbackされるので別にしている。
 - (void)setListNumber
 {
     ISFetchRequestCondition *condition = [self conditionForListWithDesc:YES];
@@ -138,15 +152,16 @@
             return;
         }
 
-
         NSError *error = nil;
-    
         NSManagedObject *maxEo = [NSManagedObject find:condition error:&error];
-        if (error) {
-            [error showError];
-        }
+#ifdef DEBUG
+            if (error) {
+                [error showError];
+            }
+#endif
+        
         NSInteger index = 0;
-        if (maxEo) {
+        if (maxEo && ![maxEo isDeleted]) {
             NSNumber *indexValue = [maxEo valueForKey:listAttributeName];
             if (indexValue) {
                 index = [indexValue intValue];
@@ -155,6 +170,15 @@
         [self setValue:[NSNumber numberWithInt:index + 1] forKey:listAttributeName];
     }
 }
+
+- (void)clearListNumber
+{
+    if ([self listAvailable]) {
+        NSString *listAttributeName = [[self class] listAttributeName];
+        [self setValue:[NSNumber numberWithInt:0] forKey:listAttributeName];
+    }
+}
+
 
 - (void)rebuildListNumber:(NSArray *)array
 {
