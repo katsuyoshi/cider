@@ -8,6 +8,7 @@
 
 @interface ISCDTableViewControllersSampleAppDelegate : NSObject <UIApplicationDelegate> {
     
+    UINavigationController *navigationController;
     UIWindow *window;
 }
 

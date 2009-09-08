@@ -54,7 +54,6 @@
 		469B104C1031C82400025C80 /* NSFetchedResultsControllerSortedObjectTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B104B1031C82400025C80 /* NSFetchedResultsControllerSortedObjectTest.m */; };
 		469B8A5E105532FF00F59D7E /* ISCDListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A5D105532FF00F59D7E /* ISCDListTableViewController.m */; };
 		469B8A7B105542FB00F59D7E /* ISFetchRequestConditionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A7A105542FB00F59D7E /* ISFetchRequestConditionTest.m */; };
-		469B8A8D105545C100F59D7E /* ISCDListTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A8C105545C100F59D7E /* ISCDListTableViewControllerTest.m */; };
 		469B8A96105547DB00F59D7E /* UITableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A93105547DB00F59D7E /* UITableViewControllerTest.m */; };
 		469B8A97105547DB00F59D7E /* UIViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A95105547DB00F59D7E /* UIViewControllerTest.m */; };
 		469B8CEE1055C5AC00F59D7E /* NSManagedObjectListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */; };
@@ -76,6 +75,7 @@
 		46C6AB610F2DBE7E00BA1B73 /* IUTTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB540F2DBE7E00BA1B73 /* IUTTestRunner.m */; };
 		46C6AB620F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB560F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m */; };
 		46C6ADCA0F2DDFC800BA1B73 /* isd_logo_60x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */; };
+		46DBFF631056C23A00CA40B6 /* ISCDListTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A8C105545C100F59D7E /* ISCDListTableViewControllerTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -701,12 +701,12 @@
 				4643C27210467F9200677C80 /* NSManagedObjectCallbacks.m in Sources */,
 				469B8A5E105532FF00F59D7E /* ISCDListTableViewController.m in Sources */,
 				469B8A7B105542FB00F59D7E /* ISFetchRequestConditionTest.m in Sources */,
-				469B8A8D105545C100F59D7E /* ISCDListTableViewControllerTest.m in Sources */,
 				469B8A96105547DB00F59D7E /* UITableViewControllerTest.m in Sources */,
 				469B8A97105547DB00F59D7E /* UIViewControllerTest.m in Sources */,
 				469B8CEE1055C5AC00F59D7E /* NSManagedObjectListTest.m in Sources */,
 				469B8D021055C85800F59D7E /* ISCDDetailedTableViewController.m in Sources */,
 				469B8F5910566FB000F59D7E /* NSManagedObjectContextAop.m in Sources */,
+				46DBFF631056C23A00CA40B6 /* ISCDListTableViewControllerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,15 +51,25 @@ typedef enum {
     NSEntityDescription *_entity;
     NSString *_entityName;
 
+    NSString *_displayKey;
+
+    NSManagedObject *_masterObject;
+
+
+
     NSFetchedResultsController *_fetchedResultsController;
     NSManagedObjectContext *_managedObjectContext;
     NSManagedObject *_editingObject;
     
-    NSString *_displayKey;
+    
+    NSString *_detailedTableViewControllerClassName;
 }
 
 @property (retain) NSEntityDescription *entity;
 @property (retain) NSString *entityName;
+
+@property (retain) NSManagedObject *masterObject;
+
 
 @property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (retain) NSManagedObjectContext *managedObjectContext;
@@ -72,6 +82,11 @@ typedef enum {
 @property (assign, readonly) BOOL hasEditButtonItem;
 @property (assign, readonly) ISListTableViewNewCellRowStyle newCellRowStyle;
 @property (assign, readonly) UITableViewRowAnimation editingRowAnimation;
+
+
+@property (retain)  NSString *detailedTableViewControllerClassName;
+
+
 
 - (void)reloadData;
 - (void)save;

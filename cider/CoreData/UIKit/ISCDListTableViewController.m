@@ -45,16 +45,19 @@
 #import "ISTableViewCell.h"
 #import "ISCDDetailedTableViewController.h"
 #import "NSFetchedResultsControllerSortedObject.h"
+#import "NSErrorExtension.h"
 
 
 @implementation ISCDListTableViewController
 
 @synthesize entity = _entity;
 @synthesize entityName = _entityName;
+@synthesize masterObject = _masterObject;
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize editingObject = _editingObject;
 @synthesize displayKey = _displayKey;
+@synthesize detailedTableViewControllerClassName = _detailedTableViewControllerClassName;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -222,9 +225,19 @@
 }
 
 
+- (ISCDDetailedTableViewController *)createDetailedTableViewController
+{
+    if (self.detailedTableViewControllerClassName) {
+        Class class = NSClassFromString(self.detailedTableViewControllerClassName);
+        if (class && [class isSubclassOfClass:[ISCDDetailedTableViewController class]]) {
+            return [[[class alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+        }
+    }
+    return [[[ISCDDetailedTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ISCDDetailedTableViewController *controller = [[[ISCDDetailedTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    ISCDDetailedTableViewController *controller = [self createDetailedTableViewController];
 
     controller.editingMode = self.editing;
 
@@ -258,6 +271,7 @@
         // Delete the row from the data source
         NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
         [self.managedObjectContext deleteObject:object];
+        [self save];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -272,6 +286,8 @@
     NSManagedObject *toObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:toIndexPath]];
     
     [fromObject moveTo:toObject];
+    [self save];
+
 }
 
 
@@ -295,6 +311,8 @@
     [_editingObject release];
     [_entityName release];
     [_entity release];
+    [_masterObject release];
+    [_detailedTableViewControllerClassName release];
     [_managedObjectContext release];
     [_displayKey release];
     [_fetchedResultsController release];
@@ -348,11 +366,22 @@
         condition.managedObjectContext = self.managedObjectContext;
         condition.entityName = self.entityName;
         NSString *managedObjectClassName = condition.entity.managedObjectClassName;
+        
         Class class = NSClassFromString(managedObjectClassName);
         if (class) {
-            NSString *key = [class listAttributeName];
-            condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:key];
+            NSString *attributeName = [class listAttributeName];
+            condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:attributeName];
         }
+        
+        if (self.masterObject) {
+            NSString *relationName = [class listScopeName];
+            if (relationName) {
+                condition.predicate = [NSPredicate predicateWithFormat:@"%K = %@", relationName, self.masterObject];
+            } else {
+                NSLog(@"WARN: %@ listScopeName is nil.", managedObjectClassName);
+            }
+        }
+        
         _fetchedResultsController = [condition.fetchedResultsController retain];
         _fetchedResultsController.delegate = self;
     }
@@ -362,7 +391,7 @@
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (_managedObjectContext == nil) {
-        _managedObjectContext = [[NSManagedObjectContext defaultManagedObjectContext] newManagedObjectContext];
+        _managedObjectContext = [[NSManagedObjectContext defaultManagedObjectContext] retain];
     }
     return _managedObjectContext;
 }
@@ -391,18 +420,11 @@
 #pragma mark -
 
 - (void)reloadData
-{
-    if (self.editingObject) {
-        [self.managedObjectContext refreshObject:self.editingObject mergeChanges:YES];
-        self.editingObject = nil;
-    }
-    
+{    
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
 #ifdef DEBUG
-    if (error) {
-        [error showError];
-    }
+    if (error) [error showError];
 #endif
     [self.tableView reloadData];
 }
@@ -411,11 +433,9 @@
 {
     NSError *error = nil;
     [self.managedObjectContext save:&error];
-    if (error) {
 #ifdef DEBUG
-        [error showError];
+    if (error) [error showError];
 #endif
-    }
 }
 
 - (void)cancel

@@ -26,7 +26,7 @@
     tableViewController.displayKey = @"name";
     tableViewController.entityName = @"ISStudio";
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
@@ -52,7 +52,7 @@
 #pragma mark Memory management
 
 - (void)dealloc {
-	
+	[navigationController release];
 	[window release];
 	[super dealloc];
 }

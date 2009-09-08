@@ -155,9 +155,7 @@
         NSError *error = nil;
         NSManagedObject *maxEo = [NSManagedObject find:condition error:&error];
 #ifdef DEBUG
-            if (error) {
-                [error showError];
-            }
+        if (error) [error showError];
 #endif
         
         NSInteger index = 0;
@@ -171,15 +169,6 @@
     }
 }
 
-- (void)clearListNumber
-{
-    if ([self listAvailable]) {
-        NSString *listAttributeName = [[self class] listAttributeName];
-        [self setValue:[NSNumber numberWithInt:0] forKey:listAttributeName];
-    }
-}
-
-
 - (void)rebuildListNumber:(NSArray *)array
 {
     [self rebuildListNumber:array fromIndex:1];
@@ -192,9 +181,7 @@
             NSError *error = nil;
             array = [NSManagedObject findAll:[self conditionForList] error:&error];
 #ifdef DEBUG
-            if (error) {
-                [error showError];
-            }
+            if (error) [error showError];
 #endif
         }
     
@@ -216,37 +203,37 @@
         
         NSInteger from = [[self valueForKey:listAttributeName] intValue];
         NSInteger to = [[toObject valueForKey:listAttributeName] intValue];
-        NSInteger minValue = (from < to) ? from : to;
-        NSInteger maxValue = (from < to) ? to : from;
+        if (from != to) {
+            NSInteger minValue = (from < to) ? from : to;
+            NSInteger maxValue = (from < to) ? to : from;
 
-        ISFetchRequestCondition *condition = [self conditionForList];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K between {%d, %d}", listAttributeName, minValue, maxValue];
-        if (condition.predicate) {
-            NSArray *subpredicates = [NSArray arrayWithObjects:condition.predicate, predicate, nil];
-            condition.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
-        } else {
-            condition.predicate = predicate;
-        }
+            ISFetchRequestCondition *condition = [self conditionForList];
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K between {%d, %d}", listAttributeName, minValue, maxValue];
+            if (condition.predicate) {
+                NSArray *subpredicates = [NSArray arrayWithObjects:condition.predicate, predicate, nil];
+                condition.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
+            } else {
+                condition.predicate = predicate;
+            }
         
-        NSError *error = nil;
-        NSArray *result = [NSManagedObject findAll:condition error:&error];
+            NSError *error = nil;
+            NSArray *result = [NSManagedObject findAll:condition error:&error];
 #ifdef DEBUG
-        if (error) {
-            [error showError];
-        }
+            if (error) [error showError];
 #endif
         
-        NSMutableArray *arrangedArray = [[result mutableCopy] autorelease];
-        if (from < to) {
-            id object = [[[arrangedArray objectAtIndex:0] retain] autorelease];
-            [arrangedArray removeObjectAtIndex:0];
-            [arrangedArray addObject:object];
-        } else {
-            id object = [[[arrangedArray lastObject] retain] autorelease];
-            [arrangedArray removeLastObject];
-            [arrangedArray insertObject:object atIndex:0];
+            NSMutableArray *arrangedArray = [[result mutableCopy] autorelease];
+            if (from < to) {
+                id object = [[[arrangedArray objectAtIndex:0] retain] autorelease];
+                [arrangedArray removeObjectAtIndex:0];
+                [arrangedArray addObject:object];
+            } else {
+                id object = [[[arrangedArray lastObject] retain] autorelease];
+                [arrangedArray removeLastObject];
+                [arrangedArray insertObject:object atIndex:0];
+            }
+            [self rebuildListNumber:arrangedArray fromIndex:minValue];
         }
-        [self rebuildListNumber:arrangedArray fromIndex:minValue];
     }
 }
 

@@ -67,11 +67,6 @@
 - (void)setListNumber;
 
 /**
- * Set list number to 0.
- */
-- (void)clearListNumber;
-
-/**
  * Rebuild list number.
  */
 - (void)rebuildListNumber:(NSArray *)array;

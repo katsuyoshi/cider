@@ -61,7 +61,6 @@
 
 - (void)didDelete
 {
-    [self clearListNumber];
     [self rebuildListNumber:nil];
 }
 

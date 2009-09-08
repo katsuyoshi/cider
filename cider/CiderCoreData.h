@@ -59,5 +59,6 @@
 
 // UIKit
 #import "ISCDListTableViewController.h"
+#import "ISCDDetailedTableViewController.h"
 
 
