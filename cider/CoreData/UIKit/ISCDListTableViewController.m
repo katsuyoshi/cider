@@ -43,7 +43,7 @@
 #import "NSManagedObjectList.h"
 #import "NSSortDescriptorExtension.h"
 #import "ISTableViewCell.h"
-
+#import "ISCDDetailedTableViewController.h"
 
 
 @implementation ISCDListTableViewController
@@ -52,6 +52,7 @@
 @synthesize entityName = _entityName;
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize managedObjectContext = _managedObjectContext;
+@synthesize editingObject = _editingObject;
 @synthesize displayKey = _displayKey;
 
 /*
@@ -65,6 +66,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.tableView.allowsSelectionDuringEditing = YES;
 
     if (self.hasEditButtonItem) {
         self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -220,10 +223,19 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
+    ISCDDetailedTableViewController *controller = [[[ISCDDetailedTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+
+    controller.editingMode = self.editing;
+
+    if ([self isNewCellAtIndexPath:indexPath]) {
+        [controller createWithEntityName:self.entityName];
+    } else {
+        self.editingObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
+        controller.detailedObject = self.editingObject;
+        
+    }
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 
@@ -268,6 +280,7 @@
 
 
 - (void)dealloc {
+    [_editingObject release];
     [_entityName release];
     [_entity release];
     [_managedObjectContext release];
@@ -279,6 +292,32 @@
 
 #pragma mark -
 #pragma mark property
+
+- (void)setTitle
+{
+    if (self.title == nil) {
+        NSString *title = [NSString stringWithFormat:@"List %@", self.entityName];
+        title = NSLocalizedString(title, nil);
+        self.title = title;
+    }
+}
+
+
+- (void)setEntity:(NSEntityDescription *)anEntity
+{
+    [_entity release];
+    _entity = [anEntity retain];
+    
+    [self setTitle];
+}
+
+- (void)setEntityName:(NSString *)aName
+{
+    [_entityName release];
+    _entityName = [aName retain];
+
+    [self setTitle];
+}
 
 - (NSString *)entityName
 {
@@ -340,6 +379,11 @@
 
 - (void)reloadData
 {
+    if (self.editingObject) {
+        [self.managedObjectContext refreshObject:self.editingObject mergeChanges:YES];
+        self.editingObject = nil;
+    }
+    
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
 #ifdef DEBUG

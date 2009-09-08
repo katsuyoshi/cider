@@ -32,6 +32,8 @@
 		469B8B78105557A700F59D7E /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8B69105557A700F59D7E /* ISTableViewCell.m */; };
 		469B8BA010555A1A00F59D7E /* ISStudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8B9D10555A1A00F59D7E /* ISStudio.m */; };
 		469B8BA110555A1A00F59D7E /* ISMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8B9F10555A1A00F59D7E /* ISMovie.m */; };
+		469B8D231055D01800F59D7E /* ISCDDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8D221055D01800F59D7E /* ISCDDetailedTableViewController.m */; };
+		469B8DBB1055E10800F59D7E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 469B8DBA1055E10800F59D7E /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,10 @@
 		469B8B9D10555A1A00F59D7E /* ISStudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISStudio.m; sourceTree = "<group>"; };
 		469B8B9E10555A1A00F59D7E /* ISMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISMovie.h; sourceTree = "<group>"; };
 		469B8B9F10555A1A00F59D7E /* ISMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISMovie.m; sourceTree = "<group>"; };
+		469B8D211055D01800F59D7E /* ISCDDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDDetailedTableViewController.h; sourceTree = "<group>"; };
+		469B8D221055D01800F59D7E /* ISCDDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDDetailedTableViewController.m; sourceTree = "<group>"; };
+		469B8DB81055E0E000F59D7E /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		469B8DBC1055E11300F59D7E /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ISCDTableViewControllersSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ISCDTableViewControllersSample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +152,7 @@
 				28860B760F44E54D00985440 /* ISCDTableViewControllersSample.xcdatamodel */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* ISCDTableViewControllersSample-Info.plist */,
+				469B8DBA1055E10800F59D7E /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -234,6 +241,8 @@
 			children = (
 				469B8B5E105557A700F59D7E /* ISCDListTableViewController.h */,
 				469B8B5F105557A700F59D7E /* ISCDListTableViewController.m */,
+				469B8D211055D01800F59D7E /* ISCDDetailedTableViewController.h */,
+				469B8D221055D01800F59D7E /* ISCDDetailedTableViewController.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -326,6 +335,7 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				469B8B77105557A700F59D7E /* cider.strings in Resources */,
+				469B8DBB1055E10800F59D7E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +365,7 @@
 				469B8B78105557A700F59D7E /* ISTableViewCell.m in Sources */,
 				469B8BA010555A1A00F59D7E /* ISStudio.m in Sources */,
 				469B8BA110555A1A00F59D7E /* ISMovie.m in Sources */,
+				469B8D231055D01800F59D7E /* ISCDDetailedTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +381,15 @@
 			name = cider.strings;
 			sourceTree = "<group>";
 		};
+		469B8DBA1055E10800F59D7E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				469B8DB81055E0E000F59D7E /* English */,
+				469B8DBC1055E11300F59D7E /* Japanese */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -383,7 +403,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ISCDTableViewControllersSample_Prefix.pch;
 				INFOPLIST_FILE = "ISCDTableViewControllersSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = ISCDTableViewControllersSample;
+				SDKROOT = iphonesimulator3.0;
 			};
 			name = Debug;
 		};
@@ -395,7 +417,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ISCDTableViewControllersSample_Prefix.pch;
 				INFOPLIST_FILE = "ISCDTableViewControllersSample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				PRODUCT_NAME = ISCDTableViewControllersSample;
+				SDKROOT = iphonesimulator3.0;
 			};
 			name = Release;
 		};

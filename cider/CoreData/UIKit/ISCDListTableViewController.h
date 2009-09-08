@@ -53,9 +53,9 @@ typedef enum {
 
     NSFetchedResultsController *_fetchedResultsController;
     NSManagedObjectContext *_managedObjectContext;
+    NSManagedObject *_editingObject;
     
     NSString *_displayKey;
-
 }
 
 @property (retain) NSEntityDescription *entity;
@@ -63,6 +63,7 @@ typedef enum {
 
 @property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (retain) NSManagedObjectContext *managedObjectContext;
+@property (retain) NSManagedObject *editingObject;
 
 @property (retain) NSString *displayKey;
 

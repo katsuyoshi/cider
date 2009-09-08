@@ -24,7 +24,7 @@
 
     ISCDListTableViewController *tableViewController = [[[ISCDListTableViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
     tableViewController.displayKey = @"name";
-    tableViewController.entityName = @"ISMovie";
+    tableViewController.entityName = @"ISStudio";
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tableViewController];
     
