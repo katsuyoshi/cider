@@ -429,13 +429,18 @@
     [self.tableView reloadData];
 }
 
-- (void)save
+- (void)_save
 {
     NSError *error = nil;
     [self.managedObjectContext save:&error];
 #ifdef DEBUG
     if (error) [error showError];
 #endif
+}
+
+- (void)save
+{
+    [self performSelector:@selector(_save) withObject:nil afterDelay:0];
 }
 
 - (void)cancel
