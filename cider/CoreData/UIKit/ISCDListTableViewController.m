@@ -55,7 +55,6 @@
 @synthesize masterObject = _masterObject;
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize managedObjectContext = _managedObjectContext;
-@synthesize editingObject = _editingObject;
 @synthesize displayKey = _displayKey;
 @synthesize detailedTableViewControllerClassName = _detailedTableViewControllerClassName;
 
@@ -244,8 +243,7 @@
     if ([self isNewCellAtIndexPath:indexPath]) {
         [controller createWithEntityName:self.entityName];
     } else {
-        self.editingObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
-        controller.detailedObject = self.editingObject;
+        controller.detailedObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
         
     }
     
@@ -308,7 +306,6 @@
 
 
 - (void)dealloc {
-    [_editingObject release];
     [_entityName release];
     [_entity release];
     [_masterObject release];

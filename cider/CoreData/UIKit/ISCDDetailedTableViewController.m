@@ -194,6 +194,7 @@
             [self registTextField:cell.textField indexPath:indexPath];
         } else {
             cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
     }
