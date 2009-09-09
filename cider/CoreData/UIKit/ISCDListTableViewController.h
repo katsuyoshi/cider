@@ -59,7 +59,6 @@ typedef enum {
 
     NSFetchedResultsController *_fetchedResultsController;
     NSManagedObjectContext *_managedObjectContext;
-    NSManagedObject *_editingObject;
     
     
     NSString *_detailedTableViewControllerClassName;
