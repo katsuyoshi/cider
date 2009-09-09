@@ -48,11 +48,11 @@ static void swap_method(Class class, SEL orgName, SEL newName)
 {
     Method orgMethod = class_getInstanceMethod(class, orgName);
     Method newMethod = class_getInstanceMethod(class, newName);
-    Method tmpMethod;
+    IMP tmpIMP;
     
-    method_setImplementation(tmpMethod, method_getImplementation(newMethod));
+    tmpIMP = method_getImplementation(newMethod);
     method_setImplementation(newMethod, method_getImplementation(orgMethod));
-    method_setImplementation(orgMethod, method_getImplementation(tmpMethod));
+    method_setImplementation(orgMethod, tmpIMP);
 }
 
 + (void)initializeAop
