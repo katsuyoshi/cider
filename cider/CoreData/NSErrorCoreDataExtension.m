@@ -40,7 +40,16 @@
 #import "NSErrorExtension.h"
 
 
+NSString *const CiderErrorDomain = @"CiderErrorDomain";
+
+
 @implementation NSError(ISCoreDataExtension)
+
++ (id)errorWithDomain:(NSString *)domain code:(NSInteger)code description:(NSString *)description
+{
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:description forKey:NSLocalizedDescriptionKey];
+    return [NSError errorWithDomain:domain code:code userInfo:userInfo];
+}
 
 - (NSError *)errorForDomain:(NSString *)domain
 {
@@ -60,6 +69,18 @@
     return nil;
 }
 
+- (NSError *)errorForDomains:(NSArray *)domains
+{
+    for (NSString *domain in domains) {
+        NSError *error = [self errorForDomain:domain];
+        if (error) {
+            return error;
+        }
+    }
+    return nil;
+}
+
+
 - (UIAlertView *)showErrorForDomain:(NSString *)domain;
 {
     NSError *error = [self errorForDomain:domain];
@@ -69,5 +90,17 @@
         return [self showError];
     }
 }
+
+- (UIAlertView *)showErrorForDomains:(NSArray *)domains
+{
+    for (NSString *domain in domains) {
+        NSError *error = [self errorForDomain:domain];
+        if (error) {
+            return [error showError];
+        }
+    }
+    return [self showError];
+}
+
 
 @end

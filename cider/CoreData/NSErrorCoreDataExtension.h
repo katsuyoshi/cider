@@ -39,12 +39,32 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+
+extern NSString *const CiderErrorDomain;
+
+
+#define CIDER_EMPTY_ERROR       1000
+#define CIDER_INVALID_ERROR     1001
+#define CIDER_VALIDATE_ERROR    1002
+
+
+
 @interface NSError(ISCoreDataExtension)
+
+/** Return an error with description which is related NSLocalizedDescriptionKey in userInfo. */
++ (id)errorWithDomain:(NSString *)domain code:(NSInteger)code description:(NSString *)description;
+
 
 /** Return an error related domain. */
 - (NSError *)errorForDomain:(NSString *)domain;
 
+/** Return an error related domains. */
+- (NSError *)errorForDomains:(NSArray *)domains;
+
 /** Show alert an specified domain error in this error. */
 - (UIAlertView *)showErrorForDomain:(NSString *)domain;
+
+/** Show alert an specified domains error in this error. */
+- (UIAlertView *)showErrorForDomains:(NSArray *)domains;
 
 @end
