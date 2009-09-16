@@ -54,6 +54,11 @@ It easily create a NSFetchRequest and NSFetchedResultsController instance.
 It easily find a NSManagedObject(s)
 
 
+== NSManagedObject(ISActAsList)
+
+It support ordering objects of NSManagedObject.
+
+
 == ISFetchRequestCondition
 
 It's a helper class for creation of NSFetchRequest or NSFetchedResultsController.
@@ -64,3 +69,16 @@ It's a helper class for creation of NSFetchRequest or NSFetchedResultsController
 
 −arrangedObjects returns sorted objects.
 
+== ISCDListTableViewController
+
+It shows objects of a specified Entity.
+You can edit ordering(required 'position' attribute) of objects and delete objects.
+
+  Related sample code: ISCDTableViewControllersSample
+
+== ISCDDetailedTableViewController
+
+It can show or edit an object of NSManagedObject.
+ISCDListTableViewController automatically use this.
+
+  Related sample code: ISCDTableViewControllersSample

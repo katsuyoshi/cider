@@ -1,3 +1,5 @@
+== 2009-9-17
+ * Added ISCDDetailedTableViewController, ISCDListTableViewController
 
 == 2009-8-17
  * Added To get a new NSManagedObjectContext.
