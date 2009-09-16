@@ -1,4 +1,4 @@
-== 2009-9-17
+== 0.2.2: 2009-9-17
  * Added ISCDDetailedTableViewController, ISCDListTableViewController
 
 == 2009-8-17
