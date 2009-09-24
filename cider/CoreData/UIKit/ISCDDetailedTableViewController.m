@@ -44,6 +44,7 @@
 #import "ISCDListTableViewController.h"
 #import "ISTableViewCell.h"
 #import "NSErrorExtension.h"
+#import "NSManagedObjectDisplay.h"
 
 
 @implementation ISCDDetailedTableViewController
@@ -90,7 +91,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-    [self.managedObjectContext rollback];
+    [self cancelAction:self];
 }
 
 /*
@@ -199,7 +200,12 @@
         
     }
     
-    NSString *title = [self.detailedObject valueForKey:[self.displayAttributes objectAtIndex:indexPath.section]];
+    NSString *attribteKey = [self.displayAttributes objectAtIndex:indexPath.section];
+    
+    NSFormatter *formatter = [self.detailedObject formatterForAttribute:attribteKey];
+    
+    id value = [self.detailedObject valueForKey:attribteKey];
+    NSString *title = formatter ? [formatter stringForObjectValue:value]  : [value description];
     if (self.editingMode) {
         cell.textField.text = title;
     } else {
@@ -331,8 +337,18 @@
 
 - (void)cancelAction:(id)sender
 {
-    [self.managedObjectContext rollback];
-    [self.navigationController popViewControllerAnimated:YES];
+    canceling = YES;
+    
+    [_editingTextField resignFirstResponder];
+
+    if ([self.managedObjectContext hasChanges]) {
+        [self.managedObjectContext rollback];
+    }
+    if (self.navigationController.topViewController == self) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+    canceling = NO;
 }
 
 - (void)saveAction:(id)sender
@@ -345,7 +361,9 @@
     if (error) [error showError];
 #endif
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if (self.navigationController.topViewController == self) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark -
@@ -358,11 +376,14 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSIndexPath *indexPath = [self indexPathForTextField:textField];
-    NSString *key = [self.displayAttributes objectAtIndex:indexPath.section];
+    if (canceling == NO) {
+        
+        NSIndexPath *indexPath = [self indexPathForTextField:textField];
+        NSString *key = [self.displayAttributes objectAtIndex:indexPath.section];
     
-    [_detailedObject setValue:textField.text forKey:key];
+        [_detailedObject setValue:[self.detailedObject convertFromString:textField.text attribute:key] forKey:key];
     
+    }
     _editingTextField = nil;
 }
 

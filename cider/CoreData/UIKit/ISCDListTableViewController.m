@@ -209,7 +209,7 @@
     }
 
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [object valueForKey:self.displayKey];
+    cell.textLabel.text = [[object valueForKey:self.displayKey] description];
 // DEBUGME: NSLog(@"%@", [object position]);
     return cell;
 }

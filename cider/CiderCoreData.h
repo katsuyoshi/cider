@@ -56,6 +56,7 @@
 #import "NSManagedObjectCreation.h"
 #import "NSManagedObjectFetch.h"
 #import "NSManagedObjectList.h"
+#import "NSManagedObjectDisplay.h"
 
 // UIKit
 #import "ISCDListTableViewController.h"

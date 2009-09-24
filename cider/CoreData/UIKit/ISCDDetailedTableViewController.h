@@ -53,6 +53,8 @@
     NSMutableDictionary *_indexPathDict;
     
     UITextField *_editingTextField;
+    
+    BOOL canceling;
 }
 
 
