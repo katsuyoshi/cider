@@ -24,7 +24,7 @@
         case NSFloatAttributeType:
         case NSBooleanAttributeType:
             {
-                NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+                NSNumberFormatter *formatter = [[NSNumberFormatter new] autorelease];
                 [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
                 return formatter;
             }
