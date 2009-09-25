@@ -69,6 +69,7 @@ static id _defaultStoreURL = nil;
     @synchronized(self) {
         if (_defaultContext) {
             [_defaultContext rollback];
+            [_defaultContext reset];
             [_defaultContext release];
             _defaultContext = nil;
         }
