@@ -54,6 +54,8 @@
  */
 + (id)createWithEntityName:(NSString *)entityName;
 
+#pragma mark premitive method
+
 /**
  * Return a new NSManagedObject for the entityName.
  * It is inserted to the managedObjectContext. 

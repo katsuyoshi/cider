@@ -71,4 +71,12 @@
 - (void)cancelAction:(id)sender;
 - (void)saveAction:(id)sender;
 
+#pragma mark -
+#pragma mark for sub class
+
+- (void)registTextField:(UITextField *)textField indexPath:(NSIndexPath *)indexPath;
+- (UITextField *)textFieldForIndexPath:(NSIndexPath *)indexPath;
+- (NSIndexPath *)indexPathForTextField:(UITextField *)textField;
+
+
 @end

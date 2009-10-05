@@ -341,8 +341,10 @@
     
     [_editingTextField resignFirstResponder];
 
-    if ([self.managedObjectContext hasChanges]) {
-        [self.managedObjectContext rollback];
+    if (self.editingMode) {
+        if ([self.managedObjectContext hasChanges]) {
+            [self.managedObjectContext rollback];
+        }
     }
     if (self.navigationController.topViewController == self) {
         [self.navigationController popViewControllerAnimated:YES];
@@ -353,16 +355,17 @@
 
 - (void)saveAction:(id)sender
 {
-    [_editingTextField resignFirstResponder];
+    if ([self textFieldShouldReturn:_editingTextField]) {
 
-    NSError *error = nil;
-    [self.managedObjectContext save:&error];
+        NSError *error = nil;
+        [self.managedObjectContext save:&error];
 #ifdef DEBUG
-    if (error) [error showError];
+        if (error) [error showError];
 #endif
     
-    if (self.navigationController.topViewController == self) {
-        [self.navigationController popViewControllerAnimated:YES];
+        if (self.navigationController.topViewController == self) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 
