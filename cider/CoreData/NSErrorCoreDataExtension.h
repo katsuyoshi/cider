@@ -61,10 +61,14 @@ extern NSString *const CiderErrorDomain;
 /** Return an error related domains. */
 - (NSError *)errorForDomains:(NSArray *)domains;
 
+- (NSError *)errorForUserDomains;
+
 /** Show alert an specified domain error in this error. */
 - (UIAlertView *)showErrorForDomain:(NSString *)domain;
 
 /** Show alert an specified domains error in this error. */
 - (UIAlertView *)showErrorForDomains:(NSArray *)domains;
+
+- (UIAlertView *)showErrorForUserDomains;
 
 @end

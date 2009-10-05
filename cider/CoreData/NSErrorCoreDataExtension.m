@@ -80,6 +80,24 @@ NSString *const CiderErrorDomain = @"CiderErrorDomain";
     return nil;
 }
 
+- (NSError *)errorForUserDomains
+{
+    if ([[self domain] isEqualToString:NSCocoaErrorDomain] == NO) {
+        return self;
+    }
+    for (NSError *anError in [[self userInfo] valueForKey:NSDetailedErrorsKey]) {
+        if ([[anError domain] isEqualToString:NSCocoaErrorDomain] == NO) {
+            return anError;
+        } else {
+            NSError *anError2 = [anError errorForUserDomains];
+            if (anError2) {
+                return anError2;
+            }
+        }
+    }
+    return nil;
+}
+
 
 - (UIAlertView *)showErrorForDomain:(NSString *)domain;
 {
@@ -100,6 +118,16 @@ NSString *const CiderErrorDomain = @"CiderErrorDomain";
         }
     }
     return [self showError];
+}
+
+- (UIAlertView *)showErrorForUserDomains
+{
+    NSError *error = [self errorForUserDomains];
+    if (error) {
+        return [error showError];
+    } else {
+        return [self showError];
+    }
 }
 
 

@@ -45,7 +45,7 @@
 #import "ISTableViewCell.h"
 #import "ISCDDetailedTableViewController.h"
 #import "NSFetchedResultsControllerSortedObject.h"
-#import "NSErrorExtension.h"
+#import "NSErrorCoreDataExtension.h"
 
 
 @implementation ISCDListTableViewController
@@ -421,7 +421,7 @@
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
 #ifdef DEBUG
-    if (error) [error showError];
+    if (error) [error showErrorForUserDomains];
 #endif
     [self.tableView reloadData];
 }
@@ -431,7 +431,7 @@
     NSError *error = nil;
     [self.managedObjectContext save:&error];
 #ifdef DEBUG
-    if (error) [error showError];
+    if (error) [error showErrorForUserDomains];
 #endif
 }
 

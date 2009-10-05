@@ -43,7 +43,7 @@
 #import "NSManagedObjectContextDefaultContext.h"
 #import "ISCDListTableViewController.h"
 #import "ISTableViewCell.h"
-#import "NSErrorExtension.h"
+#import "NSErrorCoreDataExtension.h"
 #import "NSManagedObjectDisplay.h"
 
 
@@ -360,7 +360,7 @@
         NSError *error = nil;
         [self.managedObjectContext save:&error];
 #ifdef DEBUG
-        if (error) [error showError];
+        if (error) [error showErrorForUserDomains];
 #endif
     
         if (self.navigationController.topViewController == self) {

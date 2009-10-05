@@ -155,7 +155,7 @@
         NSError *error = nil;
         NSManagedObject *maxEo = [NSManagedObject find:condition error:&error];
 #ifdef DEBUG
-        if (error) [error showError];
+        if (error) [error showErrorForUserDomains];
 #endif
         
         NSInteger index = 0;
@@ -181,7 +181,7 @@
             NSError *error = nil;
             array = [NSManagedObject findAll:[self conditionForList] error:&error];
 #ifdef DEBUG
-            if (error) [error showError];
+            if (error) [error showErrorForUserDomains];
 #endif
         }
     
@@ -219,7 +219,7 @@
             NSError *error = nil;
             NSArray *result = [NSManagedObject findAll:condition error:&error];
 #ifdef DEBUG
-            if (error) [error showError];
+            if (error) [error showErrorForUserDomains];
 #endif
         
             NSMutableArray *arrangedArray = [[result mutableCopy] autorelease];
