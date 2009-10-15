@@ -89,6 +89,23 @@
     ASSERT_EQUAL(@"Cocoa domain error.", alertView.message);
 }
 
+- (void)testShowErrorInOtherThread
+{
+    [self performSelectorInBackground:@selector(showErrorInOtherThread) withObject:nil];
+    [self performTest:@selector(_test2ShowErrorInOtherThread) afterDelay:0.5];
+}
+
+- (void)showErrorInOtherThread
+{
+    alertView = [[error showErrorForDomain:@"OtherDomain"] retain];
+}
+
+- (void)_test2ShowErrorInOtherThread
+{
+    ASSERT_NOT_NIL(alertView);
+    ASSERT([alertView isKindOfClass:[UIAlertView class]]);
+}
+
 #pragma mark -
 #pragma mark Option
 

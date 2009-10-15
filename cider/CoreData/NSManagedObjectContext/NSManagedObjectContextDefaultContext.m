@@ -39,6 +39,7 @@
 #import "NSManagedObjectContextDefaultContext.h"
 #import "NSErrorExtension.h"
 #import "NSManagedObjectContextAop.h"
+#import "NSErrorCoreDataExtension.h"
 
 
 @implementation NSManagedObjectContext(ISDefaultContext)

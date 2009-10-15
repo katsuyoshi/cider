@@ -41,13 +41,28 @@
 
 @implementation NSError(ISExtension)
 
-- (UIAlertView *)showError
+- (void)_showError:(NSMutableArray *)array;
 {
     NSString *message = [self localizedDescription];
     NSString *title = NSLocalizedStringFromTable(@"Error!", @"cider", nil);
     NSString *closeTitle = NSLocalizedStringFromTable(@"Close", @"cider", nil);
     UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:title message:message  delegate:nil cancelButtonTitle:nil otherButtonTitles:closeTitle, nil] autorelease];
+    [array addObject:alertView];
     [alertView show];
+}
+
+- (UIAlertView *)showError
+{
+    NSMutableArray *array = [NSMutableArray new];
+    
+    if ([NSThread isMainThread]) {
+        [self _showError:array];
+    } else {
+        [self performSelectorOnMainThread:@selector(_showError:) withObject:array waitUntilDone:YES];
+    }
+    
+    UIAlertView *alertView = [[[array lastObject] retain] autorelease];
+    [array release];
     return alertView;
 }
 
