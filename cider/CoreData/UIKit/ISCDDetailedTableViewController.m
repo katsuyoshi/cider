@@ -358,14 +358,17 @@
     if ([self textFieldShouldReturn:_editingTextField]) {
 
         NSError *error = nil;
-        [self.managedObjectContext save:&error];
+        if ([self.managedObjectContext save:&error]) {
+    
+            if (self.navigationController.topViewController == self) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }
+        
 #ifdef DEBUG
         if (error) [error showErrorForUserDomains];
 #endif
-    
-        if (self.navigationController.topViewController == self) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
+        
     }
 }
 
