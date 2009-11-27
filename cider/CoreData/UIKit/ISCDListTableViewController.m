@@ -57,15 +57,22 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize displayKey = _displayKey;
 @synthesize detailedTableViewControllerClassName = _detailedTableViewControllerClassName;
+@synthesize addingStyle = _addingStyle;
+@synthesize newCellRowStyle = _newCellRowStyle;
+@synthesize hasEditButtonItem = _hasEditButtonItem;
+@synthesize editingRowAnimation = _editingRowAnimation;
+@synthesize hasDetailView = _hasDetailView;
 
-/*
 - (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
     if (self = [super initWithStyle:style]) {
+        _addingStyle = ISListTableViewAddingStyleCell;
+        _newCellRowStyle = ISListTableViewNewCellRowStyleFirst;
+        _hasEditButtonItem = YES;
+        _editingRowAnimation = UITableViewRowAnimationTop;
+        _hasDetailView = YES;
     }
     return self;
 }
-*/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -137,16 +144,19 @@
 - (BOOL)isNewCellAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.editing) {
-        if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
-            if (indexPath.row == 0) {
-                return YES;
-            }
-        } else {
-            int count = [self countInSection:indexPath.section];
-            if (indexPath.row == count) {
-                return YES;
+        if (self.addingStyle == ISListTableViewAddingStyleCell) {
+            if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
+                if (indexPath.row == 0) {
+                    return YES;
+                }
+            } else {
+                int count = [self countInSection:indexPath.section];
+                if (indexPath.row == count) {
+                    return YES;
+                }
             }
         }
+        
     }
     return NO;
 }
@@ -154,9 +164,11 @@
 - (NSIndexPath *)arrangedIndexPathFor:(NSIndexPath *)indexPath
 {
     if (self.editing) {
-        if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
-            if (indexPath.row != 0) {
-                indexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
+        if (self.addingStyle == ISListTableViewAddingStyleCell) {
+            if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
+                if (indexPath.row != 0) {
+                    indexPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
+                }
             }
         }
     }
@@ -181,7 +193,12 @@
         id <NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
         count = [sectionInfo numberOfObjects];
     }
-    return self.editing ? count + 1 : count;
+    
+    if (self.addingStyle == ISListTableViewAddingStyleCell) {
+        return self.editing ? count + 1 : count;
+    } else {
+        return count;
+    }
 }
 
 // Customize the appearance of table view cells.
@@ -192,9 +209,9 @@
     ISTableViewCell *cell = (ISTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    cell.accessoryType = self.hasDetailView ?  UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+    cell.editingAccessoryType = cell.accessoryType;
     
     
     if (self.editing) {
@@ -209,7 +226,11 @@
     }
 
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:self.displayKey] description];
+    if (self.displayKey) {
+        cell.textLabel.text = [[object valueForKey:self.displayKey] description];
+    } else {
+        cell.textLabel.text = nil;
+    }
     return cell;
 }
 
@@ -235,18 +256,23 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ISCDDetailedTableViewController *controller = [self createDetailedTableViewController];
 
-    controller.editingMode = self.editing;
+    if (self.hasDetailView) {
+        ISCDDetailedTableViewController *controller = [self createDetailedTableViewController];
 
-    if ([self isNewCellAtIndexPath:indexPath]) {
-        [controller createWithEntityName:self.entityName];
-    } else {
-        controller.detailedObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
+        controller.editingMode = self.editing;
+
+        if ([self isNewCellAtIndexPath:indexPath]) {
+            [controller createWithEntityName:self.entityName];
+        } else {
+            controller.detailedObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
         
-    }
+        }
     
-    [self.navigationController pushViewController:controller animated:YES];
+        [self.navigationController pushViewController:controller animated:YES];
+    } else {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
 }
 
 
@@ -290,17 +316,24 @@
 
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return indexPath.row != 0;
+    if (self.addingStyle == ISListTableViewAddingStyleCell) {
+        if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
+            return indexPath.row != 0;
+        } else {
+            return (indexPath.row < [self countInSection:indexPath.section]);
+        }
+    }
+    return YES;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-    if (proposedDestinationIndexPath.row == 0) {
-        return [NSIndexPath indexPathForRow:1 inSection:proposedDestinationIndexPath.section];
-    } else {
-        return proposedDestinationIndexPath;
+    if (self.addingStyle == ISListTableViewAddingStyleCell) {
+        if (proposedDestinationIndexPath.row == 0) {
+            return [NSIndexPath indexPathForRow:1 inSection:proposedDestinationIndexPath.section];
+        }
     }
+    return proposedDestinationIndexPath;
 }
 
 
@@ -393,25 +426,6 @@
 }
 
 
-#pragma mark -
-#pragma mark for customization
-
-- (BOOL)hasEditButtonItem
-{
-    return YES;
-}
-
-- (ISListTableViewNewCellRowStyle)newCellRowStyle
-{
-    return ISListTableViewNewCellRowStyleFirst;
-}
-
-- (UITableViewRowAnimation)editingRowAnimation
-{
-    return UITableViewRowAnimationTop;
-}
-
-
 
 #pragma mark -
 
@@ -466,26 +480,30 @@
     if (editing) {
         int count = [self countInSection:0];
         
-        if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
-            if (count) {
-                [removeIndexPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-                [insertIndexPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-                [insertIndexPaths addObject:[NSIndexPath indexPathForRow:1 inSection:0]];
+        if (self.addingStyle == ISListTableViewAddingStyleCell) {
+            if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
+                if (count) {
+                    [removeIndexPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+                    [insertIndexPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+                    [insertIndexPaths addObject:[NSIndexPath indexPathForRow:1 inSection:0]];
+                } else {
+                    [insertIndexPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+                }
             } else {
-                [insertIndexPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+                [insertIndexPaths addObject:[NSIndexPath indexPathForRow:count inSection:0]];
             }
-        } else {
-            [insertIndexPaths addObject:[NSIndexPath indexPathForRow:count inSection:0]];
         }
 
     } else {
         
-        int count = [self countInSection:0];
+        if (self.addingStyle == ISListTableViewAddingStyleCell) {
+            int count = [self countInSection:0];
         
-        if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
-            [removeIndexPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
-        } else {
-            [removeIndexPaths addObject:[NSIndexPath indexPathForRow:count inSection:0]];
+            if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
+                [removeIndexPaths addObject:[NSIndexPath indexPathForRow:0 inSection:0]];
+            } else {
+                [removeIndexPaths addObject:[NSIndexPath indexPathForRow:count inSection:0]];
+            }
         }
 
         [self save];

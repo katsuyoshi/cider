@@ -40,10 +40,23 @@
 #import <CoreData/CoreData.h>
 
 
+/** For newCellRowStyle property. */
 typedef enum {
+    /** In editing mode, an adding cell will be appeared at first row. */
     ISListTableViewNewCellRowStyleFirst,
+    /** In editing mode, an adding cell will be appeared at last row. */
     ISListTableViewNewCellRowStyleLast
 } ISListTableViewNewCellRowStyle;
+
+/** For addingStyle property. */
+typedef enum {
+    /** No needs adding */
+    ISListTableViewAddingStyleNone,
+    /* Adding by a tableview cell */
+    ISListTableViewAddingStyleCell,
+    /* Adding by a toobar button. */
+    ISListTableViewAddingStyleToolBarButton,    // FIXME: now not implemented
+} ISListTableViewAddingStyle;
 
 
 @interface ISCDListTableViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
@@ -60,34 +73,79 @@ typedef enum {
     NSFetchedResultsController *_fetchedResultsController;
     NSManagedObjectContext *_managedObjectContext;
     
+    BOOL _hasEditButtonItem;
+    BOOL _hasDetailView;
+    UITableViewRowAnimation _editingRowAnimation;
+
+    ISListTableViewNewCellRowStyle _newCellRowStyle;
+    ISListTableViewAddingStyle _addingStyle;
     
     NSString *_detailedTableViewControllerClassName;
 }
-
-@property (retain) NSEntityDescription *entity;
-@property (retain) NSString *entityName;
-
-@property (retain) NSManagedObject *masterObject;
 
 
 @property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (retain) NSManagedObjectContext *managedObjectContext;
 
-@property (retain) NSString *displayKey;
 
 
-// for customizing
-@property (assign, readonly) BOOL hasEditButtonItem;
-@property (assign, readonly) ISListTableViewNewCellRowStyle newCellRowStyle;
-@property (assign, readonly) UITableViewRowAnimation editingRowAnimation;
+#pragma mark -
+#pragma mark - for table view customizing
+
+/** If YES, the edit botton will be appeared on navigation bar. */
+@property (assign) BOOL hasEditButtonItem;
+
+/** If YES, it can move to the deatail view when touch a cell. */
+@property (assign) BOOL hasDetailView;
+
+/**
+ * When you select addingStyle ISListTableViewAddingStyleCellspecify,
+ * it specify the position of adding cell.
+ */
+@property (assign) ISListTableViewNewCellRowStyle newCellRowStyle;
+
+/** specify the way to add a new cell. */ 
+@property (assign) ISListTableViewAddingStyle addingStyle;
+
+/** The amination style for insert or remove cell */
+@property (assign) UITableViewRowAnimation editingRowAnimation;
 
 
+#pragma mark -
+#pragma mark for detailed table view
+
+/**
+ * By default, detail table view is managed byISCDDetaildTabieViewController.
+ * If you have own table view controller, set that class name.
+ */
 @property (retain)  NSString *detailedTableViewControllerClassName;
 
 
+#pragma mark -
+#pragma mark data management
+
+/** managed entity */
+@property (retain) NSEntityDescription *entity;
+/** managed entity's name */
+@property (retain) NSString *entityName;
+
+/**
+ * master object of master detail model
+ */
+@property (retain) NSManagedObject *masterObject;
+
+/** The value of this attribute will be dispayed on table view cell. */
+@property (retain) NSString *displayKey;
 
 - (void)reloadData;
 - (void)save;
 - (void)cancel;
+
+
+#pragma mark -
+#pragma mark convenience methods for subclass
+
+- (NSInteger)countInSection:(NSInteger)section;
+- (NSIndexPath *)arrangedIndexPathFor:(NSIndexPath *)indexPath;
 
 @end

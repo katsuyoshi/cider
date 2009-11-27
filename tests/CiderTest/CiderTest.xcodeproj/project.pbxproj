@@ -51,6 +51,8 @@
 		466EDC7B0F4094F900D2B9AC /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 466EDC7A0F4094F900D2B9AC /* GTMSenTestCase.m */; };
 		467BCC6C1029DD0B00D19D4B /* NSManagedObjectFindTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 467BCC6B1029DD0B00D19D4B /* NSManagedObjectFindTest.m */; };
 		468052AD0FA58ACB003B5A71 /* SourceCodeOpener.m in Sources */ = {isa = PBXBuildFile; fileRef = 468052AC0FA58ACB003B5A71 /* SourceCodeOpener.m */; };
+		468277AD10BEC00200F3259C /* UIColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 468277AC10BEC00200F3259C /* UIColorExtension.m */; };
+		46827BC410BF599F00F3259C /* NSNotificationCenterExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46827BC310BF599F00F3259C /* NSNotificationCenterExtension.m */; };
 		468F0BF51025E49100F3DDF6 /* NSManagedObjectContextCreationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0BF41025E49100F3DDF6 /* NSManagedObjectContextCreationTest.m */; };
 		468F0BF91025E51E00F3DDF6 /* CiderMovie.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 468F0BF81025E51E00F3DDF6 /* CiderMovie.xcdatamodel */; };
 		468F0C011025E73B00F3DDF6 /* ISMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0BFE1025E73B00F3DDF6 /* ISMovie.m */; };
@@ -165,6 +167,10 @@
 		467BCC6B1029DD0B00D19D4B /* NSManagedObjectFindTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectFindTest.m; sourceTree = "<group>"; };
 		468052AB0FA58ACB003B5A71 /* SourceCodeOpener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceCodeOpener.h; sourceTree = "<group>"; };
 		468052AC0FA58ACB003B5A71 /* SourceCodeOpener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceCodeOpener.m; sourceTree = "<group>"; };
+		468277AB10BEC00200F3259C /* UIColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtension.h; sourceTree = "<group>"; };
+		468277AC10BEC00200F3259C /* UIColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtension.m; sourceTree = "<group>"; };
+		46827BC210BF599F00F3259C /* NSNotificationCenterExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNotificationCenterExtension.h; sourceTree = "<group>"; };
+		46827BC310BF599F00F3259C /* NSNotificationCenterExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenterExtension.m; sourceTree = "<group>"; };
 		468F0BF31025E49100F3DDF6 /* NSManagedObjectContextCreationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextCreationTest.h; sourceTree = "<group>"; };
 		468F0BF41025E49100F3DDF6 /* NSManagedObjectContextCreationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextCreationTest.m; sourceTree = "<group>"; };
 		468F0BF81025E51E00F3DDF6 /* CiderMovie.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = CiderMovie.xcdatamodel; sourceTree = "<group>"; };
@@ -413,6 +419,10 @@
 		46513F8F106D107500E192D0 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				46827BC210BF599F00F3259C /* NSNotificationCenterExtension.h */,
+				46827BC310BF599F00F3259C /* NSNotificationCenterExtension.m */,
+				468277AB10BEC00200F3259C /* UIColorExtension.h */,
+				468277AC10BEC00200F3259C /* UIColorExtension.m */,
 				46513F90106D107500E192D0 /* NSErrorExtension.h */,
 				46513F91106D107500E192D0 /* NSErrorExtension.m */,
 			);
@@ -705,6 +715,8 @@
 				46513FA7106D107500E192D0 /* ISCDListTableViewController.m in Sources */,
 				46513FA8106D107500E192D0 /* NSErrorExtension.m in Sources */,
 				46513FAA106D107500E192D0 /* ISTableViewCell.m in Sources */,
+				468277AD10BEC00200F3259C /* UIColorExtension.m in Sources */,
+				46827BC410BF599F00F3259C /* NSNotificationCenterExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
