@@ -425,18 +425,24 @@
     [self.tableView reloadData];
 }
 
-- (void)_save
+- (void)IS_save
 {
     NSError *error = nil;
-    [self.managedObjectContext save:&error];
+    NSManagedObjectContext *context = self.managedObjectContext;
+    @try {
+        [context.persistentStoreCoordinator lock];
+        [context save:&error];
 #ifdef DEBUG
-    if (error) [error showErrorForUserDomains];
+        if (error) [error showErrorForUserDomains];
 #endif
+    } @finally {
+        [context.persistentStoreCoordinator unlock];
+    }
 }
 
 - (void)save
 {
-    [self performSelector:@selector(_save) withObject:nil afterDelay:0];
+    [self performSelector:@selector(IS_save) withObject:nil afterDelay:0];
 }
 
 - (void)cancel

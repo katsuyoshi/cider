@@ -54,10 +54,10 @@
 
 + (void)initializeAop;
 
-- (void)is_insertObject:(NSManagedObject *)object;
-- (void)is_deleteObject:(NSManagedObject *)object;
+- (void)IS_insertObject:(NSManagedObject *)object;
+- (void)IS_deleteObject:(NSManagedObject *)object;
 
-- (BOOL)is_save:(NSError **)error;
+- (BOOL)IS_save:(NSError **)error;
 
 
 @end

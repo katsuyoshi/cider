@@ -124,7 +124,7 @@
 
 
 // don't use this directory.
-+ (ISFetchRequestCondition *)_normalizedCondition:(ISFetchRequestCondition *)condition;
++ (ISFetchRequestCondition *)IS_normalizedCondition:(ISFetchRequestCondition *)condition;
 
 
 @end

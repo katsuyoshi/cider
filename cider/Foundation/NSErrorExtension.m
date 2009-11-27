@@ -41,7 +41,7 @@
 
 @implementation NSError(ISExtension)
 
-- (void)_showError:(NSMutableArray *)array;
+- (void)IS_showError:(NSMutableArray *)array;
 {
     NSString *message = [self localizedDescription];
     NSString *title = NSLocalizedStringFromTable(@"Error!", @"cider", nil);
@@ -56,9 +56,9 @@
     NSMutableArray *array = [NSMutableArray new];
     
     if ([NSThread isMainThread]) {
-        [self _showError:array];
+        [self IS_showError:array];
     } else {
-        [self performSelectorOnMainThread:@selector(_showError:) withObject:array waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(IS_showError:) withObject:array waitUntilDone:YES];
     }
     
     UIAlertView *alertView = [[[array lastObject] retain] autorelease];

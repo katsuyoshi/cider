@@ -42,7 +42,7 @@
 
 @implementation NSManagedObject(ISFetchController)
 
-+ (ISFetchRequestCondition *)_normalizedCondition:(ISFetchRequestCondition *)condition
++ (ISFetchRequestCondition *)IS_normalizedCondition:(ISFetchRequestCondition *)condition
 {
     if (condition == nil) {
         condition = [ISFetchRequestCondition fetchRequestCondition];
@@ -62,7 +62,7 @@
 
 + (NSFetchRequest *)fetchRequestWithCondition:(ISFetchRequestCondition *)condition
 {
-    condition = [self _normalizedCondition:condition];
+    condition = [self IS_normalizedCondition:condition];
     return condition.fetchRequst;
 }
 
@@ -107,7 +107,7 @@
 
 + (NSFetchedResultsController *)fetchedResultsControllerWithCondition:(ISFetchRequestCondition *)condition
 {
-    condition = [self _normalizedCondition:condition];
+    condition = [self IS_normalizedCondition:condition];
     return condition.fetchedResultsController;
 }
 

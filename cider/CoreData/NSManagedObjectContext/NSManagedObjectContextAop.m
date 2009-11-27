@@ -61,41 +61,41 @@ static void swap_method(Class class, SEL orgName, SEL newName)
     @synchronized (self) {
         if (initialized == NO) {
             initialized = YES;
-            swap_method([self class], @selector(insertObject:), @selector(is_insertObject:));
-            swap_method([self class], @selector(deleteObject:), @selector(is_deleteObject:));
-            swap_method([self class], @selector(save:), @selector(is_save:));
+            swap_method([self class], @selector(insertObject:), @selector(IS_insertObject:));
+            swap_method([self class], @selector(deleteObject:), @selector(IS_deleteObject:));
+            swap_method([self class], @selector(save:), @selector(IS_save:));
         }
     }
 }
 
-- (void)is_insertObject:(NSManagedObject *)object
+- (void)IS_insertObject:(NSManagedObject *)object
 {
     if ([object respondsToSelector:@selector(willInsert)]) {
         [object willInsert];
     }
-    [self is_insertObject:object];
+    [self IS_insertObject:object];
     if ([object respondsToSelector:@selector(didInsert)]) {
         [object didInsert];
     }
 }
 
-- (void)is_deleteObject:(NSManagedObject *)object
+- (void)IS_deleteObject:(NSManagedObject *)object
 {
     if ([object respondsToSelector:@selector(willDelete)]) {
         [object willDelete];
     }
-    [self is_deleteObject:object];
+    [self IS_deleteObject:object];
     if ([object respondsToSelector:@selector(didDelete)]) {
         [object didDelete];
     }
 }
 
-- (BOOL)is_save:(NSError **)error
+- (BOOL)IS_save:(NSError **)error
 {
     for (NSManagedObject *object in [self insertedObjects]) {
         [object setListNumber];
     }
-    return [self is_save:error];
+    return [self IS_save:error];
 }
 
 

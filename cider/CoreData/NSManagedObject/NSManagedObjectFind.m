@@ -48,7 +48,7 @@
 
 + (NSArray *)findAllWithCondition:(ISFetchRequestCondition *)condition error:(NSError **)error
 {
-    condition = [self _normalizedCondition:condition];
+    condition = [self IS_normalizedCondition:condition];
     
     NSFetchRequest *request = condition.fetchRequst;
     return [condition.managedObjectContext executeFetchRequest:request error:error];
@@ -56,7 +56,7 @@
 
 + (id)findWithCondition:(ISFetchRequestCondition *)condition error:(NSError **)error
 {
-    condition = [self _normalizedCondition:condition];
+    condition = [self IS_normalizedCondition:condition];
 
     NSFetchRequest *request = condition.fetchRequst;
     request.fetchLimit = 1;
