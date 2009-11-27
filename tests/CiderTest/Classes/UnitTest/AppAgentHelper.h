@@ -24,6 +24,8 @@
 
 
 #define TEXTFIELD_IN_VIEW(v)    [AGENT textFieldInView:v]
+#define SWITCH_IN_VIEW(v)       [AGENT switchInView:v]
+
 
 #define ALERTVIEWS              AGENT.alertViews
 
@@ -51,6 +53,10 @@
     [controller tableView:controller.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:r inSection:s]];\
 } while(0)
 
+#define TOUCH_ACCESSORY_BUTTON_OF_CELL(r,s) do{\
+    UITableViewController *controller = TABLEVIEWCONTROLLER;\
+    [controller tableView:controller.tableView accessoryButtonTappedForRowWithIndexPath:[NSIndexPath indexPathForRow:r inSection:s]];\
+} while(0)
 
 #define CLOSE_ALL_ALERTVIEWS()  [AGENT closeAllAlertViews]
 

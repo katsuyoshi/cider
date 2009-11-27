@@ -111,6 +111,11 @@
     return (UITextField *)[self findViewWithClass:[UITextField class] inViews:[view subviews]];
 }
 
+- (UISwitch *)switchInView:(UIView *)view
+{
+    return (UISwitch *)[self findViewWithClass:[UISwitch class] inViews:[view subviews]];
+}
+
 
 - (NSArray *)alertViews
 {
