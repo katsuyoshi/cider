@@ -1,10 +1,9 @@
-/*
- *  Cider.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  NSNotificationCenterExtension.h
+//  Cider
+//
+//  Created by Katsuyoshi Ito on 09/11/27.
+//
 
 /* 
 
@@ -37,12 +36,11 @@
 
 */
 
+#import <Foundation/Foundation.h>
 
-// UIKit
-#import "ISTableViewCell.h"
 
-// Foundation
-#import "NSErrorExtension.h"
-#import "UIColorExtension.h"
-#import "NSNotificationCenterExtension.h"
-
+@interface NSNotificationCenter(ISExtensionOnMainThread)
+- (void)postNotificationOnMainThread:(NSNotification *)notification;
+- (void)postNotificationNameOnMainThread:(NSString *)notificationName object:(id)notificationSender;
+- (void)postNotificationNameOnMainThread:(NSString *)notificationName object:(id)notificationSender userInfo:(NSDictionary *)userInfo;
+@end
