@@ -70,7 +70,12 @@
     if (_viewController.editing) {
         _viewController.editing = NO;
     }
-    return [super willTearDown];
+    BOOL hasAlertView = CLOSE_ALL_ALERTVIEWS();
+    if (hasAlertView) {
+        return [NSNumber numberWithDouble:1.0];
+    } else {
+        return [super willTearDown];
+    }
 }
 
 - (void)tearDown
@@ -82,7 +87,9 @@
         [modalViewControllers addObject:modalViewController];
         modalViewController = [modalViewController modalViewController];
     }
-    for (UIViewController *controller in [modalViewControllers reverseObjectEnumerator]) {
+    NSEnumerator *controllerEnumerator = [modalViewControllers reverseObjectEnumerator];
+    UIViewController *controller = nil;
+    while (controller = [controllerEnumerator nextObject]) {
         [controller dismissModalViewControllerAnimated:NO];
     }
     
