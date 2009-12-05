@@ -61,7 +61,7 @@
 
 - (void)didDelete
 {
-    [self rebuildListNumber:nil];
+    [self performSelector:@selector(rebuildListNumber:) withObject:nil afterDelay:0.0];
 }
 
 @end

@@ -174,9 +174,10 @@
     [self rebuildListNumber:array fromIndex:1];
 }
 
+// FIXME: 多量に削除した場合の処理を追加したが不完全(削除時に処理されていない)
 - (void)rebuildListNumber:(NSArray *)array fromIndex:(NSInteger)index
 {
-    if ([self listAvailable]) {
+    if (![self isFault] && [self listAvailable]) {
         if (array == nil) {
             NSError *error = nil;
             array = [NSManagedObject findAll:[self conditionForList] error:&error];
@@ -187,7 +188,9 @@
     
         NSString *listAttributeName = [[self class] listAttributeName];
         for(NSManagedObject *object in array) {
-            [object setValue:[NSNumber numberWithInt:index++] forKey:listAttributeName];
+            if (![object isDeleted]) {
+                [object setValue:[NSNumber numberWithInt:index++] forKey:listAttributeName];
+            }
         }
     }
 }

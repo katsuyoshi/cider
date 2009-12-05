@@ -147,5 +147,6 @@ typedef enum {
 
 - (NSInteger)countInSection:(NSInteger)section;
 - (NSIndexPath *)arrangedIndexPathFor:(NSIndexPath *)indexPath;
+- (BOOL)isNewCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
