@@ -195,6 +195,34 @@
     }
 }
 
+- (void)rebuildListNumberWithCondition:(ISFetchRequestCondition *)condition
+{
+    NSError *error = nil;
+    NSArray *array = [NSManagedObject findAll:condition error:&error];
+#ifdef DEBUG
+    if (error) [error showErrorForUserDomains];
+#endif
+    
+    NSString *listAttributeName = [[self class] listAttributeName];
+    int index = 1;
+    for(NSManagedObject *object in array) {
+        [object setValue:[NSNumber numberWithInt:index++] forKey:listAttributeName];
+    }
+}
+
+
+static BOOL IS_autoRebuildNumberWhenDeleted = YES;
+
++ (void)setAutoRebuildNumberWhenDeleted:(BOOL)value
+{
+    IS_autoRebuildNumberWhenDeleted = value;
+}
+
++ (BOOL)autoRebuildNumberWhenDeleted
+{
+    return IS_autoRebuildNumberWhenDeleted;
+}
+
 
 #pragma mark -
 #pragma mark moving

@@ -61,7 +61,16 @@
 
 - (void)didDelete
 {
-    [self performSelector:@selector(rebuildListNumber:) withObject:nil afterDelay:0.0];
+/* DELETEME:
+    ISFetchRequestCondition *condition = [self conditionForList];
+    if (condition) {
+        [self performSelector:@selector(rebuildListNumberWithCondition:) withObject:condition afterDelay:0.0];
+    }
+*/
+// DELETEME:    [self performSelector:@selector(rebuildListNumber:) withObject:nil afterDelay:0.0];
+    if ([[self class] autoRebuildNumberWhenDeleted]) {
+        [self rebuildListNumber:nil];
+    }
 }
 
 @end

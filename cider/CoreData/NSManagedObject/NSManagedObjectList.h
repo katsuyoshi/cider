@@ -40,6 +40,8 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class ISFetchRequestCondition;
+
 
 @interface NSManagedObject(ISActAsList)
 
@@ -61,6 +63,10 @@
 + (BOOL)listAvailable;
 - (BOOL)listAvailable;
 
+
+- (ISFetchRequestCondition *)conditionForList;
+
+
 /**
  * Set list number immediately.
  */
@@ -76,6 +82,11 @@
  */
 - (void)rebuildListNumber:(NSArray *)array fromIndex:(NSInteger)index;
 
+
+- (void)rebuildListNumberWithCondition:(ISFetchRequestCondition *)condition;
+
++ (void)setAutoRebuildNumberWhenDeleted:(BOOL)value;
++ (BOOL)autoRebuildNumberWhenDeleted;
 
 /**
  * Move to index of object.
