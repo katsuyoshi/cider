@@ -45,6 +45,7 @@
 #import "ISTableViewCell.h"
 #import "NSErrorCoreDataExtension.h"
 #import "NSManagedObjectDisplay.h"
+#import "ISDateTimeInputViewController.h"
 
 
 @implementation ISCDDetailedTableViewController
@@ -78,11 +79,11 @@
     }
 }
 
-/*
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -182,44 +183,57 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *CellIdentifier = self.editingMode ? @"EditingCell" : @"Cell";
+    NSString *cellIdentifier = self.editingMode ? @"EditingCell" : @"Cell";
+
+    NSString *attributeKey = [self.displayAttributes objectAtIndex:indexPath.section];
+    NSFormatter *formatter = [self.detailedObject formatterForAttribute:attributeKey];
+    BOOL needsTextField = ![formatter isKindOfClass:[NSDateFormatter class]];
     
-    ISTableViewCell *cell = (ISTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ISTableViewCell *cell = (ISTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        if (self.editingMode) {
-            cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellEditingStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        if (self.editingMode && needsTextField) {
+            cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellEditingStyleDefault reuseIdentifier:cellIdentifier] autorelease];
             if (indexPath.section == 0) {
                 [cell.textField performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
             }
             cell.textField.delegate = self;
             [self registTextField:cell.textField indexPath:indexPath];
         } else {
-            cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
         }
-        
     }
     
-    NSString *attribteKey = [self.displayAttributes objectAtIndex:indexPath.section];
-    
-    NSFormatter *formatter = [self.detailedObject formatterForAttribute:attribteKey];
-    
-    id value = [self.detailedObject valueForKey:attribteKey];
-    NSString *title = formatter ? [formatter stringForObjectValue:value]  : [value description];
-    if (self.editingMode) {
-        cell.textField.text = title;
+    if (self.editingMode && !needsTextField) {
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     } else {
-        cell.textLabel.text = title;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+        
+    id value = [self.detailedObject valueForKey:attributeKey];
+    if (value) {
+        NSString *title = formatter ? [formatter stringForObjectValue:value]  : [value description];
+        if (self.editingMode && needsTextField) {
+            cell.textField.text = title;
+        } else {
+            cell.textLabel.text = title;
+        }
+    } else {
+        cell.textLabel.text = nil;
     }
 	
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
+        ISDateTimeInputViewController *controller = [ISDateTimeInputViewController dateTimeInputViewController];
+        controller.detailedObject = self.detailedObject;
+        controller.attributeKey = [self.displayAttributes objectAtIndex:indexPath.section];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
 }
 
 

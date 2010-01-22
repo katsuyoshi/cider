@@ -64,6 +64,8 @@
 		469B8A96105547DB00F59D7E /* UITableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A93105547DB00F59D7E /* UITableViewControllerTest.m */; };
 		469B8A97105547DB00F59D7E /* UIViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A95105547DB00F59D7E /* UIViewControllerTest.m */; };
 		469B8CEE1055C5AC00F59D7E /* NSManagedObjectListTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */; };
+		469EB64111049A2600C9C2EA /* ISDateTimeInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469EB63F11049A2600C9C2EA /* ISDateTimeInputViewController.m */; };
+		469EB64211049A2600C9C2EA /* ISDateTimeInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 469EB64011049A2600C9C2EA /* ISDateTimeInputViewController.xib */; };
 		469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */; };
 		46B32FA61024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B32FA51024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m */; };
 		46C6AB570F2DBE7E00BA1B73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB3E0F2DBE7E00BA1B73 /* AppDelegate.m */; };
@@ -194,6 +196,9 @@
 		469B8A93105547DB00F59D7E /* UITableViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewControllerTest.m; sourceTree = "<group>"; };
 		469B8A94105547DB00F59D7E /* UIViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerTest.h; sourceTree = "<group>"; };
 		469B8A95105547DB00F59D7E /* UIViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerTest.m; sourceTree = "<group>"; };
+		469EB63E11049A2600C9C2EA /* ISDateTimeInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDateTimeInputViewController.h; sourceTree = "<group>"; };
+		469EB63F11049A2600C9C2EA /* ISDateTimeInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDateTimeInputViewController.m; sourceTree = "<group>"; };
+		469EB64011049A2600C9C2EA /* ISDateTimeInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ISDateTimeInputViewController.xib; sourceTree = "<group>"; };
 		469F8E820FBC5A4C004FD86F /* NSExceptionExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSExceptionExtension.h; sourceTree = "<group>"; };
 		469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSExceptionExtension.m; sourceTree = "<group>"; };
 		46B32FA41024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContextTest.h; sourceTree = "<group>"; };
@@ -416,6 +421,9 @@
 				46513F8C106D107500E192D0 /* ISCDDetailedTableViewController.m */,
 				46513F8D106D107500E192D0 /* ISCDListTableViewController.h */,
 				46513F8E106D107500E192D0 /* ISCDListTableViewController.m */,
+				469EB63E11049A2600C9C2EA /* ISDateTimeInputViewController.h */,
+				469EB63F11049A2600C9C2EA /* ISDateTimeInputViewController.m */,
+				469EB64011049A2600C9C2EA /* ISDateTimeInputViewController.xib */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -655,6 +663,7 @@
 				460633A20F55B5F900A33C8B /* isd_logo_60x40_w.png in Resources */,
 				4617B7F00F57B76100D94BF1 /* Default.png in Resources */,
 				46513FA9106D107500E192D0 /* cider.strings in Resources */,
+				469EB64211049A2600C9C2EA /* ISDateTimeInputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +734,7 @@
 				468277AD10BEC00200F3259C /* UIColorExtension.m in Sources */,
 				46827BC410BF599F00F3259C /* NSNotificationCenterExtension.m in Sources */,
 				46828C0610BFE99700F3259C /* AppAgent.m in Sources */,
+				469EB64111049A2600C9C2EA /* ISDateTimeInputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
