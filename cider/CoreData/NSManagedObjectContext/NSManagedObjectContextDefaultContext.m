@@ -48,6 +48,8 @@ static NSManagedObjectContext *_defaultContext = nil;
 static id _defaultStoreFile = nil;
 static id _defaultStoreURL = nil;
 
+BOOL is_g_running_migration = NO;
+
 + (NSManagedObjectContext *)defaultManagedObjectContext
 {
     if (_defaultContext == nil) {
@@ -158,19 +160,26 @@ static id _defaultStoreURL = nil;
 
 + (NSManagedObjectContext *)managedObjectContextWithURL:(NSURL *)url
 {
-    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil]; 
-       
-	NSError *error = nil;
-    NSPersistentStoreCoordinator *coordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel] autorelease];
-    if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:nil error:&error]) {
-#ifdef DEBUG
-        [error showErrorForUserDomains];
-#endif
-    }
+    NSManagedObjectContext *managedObjectContext = nil;
     
-    NSManagedObjectContext *managedObjectContext = [[[NSManagedObjectContext alloc] init] autorelease];
-    [managedObjectContext setPersistentStoreCoordinator:coordinator];
-	
+    @synchronized(self) {
+        is_g_running_migration = YES;
+        NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil]; 
+       
+        NSError *error = nil;
+        NSPersistentStoreCoordinator *coordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel] autorelease];
+        NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+
+        if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:options error:&error]) {
+#ifdef DEBUG
+            [error showErrorForUserDomains];
+#endif
+        }
+    
+        managedObjectContext = [[[NSManagedObjectContext alloc] init] autorelease];
+        [managedObjectContext setPersistentStoreCoordinator:coordinator];
+        is_g_running_migration = NO;
+	}
     return managedObjectContext;
 }
 

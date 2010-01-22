@@ -39,6 +39,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+extern BOOL is_g_running_migration;
 
 /**
  * Purpose:

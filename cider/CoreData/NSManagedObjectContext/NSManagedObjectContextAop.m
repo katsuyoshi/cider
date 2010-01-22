@@ -36,6 +36,7 @@
 
 */
 
+#import "NSManagedObjectContextDefaultContext.h"
 #import "NSManagedObjectContextAop.h"
 #import "NSManagedObjectList.h"
 #import "/usr/include/objc/objc-class.h"
@@ -92,8 +93,10 @@ static void swap_method(Class class, SEL orgName, SEL newName)
 
 - (BOOL)IS_save:(NSError **)error
 {
-    for (NSManagedObject *object in [self insertedObjects]) {
-        [object setListNumber];
+    if (is_g_running_migration == NO) {
+        for (NSManagedObject *object in [self insertedObjects]) {
+            [object setListNumber];
+        }
     }
     return [self IS_save:error];
 }
