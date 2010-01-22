@@ -1,6 +1,6 @@
 //
 //  NSFetchedResultsControllerSortedObject.h
-//  ioTouch2
+//  CiderTest
 //
 //  Created by Katsuyoshi Ito on 09/08/07.
 //
