@@ -333,8 +333,15 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
     if (self.addingStyle == ISListTableViewAddingStyleCell) {
-        if (proposedDestinationIndexPath.row == 0) {
-            return [NSIndexPath indexPathForRow:1 inSection:proposedDestinationIndexPath.section];
+        if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
+            if (proposedDestinationIndexPath.row == 0) {
+                return [NSIndexPath indexPathForRow:1 inSection:proposedDestinationIndexPath.section];
+            }
+        } else {
+            int count = [self tableView:tableView numberOfRowsInSection:sourceIndexPath.section];
+            if (proposedDestinationIndexPath.row == count - 1) {
+                return [NSIndexPath indexPathForRow:count - 2 inSection:proposedDestinationIndexPath.section];
+            }
         }
     }
     return proposedDestinationIndexPath;

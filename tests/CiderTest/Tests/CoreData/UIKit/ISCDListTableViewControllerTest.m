@@ -282,7 +282,7 @@
 
 
 // セルの移動位置調整の確認
-- (void)testTargetIndexPathFromMoveFromRowAtIndexPathToProposedIndexPath
+- (void)testTargetIndexPathFromMoveFromRowAtIndexPathToProposedIndexWithPathISListTableViewAddingStyle
 {
     NSIndexPath *sourceIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
     NSIndexPath *proposedIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -298,6 +298,33 @@
     // ISListTableViewAddingStyleToolBarButtonの場合は移動出来る
     aTableViewController.addingStyle = ISListTableViewAddingStyleToolBarButton;
     ASSERT_EQUAL(proposedIndexPath, TARGET_INDEXPTH(sourceIndexPath, proposedIndexPath));
+}
+
+// セルの移動位置調整の確認
+- (void)testTargetIndexPathFromMoveFromRowAtIndexPathToProposedIndexPathWithISListTableViewNewCellRowStyle
+{
+    NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSIndexPath *secondIndexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSIndexPath *thirdIndexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    ISCDListTableViewController *aTableViewController = (ISCDListTableViewController *)self.tableViewController;
+
+    aTableViewController.editing = YES;
+
+    // ISListTableViewNewCellRowStyleFirstの場合は1番目には移動出来ない
+    aTableViewController.newCellRowStyle = ISListTableViewNewCellRowStyleFirst;
+    ASSERT_EQUAL(secondIndexPath, TARGET_INDEXPTH(secondIndexPath, firstIndexPath));
+    ASSERT_EQUAL(thirdIndexPath, TARGET_INDEXPTH(secondIndexPath, thirdIndexPath));
+    ASSERT_EQUAL(secondIndexPath, TARGET_INDEXPTH(thirdIndexPath, firstIndexPath));
+    ASSERT_EQUAL(secondIndexPath, TARGET_INDEXPTH(thirdIndexPath, secondIndexPath));
+
+
+    // ISListTableViewNewCellRowStyleLastの場合は3番目には移動出来ない
+    aTableViewController.newCellRowStyle = ISListTableViewNewCellRowStyleLast;
+    ASSERT_EQUAL(secondIndexPath, TARGET_INDEXPTH(firstIndexPath, secondIndexPath));
+    ASSERT_EQUAL(secondIndexPath, TARGET_INDEXPTH(firstIndexPath, thirdIndexPath));
+
+    ASSERT_EQUAL(firstIndexPath, TARGET_INDEXPTH(secondIndexPath, firstIndexPath));
+    ASSERT_EQUAL(secondIndexPath, TARGET_INDEXPTH(secondIndexPath, thirdIndexPath));
 }
 
 
