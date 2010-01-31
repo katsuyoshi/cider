@@ -201,21 +201,25 @@
     }
 }
 
+- (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
+{
+    return [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+}
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BOOL isNewCell = [self isNewCellAtIndexPath:indexPath];
+    NSString *cellIdentifier = isNewCell ? @"NewCell" : @"Cell";
     
-    static NSString *CellIdentifier = @"Cell";
-    
-    ISTableViewCell *cell = (ISTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ISTableViewCell *cell = (ISTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = (ISTableViewCell *)[self createCellWithIdentifier:cellIdentifier];
     }
     cell.accessoryType = self.hasDetailView ?  UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.editingAccessoryType = cell.accessoryType;
     
-    
     if (self.editing) {
-        if ([self isNewCellAtIndexPath:indexPath]) {
+        if (isNewCell) {
             NSArray *array = [NSArray arrayWithObjects:@"New", self.entityName, nil];
             NSString *title = NSLocalizedString([array componentsJoinedByString:@" "], nil);
             cell.textLabel.text = title;

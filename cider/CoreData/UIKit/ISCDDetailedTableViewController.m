@@ -339,7 +339,8 @@
 
 - (void)createWithEntityName:(NSString *)entityName
 {
-    NSManagedObject *object = [NSManagedObject createWithEntityName:entityName inManagedObjectContext:self.managedObjectContext];
+    Class klass = NSClassFromString(entityName);
+    NSManagedObject *object = [klass createWithManagedObjectContext:self.managedObjectContext];
     [object setListNumber];
     
     self.detailedObject = object;

@@ -59,6 +59,8 @@ typedef enum {
 } ISListTableViewAddingStyle;
 
 
+@class ISCDDetailedTableViewController;
+
 @interface ISCDListTableViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
 
     NSEntityDescription *_entity;
@@ -148,5 +150,7 @@ typedef enum {
 - (NSInteger)countInSection:(NSInteger)section;
 - (NSIndexPath *)arrangedIndexPathFor:(NSIndexPath *)indexPath;
 - (BOOL)isNewCellAtIndexPath:(NSIndexPath *)indexPath;
+- (ISCDDetailedTableViewController *)createDetailedTableViewController;
+- (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier;
 
 @end
