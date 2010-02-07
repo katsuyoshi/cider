@@ -55,6 +55,7 @@
     UITextField *_editingTextField;
     
     BOOL canceling;
+    BOOL pushingToNextViewController;
 }
 
 

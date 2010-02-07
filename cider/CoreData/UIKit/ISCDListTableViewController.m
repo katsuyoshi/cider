@@ -62,6 +62,9 @@
 @synthesize hasEditButtonItem = _hasEditButtonItem;
 @synthesize editingRowAnimation = _editingRowAnimation;
 @synthesize hasDetailView = _hasDetailView;
+@synthesize predicate = _predicate;
+@synthesize sortDescriptors = _sortDescriptors;
+
 
 - (id)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:style]) {
@@ -349,6 +352,8 @@
 
 
 - (void)dealloc {
+    [_predicate release];
+    [_sortDescriptors release];
     [_entityName release];
     [_entity release];
     [_masterObject release];
@@ -410,7 +415,10 @@
         Class class = NSClassFromString(managedObjectClassName);
         if (class) {
             NSString *attributeName = [class listAttributeName];
-            condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:attributeName];
+            // TODO: attributeNameが存在するか確認する
+            if (attributeName) {
+                condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:attributeName];
+            }
         }
         
         if (self.masterObject) {
@@ -421,6 +429,24 @@
                 NSLog(@"WARN: %@ listScopeName is nil.", managedObjectClassName);
             }
         }
+        
+        if (self.predicate) {
+            if (condition.predicate) {
+                condition.predicate = [NSPredicate predicateWithFormat:@"%@ and %@", condition.predicate, self.predicate];
+            } else {
+                condition.predicate = self.predicate;
+            }
+        }
+        
+        NSMutableArray *array = [NSMutableArray array];
+        if (condition.sortDescriptors) {
+            [array addObjectsFromArray:condition.sortDescriptors];
+        }
+        if (self.sortDescriptors) {
+            [array addObjectsFromArray:self.sortDescriptors];
+        }
+        condition.sortDescriptors = array;
+        
         
         _fetchedResultsController = [condition.fetchedResultsController retain];
         _fetchedResultsController.delegate = self;
@@ -535,7 +561,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView reloadData];
+    [self reloadData];
 }
 
 @end

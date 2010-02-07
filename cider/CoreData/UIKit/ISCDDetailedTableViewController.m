@@ -81,6 +81,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    pushingToNextViewController = NO;
     [self.tableView reloadData];
 }
 
@@ -92,7 +93,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-    [self cancelAction:self];
+    if (pushingToNextViewController == NO) {
+        [self cancelAction:self];
+    }
 }
 
 /*
@@ -232,6 +235,8 @@
         ISDateTimeInputViewController *controller = [ISDateTimeInputViewController dateTimeInputViewController];
         controller.detailedObject = self.detailedObject;
         controller.attributeKey = [self.displayAttributes objectAtIndex:indexPath.section];
+
+        pushingToNextViewController = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
