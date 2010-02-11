@@ -186,15 +186,15 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *cellIdentifier = self.editingMode ? @"EditingCell" : @"Cell";
-
     NSString *attributeKey = [self.displayAttributes objectAtIndex:indexPath.section];
     NSFormatter *formatter = [self.detailedObject formatterForAttribute:attributeKey];
-    BOOL needsTextField = ![formatter isKindOfClass:[NSDateFormatter class]];
-    
+    BOOL needsTextField = ![formatter isKindOfClass:[NSDateFormatter class]] && self.editingMode;
+
+    NSString *cellIdentifier = needsTextField ? @"EditingCell" : @"Cell";
+
     ISTableViewCell *cell = (ISTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        if (self.editingMode && needsTextField) {
+        if (needsTextField) {
             cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellEditingStyleDefault reuseIdentifier:cellIdentifier] autorelease];
             if (indexPath.section == 0) {
                 [cell.textField performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
@@ -385,9 +385,7 @@
             }
         }
         
-#ifdef DEBUG
         if (error) [error showErrorForUserDomains];
-#endif
         
     }
 }
