@@ -23,5 +23,9 @@
 - (int)minute;
 - (int)second;
 
+
+- (NSDate *)beginningOfDay;
+
+
 @end
 

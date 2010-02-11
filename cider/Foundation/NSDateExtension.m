@@ -76,4 +76,11 @@
     return [components second];
 }
 
+
+
+- (NSDate *)beginningOfDay
+{
+    return [NSDate dateWithYear:[self year] month:[self month] day:[self day] hour:0 minute:0 second:0];
+}
+
 @end
