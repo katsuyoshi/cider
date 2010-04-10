@@ -154,3 +154,9 @@ typedef enum {
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier;
 
 @end
+
+
+@interface NSManagedObject(ISCDListTableViewController)
++ (NSArray *)sortDescriptorsForTableViewController:(UITableViewController *)controller;
++ (NSString *)sortDescriptorsStringForTableViewController:(UITableViewController *)controller;
+@end
