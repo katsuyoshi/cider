@@ -76,7 +76,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self setUpEntityAndAttributeIfNeeds];
+    
     self.tableView.allowsSelectionDuringEditing = YES;
 
     if (self.hasEditButtonItem) {
@@ -84,6 +85,10 @@
     }
 
     [self reloadData];
+}
+
+- (void)setUpEntityAndAttributeIfNeeds
+{
 }
 
 /*
