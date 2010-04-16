@@ -317,15 +317,7 @@
 - (NSArray *)displayAttributes
 {
     if (_displayAttributes == nil) {
-        NSString *listAttribute = [[_detailedObject class] listAttributeName];
-        NSEntityDescription *entity = [_detailedObject entity];
-        NSMutableArray *array = [NSMutableArray array];
-        for (NSString *key in [entity.attributesByName allKeys]) {
-            if (![key isEqualToString:listAttribute]) {
-                [array addObject:key];
-            }
-        }
-        _displayAttributes = [array retain];
+		_displayAttributes = [[_detailedObject displayAttributesForTableViewController:self editing:self.editingMode] retain];
     }
     return _displayAttributes;
 }
@@ -419,4 +411,23 @@
 
 
 @end
+
+
+@implementation NSManagedObject(ISCDDetailedTableViewController)
+
+- (NSArray *)displayAttributesForTableViewController:(UITableViewController *)controller editing:(BOOL)editing
+{
+	NSString *listAttribute = [[self class] listAttributeName];
+	NSEntityDescription *entity = [self entity];
+	NSMutableArray *array = [NSMutableArray array];
+	for (NSString *key in [entity.attributesByName allKeys]) {
+		if (![key isEqualToString:listAttribute]) {
+			[array addObject:key];
+		}
+	}
+	return array;
+}
+
+@end
+
 

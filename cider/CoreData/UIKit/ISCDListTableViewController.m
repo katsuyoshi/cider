@@ -79,7 +79,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self setUpEntityAndAttributeIfNeeds];
+    
     self.tableView.allowsSelectionDuringEditing = YES;
 
     if (self.hasEditButtonItem) {
@@ -87,6 +88,10 @@
     }
 
     [self reloadData];
+}
+
+- (void)setUpEntityAndAttributeIfNeeds
+{
 }
 
 /*
@@ -414,11 +419,7 @@
         
         Class class = NSClassFromString(managedObjectClassName);
         if (class) {
-            NSString *attributeName = [class listAttributeName];
-            // TODO: attributeNameが存在するか確認する
-            if (attributeName) {
-                condition.sortDescriptors = [NSSortDescriptor sortDescriptorsWithString:attributeName];
-            }
+            condition.sortDescriptors = [class sortDescriptorsForTableViewController:self];
         }
         
         if (self.masterObject) {
@@ -566,3 +567,19 @@
 
 @end
 
+
+@implementation NSManagedObject(ISCDListTableViewController)
+
++ (NSArray *)sortDescriptorsForTableViewController:(UITableViewController *)controller
+{
+	NSString *sortDescriptorsString = [self sortDescriptorsStringForTableViewController:controller];
+	return [NSSortDescriptor sortDescriptorsWithString:sortDescriptorsString];
+}
+
++ (NSString *)sortDescriptorsStringForTableViewController:(UITableViewController *)controller
+{
+	return [self listAttributeName];
+}
+
+
+@end

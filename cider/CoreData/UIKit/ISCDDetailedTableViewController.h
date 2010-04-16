@@ -81,3 +81,9 @@
 
 
 @end
+
+
+@interface NSManagedObject(ISCDDetailedTableViewController)
+- (NSArray *)displayAttributesForTableViewController:(UITableViewController *)controller editing:(BOOL)editing;
+@end
+

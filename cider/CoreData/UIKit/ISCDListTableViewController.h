@@ -144,6 +144,12 @@ typedef enum {
 /** The value of this attribute will be dispayed on table view cell. */
 @property (retain) NSString *displayKey;
 
+/**
+ * Set entity and attribute that you want to display if needs.
+ * It's called in viewDidLoad.
+ */
+- (void)setUpEntityAndAttributeIfNeeds;
+   
 - (void)reloadData;
 - (void)save;
 - (void)cancel;
@@ -158,4 +164,10 @@ typedef enum {
 - (ISCDDetailedTableViewController *)createDetailedTableViewController;
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier;
 
+@end
+
+
+@interface NSManagedObject(ISCDListTableViewController)
++ (NSArray *)sortDescriptorsForTableViewController:(UITableViewController *)controller;
++ (NSString *)sortDescriptorsStringForTableViewController:(UITableViewController *)controller;
 @end
