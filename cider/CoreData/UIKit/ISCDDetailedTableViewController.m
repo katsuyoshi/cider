@@ -81,6 +81,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    pushingToNextViewController = NO;
     [self.tableView reloadData];
 }
 
@@ -92,7 +93,9 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-    [self cancelAction:self];
+    if (pushingToNextViewController == NO) {
+        [self cancelAction:self];
+    }
 }
 
 /*
@@ -183,15 +186,15 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *cellIdentifier = self.editingMode ? @"EditingCell" : @"Cell";
-
     NSString *attributeKey = [self.displayAttributes objectAtIndex:indexPath.section];
     NSFormatter *formatter = [self.detailedObject formatterForAttribute:attributeKey];
-    BOOL needsTextField = ![formatter isKindOfClass:[NSDateFormatter class]];
-    
+    BOOL needsTextField = ![formatter isKindOfClass:[NSDateFormatter class]] && self.editingMode;
+
+    NSString *cellIdentifier = needsTextField ? @"EditingCell" : @"Cell";
+
     ISTableViewCell *cell = (ISTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        if (self.editingMode && needsTextField) {
+        if (needsTextField) {
             cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellEditingStyleDefault reuseIdentifier:cellIdentifier] autorelease];
             if (indexPath.section == 0) {
                 [cell.textField performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
@@ -232,6 +235,8 @@
         ISDateTimeInputViewController *controller = [ISDateTimeInputViewController dateTimeInputViewController];
         controller.detailedObject = self.detailedObject;
         controller.attributeKey = [self.displayAttributes objectAtIndex:indexPath.section];
+
+        pushingToNextViewController = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }
 }
@@ -372,9 +377,7 @@
             }
         }
         
-#ifdef DEBUG
         if (error) [error showErrorForUserDomains];
-#endif
         
     }
 }

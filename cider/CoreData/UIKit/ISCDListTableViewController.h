@@ -83,12 +83,17 @@ typedef enum {
     ISListTableViewAddingStyle _addingStyle;
     
     NSString *_detailedTableViewControllerClassName;
+    
+    NSPredicate *_predicate;
+    NSArray *_sortDescriptors;
 }
 
 
 @property (retain, readonly) NSFetchedResultsController *fetchedResultsController;
 @property (retain) NSManagedObjectContext *managedObjectContext;
 
+@property (retain) NSPredicate *predicate;
+@property (retain) NSArray *sortDescriptors;
 
 
 #pragma mark -
