@@ -555,7 +555,12 @@
 
 + (NSString *)sortDescriptorsStringForTableViewController:(UITableViewController *)controller
 {
-	return [self listAttributeName];
+    if ([self listAvailable]) {
+        return [self listAttributeName];
+    } else {
+        NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass(self) inManagedObjectContext:[NSManagedObjectContext defaultManagedObjectContext]];
+        return [[[entity propertiesByName] allKeys] lastObject];
+    }
 }
 
 

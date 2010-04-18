@@ -67,6 +67,8 @@
 		469EB64111049A2600C9C2EA /* ISDateTimeInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 469EB63F11049A2600C9C2EA /* ISDateTimeInputViewController.m */; };
 		469EB64211049A2600C9C2EA /* ISDateTimeInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 469EB64011049A2600C9C2EA /* ISDateTimeInputViewController.xib */; };
 		469F8E840FBC5A4C004FD86F /* NSExceptionExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */; };
+		46B11165117A60480062A2CA /* ListTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B11164117A60480062A2CA /* ListTest3.m */; };
+		46B11169117A60880062A2CA /* NSManagedObjectListExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B11168117A60880062A2CA /* NSManagedObjectListExtensionTest.m */; };
 		46B32FA61024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B32FA51024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m */; };
 		46C6AB570F2DBE7E00BA1B73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB3E0F2DBE7E00BA1B73 /* AppDelegate.m */; };
 		46C6AB580F2DBE7E00BA1B73 /* UINavigationBarBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB420F2DBE7E00BA1B73 /* UINavigationBarBasedTest.m */; };
@@ -201,6 +203,10 @@
 		469EB64011049A2600C9C2EA /* ISDateTimeInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ISDateTimeInputViewController.xib; sourceTree = "<group>"; };
 		469F8E820FBC5A4C004FD86F /* NSExceptionExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSExceptionExtension.h; sourceTree = "<group>"; };
 		469F8E830FBC5A4C004FD86F /* NSExceptionExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSExceptionExtension.m; sourceTree = "<group>"; };
+		46B11163117A60480062A2CA /* ListTest3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTest3.h; sourceTree = "<group>"; };
+		46B11164117A60480062A2CA /* ListTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTest3.m; sourceTree = "<group>"; };
+		46B11167117A60880062A2CA /* NSManagedObjectListExtensionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectListExtensionTest.h; sourceTree = "<group>"; };
+		46B11168117A60880062A2CA /* NSManagedObjectListExtensionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectListExtensionTest.m; sourceTree = "<group>"; };
 		46B32FA41024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContextTest.h; sourceTree = "<group>"; };
 		46B32FA51024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextDefaultContextTest.m; sourceTree = "<group>"; };
 		46C6AB3D0F2DBE7E00BA1B73 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -461,6 +467,8 @@
 		468F0BFA1025E6A700F3DDF6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				46B11163117A60480062A2CA /* ListTest3.h */,
+				46B11164117A60480062A2CA /* ListTest3.m */,
 				4643C0951046542900677C80 /* ListTest1.h */,
 				4643C0961046542900677C80 /* ListTest1.m */,
 				4643C0971046542900677C80 /* ListTest2.h */,
@@ -486,6 +494,8 @@
 				4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */,
 				469B8A79105542FB00F59D7E /* ISFetchRequestConditionTest.h */,
 				469B8A7A105542FB00F59D7E /* ISFetchRequestConditionTest.m */,
+				46B11167117A60880062A2CA /* NSManagedObjectListExtensionTest.h */,
+				46B11168117A60880062A2CA /* NSManagedObjectListExtensionTest.m */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
@@ -735,6 +745,8 @@
 				46827BC410BF599F00F3259C /* NSNotificationCenterExtension.m in Sources */,
 				46828C0610BFE99700F3259C /* AppAgent.m in Sources */,
 				469EB64111049A2600C9C2EA /* ISDateTimeInputViewController.m in Sources */,
+				46B11165117A60480062A2CA /* ListTest3.m in Sources */,
+				46B11169117A60880062A2CA /* NSManagedObjectListExtensionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
