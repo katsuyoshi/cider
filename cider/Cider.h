@@ -48,5 +48,6 @@
 #import "UIColorExtension.h"
 #import "NSNotificationCenterExtension.h"
 #import "NSDateExtension.h"
+#import "ISProperty.h"
 
 
