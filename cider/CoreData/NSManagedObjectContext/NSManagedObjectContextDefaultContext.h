@@ -39,6 +39,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+
+#define DEFAULT_MANAGED_OBJECT_CONTEXT  [NSManagedObjectContext defaultManagedObjectContext]
+
+
 extern BOOL is_g_running_migration;
 
 /**
