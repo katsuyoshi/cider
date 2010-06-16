@@ -42,6 +42,27 @@
 
 @interface NSManagedObject(ISCallbacks)
 
+/**
+ * Disable list.
+ * When you delete a listed objects it will be renumbered.
+ * If a deleted object has many nested objects, it may take a long time.
+ * +disableList ignore renumbering.
+ * 
+ * {@code
+   NSManagedObject *anObject;
+   NSManagedObject *context = anObject.managedObjectContext;
+   [NSManagedObject disableList];
+   [context deleteObject:anObject]
+   [context save:NULL];
+   [NSManagedObject enableList];
+   // If you need renumbering, proceed here and save again.
+   }
+ */
++ (void)disableList;
 
+/**
+ * @see #disableList
+ */
++ (void)enableList;
 
 @end

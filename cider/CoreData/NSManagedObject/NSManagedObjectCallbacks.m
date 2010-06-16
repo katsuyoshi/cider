@@ -43,6 +43,18 @@
 
 @implementation NSManagedObject(ISCallbacks)
 
+static BOOL enableList = YES;
+
++ (void)disableList
+{
+    enableList = NO;
+}
+
++ (void)enableList
+{
+    enableList = YES;
+}
+
 /*
 - (void)willInsert
 {
@@ -61,15 +73,10 @@
 
 - (void)didDelete
 {
-/* DELETEME:
-    ISFetchRequestCondition *condition = [self conditionForList];
-    if (condition) {
-        [self performSelector:@selector(rebuildListNumberWithCondition:) withObject:condition afterDelay:0.0];
-    }
-*/
-// DELETEME:    [self performSelector:@selector(rebuildListNumber:) withObject:nil afterDelay:0.0];
-    if ([[self class] autoRebuildNumberWhenDeleted]) {
-        [self rebuildListNumber:nil];
+    if (enableList) {
+        if ([[self class] autoRebuildNumberWhenDeleted]) {
+            [self rebuildListNumber:nil];
+        }
     }
 }
 
