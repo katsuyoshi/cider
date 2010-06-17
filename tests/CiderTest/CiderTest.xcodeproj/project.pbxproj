@@ -28,6 +28,7 @@
 		4647BF361024324A003D1D17 /* NSErrorCoreDataExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BF351024324A003D1D17 /* NSErrorCoreDataExtensionTest.m */; };
 		465B04250F2056FF000E8FE2 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 465B04240F2056FF000E8FE2 /* TestView.xib */; };
 		465BB94811CA46E900770325 /* ISProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB94711CA46E900770325 /* ISProperty.m */; };
+		465BB98111CA4AFF00770325 /* ISPropertyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB98011CA4AFF00770325 /* ISPropertyTest.m */; };
 		466AF4DE0F2F02A3004A649A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 466AF4DD0F2F02A3004A649A /* icon.png */; };
 		466EDC7B0F4094F900D2B9AC /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 466EDC7A0F4094F900D2B9AC /* GTMSenTestCase.m */; };
 		467BCC6C1029DD0B00D19D4B /* NSManagedObjectFindTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 467BCC6B1029DD0B00D19D4B /* NSManagedObjectFindTest.m */; };
@@ -128,6 +129,8 @@
 		465B04240F2056FF000E8FE2 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		465BB94611CA46E900770325 /* ISProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISProperty.h; sourceTree = "<group>"; };
 		465BB94711CA46E900770325 /* ISProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISProperty.m; sourceTree = "<group>"; };
+		465BB97F11CA4AFF00770325 /* ISPropertyTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPropertyTest.h; sourceTree = "<group>"; };
+		465BB98011CA4AFF00770325 /* ISPropertyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPropertyTest.m; sourceTree = "<group>"; };
 		466AF4DD0F2F02A3004A649A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		466EDC780F4094DB00D2B9AC /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTLog.h; sourceTree = "<group>"; };
 		466EDC790F4094F900D2B9AC /* GTMSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMSenTestCase.h; sourceTree = "<group>"; };
@@ -355,6 +358,15 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		465BB97E11CA4AF000770325 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				465BB97F11CA4AFF00770325 /* ISPropertyTest.h */,
+				465BB98011CA4AFF00770325 /* ISPropertyTest.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		468F0BFA1025E6A700F3DDF6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +443,7 @@
 		46C20FD60F256E610053F9B9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				465BB97E11CA4AF000770325 /* Foundation */,
 				4647BF331024324A003D1D17 /* CoreData */,
 				4647BE0E10241EC9003D1D17 /* UIKit */,
 			);
@@ -761,6 +774,7 @@
 				46EAC55A117ABF7E00E9161D /* ISSelectionTableViewController.m in Sources */,
 				46EAC55B117ABF7E00E9161D /* ISTableViewCell.m in Sources */,
 				465BB94811CA46E900770325 /* ISProperty.m in Sources */,
+				465BB98111CA4AFF00770325 /* ISPropertyTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
