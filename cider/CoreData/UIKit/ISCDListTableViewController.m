@@ -212,13 +212,14 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-    if ([self tableView:tableView numberOfRowsInSection:section]) {
-        NSManagedObject *eo = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        return [eo valueForKey:self.sectionNameKeyPath];
-    } else {
-        return nil;
+    if ([self.sectionNameKeyPath length]) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+        if ([self tableView:tableView numberOfRowsInSection:section]) {
+            NSManagedObject *eo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            return [eo valueForKey:self.sectionNameKeyPath];
+        }
     }
+    return nil;
 }
 
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier

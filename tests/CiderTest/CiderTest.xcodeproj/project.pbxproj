@@ -24,11 +24,10 @@
 		4643C0991046542900677C80 /* ListTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C0961046542900677C80 /* ListTest1.m */; };
 		4643C09A1046542900677C80 /* ListTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C0981046542900677C80 /* ListTest2.m */; };
 		4647BE1610241EC9003D1D17 /* TableViewControllerForISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BE1110241EC9003D1D17 /* TableViewControllerForISTableViewCell.m */; };
-		4647BE1710241EC9003D1D17 /* ISTableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BE1310241EC9003D1D17 /* ISTableViewCellTest.m */; };
-		4647BE1810241EC9003D1D17 /* ISTableViewCellTestWhenGrouped.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BE1510241EC9003D1D17 /* ISTableViewCellTestWhenGrouped.m */; };
 		4647BE5910242243003D1D17 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4647BE5810242243003D1D17 /* CoreData.framework */; };
 		4647BF361024324A003D1D17 /* NSErrorCoreDataExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BF351024324A003D1D17 /* NSErrorCoreDataExtensionTest.m */; };
 		465B04250F2056FF000E8FE2 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 465B04240F2056FF000E8FE2 /* TestView.xib */; };
+		465BB94811CA46E900770325 /* ISProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB94711CA46E900770325 /* ISProperty.m */; };
 		466AF4DE0F2F02A3004A649A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 466AF4DD0F2F02A3004A649A /* icon.png */; };
 		466EDC7B0F4094F900D2B9AC /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 466EDC7A0F4094F900D2B9AC /* GTMSenTestCase.m */; };
 		467BCC6C1029DD0B00D19D4B /* NSManagedObjectFindTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 467BCC6B1029DD0B00D19D4B /* NSManagedObjectFindTest.m */; };
@@ -127,6 +126,8 @@
 		4647BF341024324A003D1D17 /* NSErrorCoreDataExtensionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorCoreDataExtensionTest.h; sourceTree = "<group>"; };
 		4647BF351024324A003D1D17 /* NSErrorCoreDataExtensionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorCoreDataExtensionTest.m; sourceTree = "<group>"; };
 		465B04240F2056FF000E8FE2 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		465BB94611CA46E900770325 /* ISProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISProperty.h; sourceTree = "<group>"; };
+		465BB94711CA46E900770325 /* ISProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISProperty.m; sourceTree = "<group>"; };
 		466AF4DD0F2F02A3004A649A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		466EDC780F4094DB00D2B9AC /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTLog.h; sourceTree = "<group>"; };
 		466EDC790F4094F900D2B9AC /* GTMSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMSenTestCase.h; sourceTree = "<group>"; };
@@ -594,6 +595,8 @@
 		46EAC532117ABF7E00E9161D /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				465BB94611CA46E900770325 /* ISProperty.h */,
+				465BB94711CA46E900770325 /* ISProperty.m */,
 				46EAC533117ABF7E00E9161D /* NSDateExtension.h */,
 				46EAC534117ABF7E00E9161D /* NSDateExtension.m */,
 				46EAC535117ABF7E00E9161D /* NSErrorExtension.h */,
@@ -714,8 +717,6 @@
 				462AC4B40FEAFF2400B587D6 /* UIViewBasedTest.m in Sources */,
 				462AC5A30FEB29B200B587D6 /* UITableViewBasedTest.m in Sources */,
 				4647BE1610241EC9003D1D17 /* TableViewControllerForISTableViewCell.m in Sources */,
-				4647BE1710241EC9003D1D17 /* ISTableViewCellTest.m in Sources */,
-				4647BE1810241EC9003D1D17 /* ISTableViewCellTestWhenGrouped.m in Sources */,
 				4647BF361024324A003D1D17 /* NSErrorCoreDataExtensionTest.m in Sources */,
 				46B32FA61024F41B00F40719 /* NSManagedObjectContextDefaultContextTest.m in Sources */,
 				468F0BF51025E49100F3DDF6 /* NSManagedObjectContextCreationTest.m in Sources */,
@@ -759,6 +760,7 @@
 				46EAC558117ABF7E00E9161D /* UIColorExtension.m in Sources */,
 				46EAC55A117ABF7E00E9161D /* ISSelectionTableViewController.m in Sources */,
 				46EAC55B117ABF7E00E9161D /* ISTableViewCell.m in Sources */,
+				465BB94811CA46E900770325 /* ISProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,11 +794,12 @@
 				GCC_PREFIX_HEADER = iUnitTest_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-lgcov";
 				PRODUCT_NAME = CiderTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = iphonesimulator3.0;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Debug;
 		};
@@ -809,10 +812,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iUnitTest_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = CiderTest;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "015FD9E7-03D2-482E-8BF0-526AFEFF0A8C";
-				SDKROOT = iphonesimulator2.2;
+				SDKROOT = iphoneos4.0;
 			};
 			name = Release;
 		};
