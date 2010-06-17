@@ -64,6 +64,7 @@
 @synthesize hasDetailView = _hasDetailView;
 @synthesize predicate = _predicate;
 @synthesize sortDescriptors = _sortDescriptors;
+@synthesize sectionNameKeyPath = _sectionNameKeyPath;
 
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -207,6 +208,13 @@
     } else {
         return count;
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+	NSManagedObject *eo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+	return [eo valueForKey:self.sectionNameKeyPath];
 }
 
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
@@ -357,6 +365,7 @@
 
 
 - (void)dealloc {
+    [_sectionNameKeyPath release];
     [_predicate release];
     [_sortDescriptors release];
     [_entityName release];
@@ -448,6 +457,7 @@
         }
         condition.sortDescriptors = array;
         
+        condition.sectionNameKeyPath = self.sectionNameKeyPath;
         
         _fetchedResultsController = [condition.fetchedResultsController retain];
         _fetchedResultsController.delegate = self;
