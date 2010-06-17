@@ -446,7 +446,8 @@
         
         if (self.predicate) {
             if (condition.predicate) {
-                condition.predicate = [NSPredicate predicateWithFormat:@"%@ and %@", condition.predicate, self.predicate];
+                NSArray *subpredicates = [NSArray arrayWithObjects:condition.predicate, self.predicate, nil];
+                condition.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
             } else {
                 condition.predicate = self.predicate;
             }
