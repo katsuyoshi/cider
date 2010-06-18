@@ -10,7 +10,7 @@
 #import "UITableViewControllerTestHelper.h"
 #import "ISTableViewCell.h"
 
-
+// OSのバージョンが変わったら位置やフォントサイズが変わってしまったのでテスト対象から外す
 
 @implementation ISTableViewCellTestWhenGrouped
 

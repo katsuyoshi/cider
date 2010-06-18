@@ -25,6 +25,9 @@
     return [NSUserDefaults standardUserDefaults];
 }
 
+#pragma mark -
+#pragma mark BOOL
+
 - (void)setBoolValueForKey:(NSString *)key value:(BOOL)value
 {
     [self.userDefaults setBool:value forKey:key];
@@ -46,6 +49,9 @@
 }
 
 
+
+#pragma mark -
+#pragma mark int
 
 - (void)setIntValueForKey:(NSString *)key value:(int)value
 {
@@ -69,6 +75,9 @@
 
 
 
+#pragma mark -
+#pragma mark String
+
 - (void)setStringValue:(NSString *)value forKey:(NSString *)key
 {
     [self.userDefaults setObject:value forKey:key];
@@ -87,6 +96,30 @@
 - (NSString *)stringValueForKey:(NSString *)key
 {
     return [self stringValueForKey:key defaultValue:nil];
+}
+
+
+#pragma mark -
+#pragma mark Array
+
+- (void)setArray:(NSArray *)array forKey:(NSString *)key
+{
+    [self.userDefaults setObject:array forKey:key];
+}
+
+- (NSArray *)arrayForKey:(NSString *)key defaultValue:(NSArray *)defaultValue
+{
+    id object = [self.userDefaults objectForKey:key];
+    if (object) {
+        return object;
+    } else {
+        return defaultValue;
+    }
+}
+
+- (NSArray *)arrayForKey:(NSString *)key
+{
+    return [self arrayForKey:key defaultValue:[NSArray array]];
 }
 
 

@@ -30,4 +30,8 @@
 - (NSString *)stringValueForKey:(NSString *)key defaultValue:(NSString *)defaultValue;
 - (NSString *)stringValueForKey:(NSString *)key;
 
+- (void)setArray:(NSArray *)array forKey:(NSString *)key;
+- (NSArray *)arrayForKey:(NSString *)key defaultValue:(NSArray *)defaultValue;
+- (NSArray *)arrayForKey:(NSString *)key;
+
 @end

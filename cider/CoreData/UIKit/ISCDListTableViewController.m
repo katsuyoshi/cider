@@ -64,6 +64,7 @@
 @synthesize hasDetailView = _hasDetailView;
 @synthesize predicate = _predicate;
 @synthesize sortDescriptors = _sortDescriptors;
+@synthesize sectionNameKeyPath = _sectionNameKeyPath;
 
 
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -207,6 +208,18 @@
     } else {
         return count;
     }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if ([self.sectionNameKeyPath length]) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+        if ([self tableView:tableView numberOfRowsInSection:section]) {
+            NSManagedObject *eo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            return [eo valueForKey:self.sectionNameKeyPath];
+        }
+    }
+    return nil;
 }
 
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier
@@ -362,6 +375,7 @@
 
 
 - (void)dealloc {
+    [_sectionNameKeyPath release];
     [_predicate release];
     [_sortDescriptors release];
     [_entityName release];
@@ -438,7 +452,8 @@
         
         if (self.predicate) {
             if (condition.predicate) {
-                condition.predicate = [NSPredicate predicateWithFormat:@"%@ and %@", condition.predicate, self.predicate];
+                NSArray *subpredicates = [NSArray arrayWithObjects:condition.predicate, self.predicate, nil];
+                condition.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
             } else {
                 condition.predicate = self.predicate;
             }
@@ -453,6 +468,7 @@
         }
         condition.sortDescriptors = array;
         
+        condition.sectionNameKeyPath = self.sectionNameKeyPath;
         
         _fetchedResultsController = [condition.fetchedResultsController retain];
         _fetchedResultsController.delegate = self;

@@ -18,6 +18,8 @@ See LICENSE.txt.
 
 Convenience Classes for development iPhone software.
 My aim is build up to framework.
+Currently focusing to the Core Data Utilities.
+It enables you to create and search EO easily.
 
 == How to use
 

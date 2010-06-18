@@ -87,6 +87,8 @@ typedef enum {
     NSPredicate *_predicate;
     NSArray *_sortDescriptors;
 
+    NSString *_sectionNameKeyPath;
+
     BOOL deleting;
 }
 
@@ -96,6 +98,8 @@ typedef enum {
 
 @property (retain) NSPredicate *predicate;
 @property (retain) NSArray *sortDescriptors;
+
+@property (retain) NSString *sectionNameKeyPath;
 
 
 #pragma mark -
