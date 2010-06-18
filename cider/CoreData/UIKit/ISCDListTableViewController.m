@@ -71,7 +71,7 @@
         _addingStyle = ISListTableViewAddingStyleCell;
         _newCellRowStyle = ISListTableViewNewCellRowStyleFirst;
         _hasEditButtonItem = YES;
-        _editingRowAnimation = UITableViewRowAnimationTop;
+        _editingRowAnimation = UITableViewRowAnimationFade;
         _hasDetailView = YES;
     }
     return self;
@@ -304,9 +304,14 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        deleting = YES;
+        
         NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
         [self.managedObjectContext deleteObject:object];
         [self save];
+        
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:self.editingRowAnimation];
+        deleting = NO;
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -562,7 +567,9 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    if (deleting == NO) {
+        [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
+    }
 }
 
 @end

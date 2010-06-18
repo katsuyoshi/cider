@@ -86,6 +86,8 @@ typedef enum {
     
     NSPredicate *_predicate;
     NSArray *_sortDescriptors;
+
+    BOOL deleting;
 }
 
 
