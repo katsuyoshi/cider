@@ -324,17 +324,16 @@
         
         [NSManagedObject disableList];
         [self.managedObjectContext deleteObject:object];
-        [self save];
-        [NSManagedObject enableList];
+        [self refetch];
         
         // renumber
+        [self refetch];
         object = [[self.fetchedResultsController fetchedObjects] lastObject];
         if (object) {
             [object rebuildListNumber:nil];
-            if ([object.managedObjectContext hasChanges]) {
-                [self save];
-            }
         }
+        [self save];
+        [NSManagedObject enableList];
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:self.editingRowAnimation];
         deleting = NO;
@@ -501,13 +500,18 @@
 
 #pragma mark -
 
-- (void)reloadData
-{    
+- (void)refetch
+{
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
 #ifdef DEBUG
     if (error) [error showErrorForUserDomains];
 #endif
+}
+
+- (void)reloadData
+{
+    [self refetch];
     [self.tableView reloadData];
 }
 

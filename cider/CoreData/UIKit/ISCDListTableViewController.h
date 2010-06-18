@@ -155,7 +155,8 @@ typedef enum {
  * It's called in viewDidLoad.
  */
 - (void)setUpEntityAndAttributeIfNeeds;
-   
+
+- (void)refetch;
 - (void)reloadData;
 - (void)save;
 - (void)cancel;
