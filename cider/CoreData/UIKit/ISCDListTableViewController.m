@@ -46,6 +46,7 @@
 #import "ISCDDetailedTableViewController.h"
 #import "NSFetchedResultsControllerSortedObject.h"
 #import "NSErrorCoreDataExtension.h"
+#import "CiderCoreData.h"
 
 
 @implementation ISCDListTableViewController
@@ -320,8 +321,20 @@
         deleting = YES;
         
         NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
+        
+        [NSManagedObject disableList];
         [self.managedObjectContext deleteObject:object];
         [self save];
+        [NSManagedObject enableList];
+        
+        // renumber
+        object = [[self.fetchedResultsController fetchedObjects] lastObject];
+        if (object) {
+            [object rebuildListNumber:nil];
+            if ([object.managedObjectContext hasChanges]) {
+                [self save];
+            }
+        }
         
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:self.editingRowAnimation];
         deleting = NO;
