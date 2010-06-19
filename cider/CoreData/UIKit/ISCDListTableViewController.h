@@ -88,8 +88,8 @@ typedef enum {
     NSArray *_sortDescriptors;
 
     NSString *_sectionNameKeyPath;
-
-    BOOL deleting;
+    
+    BOOL renumbering;
 }
 
 
@@ -161,6 +161,7 @@ typedef enum {
 - (void)save;
 - (void)cancel;
 
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 #pragma mark -
 #pragma mark convenience methods for subclass
