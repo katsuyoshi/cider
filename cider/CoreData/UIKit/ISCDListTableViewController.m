@@ -186,6 +186,19 @@
     return indexPath;
 }
 
+- (NSIndexPath *)tableViewCellIndxPathFor:(NSIndexPath *)indexPath
+{
+    if (self.editing) {
+        if (self.addingStyle == ISListTableViewAddingStyleCell) {
+            if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
+                indexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:indexPath.section];
+            }
+        }
+    }
+    return indexPath;
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     int count = 0;
     NSArray *sections = [self.fetchedResultsController sections];
@@ -635,6 +648,10 @@
       newIndexPath:(NSIndexPath *)newIndexPath {
     
     UITableView *tableView = self.tableView;
+    
+    // back to cell's indexPath from fetchResultController's indexPath
+    indexPath = [self tableViewCellIndxPathFor:indexPath];
+    newIndexPath = [self tableViewCellIndxPathFor:newIndexPath];
     
     switch(type) {
             
