@@ -333,15 +333,15 @@
             [self.managedObjectContext deleteObject:object];
         
             // renumber
-            NSManagedObject *anyObject = nil;
+            NSManagedObject *otherObject = nil;
             for (NSManagedObject *anObject in [self.fetchedResultsController fetchedObjects]) {
                 if (![anObject isDeleted]) {
-                    anyObject = anObject;
+                    otherObject = anObject;
                     break;
                 }
             }
-            if (anyObject) {
-                [object rebuildListNumber:nil];
+            if (otherObject) {
+                [otherObject rebuildListNumber:nil];
             }
 
             [self save];
