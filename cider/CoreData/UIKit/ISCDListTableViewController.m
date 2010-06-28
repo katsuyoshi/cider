@@ -664,18 +664,9 @@
             break;
 
         case NSFetchedResultsChangeUpdate:
-            {
-                if (renumbering == NO && [self isNewCellAtIndexPath:indexPath] == NO) {
-                    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
-                    NSDictionary *changeValues = [object changedValues];
-                    if ([changeValues count] == 1) {
-                        NSString *attributeName = [[changeValues allKeys] lastObject];
-                        if ([[[object class] listAttributeName] isEqualToString:attributeName] == NO) {
-                            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-                        }
-                    }
-                }
-            }
+            [self.tableView endUpdates];
+            [self.tableView reloadData];
+            [self.tableView beginUpdates];
             break;
             
         // It won't be called
