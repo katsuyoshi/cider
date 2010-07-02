@@ -531,6 +531,13 @@
 
 #pragma mark -
 
+- (void)resetFetchedResultController
+{
+    _fetchedResultsController.delegate = nil;
+    [_fetchedResultsController release];
+    _fetchedResultsController = nil;
+}
+
 - (void)refetch
 {
     NSError *error = nil;

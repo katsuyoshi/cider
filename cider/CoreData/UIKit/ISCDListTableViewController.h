@@ -156,6 +156,7 @@ typedef enum {
  */
 - (void)setUpEntityAndAttributeIfNeeds;
 
+- (void)resetFetchedResultController;
 - (void)refetch;
 - (void)reloadData;
 - (void)save;
