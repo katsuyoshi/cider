@@ -1,14 +1,14 @@
-/*
- *  Cider.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  ISSectionedArrayController.h
+//  iRubyKaigi
+//
+//  Created by Katsuyoshi Ito on 10/07/06.
+//  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
+//
 
 /* 
 
-  Copyright 2009 ITO SOFT DESIGN Inc. All rights reserved.
+  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 
   Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
@@ -37,19 +37,37 @@
 
 */
 
-
-// UIKit
-#import "ISTableViewCell.h"
-#import "ISSelectionTableViewController.h"
-
-
-// Foundation
-#import "NSErrorExtension.h"
-#import "UIColorExtension.h"
-#import "NSNotificationCenterExtension.h"
-#import "NSDateExtension.h"
-#import "ISProperty.h"
-#import "ISSectionedArrayController.h"
+#import <Foundation/Foundation.h>
 
 
 
+/** 
+ * ISSectionedArrayController is helper class of UITableViewDataSource.
+ * It divide objects by specified section name.
+ */
+@interface ISSectionedArrayController : NSObject <UITableViewDataSource> {
+
+    NSString *sectionName;
+    NSString *sectionTitleName;
+    NSArray *originalDataSource;
+    NSMutableArray *dataSource;
+    NSArray *sortDescriptors;
+}
+
+/**
+ * Section header title's attribute
+ */
+@property (retain) NSString *sectionTitleName;
+
+
+
+- (id)initWithArray:(NSArray *)array sectionName:(NSString *)sectionName sortDescriptors:(NSArray *)sortDescriptors;
+- (id)initWithSet:(NSSet *)set sectionName:(NSString *)sectionName sortDescriptors:(NSArray *)sortDescriptors;
+
+
+- (id)objectAtIndexPath:(NSIndexPath *)indexPath;
+
+
+- (void)reloadData;
+
+@end
