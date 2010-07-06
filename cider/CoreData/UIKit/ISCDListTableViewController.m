@@ -480,9 +480,6 @@
         NSString *managedObjectClassName = condition.entity.managedObjectClassName;
         
         Class class = NSClassFromString(managedObjectClassName);
-        if (class) {
-            condition.sortDescriptors = [class sortDescriptorsForTableViewController:self];
-        }
         
         if (self.masterObject) {
             NSString *relationName = [class listScopeName];
@@ -503,11 +500,12 @@
         }
         
         NSMutableArray *array = [NSMutableArray array];
-        if (condition.sortDescriptors) {
-            [array addObjectsFromArray:condition.sortDescriptors];
-        }
         if (self.sortDescriptors) {
             [array addObjectsFromArray:self.sortDescriptors];
+        } else {
+            if (class) {
+                [array addObjectsFromArray:[class sortDescriptorsForTableViewController:self]];
+            }
         }
         condition.sortDescriptors = array;
         
