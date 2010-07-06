@@ -47,7 +47,6 @@
 #import "NSFetchedResultsControllerSortedObject.h"
 #import "NSErrorCoreDataExtension.h"
 #import "CiderCoreData.h"
-#import "IUTLog.h"
 
 
 @implementation ISCDListTableViewController
