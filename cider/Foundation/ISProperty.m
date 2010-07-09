@@ -44,7 +44,7 @@
 
 + (ISProperty *)sharedProperty
 {
-    id property = nil;
+    static id property = nil;
     if (property == nil) {
         property = [self new];
     }
