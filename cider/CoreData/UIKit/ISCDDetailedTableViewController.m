@@ -130,6 +130,16 @@
 - (void)registTextField:(UITextField *)textField indexPath:(NSIndexPath *)indexPath
 {
     NSString *key = [indexPath description];
+    
+    // remove a textField if registed (reuse)
+    for (NSString *aKey in [_textFieldDict allKeys]) {
+        if ([_textFieldDict objectForKey:aKey] == textField) {
+            [_textFieldDict removeObjectForKey:aKey];
+            [_indexPathDict removeObjectForKey:aKey];
+            break;
+        }
+    }
+
     [_textFieldDict setValue:textField forKey:key];
     [_indexPathDict setValue:indexPath forKey:key];
 }
@@ -237,10 +247,13 @@
                 [cell.textField performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
             }
             cell.textField.delegate = self;
-            [self registTextField:cell.textField indexPath:indexPath];
         } else {
             cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
         }
+    }
+    
+    if (needsTextField) {
+        [self registTextField:cell.textField indexPath:indexPath];
     }
     
     if (self.editingMode && !needsTextField) {
@@ -251,6 +264,9 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
         
+    cell.textField.text = nil;
+    cell.textLabel.text = nil;
+
     id value = [eo valueForKey:attributeKey];
     if (value) {
         NSString *title = formatter ? [formatter stringForObjectValue:value]  : [value description];
