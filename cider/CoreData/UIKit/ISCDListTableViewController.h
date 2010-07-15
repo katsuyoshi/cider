@@ -173,6 +173,8 @@ typedef enum {
 - (ISCDDetailedTableViewController *)createDetailedTableViewController;
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier;
 
+- (void)IS_setEditing:(BOOL)editing animated:(BOOL)animated;
+
 @end
 
 

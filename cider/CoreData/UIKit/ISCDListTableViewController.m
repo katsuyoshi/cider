@@ -577,7 +577,11 @@
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
-    
+    [self IS_setEditing:editing animated:animated];
+}
+
+- (void)IS_setEditing:(BOOL)editing animated:(BOOL)animated
+{
     NSMutableArray *removeIndexPaths = [NSMutableArray array];
     NSMutableArray *insertIndexPaths = [NSMutableArray array];
 
