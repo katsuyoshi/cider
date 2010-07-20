@@ -308,7 +308,8 @@
         controller.editingMode = self.editing;
 
         if ([self isNewCellAtIndexPath:indexPath]) {
-            [controller createWithEntityName:self.entityName];
+            Class class = NSClassFromString(self.entityName);
+            [controller createWithEntityName:self.entityName masterObject:self.masterObject key:[class listScopeName]];
         } else {
             controller.detailedObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
         

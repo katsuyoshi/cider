@@ -389,8 +389,16 @@
 
 - (void)createWithEntityName:(NSString *)entityName
 {
+    return [self createWithEntityName:entityName masterObject:nil key:nil];
+}
+
+- (void)createWithEntityName:(NSString *)entityName masterObject:(NSManagedObject *)masterObject key:(NSString *)key
+{
     Class klass = NSClassFromString(entityName);
     NSManagedObject *object = [klass createWithManagedObjectContext:self.managedObjectContext];
+    if (masterObject && key) {
+        [object setValue:masterObject forKey:key];
+    }
     [object setListNumber];
     
     self.detailedObject = object;
