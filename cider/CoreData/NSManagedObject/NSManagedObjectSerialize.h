@@ -1,14 +1,14 @@
-/*
- *  CiderCoreData.h
- *  CiderTest
- *
- *  Created by Katsuyoshi Ito on 09/08/01.
- *
- */
+//
+//  NSManagedObjectSerialize.h
+//  Cider
+//
+//  Created by Katsuyoshi Ito on 10/07/21.
+//  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
+//
 
 /* 
 
-  Copyright 2009 ITO SOFT DESIGN Inc. All rights reserved.
+  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 
   Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
@@ -37,32 +37,16 @@
 
 */
 
+#import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "Cider.h"
 
 
-// CoreData
-#import "NSErrorCoreDataExtension.h"
-#import "NSSortDescriptorExtension.h"
-#import "ISFetchRequestCondition.h"
-#import "NSFetchedResultsControllerSortedObject.h"
+@interface NSManagedObject(ISSerialize)
 
-  // NSManagedObjectContext
-#import "NSManagedObjectContextDefaultContext.h"
-#import "NSManagedObjectContextCreation.h"
-#import "NSManagedObjectFind.h"
+- (NSDictionary *)serializableDictionaryWithShallowInfo:(BOOL)shallow;
+- (NSDictionary *)serializableDictionary;
 
-  // NSManagedObject
-#import "NSManagedObjectCreation.h"
-#import "NSManagedObjectFetch.h"
-#import "NSManagedObjectList.h"
-#import "NSManagedObjectDisplay.h"
-#import "NSManagedObjectCallbacks.h"
-#import "NSManagedObjectSerialize.h"
++ (NSDateFormatter *)dateFormatterForSerialization;
+- (NSDateFormatter *)dateFormatterForSerialization;
 
-
-// UIKit
-#import "ISCDListTableViewController.h"
-#import "ISCDDetailedTableViewController.h"
-
-
+@end

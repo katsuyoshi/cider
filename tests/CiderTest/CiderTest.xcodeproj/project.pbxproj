@@ -85,6 +85,9 @@
 		46C6AB620F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C6AB560F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m */; };
 		46C6ADCA0F2DDFC800BA1B73 /* isd_logo_60x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */; };
 		46DBFF631056C23A00CA40B6 /* ISCDListTableViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469B8A8C105545C100F59D7E /* ISCDListTableViewControllerTest.m */; };
+		46E53AAC11F6CCAE006B59F1 /* NSManagedObjectSerializeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E53AAB11F6CCAE006B59F1 /* NSManagedObjectSerializeTest.m */; };
+		46E53ABD11F6D01B006B59F1 /* NSManagedObjectSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E53ABC11F6D01B006B59F1 /* NSManagedObjectSerialize.m */; };
+		46E53C6E11F70517006B59F1 /* DateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E53C6D11F70517006B59F1 /* DateTest.m */; };
 		46EAC501117ABF3100E9161D /* ListTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAC500117ABF3100E9161D /* ListTest3.m */; };
 		46EAC504117ABF5100E9161D /* NSManagedObjectListExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAC503117ABF5100E9161D /* NSManagedObjectListExtensionTest.m */; };
 /* End PBXBuildFile section */
@@ -243,6 +246,12 @@
 		46C6AB550F2DBE7E00BA1B73 /* IUTTestRunnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTTestRunnerViewController.h; sourceTree = "<group>"; };
 		46C6AB560F2DBE7E00BA1B73 /* IUTTestRunnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IUTTestRunnerViewController.m; sourceTree = "<group>"; };
 		46C6ADC90F2DDFC800BA1B73 /* isd_logo_60x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = isd_logo_60x40.png; sourceTree = "<group>"; };
+		46E53AAA11F6CCAE006B59F1 /* NSManagedObjectSerializeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectSerializeTest.h; sourceTree = "<group>"; };
+		46E53AAB11F6CCAE006B59F1 /* NSManagedObjectSerializeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectSerializeTest.m; sourceTree = "<group>"; };
+		46E53ABB11F6D01B006B59F1 /* NSManagedObjectSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectSerialize.h; sourceTree = "<group>"; };
+		46E53ABC11F6D01B006B59F1 /* NSManagedObjectSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectSerialize.m; sourceTree = "<group>"; };
+		46E53C6C11F70517006B59F1 /* DateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTest.h; sourceTree = "<group>"; };
+		46E53C6D11F70517006B59F1 /* DateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTest.m; sourceTree = "<group>"; };
 		46EAC4FF117ABF3100E9161D /* ListTest3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTest3.h; sourceTree = "<group>"; };
 		46EAC500117ABF3100E9161D /* ListTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTest3.m; sourceTree = "<group>"; };
 		46EAC502117ABF5100E9161D /* NSManagedObjectListExtensionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectListExtensionTest.h; sourceTree = "<group>"; };
@@ -378,6 +387,8 @@
 				46005E2A11F5761C00AC059D /* NSManagedObjectFind.m */,
 				46005E2B11F5761C00AC059D /* NSManagedObjectList.h */,
 				46005E2C11F5761C00AC059D /* NSManagedObjectList.m */,
+				46E53ABB11F6D01B006B59F1 /* NSManagedObjectSerialize.h */,
+				46E53ABC11F6D01B006B59F1 /* NSManagedObjectSerialize.m */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
@@ -497,6 +508,8 @@
 		468F0BFA1025E6A700F3DDF6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				46E53C6C11F70517006B59F1 /* DateTest.h */,
+				46E53C6D11F70517006B59F1 /* DateTest.m */,
 				46EAC4FF117ABF3100E9161D /* ListTest3.h */,
 				46EAC500117ABF3100E9161D /* ListTest3.m */,
 				4643C0951046542900677C80 /* ListTest1.h */,
@@ -526,6 +539,8 @@
 				4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */,
 				469B8A79105542FB00F59D7E /* ISFetchRequestConditionTest.h */,
 				469B8A7A105542FB00F59D7E /* ISFetchRequestConditionTest.m */,
+				46E53AAA11F6CCAE006B59F1 /* NSManagedObjectSerializeTest.h */,
+				46E53AAB11F6CCAE006B59F1 /* NSManagedObjectSerializeTest.m */,
 			);
 			path = NSManagedObject;
 			sourceTree = "<group>";
@@ -781,6 +796,9 @@
 				46005E6A11F5761C00AC059D /* UIColorExtension.m in Sources */,
 				46005E6C11F5761C00AC059D /* ISSelectionTableViewController.m in Sources */,
 				46005E6D11F5761C00AC059D /* ISTableViewCell.m in Sources */,
+				46E53AAC11F6CCAE006B59F1 /* NSManagedObjectSerializeTest.m in Sources */,
+				46E53ABD11F6D01B006B59F1 /* NSManagedObjectSerialize.m in Sources */,
+				46E53C6E11F70517006B59F1 /* DateTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
