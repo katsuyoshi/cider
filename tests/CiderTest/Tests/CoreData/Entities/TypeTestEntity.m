@@ -6,11 +6,15 @@
 //  Copyright 2010 ITO SOFT DESIGN Inc. All rights reserved.
 //
 
-#import "DateTest.h"
+#import "TypeTestEntity.h"
 
 
-@implementation DateTest 
+@implementation TypeTestEntity 
 
 @dynamic createdAt;
+@dynamic boolValue;
+@dynamic doubleValue;
+@dynamic intValue;
+@dynamic stringValue;
 
 @end

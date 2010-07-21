@@ -9,7 +9,7 @@
 #import "NSManagedObjectSerializeTest.h"
 #import "ISStudio.h"
 #import "CiderCoreData.h"
-#import "DateTest.h"
+#import "TypeTestEntity.h"
 
 
 @implementation NSManagedObjectSerializeTest
@@ -52,7 +52,7 @@
 
 - (void)testShollowDict
 {
-    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"LUCASFILM", @"name", @"1", @"position", nil ];
+    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"LUCASFILM", @"name", [NSNumber numberWithInt:1], @"position", nil ];
     ASSERT_EQUAL(expected, [studio serializableDictionary]);
 }
 
@@ -60,21 +60,32 @@
 {
     NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
             @"LUCASFILM", @"name",
-            @"1", @"position", 
+            [NSNumber numberWithInt:1], @"position", 
             [NSArray arrayWithObjects:
-                [NSDictionary dictionaryWithObjectsAndKeys:@"Star Wars IV", @"title", @"1", @"position", nil],
+                [NSDictionary dictionaryWithObjectsAndKeys:@"Star Wars IV", @"title", [NSNumber numberWithInt:1], @"position", nil],
                 nil], @"movies",
         nil ];
     
     ASSERT_EQUAL(expected, [studio serializableDictionaryWithShallowInfo:NO]);
 }
 
-- (void)testDate
+- (void)testDictByType
 {
-    DateTest *dateTest = [DateTest create];
-    dateTest.createdAt = [NSDate dateWithYear:2010 month:7 day:21 hour:0 minute:0 second:0];
-    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"2010/07/21 0:00:00", @"createdAt", nil];
-    ASSERT_EQUAL(expected, [dateTest serializableDictionary]);
+    TypeTestEntity *eo = [TypeTestEntity create];
+    eo.createdAt = [NSDate dateWithYear:2010 month:7 day:21 hour:0 minute:0 second:0];
+    eo.boolValue = [NSNumber numberWithBool:YES];
+    eo.intValue = [NSNumber numberWithInt:123];
+    eo.doubleValue = [NSNumber numberWithDouble:1.23];
+    eo.stringValue = @"abcd";
+    NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
+                    [NSNumber numberWithBool:YES], @"boolValue",
+                    @"2010/07/21 0:00:00", @"createdAt",
+                    [NSNumber numberWithDouble:1.23], @"doubleValue",
+                    [NSNumber numberWithInt:123], @"intValue",
+                    @"abcd", @"stringValue",
+                nil];
+                
+    ASSERT_EQUAL(expected, [eo serializableDictionary]);
 }
 
 

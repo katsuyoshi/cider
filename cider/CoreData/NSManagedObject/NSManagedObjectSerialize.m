@@ -69,11 +69,9 @@
 
 - (id)ISSerialize_parseObject:(id)object shallowInfo:(BOOL)shallow objectHolder:(NSMutableSet *)objectHolder
 {
-    if ([object isKindOfClass:[NSString class]]) {
+    if ([object isKindOfClass:[NSString class]] ||
+        [object isKindOfClass:[NSNumber class]]     ) {
         return object;
-    } else
-    if ([object isKindOfClass:[NSNumber class]]) {
-        return [object stringValue];
     } else
     if ([object isKindOfClass:[NSDate class]]) {
         NSDateFormatter *dateFormatter = [self dateFormatterForSerialization];
