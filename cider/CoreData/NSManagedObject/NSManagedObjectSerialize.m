@@ -134,6 +134,16 @@ NSLog(@"key = %@; object = %@", key, object);
     return [self serializableDictionaryWithShallowInfo:YES];
 }
 
+- (NSDictionary *)serializableShallowDictionary
+{
+    return [self serializableDictionary];
+}
+
+- (NSDictionary *)serializableDeepDictionary
+{
+    return [self serializableDictionaryWithShallowInfo:NO];
+}
+
 + (NSDateFormatter *)dateFormatterForSerialization
 {
     NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];

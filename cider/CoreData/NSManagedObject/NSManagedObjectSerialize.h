@@ -43,8 +43,16 @@
 
 @interface NSManagedObject(ISSerialize)
 
+/** same -serializableShallowDictionary */
+@property (assign, readonly) NSDictionary *serializableDictionary;
+
+/** same -serializableDictionary */
+@property (assign, readonly) NSDictionary *serializableShallowDictionary;
+
+@property (assign, readonly) NSDictionary *serializableDeepDictionary;
+
+
 - (NSDictionary *)serializableDictionaryWithShallowInfo:(BOOL)shallow;
-- (NSDictionary *)serializableDictionary;
 
 + (NSDateFormatter *)dateFormatterForSerialization;
 - (NSDateFormatter *)dateFormatterForSerialization;
