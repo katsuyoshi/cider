@@ -114,7 +114,6 @@
     for (NSString *key in [self ISSerialize_serializeKeysWithshallowInfo:shallow]) {
         id object = [self ISSerialize_parseObject:[self valueForKey:key] shallowInfo:shallow objectHolder:objectHolder];
         if (object) {
-NSLog(@"key = %@; object = %@", key, object);
             [dict setValue:object forKey:key];
         }
     }
