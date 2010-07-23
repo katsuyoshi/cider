@@ -57,6 +57,16 @@
 - (int)intValueForKey:(NSString *)key defaultValue:(int)defaultValue;
 - (int)intValueForKey:(NSString *)key;
 
+- (void)setFloatValueForKey:(NSString *)key value:(float)value;
+- (float)floatValueForKey:(NSString *)key defaultValue:(float)defaultValue;
+- (float)floatValueForKey:(NSString *)key;
+
+- (void)setDoubleValueForKey:(NSString *)key value:(double)value;
+- (double)doubleValueForKey:(NSString *)key defaultValue:(double)defaultValue;
+- (double)doubleValueForKey:(NSString *)key;
+
+
+
 - (void)setStringValue:(NSString *)value forKey:(NSString *)key;
 - (NSString *)stringValueForKey:(NSString *)key defaultValue:(NSString *)defaultValue;
 - (NSString *)stringValueForKey:(NSString *)key;

@@ -58,9 +58,17 @@
 #pragma mark -
 #pragma mark Tests
 
+#pragma mark array
+
 - (void)testArrayDefaultValue
 {
     ASSERT_EQUAL([NSArray array], [property arrayForKey:@"abc"]);
+}
+
+- (void)testArrayDefaultValue2
+{
+    NSArray *array = [NSArray arrayWithObject:@"123"];
+    ASSERT_EQUAL(array, [property arrayForKey:@"abc" defaultValue:array]);
 }
 
 - (void)testArray
@@ -70,6 +78,84 @@
     [property setArray:array forKey:@"abc"];
     ASSERT_EQUAL(array, [property arrayForKey:@"abc"]);
 }
+
+#pragma mark string
+
+- (void)testStringDefaultValue
+{
+    ASSERT_NIL([property stringValueForKey:@"abc"]);
+}
+
+- (void)testStringDefaultValue2
+{
+    NSString *string = @"123";
+    ASSERT_EQUAL(string, [property stringValueForKey:@"abc" defaultValue:string]);
+}
+
+- (void)testString
+{
+    NSString *string = @"456";
+    
+    [property setStringValue:string forKey:@"abc"];
+    ASSERT_EQUAL(string, [property arrayForKey:@"abc"]);
+}
+
+
+
+#pragma mark int
+
+- (void)testIntDefaultValue
+{
+    ASSERT_EQUAL_INT(0, [property intValueForKey:@"abc"]);
+}
+
+- (void)tsetIntDefaultValue2
+{
+    ASSERT_EQUAL_INT(321, [property intValueForKey:@"abc" defaultValue:321]);
+}
+
+- (void)testIntValue
+{
+    [property setIntValueForKey:@"abc" value:123];
+    ASSERT_EQUAL_INT(123, [property intValueForKey:@"abc"]);
+}
+
+#pragma mark float
+
+- (void)testFloatDefaultValue
+{
+    ASSERT_EQUAL_FLOAT(0.0f, [property floatValueForKey:@"abc"]);
+}
+
+- (void)tsetFloatDefaultValue2
+{
+    ASSERT_EQUAL_FLOAT(3.21, [property floatValueForKey:@"abc" defaultValue:3.21]);
+}
+
+- (void)testFloatValue
+{
+    [property setFloatValueForKey:@"abc" value:1.23];
+    ASSERT_EQUAL_FLOAT(1.23, [property floatValueForKey:@"abc"]);
+}
+
+#pragma mark double
+
+- (void)testDoubleDefaultValue
+{
+    ASSERT_EQUAL_DOUBLE(0, [property doubleValueForKey:@"abc"]);
+}
+
+- (void)tsetDoubleDefaultValue2
+{
+    ASSERT_EQUAL_DOUBLE(3.21, [property doubleValueForKey:@"abc" defaultValue:3.21]);
+}
+
+- (void)testDoubletValue
+{
+    [property setDoubleValueForKey:@"abc" value:1.23];
+    ASSERT_EQUAL_DOUBLE(1.23, [property doubleValueForKey:@"abc"]);
+}
+
 
 #pragma mark -
 #pragma mark Option

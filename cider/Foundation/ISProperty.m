@@ -101,8 +101,55 @@
 
 - (int)intValueForKey:(NSString *)key
 {
-    return [self intValueForKey:key defaultValue:NO];
+    return [self intValueForKey:key defaultValue:0];
 }
+
+#pragma mark -
+#pragma mark float
+
+- (void)setFloatValueForKey:(NSString *)key value:(float)value
+{
+    [self.userDefaults setFloat:value forKey:key];
+}
+
+- (float)floatValueForKey:(NSString *)key defaultValue:(float)defaultValue
+{
+    id object = [self.userDefaults objectForKey:key];
+    if (object) {
+        return [self.userDefaults floatForKey:key];
+    } else {
+        return defaultValue;
+    }
+}
+
+- (float)floatValueForKey:(NSString *)key
+{
+    return [self floatValueForKey:key defaultValue:0.0f];
+}
+
+#pragma mark -
+#pragma mark double
+
+- (void)setDoubleValueForKey:(NSString *)key value:(double)value
+{
+    [self.userDefaults setDouble:value forKey:key];
+}
+
+- (double)doubleValueForKey:(NSString *)key defaultValue:(double)defaultValue
+{
+    id object = [self.userDefaults objectForKey:key];
+    if (object) {
+        return [self.userDefaults doubleForKey:key];
+    } else {
+        return defaultValue;
+    }
+}
+
+- (double)doubleValueForKey:(NSString *)key
+{
+    return [self doubleValueForKey:key defaultValue:0.0];
+}
+
 
 
 
