@@ -116,7 +116,7 @@
 
 - (void)testIntValue
 {
-    [property setIntValueForKey:@"abc" value:123];
+    [property setIntValue:123 forKey:@"abc"];
     ASSERT_EQUAL_INT(123, [property intValueForKey:@"abc"]);
 }
 
@@ -134,7 +134,7 @@
 
 - (void)testFloatValue
 {
-    [property setFloatValueForKey:@"abc" value:1.23];
+    [property setFloatValue:1.23 forKey:@"abc"];
     ASSERT_EQUAL_FLOAT(1.23, [property floatValueForKey:@"abc"]);
 }
 
@@ -152,7 +152,7 @@
 
 - (void)testDoubletValue
 {
-    [property setDoubleValueForKey:@"abc" value:1.23];
+    [property setDoubleValue:1.23 forKey:@"abc"];
     ASSERT_EQUAL_DOUBLE(1.23, [property doubleValueForKey:@"abc"]);
 }
 

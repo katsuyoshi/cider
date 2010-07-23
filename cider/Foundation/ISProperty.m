@@ -59,7 +59,7 @@
 #pragma mark -
 #pragma mark BOOL
 
-- (void)setBoolValueForKey:(NSString *)key value:(BOOL)value
+- (void)setBoolValue:(BOOL)value forKey:(NSString *)key
 {
     [self.userDefaults setBool:value forKey:key];
 }
@@ -84,7 +84,7 @@
 #pragma mark -
 #pragma mark int
 
-- (void)setIntValueForKey:(NSString *)key value:(int)value
+- (void)setIntValue:(int)value forKey:(NSString *)key
 {
     [self.userDefaults setInteger:value forKey:key];
 }
@@ -107,7 +107,7 @@
 #pragma mark -
 #pragma mark float
 
-- (void)setFloatValueForKey:(NSString *)key value:(float)value
+- (void)setFloatValue:(float)value forKey:(NSString *)key
 {
     [self.userDefaults setFloat:value forKey:key];
 }
@@ -130,7 +130,7 @@
 #pragma mark -
 #pragma mark double
 
-- (void)setDoubleValueForKey:(NSString *)key value:(double)value
+- (void)setDoubleValue:(double)value forKey:(NSString *)key
 {
     [self.userDefaults setDouble:value forKey:key];
 }

@@ -49,19 +49,19 @@
 + (ISProperty *)sharedProperty;
 
 
-- (void)setBoolValueForKey:(NSString *)key value:(BOOL)value;
+- (void)setBoolValue:(BOOL)value forKey:(NSString *)key;
 - (BOOL)boolValueForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
 - (BOOL)boolValueForKey:(NSString *)key;
 
-- (void)setIntValueForKey:(NSString *)key value:(int)value;
+- (void)setIntValue:(int)value forKey:(NSString *)key;
 - (int)intValueForKey:(NSString *)key defaultValue:(int)defaultValue;
 - (int)intValueForKey:(NSString *)key;
 
-- (void)setFloatValueForKey:(NSString *)key value:(float)value;
+- (void)setFloatValue:(float)value forKey:(NSString *)key;
 - (float)floatValueForKey:(NSString *)key defaultValue:(float)defaultValue;
 - (float)floatValueForKey:(NSString *)key;
 
-- (void)setDoubleValueForKey:(NSString *)key value:(double)value;
+- (void)setDoubleValue:(double)value forKey:(NSString *)key;
 - (double)doubleValueForKey:(NSString *)key defaultValue:(double)defaultValue;
 - (double)doubleValueForKey:(NSString *)key;
 
