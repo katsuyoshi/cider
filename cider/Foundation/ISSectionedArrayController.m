@@ -174,6 +174,16 @@
     }
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    int count = [dataSource count];
+    int i;
+    NSMutableArray *array = [NSMutableArray array];
+    for (i = 0; i < count; i++) {
+        [array addObject:[self tableView:nil titleForHeaderInSection:i]];
+    }
+    return array;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
