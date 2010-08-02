@@ -708,7 +708,12 @@
         return [self listAttributeName];
     } else {
         NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass(self) inManagedObjectContext:[NSManagedObjectContext defaultManagedObjectContext]];
-        return [[[entity propertiesByName] allKeys] lastObject];
+        for (NSPropertyDescription *property in  entity.properties) {
+            if ([property isKindOfClass:[NSAttributeDescription class]]) {
+                return [property name];
+            }
+        }
+        return nil;
     }
 }
 
