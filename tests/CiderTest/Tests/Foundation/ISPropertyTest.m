@@ -7,6 +7,7 @@
 //
 
 #import "ISPropertyTest.h"
+#import "CiderCoreData.h"
 
 
 
