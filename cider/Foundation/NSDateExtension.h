@@ -42,6 +42,8 @@
 
 @interface NSDate(ISExtension)
 + (NSDate *)dateWithYear:(int)year month:(int)month day:(int)day hour:(int)hour minute:(int)minute second:(int)second;
+/* @pending */
++ (NSDate *)dateWithYear:(int)year month:(int)month day:(int)day hour:(int)hour minute:(int)minute second:(int)second timeZone:(NSTimeZone *)timeZone;
 
 + (NSCalendar *)gregorianCalendar;
 

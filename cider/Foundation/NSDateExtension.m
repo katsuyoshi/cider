@@ -44,6 +44,11 @@
 
 + (NSDate *)dateWithYear:(int)year month:(int)month day:(int)day hour:(int)hour minute:(int)minute second:(int)second
 {
+    return [self dateWithYear:year month:month day:day hour:hour minute:minute second:second timeZone:[NSTimeZone localTimeZone]];
+}
+
++ (NSDate *)dateWithYear:(int)year month:(int)month day:(int)day hour:(int)hour minute:(int)minute second:(int)second timeZone:(NSTimeZone *)timeZone
+{
     NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
     [components setYear:year];
     [components setMonth:month];
@@ -51,6 +56,7 @@
     [components setHour:hour];
     [components setMinute:minute];
     [components setSecond:second];
+// FIXME: iOS4から    [components setTimeZone:timeZone];
     NSCalendar *gregorian = [self gregorianCalendar];
     return [gregorian dateFromComponents:components];
 }
