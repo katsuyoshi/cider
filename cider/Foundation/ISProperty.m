@@ -201,4 +201,28 @@
 }
 
 
+#pragma mark -
+#pragma mark Date
+
+- (void)setDate:(NSDate *)value forKey:(NSString *)key
+{
+    [self.userDefaults setObject:value forKey:key];
+}
+
+- (NSDate *)dateForKey:(NSString *)key defaultValue:(NSDate *)defaultValue
+{
+    id object = [self.userDefaults objectForKey:key];
+    if (object) {
+        return object;
+    } else {
+        return defaultValue;
+    }
+}
+
+- (NSDate *)dateForKey:(NSString *)key
+{
+    return [self dateForKey:key defaultValue:nil];
+}
+
+
 @end

@@ -75,4 +75,8 @@
 - (NSArray *)arrayForKey:(NSString *)key defaultValue:(NSArray *)defaultValue;
 - (NSArray *)arrayForKey:(NSString *)key;
 
+- (void)setDate:(NSDate *)date forKey:(NSString *)key;
+- (NSDate *)dateForKey:(NSString *)key defaultValue:(NSDate *)defaultValue;
+- (NSDate *)dateForKey:(NSString *)key;
+
 @end

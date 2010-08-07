@@ -95,10 +95,32 @@
 
 - (void)testString
 {
-    NSString *string = @"456";
+    NSDate *date = [NSDate dateWithYear:2010 month:8 day:7 hour:11 minute:00 second:00];
     
-    [property setStringValue:string forKey:@"abc"];
-    ASSERT_EQUAL(string, [property arrayForKey:@"abc"]);
+    [property setDate:date forKey:@"abc"];
+    ASSERT_EQUAL(date, [property arrayForKey:@"abc"]);
+}
+
+
+#pragma mark Date
+
+- (void)testDateDefaultValue
+{
+    ASSERT_NIL([property dateForKey:@"abc"]);
+}
+
+- (void)testDateDefaultValue2
+{
+    NSDate *date = [NSDate dateWithYear:2010 month:8 day:7 hour:11 minute:00 second:00];
+    ASSERT_EQUAL(date, [property dateForKey:@"abc" defaultValue:date]);
+}
+
+- (void)testDate
+{
+    NSDate *date = [NSDate dateWithYear:2010 month:8 day:7 hour:11 minute:00 second:00];
+    
+    [property setDate:date forKey:@"abc"];
+    ASSERT_EQUAL(date, [property dateForKey:@"abc"]);
 }
 
 
