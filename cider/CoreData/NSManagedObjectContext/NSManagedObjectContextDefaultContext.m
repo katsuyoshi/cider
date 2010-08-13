@@ -164,8 +164,23 @@ BOOL is_g_running_migration = NO;
     
     @synchronized(self) {
         is_g_running_migration = YES;
-        NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil]; 
-       
+        NSManagedObjectModel *managedObjectModel = nil;
+
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+        NSString *modelFileName = nil;
+        for (NSString *str in [manager contentsOfDirectoryAtPath:bundlePath error:NULL]) {
+            if ([[str pathExtension] isEqualToString:@"momd"]) {
+                modelFileName = str;
+            }
+        }
+        if (modelFileName) {
+            NSURL *url = [NSURL fileURLWithPath:[bundlePath stringByAppendingPathComponent:modelFileName]];
+            managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:url] autorelease];
+        } else {
+            managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil]; 
+        }
+
         NSError *error = nil;
         NSPersistentStoreCoordinator *coordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel] autorelease];
         NSDictionary *options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
