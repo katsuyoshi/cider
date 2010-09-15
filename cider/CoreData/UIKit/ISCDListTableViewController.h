@@ -164,6 +164,8 @@ typedef enum {
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
+- (NSManagedObject *)managedObjectAtIndexPath:(NSIndexPath *)indexPath;
+
 #pragma mark -
 #pragma mark convenience methods for subclass
 

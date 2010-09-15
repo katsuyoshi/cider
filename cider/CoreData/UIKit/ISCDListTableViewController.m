@@ -572,6 +572,13 @@
     [self.managedObjectContext rollback];
 }
 
+#pragma mark -
+
+- (NSManagedObject *)managedObjectAtIndexPath:(NSIndexPath *)indexPath
+{
+    indexPath = [self arrangedIndexPathFor:indexPath];
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+}
 
 #pragma mark -
 #pragma mark editing
