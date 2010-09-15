@@ -51,6 +51,13 @@
     return [[[self alloc] initWithNibName:@"ISDateTimeInputViewController" bundle:nil] autorelease];
 }
 
+static NSInteger minuteInterval = 1;
+
++ (void)setMinuteInterval:(NSInteger)interval
+{
+    minuteInterval = interval;
+}
+
 
 
 /*
@@ -67,6 +74,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    datePicker.minuteInterval = minuteInterval;
+    
     formatter = (NSDateFormatter *)[[self.detailedObject formatterForAttribute:attributeKey] retain];
     
     if (formatter.dateStyle == NSDateFormatterNoStyle) {

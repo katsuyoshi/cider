@@ -54,6 +54,7 @@
 @property (retain) NSString *attributeKey;
 
 + (ISDateTimeInputViewController *)dateTimeInputViewController;
++ (void)setMinuteInterval:(NSInteger)interval;
 
 - (void)doneAction:(id)sender;
 
