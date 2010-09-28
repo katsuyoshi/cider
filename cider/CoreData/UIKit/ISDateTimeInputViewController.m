@@ -188,7 +188,9 @@ static NSInteger minuteInterval = 1;
 
 - (void)doneAction:(id)sender
 {
-    [self.detailedObject setValue:datePicker.date forKey:self.attributeKey];
+    NSDate *date = datePicker.date;
+    date = [NSDate dateWithYear:[date year] month:[date month] day:[date day] hour:[date hour] minute:[date minute] second:0];
+    [self.detailedObject setValue:date forKey:self.attributeKey];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
