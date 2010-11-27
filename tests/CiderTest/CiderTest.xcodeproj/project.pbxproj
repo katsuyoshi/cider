@@ -28,34 +28,6 @@
 		4647BF361024324A003D1D17 /* NSErrorCoreDataExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BF351024324A003D1D17 /* NSErrorCoreDataExtensionTest.m */; };
 		465B04250F2056FF000E8FE2 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 465B04240F2056FF000E8FE2 /* TestView.xib */; };
 		465BB98111CA4AFF00770325 /* ISPropertyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 465BB98011CA4AFF00770325 /* ISPropertyTest.m */; };
-		46628422120D165F009500FD /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283E4120D165F009500FD /* NSErrorCoreDataExtension.m */; };
-		46628423120D165F009500FD /* NSFetchedResultsControllerSortedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283E7120D165F009500FD /* NSFetchedResultsControllerSortedObject.m */; };
-		46628424120D165F009500FD /* ISFetchRequestCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283EA120D165F009500FD /* ISFetchRequestCondition.m */; };
-		46628425120D165F009500FD /* NSManagedObjectCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283EC120D165F009500FD /* NSManagedObjectCallbacks.m */; };
-		46628426120D165F009500FD /* NSManagedObjectCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283EE120D165F009500FD /* NSManagedObjectCreation.m */; };
-		46628427120D165F009500FD /* NSManagedObjectDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283F0120D165F009500FD /* NSManagedObjectDisplay.m */; };
-		46628428120D165F009500FD /* NSManagedObjectFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283F2120D165F009500FD /* NSManagedObjectFetch.m */; };
-		46628429120D165F009500FD /* NSManagedObjectFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283F4120D165F009500FD /* NSManagedObjectFind.m */; };
-		4662842A120D165F009500FD /* NSManagedObjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283F6120D165F009500FD /* NSManagedObjectList.m */; };
-		4662842B120D165F009500FD /* NSManagedObjectSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283F8120D165F009500FD /* NSManagedObjectSerialize.m */; };
-		4662842C120D165F009500FD /* NSManagedObjectContextAop.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283FB120D165F009500FD /* NSManagedObjectContextAop.m */; };
-		4662842D120D165F009500FD /* NSManagedObjectContextCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283FD120D165F009500FD /* NSManagedObjectContextCreation.m */; };
-		4662842E120D165F009500FD /* NSManagedObjectContextDefaultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 466283FF120D165F009500FD /* NSManagedObjectContextDefaultContext.m */; };
-		4662842F120D165F009500FD /* NSSortDescriptorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628401120D165F009500FD /* NSSortDescriptorExtension.m */; };
-		46628430120D165F009500FD /* ISCDDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628404120D165F009500FD /* ISCDDetailedTableViewController.m */; };
-		46628431120D165F009500FD /* ISCDListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628406120D165F009500FD /* ISCDListTableViewController.m */; };
-		46628432120D165F009500FD /* ISDateTimeInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628408120D165F009500FD /* ISDateTimeInputViewController.m */; };
-		46628433120D165F009500FD /* ISDateTimeInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46628409120D165F009500FD /* ISDateTimeInputViewController.xib */; };
-		46628434120D165F009500FD /* ISProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4662840C120D165F009500FD /* ISProperty.m */; };
-		46628435120D165F009500FD /* ISSectionedArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4662840E120D165F009500FD /* ISSectionedArrayController.m */; };
-		46628436120D165F009500FD /* NSDateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628410120D165F009500FD /* NSDateExtension.m */; };
-		46628437120D165F009500FD /* NSErrorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628412120D165F009500FD /* NSErrorExtension.m */; };
-		46628438120D165F009500FD /* NSNotificationCenterExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628414120D165F009500FD /* NSNotificationCenterExtension.m */; };
-		46628439120D165F009500FD /* NSOperationQueueDefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628416120D165F009500FD /* NSOperationQueueDefaultQueue.m */; };
-		4662843A120D165F009500FD /* UIColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628418120D165F009500FD /* UIColorExtension.m */; };
-		4662843B120D165F009500FD /* cider.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4662841A120D165F009500FD /* cider.strings */; };
-		4662843C120D165F009500FD /* ISSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4662841F120D165F009500FD /* ISSelectionTableViewController.m */; };
-		4662843D120D165F009500FD /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46628421120D165F009500FD /* ISTableViewCell.m */; };
 		466AF4DE0F2F02A3004A649A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 466AF4DD0F2F02A3004A649A /* icon.png */; };
 		466EDC7B0F4094F900D2B9AC /* GTMSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 466EDC7A0F4094F900D2B9AC /* GTMSenTestCase.m */; };
 		467BCC6C1029DD0B00D19D4B /* NSManagedObjectFindTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 467BCC6B1029DD0B00D19D4B /* NSManagedObjectFindTest.m */; };
@@ -91,6 +63,36 @@
 		46E53C6E11F70517006B59F1 /* TypeTestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E53C6D11F70517006B59F1 /* TypeTestEntity.m */; };
 		46EAC501117ABF3100E9161D /* ListTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAC500117ABF3100E9161D /* ListTest3.m */; };
 		46EAC504117ABF5100E9161D /* NSManagedObjectListExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAC503117ABF5100E9161D /* NSManagedObjectListExtensionTest.m */; };
+		46EAD87412A178B1002DB97D /* NSErrorCoreDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD83212A178B1002DB97D /* NSErrorCoreDataExtension.m */; };
+		46EAD87512A178B1002DB97D /* NSFetchedResultsControllerSortedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD83512A178B1002DB97D /* NSFetchedResultsControllerSortedObject.m */; };
+		46EAD87612A178B1002DB97D /* ISFetchRequestCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD83812A178B1002DB97D /* ISFetchRequestCondition.m */; };
+		46EAD87712A178B1002DB97D /* NSManagedObjectCallbacks.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD83A12A178B1002DB97D /* NSManagedObjectCallbacks.m */; };
+		46EAD87812A178B1002DB97D /* NSManagedObjectCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD83C12A178B1002DB97D /* NSManagedObjectCreation.m */; };
+		46EAD87912A178B1002DB97D /* NSManagedObjectDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD83E12A178B1002DB97D /* NSManagedObjectDisplay.m */; };
+		46EAD87A12A178B1002DB97D /* NSManagedObjectFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD84012A178B1002DB97D /* NSManagedObjectFetch.m */; };
+		46EAD87B12A178B1002DB97D /* NSManagedObjectFind.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD84212A178B1002DB97D /* NSManagedObjectFind.m */; };
+		46EAD87C12A178B1002DB97D /* NSManagedObjectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD84412A178B1002DB97D /* NSManagedObjectList.m */; };
+		46EAD87D12A178B1002DB97D /* NSManagedObjectSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD84612A178B1002DB97D /* NSManagedObjectSerialize.m */; };
+		46EAD87E12A178B1002DB97D /* NSManagedObjectContextAop.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD84912A178B1002DB97D /* NSManagedObjectContextAop.m */; };
+		46EAD87F12A178B1002DB97D /* NSManagedObjectContextCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD84B12A178B1002DB97D /* NSManagedObjectContextCreation.m */; };
+		46EAD88012A178B1002DB97D /* NSManagedObjectContextDefaultContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD84D12A178B1002DB97D /* NSManagedObjectContextDefaultContext.m */; };
+		46EAD88112A178B1002DB97D /* NSSortDescriptorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD84F12A178B1002DB97D /* NSSortDescriptorExtension.m */; };
+		46EAD88212A178B1002DB97D /* ISCDDetailedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD85212A178B1002DB97D /* ISCDDetailedTableViewController.m */; };
+		46EAD88312A178B1002DB97D /* ISCDListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD85412A178B1002DB97D /* ISCDListTableViewController.m */; };
+		46EAD88412A178B1002DB97D /* ISDateTimeInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD85612A178B1002DB97D /* ISDateTimeInputViewController.m */; };
+		46EAD88512A178B1002DB97D /* ISDateTimeInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46EAD85712A178B1002DB97D /* ISDateTimeInputViewController.xib */; };
+		46EAD88612A178B1002DB97D /* ISProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD85A12A178B1002DB97D /* ISProperty.m */; };
+		46EAD88712A178B1002DB97D /* ISSectionedArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD85C12A178B1002DB97D /* ISSectionedArrayController.m */; };
+		46EAD88812A178B1002DB97D /* NSDateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD85E12A178B1002DB97D /* NSDateExtension.m */; };
+		46EAD88912A178B1002DB97D /* NSErrorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD86012A178B1002DB97D /* NSErrorExtension.m */; };
+		46EAD88A12A178B1002DB97D /* NSNotificationCenterExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD86212A178B1002DB97D /* NSNotificationCenterExtension.m */; };
+		46EAD88B12A178B1002DB97D /* NSOperationQueueDefaultQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD86412A178B1002DB97D /* NSOperationQueueDefaultQueue.m */; };
+		46EAD88C12A178B1002DB97D /* UIColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD86612A178B1002DB97D /* UIColorExtension.m */; };
+		46EAD88D12A178B1002DB97D /* cider.strings in Resources */ = {isa = PBXBuildFile; fileRef = 46EAD86812A178B1002DB97D /* cider.strings */; };
+		46EAD88E12A178B1002DB97D /* ISSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD86D12A178B1002DB97D /* ISSelectionTableViewController.m */; };
+		46EAD88F12A178B1002DB97D /* ISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD86F12A178B1002DB97D /* ISTableViewCell.m */; };
+		46EAD89012A178B1002DB97D /* UITableViewControllerCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD87112A178B1002DB97D /* UITableViewControllerCreation.m */; };
+		46EAD89112A178B1002DB97D /* UIViewControllerCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EAD87312A178B1002DB97D /* UIViewControllerCreation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,63 +136,6 @@
 		465B04240F2056FF000E8FE2 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		465BB97F11CA4AFF00770325 /* ISPropertyTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISPropertyTest.h; sourceTree = "<group>"; };
 		465BB98011CA4AFF00770325 /* ISPropertyTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISPropertyTest.m; sourceTree = "<group>"; };
-		466283E0120D165F009500FD /* Cider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cider.h; sourceTree = "<group>"; };
-		466283E1120D165F009500FD /* CiderCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CiderCoreData.h; sourceTree = "<group>"; };
-		466283E3120D165F009500FD /* NSErrorCoreDataExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorCoreDataExtension.h; sourceTree = "<group>"; };
-		466283E4120D165F009500FD /* NSErrorCoreDataExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorCoreDataExtension.m; sourceTree = "<group>"; };
-		466283E6120D165F009500FD /* NSFetchedResultsControllerSortedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFetchedResultsControllerSortedObject.h; sourceTree = "<group>"; };
-		466283E7120D165F009500FD /* NSFetchedResultsControllerSortedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFetchedResultsControllerSortedObject.m; sourceTree = "<group>"; };
-		466283E9120D165F009500FD /* ISFetchRequestCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISFetchRequestCondition.h; sourceTree = "<group>"; };
-		466283EA120D165F009500FD /* ISFetchRequestCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISFetchRequestCondition.m; sourceTree = "<group>"; };
-		466283EB120D165F009500FD /* NSManagedObjectCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectCallbacks.h; sourceTree = "<group>"; };
-		466283EC120D165F009500FD /* NSManagedObjectCallbacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectCallbacks.m; sourceTree = "<group>"; };
-		466283ED120D165F009500FD /* NSManagedObjectCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectCreation.h; sourceTree = "<group>"; };
-		466283EE120D165F009500FD /* NSManagedObjectCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectCreation.m; sourceTree = "<group>"; };
-		466283EF120D165F009500FD /* NSManagedObjectDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectDisplay.h; sourceTree = "<group>"; };
-		466283F0120D165F009500FD /* NSManagedObjectDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectDisplay.m; sourceTree = "<group>"; };
-		466283F1120D165F009500FD /* NSManagedObjectFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectFetch.h; sourceTree = "<group>"; };
-		466283F2120D165F009500FD /* NSManagedObjectFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectFetch.m; sourceTree = "<group>"; };
-		466283F3120D165F009500FD /* NSManagedObjectFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectFind.h; sourceTree = "<group>"; };
-		466283F4120D165F009500FD /* NSManagedObjectFind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectFind.m; sourceTree = "<group>"; };
-		466283F5120D165F009500FD /* NSManagedObjectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectList.h; sourceTree = "<group>"; };
-		466283F6120D165F009500FD /* NSManagedObjectList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectList.m; sourceTree = "<group>"; };
-		466283F7120D165F009500FD /* NSManagedObjectSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectSerialize.h; sourceTree = "<group>"; };
-		466283F8120D165F009500FD /* NSManagedObjectSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectSerialize.m; sourceTree = "<group>"; };
-		466283FA120D165F009500FD /* NSManagedObjectContextAop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextAop.h; sourceTree = "<group>"; };
-		466283FB120D165F009500FD /* NSManagedObjectContextAop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextAop.m; sourceTree = "<group>"; };
-		466283FC120D165F009500FD /* NSManagedObjectContextCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextCreation.h; sourceTree = "<group>"; };
-		466283FD120D165F009500FD /* NSManagedObjectContextCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextCreation.m; sourceTree = "<group>"; };
-		466283FE120D165F009500FD /* NSManagedObjectContextDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContext.h; sourceTree = "<group>"; };
-		466283FF120D165F009500FD /* NSManagedObjectContextDefaultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextDefaultContext.m; sourceTree = "<group>"; };
-		46628400120D165F009500FD /* NSSortDescriptorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSortDescriptorExtension.h; sourceTree = "<group>"; };
-		46628401120D165F009500FD /* NSSortDescriptorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSortDescriptorExtension.m; sourceTree = "<group>"; };
-		46628403120D165F009500FD /* ISCDDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDDetailedTableViewController.h; sourceTree = "<group>"; };
-		46628404120D165F009500FD /* ISCDDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDDetailedTableViewController.m; sourceTree = "<group>"; };
-		46628405120D165F009500FD /* ISCDListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDListTableViewController.h; sourceTree = "<group>"; };
-		46628406120D165F009500FD /* ISCDListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDListTableViewController.m; sourceTree = "<group>"; };
-		46628407120D165F009500FD /* ISDateTimeInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDateTimeInputViewController.h; sourceTree = "<group>"; };
-		46628408120D165F009500FD /* ISDateTimeInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDateTimeInputViewController.m; sourceTree = "<group>"; };
-		46628409120D165F009500FD /* ISDateTimeInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ISDateTimeInputViewController.xib; sourceTree = "<group>"; };
-		4662840B120D165F009500FD /* ISProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISProperty.h; sourceTree = "<group>"; };
-		4662840C120D165F009500FD /* ISProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISProperty.m; sourceTree = "<group>"; };
-		4662840D120D165F009500FD /* ISSectionedArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSectionedArrayController.h; sourceTree = "<group>"; };
-		4662840E120D165F009500FD /* ISSectionedArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSectionedArrayController.m; sourceTree = "<group>"; };
-		4662840F120D165F009500FD /* NSDateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateExtension.h; sourceTree = "<group>"; };
-		46628410120D165F009500FD /* NSDateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateExtension.m; sourceTree = "<group>"; };
-		46628411120D165F009500FD /* NSErrorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorExtension.h; sourceTree = "<group>"; };
-		46628412120D165F009500FD /* NSErrorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorExtension.m; sourceTree = "<group>"; };
-		46628413120D165F009500FD /* NSNotificationCenterExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNotificationCenterExtension.h; sourceTree = "<group>"; };
-		46628414120D165F009500FD /* NSNotificationCenterExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenterExtension.m; sourceTree = "<group>"; };
-		46628415120D165F009500FD /* NSOperationQueueDefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationQueueDefaultQueue.h; sourceTree = "<group>"; };
-		46628416120D165F009500FD /* NSOperationQueueDefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationQueueDefaultQueue.m; sourceTree = "<group>"; };
-		46628417120D165F009500FD /* UIColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtension.h; sourceTree = "<group>"; };
-		46628418120D165F009500FD /* UIColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtension.m; sourceTree = "<group>"; };
-		4662841B120D165F009500FD /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/cider.strings; sourceTree = "<group>"; };
-		4662841C120D165F009500FD /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/cider.strings; sourceTree = "<group>"; };
-		4662841E120D165F009500FD /* ISSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSelectionTableViewController.h; sourceTree = "<group>"; };
-		4662841F120D165F009500FD /* ISSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSelectionTableViewController.m; sourceTree = "<group>"; };
-		46628420120D165F009500FD /* ISTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCell.h; sourceTree = "<group>"; };
-		46628421120D165F009500FD /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
 		466AF4DD0F2F02A3004A649A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		466EDC780F4094DB00D2B9AC /* IUTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IUTLog.h; sourceTree = "<group>"; };
 		466EDC790F4094F900D2B9AC /* GTMSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMSenTestCase.h; sourceTree = "<group>"; };
@@ -259,6 +204,67 @@
 		46EAC500117ABF3100E9161D /* ListTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTest3.m; sourceTree = "<group>"; };
 		46EAC502117ABF5100E9161D /* NSManagedObjectListExtensionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectListExtensionTest.h; sourceTree = "<group>"; };
 		46EAC503117ABF5100E9161D /* NSManagedObjectListExtensionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectListExtensionTest.m; sourceTree = "<group>"; };
+		46EAD82E12A178B1002DB97D /* Cider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cider.h; sourceTree = "<group>"; };
+		46EAD82F12A178B1002DB97D /* CiderCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CiderCoreData.h; sourceTree = "<group>"; };
+		46EAD83112A178B1002DB97D /* NSErrorCoreDataExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorCoreDataExtension.h; sourceTree = "<group>"; };
+		46EAD83212A178B1002DB97D /* NSErrorCoreDataExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorCoreDataExtension.m; sourceTree = "<group>"; };
+		46EAD83412A178B1002DB97D /* NSFetchedResultsControllerSortedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSFetchedResultsControllerSortedObject.h; sourceTree = "<group>"; };
+		46EAD83512A178B1002DB97D /* NSFetchedResultsControllerSortedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSFetchedResultsControllerSortedObject.m; sourceTree = "<group>"; };
+		46EAD83712A178B1002DB97D /* ISFetchRequestCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISFetchRequestCondition.h; sourceTree = "<group>"; };
+		46EAD83812A178B1002DB97D /* ISFetchRequestCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISFetchRequestCondition.m; sourceTree = "<group>"; };
+		46EAD83912A178B1002DB97D /* NSManagedObjectCallbacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectCallbacks.h; sourceTree = "<group>"; };
+		46EAD83A12A178B1002DB97D /* NSManagedObjectCallbacks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectCallbacks.m; sourceTree = "<group>"; };
+		46EAD83B12A178B1002DB97D /* NSManagedObjectCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectCreation.h; sourceTree = "<group>"; };
+		46EAD83C12A178B1002DB97D /* NSManagedObjectCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectCreation.m; sourceTree = "<group>"; };
+		46EAD83D12A178B1002DB97D /* NSManagedObjectDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectDisplay.h; sourceTree = "<group>"; };
+		46EAD83E12A178B1002DB97D /* NSManagedObjectDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectDisplay.m; sourceTree = "<group>"; };
+		46EAD83F12A178B1002DB97D /* NSManagedObjectFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectFetch.h; sourceTree = "<group>"; };
+		46EAD84012A178B1002DB97D /* NSManagedObjectFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectFetch.m; sourceTree = "<group>"; };
+		46EAD84112A178B1002DB97D /* NSManagedObjectFind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectFind.h; sourceTree = "<group>"; };
+		46EAD84212A178B1002DB97D /* NSManagedObjectFind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectFind.m; sourceTree = "<group>"; };
+		46EAD84312A178B1002DB97D /* NSManagedObjectList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectList.h; sourceTree = "<group>"; };
+		46EAD84412A178B1002DB97D /* NSManagedObjectList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectList.m; sourceTree = "<group>"; };
+		46EAD84512A178B1002DB97D /* NSManagedObjectSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectSerialize.h; sourceTree = "<group>"; };
+		46EAD84612A178B1002DB97D /* NSManagedObjectSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectSerialize.m; sourceTree = "<group>"; };
+		46EAD84812A178B1002DB97D /* NSManagedObjectContextAop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextAop.h; sourceTree = "<group>"; };
+		46EAD84912A178B1002DB97D /* NSManagedObjectContextAop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextAop.m; sourceTree = "<group>"; };
+		46EAD84A12A178B1002DB97D /* NSManagedObjectContextCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextCreation.h; sourceTree = "<group>"; };
+		46EAD84B12A178B1002DB97D /* NSManagedObjectContextCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextCreation.m; sourceTree = "<group>"; };
+		46EAD84C12A178B1002DB97D /* NSManagedObjectContextDefaultContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextDefaultContext.h; sourceTree = "<group>"; };
+		46EAD84D12A178B1002DB97D /* NSManagedObjectContextDefaultContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextDefaultContext.m; sourceTree = "<group>"; };
+		46EAD84E12A178B1002DB97D /* NSSortDescriptorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSortDescriptorExtension.h; sourceTree = "<group>"; };
+		46EAD84F12A178B1002DB97D /* NSSortDescriptorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSortDescriptorExtension.m; sourceTree = "<group>"; };
+		46EAD85112A178B1002DB97D /* ISCDDetailedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDDetailedTableViewController.h; sourceTree = "<group>"; };
+		46EAD85212A178B1002DB97D /* ISCDDetailedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDDetailedTableViewController.m; sourceTree = "<group>"; };
+		46EAD85312A178B1002DB97D /* ISCDListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCDListTableViewController.h; sourceTree = "<group>"; };
+		46EAD85412A178B1002DB97D /* ISCDListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCDListTableViewController.m; sourceTree = "<group>"; };
+		46EAD85512A178B1002DB97D /* ISDateTimeInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISDateTimeInputViewController.h; sourceTree = "<group>"; };
+		46EAD85612A178B1002DB97D /* ISDateTimeInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISDateTimeInputViewController.m; sourceTree = "<group>"; };
+		46EAD85712A178B1002DB97D /* ISDateTimeInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ISDateTimeInputViewController.xib; sourceTree = "<group>"; };
+		46EAD85912A178B1002DB97D /* ISProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISProperty.h; sourceTree = "<group>"; };
+		46EAD85A12A178B1002DB97D /* ISProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISProperty.m; sourceTree = "<group>"; };
+		46EAD85B12A178B1002DB97D /* ISSectionedArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSectionedArrayController.h; sourceTree = "<group>"; };
+		46EAD85C12A178B1002DB97D /* ISSectionedArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSectionedArrayController.m; sourceTree = "<group>"; };
+		46EAD85D12A178B1002DB97D /* NSDateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateExtension.h; sourceTree = "<group>"; };
+		46EAD85E12A178B1002DB97D /* NSDateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateExtension.m; sourceTree = "<group>"; };
+		46EAD85F12A178B1002DB97D /* NSErrorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSErrorExtension.h; sourceTree = "<group>"; };
+		46EAD86012A178B1002DB97D /* NSErrorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSErrorExtension.m; sourceTree = "<group>"; };
+		46EAD86112A178B1002DB97D /* NSNotificationCenterExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNotificationCenterExtension.h; sourceTree = "<group>"; };
+		46EAD86212A178B1002DB97D /* NSNotificationCenterExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationCenterExtension.m; sourceTree = "<group>"; };
+		46EAD86312A178B1002DB97D /* NSOperationQueueDefaultQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationQueueDefaultQueue.h; sourceTree = "<group>"; };
+		46EAD86412A178B1002DB97D /* NSOperationQueueDefaultQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationQueueDefaultQueue.m; sourceTree = "<group>"; };
+		46EAD86512A178B1002DB97D /* UIColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtension.h; sourceTree = "<group>"; };
+		46EAD86612A178B1002DB97D /* UIColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtension.m; sourceTree = "<group>"; };
+		46EAD86912A178B1002DB97D /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/cider.strings; sourceTree = "<group>"; };
+		46EAD86A12A178B1002DB97D /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Japanese; path = Japanese.lproj/cider.strings; sourceTree = "<group>"; };
+		46EAD86C12A178B1002DB97D /* ISSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISSelectionTableViewController.h; sourceTree = "<group>"; };
+		46EAD86D12A178B1002DB97D /* ISSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISSelectionTableViewController.m; sourceTree = "<group>"; };
+		46EAD86E12A178B1002DB97D /* ISTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCell.h; sourceTree = "<group>"; };
+		46EAD86F12A178B1002DB97D /* ISTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCell.m; sourceTree = "<group>"; };
+		46EAD87012A178B1002DB97D /* UITableViewControllerCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewControllerCreation.h; sourceTree = "<group>"; };
+		46EAD87112A178B1002DB97D /* UITableViewControllerCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewControllerCreation.m; sourceTree = "<group>"; };
+		46EAD87212A178B1002DB97D /* UIViewControllerCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerCreation.h; sourceTree = "<group>"; };
+		46EAD87312A178B1002DB97D /* UIViewControllerCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerCreation.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -382,134 +388,6 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		466283DF120D165F009500FD /* cider */ = {
-			isa = PBXGroup;
-			children = (
-				466283E0120D165F009500FD /* Cider.h */,
-				466283E1120D165F009500FD /* CiderCoreData.h */,
-				466283E2120D165F009500FD /* CoreData */,
-				4662840A120D165F009500FD /* Foundation */,
-				46628419120D165F009500FD /* Resources */,
-				4662841D120D165F009500FD /* UIKit */,
-			);
-			name = cider;
-			path = ../../cider;
-			sourceTree = SOURCE_ROOT;
-		};
-		466283E2120D165F009500FD /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				466283E3120D165F009500FD /* NSErrorCoreDataExtension.h */,
-				466283E4120D165F009500FD /* NSErrorCoreDataExtension.m */,
-				466283E5120D165F009500FD /* NSFetchedResultsController */,
-				466283E8120D165F009500FD /* NSManagedObject */,
-				466283F9120D165F009500FD /* NSManagedObjectContext */,
-				46628400120D165F009500FD /* NSSortDescriptorExtension.h */,
-				46628401120D165F009500FD /* NSSortDescriptorExtension.m */,
-				46628402120D165F009500FD /* UIKit */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		466283E5120D165F009500FD /* NSFetchedResultsController */ = {
-			isa = PBXGroup;
-			children = (
-				466283E6120D165F009500FD /* NSFetchedResultsControllerSortedObject.h */,
-				466283E7120D165F009500FD /* NSFetchedResultsControllerSortedObject.m */,
-			);
-			path = NSFetchedResultsController;
-			sourceTree = "<group>";
-		};
-		466283E8120D165F009500FD /* NSManagedObject */ = {
-			isa = PBXGroup;
-			children = (
-				466283E9120D165F009500FD /* ISFetchRequestCondition.h */,
-				466283EA120D165F009500FD /* ISFetchRequestCondition.m */,
-				466283EB120D165F009500FD /* NSManagedObjectCallbacks.h */,
-				466283EC120D165F009500FD /* NSManagedObjectCallbacks.m */,
-				466283ED120D165F009500FD /* NSManagedObjectCreation.h */,
-				466283EE120D165F009500FD /* NSManagedObjectCreation.m */,
-				466283EF120D165F009500FD /* NSManagedObjectDisplay.h */,
-				466283F0120D165F009500FD /* NSManagedObjectDisplay.m */,
-				466283F1120D165F009500FD /* NSManagedObjectFetch.h */,
-				466283F2120D165F009500FD /* NSManagedObjectFetch.m */,
-				466283F3120D165F009500FD /* NSManagedObjectFind.h */,
-				466283F4120D165F009500FD /* NSManagedObjectFind.m */,
-				466283F5120D165F009500FD /* NSManagedObjectList.h */,
-				466283F6120D165F009500FD /* NSManagedObjectList.m */,
-				466283F7120D165F009500FD /* NSManagedObjectSerialize.h */,
-				466283F8120D165F009500FD /* NSManagedObjectSerialize.m */,
-			);
-			path = NSManagedObject;
-			sourceTree = "<group>";
-		};
-		466283F9120D165F009500FD /* NSManagedObjectContext */ = {
-			isa = PBXGroup;
-			children = (
-				466283FA120D165F009500FD /* NSManagedObjectContextAop.h */,
-				466283FB120D165F009500FD /* NSManagedObjectContextAop.m */,
-				466283FC120D165F009500FD /* NSManagedObjectContextCreation.h */,
-				466283FD120D165F009500FD /* NSManagedObjectContextCreation.m */,
-				466283FE120D165F009500FD /* NSManagedObjectContextDefaultContext.h */,
-				466283FF120D165F009500FD /* NSManagedObjectContextDefaultContext.m */,
-			);
-			path = NSManagedObjectContext;
-			sourceTree = "<group>";
-		};
-		46628402120D165F009500FD /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				46628403120D165F009500FD /* ISCDDetailedTableViewController.h */,
-				46628404120D165F009500FD /* ISCDDetailedTableViewController.m */,
-				46628405120D165F009500FD /* ISCDListTableViewController.h */,
-				46628406120D165F009500FD /* ISCDListTableViewController.m */,
-				46628407120D165F009500FD /* ISDateTimeInputViewController.h */,
-				46628408120D165F009500FD /* ISDateTimeInputViewController.m */,
-				46628409120D165F009500FD /* ISDateTimeInputViewController.xib */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		4662840A120D165F009500FD /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				4662840B120D165F009500FD /* ISProperty.h */,
-				4662840C120D165F009500FD /* ISProperty.m */,
-				4662840D120D165F009500FD /* ISSectionedArrayController.h */,
-				4662840E120D165F009500FD /* ISSectionedArrayController.m */,
-				4662840F120D165F009500FD /* NSDateExtension.h */,
-				46628410120D165F009500FD /* NSDateExtension.m */,
-				46628411120D165F009500FD /* NSErrorExtension.h */,
-				46628412120D165F009500FD /* NSErrorExtension.m */,
-				46628413120D165F009500FD /* NSNotificationCenterExtension.h */,
-				46628414120D165F009500FD /* NSNotificationCenterExtension.m */,
-				46628415120D165F009500FD /* NSOperationQueueDefaultQueue.h */,
-				46628416120D165F009500FD /* NSOperationQueueDefaultQueue.m */,
-				46628417120D165F009500FD /* UIColorExtension.h */,
-				46628418120D165F009500FD /* UIColorExtension.m */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
-		46628419120D165F009500FD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4662841A120D165F009500FD /* cider.strings */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		4662841D120D165F009500FD /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				4662841E120D165F009500FD /* ISSelectionTableViewController.h */,
-				4662841F120D165F009500FD /* ISSelectionTableViewController.m */,
-				46628420120D165F009500FD /* ISTableViewCell.h */,
-				46628421120D165F009500FD /* ISTableViewCell.m */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
 		468F0BFA1025E6A700F3DDF6 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,7 +460,7 @@
 		46C20FD50F256E610053F9B9 /* TargetClasses */ = {
 			isa = PBXGroup;
 			children = (
-				466283DF120D165F009500FD /* cider */,
+				46EAD82D12A178B1002DB97D /* cider */,
 			);
 			path = TargetClasses;
 			sourceTree = "<group>";
@@ -666,6 +544,138 @@
 			path = ControllerTest;
 			sourceTree = "<group>";
 		};
+		46EAD82D12A178B1002DB97D /* cider */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD82E12A178B1002DB97D /* Cider.h */,
+				46EAD82F12A178B1002DB97D /* CiderCoreData.h */,
+				46EAD83012A178B1002DB97D /* CoreData */,
+				46EAD85812A178B1002DB97D /* Foundation */,
+				46EAD86712A178B1002DB97D /* Resources */,
+				46EAD86B12A178B1002DB97D /* UIKit */,
+			);
+			name = cider;
+			path = ../../cider;
+			sourceTree = SOURCE_ROOT;
+		};
+		46EAD83012A178B1002DB97D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD83112A178B1002DB97D /* NSErrorCoreDataExtension.h */,
+				46EAD83212A178B1002DB97D /* NSErrorCoreDataExtension.m */,
+				46EAD83312A178B1002DB97D /* NSFetchedResultsController */,
+				46EAD83612A178B1002DB97D /* NSManagedObject */,
+				46EAD84712A178B1002DB97D /* NSManagedObjectContext */,
+				46EAD84E12A178B1002DB97D /* NSSortDescriptorExtension.h */,
+				46EAD84F12A178B1002DB97D /* NSSortDescriptorExtension.m */,
+				46EAD85012A178B1002DB97D /* UIKit */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		46EAD83312A178B1002DB97D /* NSFetchedResultsController */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD83412A178B1002DB97D /* NSFetchedResultsControllerSortedObject.h */,
+				46EAD83512A178B1002DB97D /* NSFetchedResultsControllerSortedObject.m */,
+			);
+			path = NSFetchedResultsController;
+			sourceTree = "<group>";
+		};
+		46EAD83612A178B1002DB97D /* NSManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD83712A178B1002DB97D /* ISFetchRequestCondition.h */,
+				46EAD83812A178B1002DB97D /* ISFetchRequestCondition.m */,
+				46EAD83912A178B1002DB97D /* NSManagedObjectCallbacks.h */,
+				46EAD83A12A178B1002DB97D /* NSManagedObjectCallbacks.m */,
+				46EAD83B12A178B1002DB97D /* NSManagedObjectCreation.h */,
+				46EAD83C12A178B1002DB97D /* NSManagedObjectCreation.m */,
+				46EAD83D12A178B1002DB97D /* NSManagedObjectDisplay.h */,
+				46EAD83E12A178B1002DB97D /* NSManagedObjectDisplay.m */,
+				46EAD83F12A178B1002DB97D /* NSManagedObjectFetch.h */,
+				46EAD84012A178B1002DB97D /* NSManagedObjectFetch.m */,
+				46EAD84112A178B1002DB97D /* NSManagedObjectFind.h */,
+				46EAD84212A178B1002DB97D /* NSManagedObjectFind.m */,
+				46EAD84312A178B1002DB97D /* NSManagedObjectList.h */,
+				46EAD84412A178B1002DB97D /* NSManagedObjectList.m */,
+				46EAD84512A178B1002DB97D /* NSManagedObjectSerialize.h */,
+				46EAD84612A178B1002DB97D /* NSManagedObjectSerialize.m */,
+			);
+			path = NSManagedObject;
+			sourceTree = "<group>";
+		};
+		46EAD84712A178B1002DB97D /* NSManagedObjectContext */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD84812A178B1002DB97D /* NSManagedObjectContextAop.h */,
+				46EAD84912A178B1002DB97D /* NSManagedObjectContextAop.m */,
+				46EAD84A12A178B1002DB97D /* NSManagedObjectContextCreation.h */,
+				46EAD84B12A178B1002DB97D /* NSManagedObjectContextCreation.m */,
+				46EAD84C12A178B1002DB97D /* NSManagedObjectContextDefaultContext.h */,
+				46EAD84D12A178B1002DB97D /* NSManagedObjectContextDefaultContext.m */,
+			);
+			path = NSManagedObjectContext;
+			sourceTree = "<group>";
+		};
+		46EAD85012A178B1002DB97D /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD85112A178B1002DB97D /* ISCDDetailedTableViewController.h */,
+				46EAD85212A178B1002DB97D /* ISCDDetailedTableViewController.m */,
+				46EAD85312A178B1002DB97D /* ISCDListTableViewController.h */,
+				46EAD85412A178B1002DB97D /* ISCDListTableViewController.m */,
+				46EAD85512A178B1002DB97D /* ISDateTimeInputViewController.h */,
+				46EAD85612A178B1002DB97D /* ISDateTimeInputViewController.m */,
+				46EAD85712A178B1002DB97D /* ISDateTimeInputViewController.xib */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		46EAD85812A178B1002DB97D /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD85912A178B1002DB97D /* ISProperty.h */,
+				46EAD85A12A178B1002DB97D /* ISProperty.m */,
+				46EAD85B12A178B1002DB97D /* ISSectionedArrayController.h */,
+				46EAD85C12A178B1002DB97D /* ISSectionedArrayController.m */,
+				46EAD85D12A178B1002DB97D /* NSDateExtension.h */,
+				46EAD85E12A178B1002DB97D /* NSDateExtension.m */,
+				46EAD85F12A178B1002DB97D /* NSErrorExtension.h */,
+				46EAD86012A178B1002DB97D /* NSErrorExtension.m */,
+				46EAD86112A178B1002DB97D /* NSNotificationCenterExtension.h */,
+				46EAD86212A178B1002DB97D /* NSNotificationCenterExtension.m */,
+				46EAD86312A178B1002DB97D /* NSOperationQueueDefaultQueue.h */,
+				46EAD86412A178B1002DB97D /* NSOperationQueueDefaultQueue.m */,
+				46EAD86512A178B1002DB97D /* UIColorExtension.h */,
+				46EAD86612A178B1002DB97D /* UIColorExtension.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		46EAD86712A178B1002DB97D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD86812A178B1002DB97D /* cider.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		46EAD86B12A178B1002DB97D /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				46EAD86C12A178B1002DB97D /* ISSelectionTableViewController.h */,
+				46EAD86D12A178B1002DB97D /* ISSelectionTableViewController.m */,
+				46EAD86E12A178B1002DB97D /* ISTableViewCell.h */,
+				46EAD86F12A178B1002DB97D /* ISTableViewCell.m */,
+				46EAD87012A178B1002DB97D /* UITableViewControllerCreation.h */,
+				46EAD87112A178B1002DB97D /* UITableViewControllerCreation.m */,
+				46EAD87212A178B1002DB97D /* UIViewControllerCreation.h */,
+				46EAD87312A178B1002DB97D /* UIViewControllerCreation.m */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -693,6 +703,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CiderTest" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -723,8 +734,8 @@
 				460633950F55AC9000A33C8B /* Settings.bundle in Resources */,
 				460633A20F55B5F900A33C8B /* isd_logo_60x40_w.png in Resources */,
 				4617B7F00F57B76100D94BF1 /* Default.png in Resources */,
-				46628433120D165F009500FD /* ISDateTimeInputViewController.xib in Resources */,
-				4662843B120D165F009500FD /* cider.strings in Resources */,
+				46EAD88512A178B1002DB97D /* ISDateTimeInputViewController.xib in Resources */,
+				46EAD88D12A178B1002DB97D /* cider.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,43 +790,45 @@
 				465BB98111CA4AFF00770325 /* ISPropertyTest.m in Sources */,
 				46E53AAC11F6CCAE006B59F1 /* NSManagedObjectSerializeTest.m in Sources */,
 				46E53C6E11F70517006B59F1 /* TypeTestEntity.m in Sources */,
-				46628422120D165F009500FD /* NSErrorCoreDataExtension.m in Sources */,
-				46628423120D165F009500FD /* NSFetchedResultsControllerSortedObject.m in Sources */,
-				46628424120D165F009500FD /* ISFetchRequestCondition.m in Sources */,
-				46628425120D165F009500FD /* NSManagedObjectCallbacks.m in Sources */,
-				46628426120D165F009500FD /* NSManagedObjectCreation.m in Sources */,
-				46628427120D165F009500FD /* NSManagedObjectDisplay.m in Sources */,
-				46628428120D165F009500FD /* NSManagedObjectFetch.m in Sources */,
-				46628429120D165F009500FD /* NSManagedObjectFind.m in Sources */,
-				4662842A120D165F009500FD /* NSManagedObjectList.m in Sources */,
-				4662842B120D165F009500FD /* NSManagedObjectSerialize.m in Sources */,
-				4662842C120D165F009500FD /* NSManagedObjectContextAop.m in Sources */,
-				4662842D120D165F009500FD /* NSManagedObjectContextCreation.m in Sources */,
-				4662842E120D165F009500FD /* NSManagedObjectContextDefaultContext.m in Sources */,
-				4662842F120D165F009500FD /* NSSortDescriptorExtension.m in Sources */,
-				46628430120D165F009500FD /* ISCDDetailedTableViewController.m in Sources */,
-				46628431120D165F009500FD /* ISCDListTableViewController.m in Sources */,
-				46628432120D165F009500FD /* ISDateTimeInputViewController.m in Sources */,
-				46628434120D165F009500FD /* ISProperty.m in Sources */,
-				46628435120D165F009500FD /* ISSectionedArrayController.m in Sources */,
-				46628436120D165F009500FD /* NSDateExtension.m in Sources */,
-				46628437120D165F009500FD /* NSErrorExtension.m in Sources */,
-				46628438120D165F009500FD /* NSNotificationCenterExtension.m in Sources */,
-				46628439120D165F009500FD /* NSOperationQueueDefaultQueue.m in Sources */,
-				4662843A120D165F009500FD /* UIColorExtension.m in Sources */,
-				4662843C120D165F009500FD /* ISSelectionTableViewController.m in Sources */,
-				4662843D120D165F009500FD /* ISTableViewCell.m in Sources */,
+				46EAD87412A178B1002DB97D /* NSErrorCoreDataExtension.m in Sources */,
+				46EAD87512A178B1002DB97D /* NSFetchedResultsControllerSortedObject.m in Sources */,
+				46EAD87612A178B1002DB97D /* ISFetchRequestCondition.m in Sources */,
+				46EAD87712A178B1002DB97D /* NSManagedObjectCallbacks.m in Sources */,
+				46EAD87812A178B1002DB97D /* NSManagedObjectCreation.m in Sources */,
+				46EAD87912A178B1002DB97D /* NSManagedObjectDisplay.m in Sources */,
+				46EAD87A12A178B1002DB97D /* NSManagedObjectFetch.m in Sources */,
+				46EAD87B12A178B1002DB97D /* NSManagedObjectFind.m in Sources */,
+				46EAD87C12A178B1002DB97D /* NSManagedObjectList.m in Sources */,
+				46EAD87D12A178B1002DB97D /* NSManagedObjectSerialize.m in Sources */,
+				46EAD87E12A178B1002DB97D /* NSManagedObjectContextAop.m in Sources */,
+				46EAD87F12A178B1002DB97D /* NSManagedObjectContextCreation.m in Sources */,
+				46EAD88012A178B1002DB97D /* NSManagedObjectContextDefaultContext.m in Sources */,
+				46EAD88112A178B1002DB97D /* NSSortDescriptorExtension.m in Sources */,
+				46EAD88212A178B1002DB97D /* ISCDDetailedTableViewController.m in Sources */,
+				46EAD88312A178B1002DB97D /* ISCDListTableViewController.m in Sources */,
+				46EAD88412A178B1002DB97D /* ISDateTimeInputViewController.m in Sources */,
+				46EAD88612A178B1002DB97D /* ISProperty.m in Sources */,
+				46EAD88712A178B1002DB97D /* ISSectionedArrayController.m in Sources */,
+				46EAD88812A178B1002DB97D /* NSDateExtension.m in Sources */,
+				46EAD88912A178B1002DB97D /* NSErrorExtension.m in Sources */,
+				46EAD88A12A178B1002DB97D /* NSNotificationCenterExtension.m in Sources */,
+				46EAD88B12A178B1002DB97D /* NSOperationQueueDefaultQueue.m in Sources */,
+				46EAD88C12A178B1002DB97D /* UIColorExtension.m in Sources */,
+				46EAD88E12A178B1002DB97D /* ISSelectionTableViewController.m in Sources */,
+				46EAD88F12A178B1002DB97D /* ISTableViewCell.m in Sources */,
+				46EAD89012A178B1002DB97D /* UITableViewControllerCreation.m in Sources */,
+				46EAD89112A178B1002DB97D /* UIViewControllerCreation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4662841A120D165F009500FD /* cider.strings */ = {
+		46EAD86812A178B1002DB97D /* cider.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4662841B120D165F009500FD /* English */,
-				4662841C120D165F009500FD /* Japanese */,
+				46EAD86912A178B1002DB97D /* English */,
+				46EAD86A12A178B1002DB97D /* Japanese */,
 			);
 			name = cider.strings;
 			sourceTree = "<group>";
@@ -843,7 +856,7 @@
 				OTHER_LDFLAGS = "-lgcov";
 				PRODUCT_NAME = CiderTest;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -860,7 +873,7 @@
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = CiderTest;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "015FD9E7-03D2-482E-8BF0-526AFEFF0A8C";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -874,7 +887,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -887,7 +900,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos2.2;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
