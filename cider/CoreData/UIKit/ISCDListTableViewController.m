@@ -563,6 +563,7 @@
 #endif
     } @finally {
         [context.persistentStoreCoordinator unlock];
+        [self refetch];
     }
 }
 
