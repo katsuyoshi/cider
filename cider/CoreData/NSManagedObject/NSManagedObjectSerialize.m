@@ -40,6 +40,7 @@
 #import "NSManagedObjectSerialize.h"
 #import "NSManagedObjectList.h"
 #import "NSSortDescriptorExtension.h"
+#import "NSDateFormatterPatches.h"
 
 
 
@@ -145,7 +146,7 @@
 
 + (NSDateFormatter *)dateFormatterForSerialization
 {
-    NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
+    NSDateFormatter *formatter = [NSDateFormatter dateFormatterWithCurrentLocale];
     [formatter setLocale:[NSLocale currentLocale]];
     [formatter setTimeStyle:NSDateFormatterMediumStyle];
     [formatter setDateStyle:NSDateFormatterMediumStyle];

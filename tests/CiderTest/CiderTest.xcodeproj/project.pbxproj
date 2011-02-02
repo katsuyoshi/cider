@@ -33,6 +33,7 @@
 		467BCC6C1029DD0B00D19D4B /* NSManagedObjectFindTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 467BCC6B1029DD0B00D19D4B /* NSManagedObjectFindTest.m */; };
 		468052AD0FA58ACB003B5A71 /* SourceCodeOpener.m in Sources */ = {isa = PBXBuildFile; fileRef = 468052AC0FA58ACB003B5A71 /* SourceCodeOpener.m */; };
 		46828C0610BFE99700F3259C /* AppAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 46828C0410BFE99700F3259C /* AppAgent.m */; };
+		468EAAB312F93F9A00292C50 /* NSDateFormatterPatches.m in Sources */ = {isa = PBXBuildFile; fileRef = 468EAAB212F93F9A00292C50 /* NSDateFormatterPatches.m */; };
 		468F0BF51025E49100F3DDF6 /* NSManagedObjectContextCreationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0BF41025E49100F3DDF6 /* NSManagedObjectContextCreationTest.m */; };
 		468F0BF91025E51E00F3DDF6 /* CiderMovie.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 468F0BF81025E51E00F3DDF6 /* CiderMovie.xcdatamodel */; };
 		468F0C011025E73B00F3DDF6 /* ISMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 468F0BFE1025E73B00F3DDF6 /* ISMovie.m */; };
@@ -148,6 +149,8 @@
 		46828C0310BFE99700F3259C /* AppAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAgent.h; sourceTree = "<group>"; };
 		46828C0410BFE99700F3259C /* AppAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppAgent.m; sourceTree = "<group>"; };
 		46828C0510BFE99700F3259C /* AppAgentHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAgentHelper.h; sourceTree = "<group>"; };
+		468EAAB112F93F9A00292C50 /* NSDateFormatterPatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateFormatterPatches.h; sourceTree = "<group>"; };
+		468EAAB212F93F9A00292C50 /* NSDateFormatterPatches.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateFormatterPatches.m; sourceTree = "<group>"; };
 		468F0BF31025E49100F3DDF6 /* NSManagedObjectContextCreationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextCreationTest.h; sourceTree = "<group>"; };
 		468F0BF41025E49100F3DDF6 /* NSManagedObjectContextCreationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextCreationTest.m; sourceTree = "<group>"; };
 		468F0BF81025E51E00F3DDF6 /* CiderMovie.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = CiderMovie.xcdatamodel; sourceTree = "<group>"; };
@@ -635,6 +638,8 @@
 		46EAD85812A178B1002DB97D /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				468EAAB112F93F9A00292C50 /* NSDateFormatterPatches.h */,
+				468EAAB212F93F9A00292C50 /* NSDateFormatterPatches.m */,
 				46EAD85912A178B1002DB97D /* ISProperty.h */,
 				46EAD85A12A178B1002DB97D /* ISProperty.m */,
 				46EAD85B12A178B1002DB97D /* ISSectionedArrayController.h */,
@@ -818,6 +823,7 @@
 				46EAD88F12A178B1002DB97D /* ISTableViewCell.m in Sources */,
 				46EAD89012A178B1002DB97D /* UITableViewControllerCreation.m in Sources */,
 				46EAD89112A178B1002DB97D /* UIViewControllerCreation.m in Sources */,
+				468EAAB312F93F9A00292C50 /* NSDateFormatterPatches.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

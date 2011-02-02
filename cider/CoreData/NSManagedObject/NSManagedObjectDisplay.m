@@ -37,6 +37,7 @@
 */
 
 #import "NSManagedObjectDisplay.h"
+#import "NSDateFormatterPatches.h"
 
 
 @implementation NSManagedObject(ISDisplay)
@@ -61,7 +62,7 @@
         
         case NSDateAttributeType:
             {
-                NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
+                NSDateFormatter *formatter = [NSDateFormatter dateFormatterWithCurrentLocale];
                 [formatter setTimeStyle:NSDateFormatterMediumStyle];
                 [formatter setDateStyle:NSDateFormatterMediumStyle];
                 [formatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:NSLocalizedString(@"LOCALE", nil)] autorelease]];
