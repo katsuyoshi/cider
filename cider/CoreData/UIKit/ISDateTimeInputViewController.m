@@ -138,7 +138,7 @@ static NSInteger minuteInterval = 1;
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -162,14 +162,12 @@ static NSInteger minuteInterval = 1;
     return title;
 }
 
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (UITableViewCell *)tableViewCellForAttribute:(UITableView *)tableView 
+{
     static NSString *CellIdentifier = @"Cell";
-
-    ISTableViewCell *cell = (ISTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
         
@@ -180,6 +178,34 @@ static NSInteger minuteInterval = 1;
     }
 	
     return cell;
+}
+
+- (UITableViewCell *)tableViewCellForTimeZone:(UITableView *)tableView 
+{
+    static NSString *CellIdentifier = @"TimeZoneCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    NSTimeZone *timeZone = datePicker.timeZone;
+    timeZone = (timeZone == nil) ? [NSTimeZone localTimeZone] : timeZone;
+    cell.textLabel.text = NSLocalizedStringFromTable(@"Time zone", @"cider", nil);
+    cell.detailTextLabel.text = NSLocalizedString(timeZone.name, nil);
+	
+    return cell;
+}
+
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row == 0) {
+        return [self tableViewCellForAttribute:tableView];
+    } else {
+        return [self tableViewCellForTimeZone:tableView];
+    }
 }
 
 
