@@ -11,6 +11,16 @@
 
 @implementation UITableViewController(ISCreation)
 
++ (UINavigationController *)navigationController
+{
+    return [[[UINavigationController alloc] initWithRootViewController:[self tableViewController]] autorelease];
+}
+
++ (UINavigationController *)navigationControllerWithGroupdTableViewController
+{
+    return [[[UINavigationController alloc] initWithRootViewController:[self groupedTableViewController]] autorelease];
+}
+
 + (id)tableViewController
 {
     return [[[self alloc] initWithStyle:UITableViewStylePlain] autorelease];

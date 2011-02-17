@@ -130,6 +130,16 @@
 - (void)registTextField:(UITextField *)textField indexPath:(NSIndexPath *)indexPath
 {
     NSString *key = [indexPath description];
+    
+    // remove a textField if registed (reuse)
+    for (NSString *aKey in [_textFieldDict allKeys]) {
+        if ([_textFieldDict objectForKey:aKey] == textField) {
+            [_textFieldDict removeObjectForKey:aKey];
+            [_indexPathDict removeObjectForKey:aKey];
+            break;
+        }
+    }
+
     [_textFieldDict setValue:textField forKey:key];
     [_indexPathDict setValue:indexPath forKey:key];
 }
@@ -159,12 +169,26 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *keys = [[self.displayAttributes objectAtIndex:section] componentsSeparatedByString:@"."];
+    if ([keys count] == 1) {
+        return 1;
+    } else {
+        id relation = [self.detailedObject valueForKey:[keys objectAtIndex:0]];
+        if ([relation isKindOfClass:[NSMutableSet class]]) {
+            // to many
+            return [relation count];
+        } else {
+            // to one
+            return 1;
+        }
+    }
+
     return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *key = [self.displayAttributes objectAtIndex:section];
+    NSString *key = [[[self.displayAttributes objectAtIndex:section] componentsSeparatedByString:@"."] objectAtIndex:0];
     NSString *title1 = self.detailedObject.entity.name;
     NSString *title2 = [title1 stringByAppendingFormat:@":%@", key];
     
@@ -186,8 +210,31 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *attributeKey = [self.displayAttributes objectAtIndex:indexPath.section];
-    NSFormatter *formatter = [self.detailedObject formatterForAttribute:attributeKey];
+    NSArray *keys = [[self.displayAttributes objectAtIndex:indexPath.section] componentsSeparatedByString:@"."];
+    NSString *attributeKey = nil;
+    NSString *relationKey = nil;
+    if ([keys count] == 1) {
+        attributeKey = [keys objectAtIndex:0];
+    } else {
+        relationKey = [keys objectAtIndex:0];
+        attributeKey = [keys objectAtIndex:1];
+    }
+    
+    id eo = nil;
+    if (relationKey) {
+        id relation = [self.detailedObject valueForKey:relationKey];
+        if ([relation isKindOfClass:[NSMutableSet class]]) {
+            // to many
+            eo = [[relation allObjects] objectAtIndex:indexPath.row];
+        } else {
+            eo = relation;
+        }
+    } else {
+        eo = self.detailedObject;
+    }
+        
+    
+    NSFormatter *formatter = [eo formatterForAttribute:attributeKey];
     BOOL needsTextField = ![formatter isKindOfClass:[NSDateFormatter class]] && self.editingMode;
 
     NSString *cellIdentifier = needsTextField ? @"EditingCell" : @"Cell";
@@ -200,10 +247,13 @@
                 [cell.textField performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
             }
             cell.textField.delegate = self;
-            [self registTextField:cell.textField indexPath:indexPath];
         } else {
             cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
         }
+    }
+    
+    if (needsTextField) {
+        [self registTextField:cell.textField indexPath:indexPath];
     }
     
     if (self.editingMode && !needsTextField) {
@@ -214,7 +264,10 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
         
-    id value = [self.detailedObject valueForKey:attributeKey];
+    cell.textField.text = nil;
+    cell.textLabel.text = nil;
+
+    id value = [eo valueForKey:attributeKey];
     if (value) {
         NSString *title = formatter ? [formatter stringForObjectValue:value]  : [value description];
         if (self.editingMode && needsTextField) {
@@ -336,8 +389,16 @@
 
 - (void)createWithEntityName:(NSString *)entityName
 {
+    return [self createWithEntityName:entityName masterObject:nil key:nil];
+}
+
+- (void)createWithEntityName:(NSString *)entityName masterObject:(NSManagedObject *)masterObject key:(NSString *)key
+{
     Class klass = NSClassFromString(entityName);
     NSManagedObject *object = [klass createWithManagedObjectContext:self.managedObjectContext];
+    if (masterObject && key) {
+        [object setValue:masterObject forKey:key];
+    }
     [object setListNumber];
     
     self.detailedObject = object;

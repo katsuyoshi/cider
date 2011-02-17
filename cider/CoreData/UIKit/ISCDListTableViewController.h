@@ -90,6 +90,8 @@ typedef enum {
     NSString *_sectionNameKeyPath;
     
     BOOL renumbering;
+    
+    BOOL beforeInserting;
 }
 
 
@@ -156,12 +158,15 @@ typedef enum {
  */
 - (void)setUpEntityAndAttributeIfNeeds;
 
+- (void)resetFetchedResultController;
 - (void)refetch;
 - (void)reloadData;
 - (void)save;
 - (void)cancel;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
+- (NSManagedObject *)managedObjectAtIndexPath:(NSIndexPath *)indexPath;
 
 #pragma mark -
 #pragma mark convenience methods for subclass
@@ -171,6 +176,8 @@ typedef enum {
 - (BOOL)isNewCellAtIndexPath:(NSIndexPath *)indexPath;
 - (ISCDDetailedTableViewController *)createDetailedTableViewController;
 - (UITableViewCell *)createCellWithIdentifier:(NSString *)cellIdentifier;
+
+- (void)IS_setEditing:(BOOL)editing animated:(BOOL)animated;
 
 @end
 

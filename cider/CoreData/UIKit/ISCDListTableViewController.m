@@ -47,7 +47,6 @@
 #import "NSFetchedResultsControllerSortedObject.h"
 #import "NSErrorCoreDataExtension.h"
 #import "CiderCoreData.h"
-#import "IUTLog.h"
 
 
 @implementation ISCDListTableViewController
@@ -174,7 +173,7 @@
 
 - (NSIndexPath *)arrangedIndexPathFor:(NSIndexPath *)indexPath
 {
-    if (self.editing) {
+    if (self.editing && beforeInserting == NO) {
         if (self.addingStyle == ISListTableViewAddingStyleCell) {
             if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
                 if (indexPath.row != 0) {
@@ -309,7 +308,8 @@
         controller.editingMode = self.editing;
 
         if ([self isNewCellAtIndexPath:indexPath]) {
-            [controller createWithEntityName:self.entityName];
+            Class class = NSClassFromString(self.entityName);
+            [controller createWithEntityName:self.entityName masterObject:self.masterObject key:[class listScopeName]];
         } else {
             controller.detailedObject = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
         
@@ -480,9 +480,6 @@
         NSString *managedObjectClassName = condition.entity.managedObjectClassName;
         
         Class class = NSClassFromString(managedObjectClassName);
-        if (class) {
-            condition.sortDescriptors = [class sortDescriptorsForTableViewController:self];
-        }
         
         if (self.masterObject) {
             NSString *relationName = [class listScopeName];
@@ -503,11 +500,12 @@
         }
         
         NSMutableArray *array = [NSMutableArray array];
-        if (condition.sortDescriptors) {
-            [array addObjectsFromArray:condition.sortDescriptors];
-        }
         if (self.sortDescriptors) {
             [array addObjectsFromArray:self.sortDescriptors];
+        } else {
+            if (class) {
+                [array addObjectsFromArray:[class sortDescriptorsForTableViewController:self]];
+            }
         }
         condition.sortDescriptors = array;
         
@@ -530,6 +528,13 @@
 
 
 #pragma mark -
+
+- (void)resetFetchedResultController
+{
+    _fetchedResultsController.delegate = nil;
+    [_fetchedResultsController release];
+    _fetchedResultsController = nil;
+}
 
 - (void)refetch
 {
@@ -558,6 +563,7 @@
 #endif
     } @finally {
         [context.persistentStoreCoordinator unlock];
+        [self refetch];
     }
 }
 
@@ -567,13 +573,26 @@
     [self.managedObjectContext rollback];
 }
 
+#pragma mark -
+
+- (NSManagedObject *)managedObjectAtIndexPath:(NSIndexPath *)indexPath
+{
+    indexPath = [self arrangedIndexPathFor:indexPath];
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+}
 
 #pragma mark -
 #pragma mark editing
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    beforeInserting = YES;
     [super setEditing:editing animated:animated];
-    
+    beforeInserting = NO;
+    [self IS_setEditing:editing animated:animated];
+}
+
+- (void)IS_setEditing:(BOOL)editing animated:(BOOL)animated
+{
     NSMutableArray *removeIndexPaths = [NSMutableArray array];
     NSMutableArray *insertIndexPaths = [NSMutableArray array];
 
@@ -664,18 +683,9 @@
             break;
 
         case NSFetchedResultsChangeUpdate:
-            {
-                if (renumbering == NO && [self isNewCellAtIndexPath:indexPath] == NO) {
-                    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:[self arrangedIndexPathFor:indexPath]];
-                    NSDictionary *changeValues = [object changedValues];
-                    if ([changeValues count] == 1) {
-                        NSString *attributeName = [[changeValues allKeys] lastObject];
-                        if ([[[object class] listAttributeName] isEqualToString:attributeName] == NO) {
-                            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-                        }
-                    }
-                }
-            }
+            [self.tableView endUpdates];
+            [self.tableView reloadData];
+            [self.tableView beginUpdates];
             break;
             
         // It won't be called
@@ -708,7 +718,12 @@
         return [self listAttributeName];
     } else {
         NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass(self) inManagedObjectContext:[NSManagedObjectContext defaultManagedObjectContext]];
-        return [[[entity propertiesByName] allKeys] lastObject];
+        for (NSPropertyDescription *property in  entity.properties) {
+            if ([property isKindOfClass:[NSAttributeDescription class]]) {
+                return [property name];
+            }
+        }
+        return nil;
     }
 }
 

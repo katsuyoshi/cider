@@ -42,6 +42,7 @@
 #import "ISTableViewCell.h"
 #import "ISSelectionTableViewController.h"
 #import "UITableViewControllerCreation.h"
+#import "UIViewControllerCreation.h"
 
 
 // Foundation
@@ -50,5 +51,6 @@
 #import "NSNotificationCenterExtension.h"
 #import "NSDateExtension.h"
 #import "ISProperty.h"
-
-
+#import "ISSectionedArrayController.h"
+#import "NSOperationQueueDefaultQueue.h"
+#import "NSDateFormatterPatches.h"

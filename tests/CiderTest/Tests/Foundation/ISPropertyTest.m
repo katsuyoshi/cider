@@ -7,6 +7,7 @@
 //
 
 #import "ISPropertyTest.h"
+#import "CiderCoreData.h"
 
 
 
@@ -58,9 +59,17 @@
 #pragma mark -
 #pragma mark Tests
 
+#pragma mark array
+
 - (void)testArrayDefaultValue
 {
     ASSERT_EQUAL([NSArray array], [property arrayForKey:@"abc"]);
+}
+
+- (void)testArrayDefaultValue2
+{
+    NSArray *array = [NSArray arrayWithObject:@"123"];
+    ASSERT_EQUAL(array, [property arrayForKey:@"abc" defaultValue:array]);
 }
 
 - (void)testArray
@@ -70,6 +79,106 @@
     [property setArray:array forKey:@"abc"];
     ASSERT_EQUAL(array, [property arrayForKey:@"abc"]);
 }
+
+#pragma mark string
+
+- (void)testStringDefaultValue
+{
+    ASSERT_NIL([property stringValueForKey:@"abc"]);
+}
+
+- (void)testStringDefaultValue2
+{
+    NSString *string = @"123";
+    ASSERT_EQUAL(string, [property stringValueForKey:@"abc" defaultValue:string]);
+}
+
+- (void)testString
+{
+    NSDate *date = [NSDate dateWithYear:2010 month:8 day:7 hour:11 minute:00 second:00];
+    
+    [property setDate:date forKey:@"abc"];
+    ASSERT_EQUAL(date, [property arrayForKey:@"abc"]);
+}
+
+
+#pragma mark Date
+
+- (void)testDateDefaultValue
+{
+    ASSERT_NIL([property dateForKey:@"abc"]);
+}
+
+- (void)testDateDefaultValue2
+{
+    NSDate *date = [NSDate dateWithYear:2010 month:8 day:7 hour:11 minute:00 second:00];
+    ASSERT_EQUAL(date, [property dateForKey:@"abc" defaultValue:date]);
+}
+
+- (void)testDate
+{
+    NSDate *date = [NSDate dateWithYear:2010 month:8 day:7 hour:11 minute:00 second:00];
+    
+    [property setDate:date forKey:@"abc"];
+    ASSERT_EQUAL(date, [property dateForKey:@"abc"]);
+}
+
+
+
+#pragma mark int
+
+- (void)testIntDefaultValue
+{
+    ASSERT_EQUAL_INT(0, [property intValueForKey:@"abc"]);
+}
+
+- (void)tsetIntDefaultValue2
+{
+    ASSERT_EQUAL_INT(321, [property intValueForKey:@"abc" defaultValue:321]);
+}
+
+- (void)testIntValue
+{
+    [property setIntValue:123 forKey:@"abc"];
+    ASSERT_EQUAL_INT(123, [property intValueForKey:@"abc"]);
+}
+
+#pragma mark float
+
+- (void)testFloatDefaultValue
+{
+    ASSERT_EQUAL_FLOAT(0.0f, [property floatValueForKey:@"abc"]);
+}
+
+- (void)tsetFloatDefaultValue2
+{
+    ASSERT_EQUAL_FLOAT(3.21, [property floatValueForKey:@"abc" defaultValue:3.21]);
+}
+
+- (void)testFloatValue
+{
+    [property setFloatValue:1.23 forKey:@"abc"];
+    ASSERT_EQUAL_FLOAT(1.23, [property floatValueForKey:@"abc"]);
+}
+
+#pragma mark double
+
+- (void)testDoubleDefaultValue
+{
+    ASSERT_EQUAL_DOUBLE(0, [property doubleValueForKey:@"abc"]);
+}
+
+- (void)tsetDoubleDefaultValue2
+{
+    ASSERT_EQUAL_DOUBLE(3.21, [property doubleValueForKey:@"abc" defaultValue:3.21]);
+}
+
+- (void)testDoubletValue
+{
+    [property setDoubleValue:1.23 forKey:@"abc"];
+    ASSERT_EQUAL_DOUBLE(1.23, [property doubleValueForKey:@"abc"]);
+}
+
 
 #pragma mark -
 #pragma mark Option

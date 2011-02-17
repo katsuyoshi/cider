@@ -70,6 +70,7 @@
 @property BOOL becomeFirstResponderWhenAppeared;
 
 - (void)createWithEntityName:(NSString *)entityName;
+- (void)createWithEntityName:(NSString *)entityName masterObject:(NSManagedObject *)masterObject key:(NSString *)key;
 
 
 - (void)cancelAction:(id)sender;
