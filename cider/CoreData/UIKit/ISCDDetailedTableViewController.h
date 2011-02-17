@@ -56,6 +56,7 @@
     
     BOOL canceling;
     BOOL pushingToNextViewController;
+    BOOL becomeFirstResponderWhenAppeared;
 }
 
 
@@ -65,6 +66,8 @@
 @property (retain) NSArray *displayAttributes;
 
 @property BOOL editingMode;
+
+@property BOOL becomeFirstResponderWhenAppeared;
 
 - (void)createWithEntityName:(NSString *)entityName;
 
