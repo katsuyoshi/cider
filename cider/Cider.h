@@ -41,6 +41,7 @@
 // UIKit
 #import "ISTableViewCell.h"
 #import "ISSelectionTableViewController.h"
+#import "UITableViewControllerCreation.h"
 
 
 // Foundation
