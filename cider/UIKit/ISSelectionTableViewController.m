@@ -101,11 +101,11 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    NSString *item = [self.itemList objectAtIndex:indexPath.row];
-    cell.textLabel.text = item;
+    id item = [self.itemList objectAtIndex:indexPath.row];
+    cell.textLabel.text = [item isKindOfClass:[NSNumber class]] ? [item stringValue] : item;
     
-    NSString *selectedItem = [self.object valueForKey:self.key];
-    cell.accessoryType = ([item isEqualToString:selectedItem]) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    id selectedItem = [self.object valueForKey:self.key];
+    cell.accessoryType = ([item isEqual:selectedItem]) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
 }
@@ -113,7 +113,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    NSString *item = [self.itemList objectAtIndex:indexPath.row];
+    id item = [self.itemList objectAtIndex:indexPath.row];
     [self.object setValue:item forKey:self.key];
     
     [self.navigationController popViewControllerAnimated:YES];
