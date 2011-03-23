@@ -56,8 +56,9 @@
     [components setHour:hour];
     [components setMinute:minute];
     [components setSecond:second];
-// FIXME: iOS4から    [components setTimeZone:timeZone];
+    
     NSCalendar *gregorian = [self gregorianCalendar];
+    [gregorian setTimeZone:timeZone];
     return [gregorian dateFromComponents:components];
 }
 
