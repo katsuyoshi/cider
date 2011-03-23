@@ -50,7 +50,7 @@
 #pragma mark -
 #pragma mark Tests
 
-- (void)testShollowDict
+- (void)testShallowDict
 {
     NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:@"LUCASFILM", @"name", [NSNumber numberWithInt:1], @"position", nil ];
     ASSERT_EQUAL(expected, [studio serializableDictionary]);
@@ -77,14 +77,18 @@
     eo.intValue = [NSNumber numberWithInt:123];
     eo.doubleValue = [NSNumber numberWithDouble:1.23];
     eo.stringValue = @"abcd";
+    
+    NSDateFormatter *formatter = [NSManagedObject dateFormatterForSerialization];
+    NSString *expectedDateString = [formatter stringFromDate:[NSDate dateWithYear:2010 month:7 day:21 hour:0 minute:0 second:0]];
+    
     NSDictionary *expected = [NSDictionary dictionaryWithObjectsAndKeys:
                     [NSNumber numberWithBool:YES], @"boolValue",
-                    @"2010/07/21 0:00:00", @"createdAt",
+                    expectedDateString, @"createdAt",
                     [NSNumber numberWithDouble:1.23], @"doubleValue",
                     [NSNumber numberWithInt:123], @"intValue",
                     @"abcd", @"stringValue",
                 nil];
-                
+    
     ASSERT_EQUAL(expected, [eo serializableDictionary]);
 }
 
