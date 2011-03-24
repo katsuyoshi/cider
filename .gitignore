@@ -3,3 +3,5 @@
 .DS_Store
 Build
 tmp
+tests/CiderTest/CiderTest.xcodeproj/project.xcworkspace/
+tests/CiderTest/CiderTest.xcodeproj/xcuserdata/

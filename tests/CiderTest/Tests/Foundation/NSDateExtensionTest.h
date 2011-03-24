@@ -1,8 +1,8 @@
 //
-//  NSDateFormatterPatches.m
-//  tandr
+//  NSDateExtensionTest.h
+//  CiderTest
 //
-//  Created by Katsuyoshi Ito on 11/02/02.
+//  Created by Katsuyoshi Ito on 11/03/23.
 //
 //
 
@@ -37,16 +37,14 @@
  
  */
 
-#import "NSDateFormatterPatches.h"
+#import <Foundation/Foundation.h>
+#import "IUTTest.h"
 
 
-@implementation NSDateFormatter(ISPatch)
+@interface NSDateExtensionTest : IUTTest {
 
-+ (NSDateFormatter *)dateFormatterWithCurrentLocale
-{
-    NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
-    [formatter setLocale:[NSLocale currentLocale]];
-    return formatter;
+    NSTimeZone *originalTimeZone;
+    
 }
 
 @end

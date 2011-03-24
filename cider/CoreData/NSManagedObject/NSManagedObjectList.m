@@ -175,23 +175,33 @@
 }
 
 // FIXME: 多量に削除した場合の処理を追加したが不完全(削除時に処理されていない)
+// 
+// threadで削除される可能性がある場合は、予めrefreshObject:mergeChanges:を
+// 呼び出してからrebuildListNumberを呼び出して欲しい。念のため@catchで捕らえる様にした。
+//   例) [self.managedObjectContext refreshObject:self mergeChanges:YES];
 - (void)rebuildListNumber:(NSArray *)array fromIndex:(NSInteger)index
 {
-    if (![self isFault] && [self listAvailable]) {
-        if (array == nil) {
-            NSError *error = nil;
-            array = [NSManagedObject findAll:[self conditionForList] error:&error];
+    @try {
+        if (![self isDeleted] && [self listAvailable]) {
+            if (array == nil) {
+                NSError *error = nil;
+                array = [NSManagedObject findAll:[self conditionForList] error:&error];
 #ifdef DEBUG
-            if (error) [error showErrorForUserDomains];
+                if (error) [error showErrorForUserDomains];
 #endif
-        }
-    
-        NSString *listAttributeName = [[self class] listAttributeName];
-        for(NSManagedObject *object in array) {
-            if (![object isDeleted]) {
-                [object setValue:[NSNumber numberWithInt:index++] forKey:listAttributeName];
+            }
+            
+            NSString *listAttributeName = [[self class] listAttributeName];
+            for(NSManagedObject *object in array) {
+                if (![object isDeleted]) {
+                    [object setValue:[NSNumber numberWithInt:index++] forKey:listAttributeName];
+                }
             }
         }
+    } @catch (NSException *e) {
+        // threadで削除して、削除済みのオブジェクトに対して操作された場合Exception発生するかもしれない。
+        // 未検証なので確認が必要
+        NSLog(@"Error: -[NSManagedObject rebuildListNumber] : %@", e);
     }
 }
 

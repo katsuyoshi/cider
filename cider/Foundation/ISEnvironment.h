@@ -1,8 +1,8 @@
 //
-//  NSDateFormatterPatches.m
-//  tandr
+//  ISEnvironment.h
+//  irPanel
 //
-//  Created by Katsuyoshi Ito on 11/02/02.
+//  Created by Katsuyoshi Ito on 11/03/19.
 //
 //
 
@@ -37,16 +37,19 @@
  
  */
 
-#import "NSDateFormatterPatches.h"
+#import <Foundation/Foundation.h>
 
 
-@implementation NSDateFormatter(ISPatch)
-
-+ (NSDateFormatter *)dateFormatterWithCurrentLocale
-{
-    NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
-    [formatter setLocale:[NSLocale currentLocale]];
-    return formatter;
+@interface ISEnvironment : NSObject {
+    
 }
+
++ (ISEnvironment *)sharedEnvironment;
+
+
+// OS
+@property (getter=iOS3, readonly) BOOL isIOS3;
+@property (getter=iOS4, readonly) BOOL isIOS4;
+
 
 @end

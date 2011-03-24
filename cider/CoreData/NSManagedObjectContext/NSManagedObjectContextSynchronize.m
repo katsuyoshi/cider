@@ -1,9 +1,8 @@
 //
-//  NSDateFormatterPatches.m
-//  tandr
+//  NSManagedObjectContextSynchronize.m
+//  iKomachi
 //
-//  Created by Katsuyoshi Ito on 11/02/02.
-//
+//  Created by Katsuyoshi Ito on 11/03/07.
 //
 
 /* 
@@ -37,16 +36,31 @@
  
  */
 
-#import "NSDateFormatterPatches.h"
+#import "NSManagedObjectContextSynchronize.h"
 
 
-@implementation NSDateFormatter(ISPatch)
+@implementation NSManagedObjectContext(ISSynchronize)
 
-+ (NSDateFormatter *)dateFormatterWithCurrentLocale
+- (void)refreshAllObject
 {
-    NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
-    [formatter setLocale:[NSLocale currentLocale]];
-    return formatter;
+    for (NSManagedObject *eo in [self registeredObjects]) {
+        [self refreshObject:eo mergeChanges:NO];
+    }
 }
+
+- (void)refreshAllObjectOfEntity:(NSEntityDescription *)entity
+{
+    for (NSManagedObject *eo in [self registeredObjects]) {
+        if ([[eo entity] isEqual:entity]) {
+            [self refreshObject:eo mergeChanges:NO];
+        }
+    }
+}
+
+- (void)refreshAllObjectOfEntityName:(NSString *)name
+{
+    [self refreshAllObjectOfEntity:[NSEntityDescription entityForName:name inManagedObjectContext:self]];
+}
+
 
 @end
