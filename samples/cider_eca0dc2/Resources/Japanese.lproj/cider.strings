@@ -13,3 +13,6 @@
 
   // Button title
 "Close" = "閉じる";
+
+// ISDateTimeInputViewController
+"Time zone" = "タイムゾーン";

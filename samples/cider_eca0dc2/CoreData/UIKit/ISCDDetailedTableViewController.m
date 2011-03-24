@@ -54,15 +54,15 @@
 @synthesize displayAttributes = _displayAttributes;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize editingMode = _editingMode;
+@synthesize becomeFirstResponderWhenAppeared;
 
-/*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
     if (self = [super initWithStyle:style]) {
+        becomeFirstResponderWhenAppeared = YES;
     }
     return self;
 }
-*/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -243,7 +243,7 @@
     if (cell == nil) {
         if (needsTextField) {
             cell = [[[ISTableViewCell alloc] initWithStyle:ISTableViewCellEditingStyleDefault reuseIdentifier:cellIdentifier] autorelease];
-            if (indexPath.section == 0) {
+            if (indexPath.section == 0 && self.becomeFirstResponderWhenAppeared) {
                 [cell.textField performSelector:@selector(becomeFirstResponder) withObject:nil afterDelay:0];
             }
             cell.textField.delegate = self;

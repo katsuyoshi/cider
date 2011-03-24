@@ -173,7 +173,7 @@
 
 - (NSIndexPath *)arrangedIndexPathFor:(NSIndexPath *)indexPath
 {
-    if (self.editing) {
+    if (self.editing && beforeInserting == NO) {
         if (self.addingStyle == ISListTableViewAddingStyleCell) {
             if (self.newCellRowStyle == ISListTableViewNewCellRowStyleFirst) {
                 if (indexPath.row != 0) {
@@ -563,6 +563,7 @@
 #endif
     } @finally {
         [context.persistentStoreCoordinator unlock];
+        [self refetch];
     }
 }
 
@@ -584,7 +585,9 @@
 #pragma mark editing
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    beforeInserting = YES;
     [super setEditing:editing animated:animated];
+    beforeInserting = NO;
     [self IS_setEditing:editing animated:animated];
 }
 

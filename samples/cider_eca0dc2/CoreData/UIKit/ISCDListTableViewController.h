@@ -90,6 +90,8 @@ typedef enum {
     NSString *_sectionNameKeyPath;
     
     BOOL renumbering;
+    
+    BOOL beforeInserting;
 }
 
 
