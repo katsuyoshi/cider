@@ -43,6 +43,7 @@
 #import "ISSelectionTableViewController.h"
 #import "UITableViewControllerCreation.h"
 #import "UIViewControllerCreation.h"
+#import "UIAlertViewSimple.h"
 
 
 // Foundation
