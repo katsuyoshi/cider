@@ -17,4 +17,9 @@
     [alertView show];
 }
 
++ (void)showErrorAlertViewWithMessage:(NSString *)message
+{
+    [self showAlertViewWithTitle:NSLocalizedStringFromTable(@"Error", @"cider", nil) message:message];
+}
+
 @end

@@ -12,5 +12,6 @@
 @interface UIAlertView(ISSimple)
 
 + (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message;
++ (void)showErrorAlertViewWithMessage:(NSString *)message;
 
 @end
