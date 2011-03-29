@@ -24,6 +24,8 @@
 		462AC5A30FEB29B200B587D6 /* UITableViewBasedTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462AC5A20FEB29B200B587D6 /* UITableViewBasedTest.m */; };
 		4630A50F1027208C0081D4BE /* NSManagedObjectFetchTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A50E1027208C0081D4BE /* NSManagedObjectFetchTest.m */; };
 		4630A579102729D80081D4BE /* NSSortDescriptorExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4630A578102729D80081D4BE /* NSSortDescriptorExtensionTest.m */; };
+		464002EA1341B49C00100B6C /* ISEnvironmentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 464002E91341B49C00100B6C /* ISEnvironmentTest.m */; };
+		464002EE1341B55000100B6C /* UIAlertViewSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 464002ED1341B55000100B6C /* UIAlertViewSimple.m */; };
 		4643C0991046542900677C80 /* ListTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C0961046542900677C80 /* ListTest1.m */; };
 		4643C09A1046542900677C80 /* ListTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4643C0981046542900677C80 /* ListTest2.m */; };
 		4647BE1610241EC9003D1D17 /* TableViewControllerForISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4647BE1110241EC9003D1D17 /* TableViewControllerForISTableViewCell.m */; };
@@ -128,6 +130,10 @@
 		4630A50E1027208C0081D4BE /* NSManagedObjectFetchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectFetchTest.m; sourceTree = "<group>"; };
 		4630A577102729D80081D4BE /* NSSortDescriptorExtensionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSortDescriptorExtensionTest.h; sourceTree = "<group>"; };
 		4630A578102729D80081D4BE /* NSSortDescriptorExtensionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSortDescriptorExtensionTest.m; sourceTree = "<group>"; };
+		464002E81341B49C00100B6C /* ISEnvironmentTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISEnvironmentTest.h; sourceTree = "<group>"; };
+		464002E91341B49C00100B6C /* ISEnvironmentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISEnvironmentTest.m; sourceTree = "<group>"; };
+		464002EC1341B55000100B6C /* UIAlertViewSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewSimple.h; sourceTree = "<group>"; };
+		464002ED1341B55000100B6C /* UIAlertViewSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAlertViewSimple.m; sourceTree = "<group>"; };
 		4643C07C10464FA300677C80 /* NSManagedObjectListTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectListTest.h; sourceTree = "<group>"; };
 		4643C07D10464FA300677C80 /* NSManagedObjectListTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectListTest.m; sourceTree = "<group>"; };
 		4643C0951046542900677C80 /* ListTest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTest1.h; sourceTree = "<group>"; };
@@ -398,6 +404,8 @@
 				465BB98011CA4AFF00770325 /* ISPropertyTest.m */,
 				4624778E133990BE00317135 /* NSDateExtensionTest.h */,
 				4624778F133990BE00317135 /* NSDateExtensionTest.m */,
+				464002E81341B49C00100B6C /* ISEnvironmentTest.h */,
+				464002E91341B49C00100B6C /* ISEnvironmentTest.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -692,6 +700,8 @@
 				46EAD87112A178B1002DB97D /* UITableViewControllerCreation.m */,
 				46EAD87212A178B1002DB97D /* UIViewControllerCreation.h */,
 				46EAD87312A178B1002DB97D /* UIViewControllerCreation.m */,
+				464002EC1341B55000100B6C /* UIAlertViewSimple.h */,
+				464002ED1341B55000100B6C /* UIAlertViewSimple.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -842,6 +852,8 @@
 				46247790133990BE00317135 /* NSDateExtensionTest.m in Sources */,
 				462477941339948900317135 /* ISEnvironment.m in Sources */,
 				4624779713399ABB00317135 /* NSManagedObjectContextSynchronize.m in Sources */,
+				464002EA1341B49C00100B6C /* ISEnvironmentTest.m in Sources */,
+				464002EE1341B55000100B6C /* UIAlertViewSimple.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
