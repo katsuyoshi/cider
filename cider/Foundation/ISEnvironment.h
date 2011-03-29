@@ -51,5 +51,8 @@
 @property (getter=iOS3, readonly) BOOL isIOS3;
 @property (getter=iOS4, readonly) BOOL isIOS4;
 
+// application
+@property (assign, readonly) NSString *bundleIdentifier;
+@property (assign, readonly) NSString *bundleVersion;
 
 @end

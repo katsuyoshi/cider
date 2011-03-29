@@ -69,5 +69,17 @@
     return [components respondsToSelector:@selector(timeZone)];
 }
 
+- (NSString *)bundleIdentifier
+{
+    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+    return [info valueForKey:(NSString *)kCFBundleIdentifierKey];
+}
+
+- (NSString *)bundleVersion
+{
+    NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+    return [info valueForKey:(NSString *)kCFBundleVersionKey];
+}
+
 
 @end
