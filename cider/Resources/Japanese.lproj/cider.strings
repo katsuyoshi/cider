@@ -10,6 +10,7 @@
 // UIAlert
   // Title
 "Error!" = "エラー";
+"Error" = "エラー";
 
   // Button title
 "Close" = "閉じる";
