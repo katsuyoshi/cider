@@ -38,6 +38,7 @@
 */
 
 #import "NSDateExtension.h"
+#import "ISEnvironment.h"
 
 
 @implementation NSDate(ISExtension)
@@ -119,6 +120,43 @@
 - (NSDate *)beginningOfDay
 {
     return [NSDate dateWithYear:[self year] month:[self month] day:[self day] hour:0 minute:0 second:0];
+}
+
+
++ (NSDate *)dateFromISO8601String:(NSString *)string
+{
+    int length = [string length];
+    if (length) {
+        unichar lastLatter = [string characterAtIndex:length - 1];
+        NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
+        if (lastLatter == 'Z') {
+            [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+            if ([formatter respondsToSelector:@selector(setTimeZone:)]) {
+                [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+                return [formatter dateFromString:string];
+            } else {
+                // -[NSDateFormatter timeZone] available iOS4 and later
+                // first, parse data as localtime zone
+                NSDate *date = [formatter dateFromString:string];
+                // get back to UTC
+                NSTimeZone *timeZone = [NSTimeZone localTimeZone];
+                date = [date dateByAddingTimeInterval:[timeZone secondsFromGMT]];
+                return date;
+            }
+        } else {
+            if (length >= 6) {
+                unichar sign = [string characterAtIndex:length - 6];
+                unichar colon = [string characterAtIndex:length - 3];
+                if ((sign == '+' || sign == '-') && colon == ':') {
+                    string = [[string mutableCopy] autorelease];
+                    [(NSMutableString *)string replaceCharactersInRange:NSMakeRange(length - 3, 1) withString:@""];
+                }
+            }
+            [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+            return [formatter dateFromString:string];
+        }
+    }
+    return nil;
 }
 
 @end

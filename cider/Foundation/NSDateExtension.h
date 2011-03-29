@@ -60,5 +60,15 @@
 - (NSDate *)beginningOfDay;
 
 
+/**
+ * Get the date form JSON string.
+ * It supports these types.
+ *       "2011-03-29T16:13:45Z"
+ *       "2011-03-29T16:13:45+09:00"
+ *       "2011-03-29T16:13:45+0900"
+ * @param string string for date in type ISO8601 
+ */
++ (NSDate *)dateFromISO8601String:(NSString *)string;
+
 @end
 

@@ -93,6 +93,16 @@
     ASSERT_EQUAL_INT(34, date.second);
 }
 
+- (void)testDateFromISO8601String
+{
+    NSDate *expected = [NSDate dateWithYear:2011 month:12 day:31 hour:23 minute:59 second:59 timeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    ASSERT_EQUAL(expected, [NSDate dateFromISO8601String:@"2011-12-31T23:59:59Z"]);
+    ASSERT_EQUAL(expected, [NSDate dateFromISO8601String:@"2012-01-01T08:59:59+0900"]);
+    ASSERT_EQUAL(expected, [NSDate dateFromISO8601String:@"2012-01-01T08:59:59+09:00"]);
+
+    ASSERT_EQUAL(expected, [NSDate dateFromISO8601String:@"2012-01-01T07:59:59+0800"]);
+    ASSERT_EQUAL(expected, [NSDate dateFromISO8601String:@"2011-12-31T22:59:59-0100"]);
+}
 
 #pragma mark -
 #pragma mark Option
