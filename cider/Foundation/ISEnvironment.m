@@ -81,5 +81,33 @@
     return [info valueForKey:(NSString *)kCFBundleVersionKey];
 }
 
+- (BOOL)isBundleVersionLessThan:(NSString *)version
+{
+    NSArray *bve = [self.bundleVersion componentsSeparatedByString:@"."];
+    NSArray *ve = [version componentsSeparatedByString:@"."];
+    @try {
+        int a = [[ve objectAtIndex:0] intValue];
+        int b = [[bve objectAtIndex:0] intValue];
+        if (a > b) {
+            return YES;
+        } else
+        if (a == b) {
+            a = [[ve objectAtIndex:1] intValue];
+            b = [[bve objectAtIndex:1] intValue];
+            if (a > b) {
+                return YES;
+            } else
+            if (a == b) {
+                a = [[ve objectAtIndex:2] intValue];
+                b = [[bve objectAtIndex:2] intValue];
+                if (a > b) {
+                    return YES;
+                }
+            }
+        }
+    } @catch (NSException *e) {}
+    return NO;
+}
+
 
 @end
