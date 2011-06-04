@@ -43,9 +43,21 @@
 
 - (void)testBundleVersion
 {
-    ASSERT_EQUAL(@"1.0", [ISEnvironment sharedEnvironment].bundleVersion);
+    ASSERT_EQUAL(@"1.0.0", [ISEnvironment sharedEnvironment].bundleVersion);
 }
 
+- (void)testIsBundleVersionLessThan
+{
+    ASSERT(![[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"0.9.9"]);
+    ASSERT(![[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"0.9"]);
+    ASSERT(![[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"0"]);
+    ASSERT(![[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"1.0.0"]);
+    ASSERT([[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"1.0.1"]);
+    ASSERT([[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"1.1.0"]);
+    ASSERT([[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"2.0.0"]);
+    ASSERT([[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"1.1"]);
+    ASSERT([[ISEnvironment sharedEnvironment] isBundleVersionLessThan:@"2"]);
+}
 
 #pragma mark -
 #pragma mark Option
