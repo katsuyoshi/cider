@@ -55,6 +55,7 @@
 @property (assign, readonly) NSString *bundleIdentifier;
 @property (assign, readonly) NSString *bundleVersion;
 
+- (BOOL)isVersion:(NSString *)version lessThan:(NSString *)baseVersion;
 - (BOOL)isBundleVersionLessThan:(NSString *)version;
 
 @end

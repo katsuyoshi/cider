@@ -83,8 +83,13 @@
 
 - (BOOL)isBundleVersionLessThan:(NSString *)version
 {
-    NSArray *bve = [self.bundleVersion componentsSeparatedByString:@"."];
-    NSArray *ve = [version componentsSeparatedByString:@"."];
+    return [self isVersion:self.bundleVersion lessThan:version];
+}
+
+- (BOOL)isVersion:(NSString *)version lessThan:(NSString *)baseVersion
+{
+    NSArray *bve = [version componentsSeparatedByString:@"."];
+    NSArray *ve = [baseVersion componentsSeparatedByString:@"."];
     @try {
         int a = [[ve objectAtIndex:0] intValue];
         int b = [[bve objectAtIndex:0] intValue];
