@@ -42,9 +42,16 @@
 
 @interface ISEnvironment : NSObject {
     
+    BOOL ipod, iphone, ipad;
+
 }
 
 + (ISEnvironment *)sharedEnvironment;
+
+// hardware
+@property (getter = isIPod, readonly) BOOL ipod;
+@property (getter = isIPad, readonly) BOOL ipad;
+@property (getter = isIPhone, readonly) BOOL iphone;
 
 
 // OS

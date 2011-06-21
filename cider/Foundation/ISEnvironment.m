@@ -38,9 +38,21 @@
  */
 
 #import "ISEnvironment.h"
+#import <sys/types.h>
+#import <sys/sysctl.h>
+
+
+@interface ISEnvironment(CiderPrivate)
+- (void)checkHardWare;
+@end
 
 
 @implementation ISEnvironment
+
+@synthesize ipod1;
+@synthesize ipod2;
+@synthesize ipad;
+@synthesize iphone;
 
 @synthesize isIOS3;
 @synthesize isIOS4;
@@ -55,6 +67,38 @@
         }
     }
     return environment;
+}
+
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
+- (void)checkHardWare
+{
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = malloc(size);
+    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *str = [NSString stringWithCString:machine encoding:NSASCIIStringEncoding];
+    size = [str length];
+    free(machine);
+
+    UIDevice *device = [UIDevice currentDevice];
+    int result;
+    
+    result = [device.model compare:@"iPod" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 4)];
+    ipod = result == NSOrderedSame;
+
+    result = [device.model compare:@"iPad" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 4)];
+    ipad = result == NSOrderedSame;
+
+    result = [device.model compare:@"iPhone" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 6)];
+    iphone = result == NSOrderedSame;
 }
 
 
