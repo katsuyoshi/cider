@@ -49,8 +49,7 @@
 
 @implementation ISEnvironment
 
-@synthesize ipod1;
-@synthesize ipod2;
+@synthesize ipod;
 @synthesize ipad;
 @synthesize iphone;
 
