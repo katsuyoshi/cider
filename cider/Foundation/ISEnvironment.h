@@ -65,4 +65,11 @@
 - (BOOL)isVersion:(NSString *)version lessThan:(NSString *)baseVersion;
 - (BOOL)isBundleVersionLessThan:(NSString *)version;
 
+
+/**
+ * Get current language which was set by Settings app.
+ * @return language i.e) @"ja", @"en", ...
+ */
+@property (assign, readonly) NSString *currentLanguage;
+
 @end

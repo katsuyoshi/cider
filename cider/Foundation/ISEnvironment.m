@@ -158,4 +158,10 @@
 }
 
 
+- (NSString *)currentLanguage
+{
+    NSArray *languages = [NSLocale  preferredLanguages];
+    return [languages objectAtIndex:0];
+}
+
 @end
