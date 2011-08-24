@@ -38,9 +38,23 @@
  */
 
 #import "ISEnvironment.h"
+#import <sys/types.h>
+#import <sys/sysctl.h>
+
+
+@interface ISEnvironment(CiderPrivate)
+- (void)checkHardWare;
+@end
 
 
 @implementation ISEnvironment
+
+@synthesize ipod;
+@synthesize ipad;
+@synthesize iphone;
+
+@synthesize isIOS3;
+@synthesize isIOS4;
 
 
 + (ISEnvironment *)sharedEnvironment
@@ -55,7 +69,40 @@
 }
 
 
-- (BOOL)isIOS3
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self checkHardWare];
+    }
+    return self;
+}
+
+- (void)checkHardWare
+{
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = malloc(size);
+    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *str = [NSString stringWithCString:machine encoding:NSASCIIStringEncoding];
+    size = [str length];
+    free(machine);
+
+    UIDevice *device = [UIDevice currentDevice];
+    int result;
+    
+    result = [device.model compare:@"iPod" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 4)];
+    ipod = result == NSOrderedSame;
+
+    result = [device.model compare:@"iPad" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 4)];
+    ipad = result == NSOrderedSame;
+
+    result = [device.model compare:@"iPhone" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 6)];
+    iphone = result == NSOrderedSame;
+}
+
+
+- (BOOL)iOS3
 {
     return !self.isIOS4 && !self.isIOS5;
 }
@@ -120,5 +167,11 @@
     return NO;
 }
 
+
+- (NSString *)currentLanguage
+{
+    NSArray *languages = [NSLocale  preferredLanguages];
+    return [languages objectAtIndex:0];
+}
 
 @end
