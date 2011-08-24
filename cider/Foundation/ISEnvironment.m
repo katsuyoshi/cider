@@ -115,11 +115,8 @@
 
 - (BOOL)isIOS5
 {
-    if (self.isIOS4) {
-        NSFileManager *manager = [NSFileManager defaultManager];
-        return [manager respondsToSelector:@selector(URLForUbiquityContainerIdentifier:)];
-    }
-    return NO;
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager respondsToSelector:@selector(URLForUbiquityContainerIdentifier:)];
 }
 
 - (NSString *)bundleIdentifier
