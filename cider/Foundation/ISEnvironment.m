@@ -42,9 +42,6 @@
 
 @implementation ISEnvironment
 
-@synthesize isIOS3;
-@synthesize isIOS4;
-
 
 + (ISEnvironment *)sharedEnvironment
 {
@@ -58,15 +55,24 @@
 }
 
 
-- (BOOL)iOS3
+- (BOOL)isIOS3
 {
-    return !self.isIOS4;
+    return !self.isIOS4 && !self.isIOS5;
 }
 
-- (BOOL)iOS4
+- (BOOL)isIOS4
 {
     NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
     return [components respondsToSelector:@selector(timeZone)];
+}
+
+- (BOOL)isIOS5
+{
+    if (self.isIOS4) {
+        NSFileManager *manager = [NSFileManager defaultManager];
+        return [manager respondsToSelector:@selector(URLForUbiquityContainerIdentifier:)];
+    }
+    return NO;
 }
 
 - (NSString *)bundleIdentifier
