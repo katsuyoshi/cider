@@ -57,7 +57,8 @@
 
 - (id)initWithStyle:(ISTableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (style < ISTableViewCellEditingStyleDefault) {
-        return [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+        _style = style;
+        return [super initWithStyle:(UITableViewCellStyle)style reuseIdentifier:reuseIdentifier];
     } else {
         if (self = [super initWithStyle:(style - ISTableViewCellEditingStyleDefault) reuseIdentifier:reuseIdentifier]) {
             _style = style;
