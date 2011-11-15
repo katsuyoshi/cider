@@ -73,6 +73,7 @@
 {
     self = [super init];
     if (self) {
+        [self checkHardWare];
     }
     return self;
 }
@@ -103,13 +104,19 @@
 
 - (BOOL)iOS3
 {
-    return !self.isIOS4;
+    return !self.isIOS4 && !self.isIOS5;
 }
 
-- (BOOL)iOS4
+- (BOOL)isIOS4
 {
     NSDateComponents *components = [[[NSDateComponents alloc] init] autorelease];
     return [components respondsToSelector:@selector(timeZone)];
+}
+
+- (BOOL)isIOS5
+{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager respondsToSelector:@selector(URLForUbiquityContainerIdentifier:)];
 }
 
 - (NSString *)bundleIdentifier
