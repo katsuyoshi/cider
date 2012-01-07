@@ -70,7 +70,9 @@
 
 - (id)createWithEntityName:(NSString *)entityName
 {
-    return [[self class] createWithEntityName:entityName inManagedObjectContext:[self managedObjectContext]];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    context = context ? context : DEFAULT_MANAGED_OBJECT_CONTEXT;
+    return [[self class] createWithEntityName:entityName inManagedObjectContext:context];
 }
 
 
