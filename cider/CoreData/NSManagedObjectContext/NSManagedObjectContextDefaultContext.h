@@ -69,6 +69,9 @@ extern BOOL is_g_running_migration;
  */
 + (void)setDefaultManagedObjectContext:(NSManagedObjectContext *)context;
 
+// use these, if you wanto to change the name of data instead of 'cider.sqlite'.
++ (void)setFileName:(NSString *)fileName;
++ (NSString *)fileName;
 
 #pragma mark -
 #pragma mark for storage
@@ -100,6 +103,31 @@ extern BOOL is_g_running_migration;
  * @param file The default store file path.
  */
 + (void)setDefaultStoreFile:(NSString *)file;
+
+
+/**
+ * Returns whether a store file exits.
+ */
++ (BOOL)storeFileExits;
+
+
+#pragma mark - transfer a location
+
+// version 0.3.0 or later, changes default path
+// from 'Document' to 'Library/Applilcation Support'.
+// If you check whether data has already stored before 0.3.0,
+// use and check below methods.
+
+/**
+ * It moves a file from a location before version 0.3.0 to 0.3.0 location,
+ * if the old file exists.
+ * @param data file name. If it's nil, use @"cider.sqlite".
+ */
++ (BOOL)transferBefore0_3_0DataIfNeedsWithFileName:(NSString *)fileName;
+
+// default path before version 0.3.0.
++ (NSURL *)defaultStoreURLBefore0_3_0WithFileName:(NSString *)fileName;
++ (NSString *)defaultStoreFileBefore0_3_0WithFileName:(NSString *)fileName;
 
 
 #pragma mark -

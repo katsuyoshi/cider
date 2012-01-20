@@ -66,6 +66,7 @@
 		4671123714C942A5003FA7D3 /* ISPropertyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4671121714C942A5003FA7D3 /* ISPropertyTest.m */; };
 		4671123814C942A5003FA7D3 /* NSDateExtensionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4671121914C942A5003FA7D3 /* NSDateExtensionTest.m */; };
 		4671123914C942A5003FA7D3 /* TableViewControllerForISTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4671121D14C942A5003FA7D3 /* TableViewControllerForISTableViewCell.m */; };
+		4671124614C948F8003FA7D3 /* NSManageObjectContextDefaultPathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4671124514C948F8003FA7D3 /* NSManageObjectContextDefaultPathTest.m */; };
 		469B32D614B42CFF0041CAF8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B32D514B42CFF0041CAF8 /* UIKit.framework */; };
 		469B32D814B42CFF0041CAF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B32D714B42CFF0041CAF8 /* Foundation.framework */; };
 		469B32DA14B42CFF0041CAF8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469B32D914B42CFF0041CAF8 /* CoreGraphics.framework */; };
@@ -224,6 +225,8 @@
 		4671121F14C942A5003FA7D3 /* ISTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCellTest.m; sourceTree = "<group>"; };
 		4671122014C942A5003FA7D3 /* ISTableViewCellTestWhenGrouped.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISTableViewCellTestWhenGrouped.h; sourceTree = "<group>"; };
 		4671122114C942A5003FA7D3 /* ISTableViewCellTestWhenGrouped.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISTableViewCellTestWhenGrouped.m; sourceTree = "<group>"; };
+		4671124414C948F8003FA7D3 /* NSManageObjectContextDefaultPathTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManageObjectContextDefaultPathTest.h; sourceTree = "<group>"; };
+		4671124514C948F8003FA7D3 /* NSManageObjectContextDefaultPathTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManageObjectContextDefaultPathTest.m; sourceTree = "<group>"; };
 		469B32D114B42CFF0041CAF8 /* CiderTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CiderTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		469B32D514B42CFF0041CAF8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		469B32D714B42CFF0041CAF8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -516,6 +519,8 @@
 				4671120B14C942A5003FA7D3 /* NSManagedObjectContextCreationTest.m */,
 				4671120C14C942A5003FA7D3 /* NSManagedObjectContextDefaultContextTest.h */,
 				4671120D14C942A5003FA7D3 /* NSManagedObjectContextDefaultContextTest.m */,
+				4671124414C948F8003FA7D3 /* NSManageObjectContextDefaultPathTest.h */,
+				4671124514C948F8003FA7D3 /* NSManageObjectContextDefaultPathTest.m */,
 			);
 			path = NSManagedObjectContext;
 			sourceTree = "<group>";
@@ -868,6 +873,7 @@
 				4671123714C942A5003FA7D3 /* ISPropertyTest.m in Sources */,
 				4671123814C942A5003FA7D3 /* NSDateExtensionTest.m in Sources */,
 				4671123914C942A5003FA7D3 /* TableViewControllerForISTableViewCell.m in Sources */,
+				4671124614C948F8003FA7D3 /* NSManageObjectContextDefaultPathTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

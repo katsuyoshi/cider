@@ -47,6 +47,7 @@
 static NSManagedObjectContext *_defaultContext = nil;
 static id _defaultStoreFile = nil;
 static id _defaultStoreURL = nil;
+static NSString *_fileName = nil;
 
 BOOL is_g_running_migration = NO;
 
@@ -96,6 +97,19 @@ BOOL is_g_running_migration = NO;
     }
 }
 
+#pragma mark - default location
+
++ (void)setFileName:(NSString *)fileName
+{
+    [_fileName release];
+    _fileName = [fileName copy];
+}
+
++ (NSString *)fileName
+{
+    return [_fileName length] ? _fileName : @"cider.sqlite";
+}
+
 
 + (NSURL *)defaultStoreURL
 {
@@ -126,9 +140,9 @@ BOOL is_g_running_migration = NO;
     id result = nil;
     @synchronized(self) {
         if (_defaultStoreFile == nil) {
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
             NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-            _defaultStoreFile = [[basePath stringByAppendingPathComponent:@"cider.sqlite"] retain];
+            _defaultStoreFile = [[basePath stringByAppendingPathComponent:[self fileName]] retain];
         }
         result = _defaultStoreFile;
     }
@@ -157,6 +171,62 @@ BOOL is_g_running_migration = NO;
     }
 }
 
++ (BOOL)storeFileExits;
+{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    return [manager fileExistsAtPath:[self defaultStoreFile]];
+}
+
+
+#pragma mark - default location before 0.3.0
+
++ (BOOL)transferBefore0_3_0DataIfNeedsWithFileName:(NSString *)fileName
+{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    NSString *src = [self defaultStoreFileBefore0_3_0WithFileName:fileName];
+    if ([manager fileExistsAtPath:src]) {
+        NSString *dst = [self defaultStoreFile];
+        NSError *error = nil;
+
+        // create a directory if it doesn't exist.
+        NSString *dstDir = [dst stringByDeletingLastPathComponent];
+        if ([manager fileExistsAtPath:dstDir] == NO) {
+            [manager createDirectoryAtPath:dstDir withIntermediateDirectories:YES attributes:nil error:&error];
+            if (error) {
+#ifdef DEBUG
+                [error showErrorForUserDomains];
+#endif
+                return NO;
+            }
+        }
+        
+        // move file
+        [manager moveItemAtPath:src toPath:dst error:&error];
+        if (error) {
+#ifdef DEBUG
+            [error showErrorForUserDomains];
+            return NO;
+#endif
+        }
+    }
+    return YES;
+}
+
++ (NSURL *)defaultStoreURLBefore0_3_0WithFileName:(NSString *)fileName
+{
+    return [NSURL fileURLWithPath:[self defaultStoreFileBefore0_3_0WithFileName:fileName]];
+}
+
++ (NSString *)defaultStoreFileBefore0_3_0WithFileName:(NSString *)fileName
+{
+    fileName = fileName ? fileName : [self fileName];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    return [[basePath stringByAppendingPathComponent:fileName] retain];
+}
+
+
+#pragma mark - generate managed object context
 
 + (NSManagedObjectContext *)managedObjectContextWithURL:(NSURL *)url
 {
@@ -181,6 +251,19 @@ BOOL is_g_running_migration = NO;
             managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil]; 
         }
 
+        // create a directory if it doesn't exist.
+        NSString *dir = [[url path] stringByDeletingLastPathComponent];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if ([fileManager fileExistsAtPath:dir] == NO) {
+            NSError *error = nil;
+            [fileManager createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:NULL];
+            if (error) {
+#ifdef DEBUG
+                [error showErrorForUserDomains];
+#endif
+            }
+        }
+        
         NSError *error = nil;
         NSPersistentStoreCoordinator *coordinator = [[[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel] autorelease];
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
