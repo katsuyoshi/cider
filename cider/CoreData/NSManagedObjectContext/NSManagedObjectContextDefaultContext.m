@@ -222,7 +222,7 @@ BOOL is_g_running_migration = NO;
     fileName = fileName ? fileName : [self fileName];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
-    return [[basePath stringByAppendingPathComponent:fileName] retain];
+    return [basePath stringByAppendingPathComponent:fileName];
 }
 
 
