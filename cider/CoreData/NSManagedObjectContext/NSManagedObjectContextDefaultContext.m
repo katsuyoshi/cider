@@ -125,6 +125,7 @@ BOOL is_g_running_migration = NO;
 + (void)setDefaultStoreURL:(NSURL *)url
 {
     @synchronized(self) {
+        [[url retain] autorelease];
         [self clearDefaultStoreUrlAndFile];
         _defaultStoreURL = [url retain];
         if ([_defaultStoreURL isFileURL]) {
