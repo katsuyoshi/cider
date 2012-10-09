@@ -42,7 +42,7 @@
 
 @interface ISEnvironment : NSObject {
     
-    BOOL ipod, iphone, ipad;
+    BOOL ipod, iphone, ipad, iphone5;
 
 }
 
@@ -52,6 +52,7 @@
 @property (getter = isIPod, readonly) BOOL ipod;
 @property (getter = isIPad, readonly) BOOL ipad;
 @property (getter = isIPhone, readonly) BOOL iphone;
+@property (getter = isIPhone5, readonly) BOOL iphone5;
 
 
 // OS

@@ -52,6 +52,7 @@
 @synthesize ipod;
 @synthesize ipad;
 @synthesize iphone;
+@synthesize iphone5;
 
 @synthesize isIOS3;
 @synthesize isIOS4;
@@ -99,6 +100,8 @@
 
     result = [device.model compare:@"iPhone" options:NSCaseInsensitiveSearch range:NSMakeRange(0, 6)];
     iphone = result == NSOrderedSame;
+
+    iphone5 = [UIScreen mainScreen].bounds.size.height == 568;
 }
 
 
