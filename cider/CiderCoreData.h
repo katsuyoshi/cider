@@ -62,8 +62,9 @@
 #import "NSManagedObjectSerialize.h"
 
 
+#if TARGET_OS_IPHONE
 // UIKit
 #import "ISCDListTableViewController.h"
 #import "ISCDDetailedTableViewController.h"
-
+#endif
 

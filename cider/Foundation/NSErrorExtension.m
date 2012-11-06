@@ -41,6 +41,7 @@
 
 @implementation NSError(ISExtension)
 
+#if TARGET_OS_IPHONE
 - (void)IS_showError:(NSMutableArray *)array;
 {
     NSString *message = [self localizedDescription];
@@ -65,5 +66,6 @@
     [array release];
     return alertView;
 }
+#endif
 
 @end

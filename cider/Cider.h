@@ -37,23 +37,25 @@
 
 */
 
-
+#if TARGET_OS_IPHONE
 // UIKit
 #import "ISTableViewCell.h"
 #import "ISSelectionTableViewController.h"
 #import "UITableViewControllerCreation.h"
 #import "UIViewControllerCreation.h"
 #import "UIAlertViewSimple.h"
-
+#endif
 
 // Foundation
 #import "NSErrorExtension.h"
-#import "UIColorExtension.h"
 #import "NSNotificationCenterExtension.h"
 #import "NSDateExtension.h"
 #import "ISProperty.h"
-#import "ISSectionedArrayController.h"
 #import "NSOperationQueueDefaultQueue.h"
 #import "NSDateFormatterPatches.h"
-#import "ISEnvironment.h"
 
+#if TARGET_OS_IPHONE
+#import "UIColorExtension.h"
+#import "ISSectionedArrayController.h"
+#import "ISEnvironment.h"
+#endif

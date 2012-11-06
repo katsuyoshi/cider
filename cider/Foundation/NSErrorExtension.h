@@ -41,8 +41,10 @@
 
 @interface NSError(ISExtension)
 
+#if TARGET_OS_IPHONE
 /** Show alert of this error. */
 - (UIAlertView *)showError;
+#endif
 
 @end
 
