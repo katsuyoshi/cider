@@ -100,6 +100,7 @@ NSString *const CiderErrorDomain = @"CiderErrorDomain";
 
 
 #if TARGET_OS_IPHONE
+
 - (UIAlertView *)showErrorForDomain:(NSString *)domain;
 {
     NSError *error = [self errorForDomain:domain];
@@ -130,6 +131,40 @@ NSString *const CiderErrorDomain = @"CiderErrorDomain";
         return [self showError];
     }
 }
+
+#else
+
+- (NSAlert *)showErrorForDomain:(NSString *)domain;
+{
+    NSError *error = [self errorForDomain:domain];
+    if (error) {
+        return [error showError];
+    } else {
+        return [self showError];
+    }
+}
+
+- (NSAlert *)showErrorForDomains:(NSArray *)domains
+{
+    for (NSString *domain in domains) {
+        NSError *error = [self errorForDomain:domain];
+        if (error) {
+            return [error showError];
+        }
+    }
+    return [self showError];
+}
+
+- (NSAlert *)showErrorForUserDomains
+{
+    NSError *error = [self errorForUserDomains];
+    if (error) {
+        return [error showError];
+    } else {
+        return [self showError];
+    }
+}
+
 #endif
 
 @end

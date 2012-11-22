@@ -42,9 +42,26 @@
 @interface NSError(ISExtension)
 
 #if TARGET_OS_IPHONE
+
 /** Show alert of this error. */
 - (UIAlertView *)showError;
+
+#else
+
+/** Show alert of this error. */
+- (NSAlert *)showError;
+
 #endif
 
 @end
+
+#if !TARGET_OS_IPHONE
+
+@interface NSAlertModalDelegate : NSObject
+
+- (void)didEndAlert:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+
+@end
+
+#endif
 

@@ -63,7 +63,9 @@ extern NSString *const CiderErrorDomain;
 
 - (NSError *)errorForUserDomains;
 
+
 #if TARGET_OS_IPHONE
+
 /** Show alert an specified domain error in this error. */
 - (UIAlertView *)showErrorForDomain:(NSString *)domain;
 
@@ -71,6 +73,17 @@ extern NSString *const CiderErrorDomain;
 - (UIAlertView *)showErrorForDomains:(NSArray *)domains;
 
 - (UIAlertView *)showErrorForUserDomains;
+
+#else
+
+/** Show alert an specified domain error in this error. */
+- (NSAlert *)showErrorForDomain:(NSString *)domain;
+
+/** Show alert an specified domains error in this error. */
+- (NSAlert *)showErrorForDomains:(NSArray *)domains;
+
+- (NSAlert *)showErrorForUserDomains;
+
 #endif
 
 @end

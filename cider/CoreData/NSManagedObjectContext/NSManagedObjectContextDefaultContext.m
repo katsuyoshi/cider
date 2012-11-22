@@ -40,6 +40,7 @@
 #import "NSErrorExtension.h"
 #import "NSManagedObjectContextAop.h"
 #import "NSErrorCoreDataExtension.h"
+#import "ISFetchRequestCondition.h"
 
 
 @implementation NSManagedObjectContext(ISDefaultContext)
@@ -143,6 +144,11 @@ BOOL is_g_running_migration = NO;
         if (_defaultStoreFile == nil) {
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
             NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+#if !TARGET_OS_IPNONE
+            NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
+            NSString *appName = [info valueForKey:@"CFBundleName"];
+            basePath = [basePath stringByAppendingPathComponent:appName];
+#endif
             _defaultStoreFile = [[basePath stringByAppendingPathComponent:[self fileName]] retain];
         }
         result = _defaultStoreFile;
@@ -238,11 +244,12 @@ BOOL is_g_running_migration = NO;
         NSManagedObjectModel *managedObjectModel = nil;
 
         NSFileManager *manager = [NSFileManager defaultManager];
-        NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+        NSString *bundlePath = [[NSBundle bundleForClass:[ISFetchRequestCondition class]] bundlePath];
         NSString *modelFileName = nil;
-        for (NSString *str in [manager contentsOfDirectoryAtPath:bundlePath error:NULL]) {
+        for (NSString *str in [manager subpathsAtPath:bundlePath]) {
             if ([[str pathExtension] isEqualToString:@"momd"]) {
                 modelFileName = str;
+                break;
             }
         }
         if (modelFileName) {

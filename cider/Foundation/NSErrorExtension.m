@@ -38,10 +38,15 @@
 
 #import "NSErrorExtension.h"
 
+#if !TARGET_OS_IPHONE
+#import <AppKit/AppKit.h>
+#endif
+
 
 @implementation NSError(ISExtension)
 
 #if TARGET_OS_IPHONE
+
 - (void)IS_showError:(NSMutableArray *)array;
 {
     NSString *message = [self localizedDescription];
@@ -66,6 +71,58 @@
     [array release];
     return alertView;
 }
+
+#else
+
+static NSAlertModalDelegate *modalDelegate = nil;
+
+- (void)IS_showError:(NSMutableArray *)array;
+{
+    modalDelegate = [NSAlertModalDelegate new];
+    if (modalDelegate == nil) {
+        modalDelegate = [[NSAlertModalDelegate alloc] init];
+    }
+    NSString *message = [self localizedDescription];
+    NSString *title = NSLocalizedStringFromTable(@"Error!", @"cider", nil);
+  
+    NSAlert *alertView = [ NSAlert alertWithMessageText : title
+        defaultButton : nil
+        alternateButton : nil
+        otherButton : nil
+        informativeTextWithFormat : message, nil];
+
+    [array addObject:alertView];
+    NSWindow *window = [NSApplication sharedApplication].keyWindow;
+    [alertView beginSheetModalForWindow:window modalDelegate:modalDelegate didEndSelector:@selector(didEndAlert:returnCode:contextInfo:) contextInfo:NULL];
+}
+
+- (NSAlert *)showError
+{
+    NSMutableArray *array = [NSMutableArray new];
+    
+    if ([NSThread isMainThread]) {
+        [self IS_showError:array];
+    } else {
+        [self performSelectorOnMainThread:@selector(IS_showError:) withObject:array waitUntilDone:YES];
+    }
+    
+    NSAlert *alertView = [[[array lastObject] retain] autorelease];
+    [array release];
+    return alertView;
+}
+
 #endif
 
 @end
+
+#if !TARGET_OS_IPHONE
+
+@implementation NSAlertModalDelegate
+
+- (void)didEndAlert:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+}
+
+@end
+
+#endif
