@@ -37,6 +37,7 @@
 */
 
 #import "ISTableViewCell.h"
+#import "CiderCoreData.h"
 
 
 @implementation ISTableViewCell
@@ -100,10 +101,18 @@
 
 }
 
-- (void)setEditingStyleFontSizeIfNeeds
+- (UITableViewStyle)tableViewStyle
 {
     UITableView *tableView = (UITableView *)[self superview];
-    UITableViewStyle style = tableView ? tableView.style : UITableViewStyleGrouped;
+    if (tableView && [tableView respondsToSelector:@selector(style)]) {
+        return tableView.style;
+    }
+    return UITableViewStyleGrouped;
+}
+
+- (void)setEditingStyleFontSizeIfNeeds
+{
+    UITableViewStyle style = [self tableViewStyle];
     float height = self.contentView.frame.size.height;
     float delta = height - (style == UITableViewStylePlain ? 43 : 44);
 
@@ -165,11 +174,10 @@
 
 - (void)layoutSubviewsWhenStyleValue1
 {
-    UITableView *tableView = (UITableView *)[self superview];
     CGRect contentRect = self.contentView.bounds;
     float height = contentRect.size.height;
 
-    float textWidth = contentRect.size.width - 20 - (tableView.style == UITableViewStylePlain ? 101 : 85) - 5;
+    float textWidth = contentRect.size.width - 20 - ([self tableViewStyle] == UITableViewStylePlain ? 101 : 85) - 5;
     float textHeight = _detailTextField.font.pointSize + 4;
     float y = (int)((height - textHeight) / 2);
     _detailTextField.frame = CGRectMake(contentRect.size.width - 10 - textWidth, y, textWidth, textHeight);
