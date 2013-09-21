@@ -122,6 +122,12 @@
     return [manager respondsToSelector:@selector(URLForUbiquityContainerIdentifier:)];
 }
 
+- (BOOL)isIOS7
+{
+    NSArray *versionElements = [[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."];
+    return ([versionElements[0] isEqualToString:@"7"]);
+}
+
 - (NSString *)bundleIdentifier
 {
     NSDictionary *info = [[NSBundle mainBundle] infoDictionary];

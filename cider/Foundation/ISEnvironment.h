@@ -59,6 +59,7 @@
 @property (readonly) BOOL isIOS3;
 @property (readonly) BOOL isIOS4;
 @property (readonly) BOOL isIOS5;
+@property (readonly) BOOL isIOS7;
 
 // application
 @property (assign, readonly) NSString *bundleIdentifier;
