@@ -92,7 +92,7 @@
 */
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
+    [super viewWillDisappear:animated];
     if (pushingToNextViewController == NO) {
         [self cancelAction:self];
     }
@@ -100,7 +100,7 @@
 
 /*
 - (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
+    [super viewDidDisappear:animated];
 }
 */
 
