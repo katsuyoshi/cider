@@ -137,7 +137,7 @@
 - (NSString *)bundleVersion
 {
     NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
-    return [info valueForKey:(NSString *)kCFBundleVersionKey];
+    return [info valueForKey:@"CFBundleShortVersionString"];
 }
 
 - (BOOL)isBundleVersionLessThan:(NSString *)version
