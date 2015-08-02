@@ -76,4 +76,10 @@
 }
 
 
+- (id)duplicate
+{
+    return [[self class] create];
+}
+
+
 @end

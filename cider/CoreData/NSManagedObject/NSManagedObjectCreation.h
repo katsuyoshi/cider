@@ -94,4 +94,11 @@
  */
 - (id)createWithEntityName:(NSString *)entityName;
 
+
+/**
+ * Duplicate the object.
+ * It's just a scaffold. you should implement by subclass.
+ */
+- (id)duplicate;
+
 @end
